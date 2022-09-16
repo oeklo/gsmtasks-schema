@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.5
+  version: 2.4.10
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -1015,6 +1015,50 @@ paths:
             application/xlsx; version=${version}:
               schema:
                 $ref: '#/components/schemas/Account'
+          description: ''
+  /accounts/{id}/change_owner/:
+    post:
+      operationId: accounts_change_owner_create
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this account.
+        required: true
+      tags:
+      - accounts
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AccountOwnerChange'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AccountOwnerChange'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/AccountOwnerChange'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: '#/components/schemas/AccountOwnerChange'
+            application/xlsx; version=${version}:
+              schema:
+                $ref: '#/components/schemas/AccountOwnerChange'
           description: ''
   /accounts/{id}/managers/:
     get:
@@ -13930,6 +13974,36 @@ paths:
         description: contact__email__search
         schema:
           type: string
+      - name: contact__emails__contained_by
+        required: false
+        in: query
+        description: Filter the returned list where all target array values contained
+          in filter values. Comma separated emails supported
+        schema:
+          type: string
+        example: example1@mail.ee,example2@mail.ee
+      - name: contact__emails__contains
+        required: false
+        in: query
+        description: Filter the returned list where filter_value in field values.
+          Comma separated emails supported
+        schema:
+          type: string
+        example: example1@mail.ee,example2@mail.ee
+      - name: contact__emails__isnull
+        required: false
+        in: query
+        description: Filter the returned list where the array is null
+        schema:
+          type: boolean
+      - name: contact__emails__overlap
+        required: false
+        in: query
+        description: Filter the returned list where at least one filter value in target
+          array. Comma separated emails supported
+        schema:
+          type: string
+        example: example1@mail.ee,example2@mail.ee
       - name: contact__name
         required: false
         in: query
@@ -14038,6 +14112,36 @@ paths:
         description: contact__phone__search
         schema:
           type: string
+      - name: contact__phones__contained_by
+        required: false
+        in: query
+        description: Filter the returned list where all target array values contained
+          in filter values. Comma separated values supported
+        schema:
+          type: string
+        example: abc,def
+      - name: contact__phones__contains
+        required: false
+        in: query
+        description: Filter the returned list where filter_value in field values.
+          Comma separated values supported
+        schema:
+          type: string
+        example: abc,def
+      - name: contact__phones__isnull
+        required: false
+        in: query
+        description: Filter the returned list where the array is null
+        schema:
+          type: boolean
+      - name: contact__phones__overlap
+        required: false
+        in: query
+        description: Filter the returned list where at least one filter value in target
+          array. Comma separated values supported
+        schema:
+          type: string
+        example: abc,def
       - name: contact_data
         required: false
         in: query
@@ -15665,6 +15769,13 @@ paths:
         description: comma separated value
         schema:
           type: string
+      - name: order__orderer
+        required: false
+        in: query
+        description: Django ORM lookups can be used. Metafield `is_searchable` must
+          be True.
+        schema:
+          type: string
       - name: order__reference
         required: false
         in: query
@@ -15725,10 +15836,40 @@ paths:
         schema:
           type: string
           format: uuid
+      - name: orderer__id
+        required: false
+        in: query
+        description: orderer__id
+        schema:
+          type: string
+      - name: orderer__id__in
+        required: false
+        in: query
+        description: orderer__id__in
+        schema:
+          type: string
+      - name: orderer__id__isnull
+        required: false
+        in: query
+        description: orderer__id__isnull
+        schema:
+          type: string
       - name: orderer__in
         required: false
         in: query
         description: comma separated value
+        schema:
+          type: string
+      - name: orderer__name
+        required: false
+        in: query
+        description: orderer__name
+        schema:
+          type: string
+      - name: orderer__name__icontains
+        required: false
+        in: query
+        description: orderer__name__icontains
         schema:
           type: string
       - name: orderer_id
@@ -18325,6 +18466,36 @@ paths:
         description: contact__email__search
         schema:
           type: string
+      - name: contact__emails__contained_by
+        required: false
+        in: query
+        description: Filter the returned list where all target array values contained
+          in filter values. Comma separated emails supported
+        schema:
+          type: string
+        example: example1@mail.ee,example2@mail.ee
+      - name: contact__emails__contains
+        required: false
+        in: query
+        description: Filter the returned list where filter_value in field values.
+          Comma separated emails supported
+        schema:
+          type: string
+        example: example1@mail.ee,example2@mail.ee
+      - name: contact__emails__isnull
+        required: false
+        in: query
+        description: Filter the returned list where the array is null
+        schema:
+          type: boolean
+      - name: contact__emails__overlap
+        required: false
+        in: query
+        description: Filter the returned list where at least one filter value in target
+          array. Comma separated emails supported
+        schema:
+          type: string
+        example: example1@mail.ee,example2@mail.ee
       - name: contact__name
         required: false
         in: query
@@ -18433,6 +18604,36 @@ paths:
         description: contact__phone__search
         schema:
           type: string
+      - name: contact__phones__contained_by
+        required: false
+        in: query
+        description: Filter the returned list where all target array values contained
+          in filter values. Comma separated values supported
+        schema:
+          type: string
+        example: abc,def
+      - name: contact__phones__contains
+        required: false
+        in: query
+        description: Filter the returned list where filter_value in field values.
+          Comma separated values supported
+        schema:
+          type: string
+        example: abc,def
+      - name: contact__phones__isnull
+        required: false
+        in: query
+        description: Filter the returned list where the array is null
+        schema:
+          type: boolean
+      - name: contact__phones__overlap
+        required: false
+        in: query
+        description: Filter the returned list where at least one filter value in target
+          array. Comma separated values supported
+        schema:
+          type: string
+        example: abc,def
       - name: contact_data
         required: false
         in: query
@@ -20060,6 +20261,13 @@ paths:
         description: comma separated value
         schema:
           type: string
+      - name: order__orderer
+        required: false
+        in: query
+        description: Django ORM lookups can be used. Metafield `is_searchable` must
+          be True.
+        schema:
+          type: string
       - name: order__reference
         required: false
         in: query
@@ -20120,10 +20328,40 @@ paths:
         schema:
           type: string
           format: uuid
+      - name: orderer__id
+        required: false
+        in: query
+        description: orderer__id
+        schema:
+          type: string
+      - name: orderer__id__in
+        required: false
+        in: query
+        description: orderer__id__in
+        schema:
+          type: string
+      - name: orderer__id__isnull
+        required: false
+        in: query
+        description: orderer__id__isnull
+        schema:
+          type: string
       - name: orderer__in
         required: false
         in: query
         description: comma separated value
+        schema:
+          type: string
+      - name: orderer__name
+        required: false
+        in: query
+        description: orderer__name
+        schema:
+          type: string
+      - name: orderer__name__icontains
+        required: false
+        in: query
+        description: orderer__name__icontains
         schema:
           type: string
       - name: orderer_id
@@ -24585,6 +24823,36 @@ paths:
         description: contact__email__search
         schema:
           type: string
+      - name: contact__emails__contained_by
+        required: false
+        in: query
+        description: Filter the returned list where all target array values contained
+          in filter values. Comma separated emails supported
+        schema:
+          type: string
+        example: example1@mail.ee,example2@mail.ee
+      - name: contact__emails__contains
+        required: false
+        in: query
+        description: Filter the returned list where filter_value in field values.
+          Comma separated emails supported
+        schema:
+          type: string
+        example: example1@mail.ee,example2@mail.ee
+      - name: contact__emails__isnull
+        required: false
+        in: query
+        description: Filter the returned list where the array is null
+        schema:
+          type: boolean
+      - name: contact__emails__overlap
+        required: false
+        in: query
+        description: Filter the returned list where at least one filter value in target
+          array. Comma separated emails supported
+        schema:
+          type: string
+        example: example1@mail.ee,example2@mail.ee
       - name: contact__name
         required: false
         in: query
@@ -24693,6 +24961,36 @@ paths:
         description: contact__phone__search
         schema:
           type: string
+      - name: contact__phones__contained_by
+        required: false
+        in: query
+        description: Filter the returned list where all target array values contained
+          in filter values. Comma separated values supported
+        schema:
+          type: string
+        example: abc,def
+      - name: contact__phones__contains
+        required: false
+        in: query
+        description: Filter the returned list where filter_value in field values.
+          Comma separated values supported
+        schema:
+          type: string
+        example: abc,def
+      - name: contact__phones__isnull
+        required: false
+        in: query
+        description: Filter the returned list where the array is null
+        schema:
+          type: boolean
+      - name: contact__phones__overlap
+        required: false
+        in: query
+        description: Filter the returned list where at least one filter value in target
+          array. Comma separated values supported
+        schema:
+          type: string
+        example: abc,def
       - name: contact_data
         required: false
         in: query
@@ -26328,6 +26626,13 @@ paths:
         description: comma separated value
         schema:
           type: string
+      - name: order__orderer
+        required: false
+        in: query
+        description: Django ORM lookups can be used. Metafield `is_searchable` must
+          be True.
+        schema:
+          type: string
       - name: order__reference
         required: false
         in: query
@@ -26388,10 +26693,40 @@ paths:
         schema:
           type: string
           format: uuid
+      - name: orderer__id
+        required: false
+        in: query
+        description: orderer__id
+        schema:
+          type: string
+      - name: orderer__id__in
+        required: false
+        in: query
+        description: orderer__id__in
+        schema:
+          type: string
+      - name: orderer__id__isnull
+        required: false
+        in: query
+        description: orderer__id__isnull
+        schema:
+          type: string
       - name: orderer__in
         required: false
         in: query
         description: comma separated value
+        schema:
+          type: string
+      - name: orderer__name
+        required: false
+        in: query
+        description: orderer__name
+        schema:
+          type: string
+      - name: orderer__name__icontains
+        required: false
+        in: query
+        description: orderer__name__icontains
         schema:
           type: string
       - name: orderer_id
@@ -29474,6 +29809,36 @@ paths:
         description: contact__email__search
         schema:
           type: string
+      - name: contact__emails__contained_by
+        required: false
+        in: query
+        description: Filter the returned list where all target array values contained
+          in filter values. Comma separated emails supported
+        schema:
+          type: string
+        example: example1@mail.ee,example2@mail.ee
+      - name: contact__emails__contains
+        required: false
+        in: query
+        description: Filter the returned list where filter_value in field values.
+          Comma separated emails supported
+        schema:
+          type: string
+        example: example1@mail.ee,example2@mail.ee
+      - name: contact__emails__isnull
+        required: false
+        in: query
+        description: Filter the returned list where the array is null
+        schema:
+          type: boolean
+      - name: contact__emails__overlap
+        required: false
+        in: query
+        description: Filter the returned list where at least one filter value in target
+          array. Comma separated emails supported
+        schema:
+          type: string
+        example: example1@mail.ee,example2@mail.ee
       - name: contact__name
         required: false
         in: query
@@ -29582,6 +29947,36 @@ paths:
         description: contact__phone__search
         schema:
           type: string
+      - name: contact__phones__contained_by
+        required: false
+        in: query
+        description: Filter the returned list where all target array values contained
+          in filter values. Comma separated values supported
+        schema:
+          type: string
+        example: abc,def
+      - name: contact__phones__contains
+        required: false
+        in: query
+        description: Filter the returned list where filter_value in field values.
+          Comma separated values supported
+        schema:
+          type: string
+        example: abc,def
+      - name: contact__phones__isnull
+        required: false
+        in: query
+        description: Filter the returned list where the array is null
+        schema:
+          type: boolean
+      - name: contact__phones__overlap
+        required: false
+        in: query
+        description: Filter the returned list where at least one filter value in target
+          array. Comma separated values supported
+        schema:
+          type: string
+        example: abc,def
       - name: contact_data
         required: false
         in: query
@@ -31209,6 +31604,13 @@ paths:
         description: comma separated value
         schema:
           type: string
+      - name: order__orderer
+        required: false
+        in: query
+        description: Django ORM lookups can be used. Metafield `is_searchable` must
+          be True.
+        schema:
+          type: string
       - name: order__reference
         required: false
         in: query
@@ -31269,10 +31671,40 @@ paths:
         schema:
           type: string
           format: uuid
+      - name: orderer__id
+        required: false
+        in: query
+        description: orderer__id
+        schema:
+          type: string
+      - name: orderer__id__in
+        required: false
+        in: query
+        description: orderer__id__in
+        schema:
+          type: string
+      - name: orderer__id__isnull
+        required: false
+        in: query
+        description: orderer__id__isnull
+        schema:
+          type: string
       - name: orderer__in
         required: false
         in: query
         description: comma separated value
+        schema:
+          type: string
+      - name: orderer__name
+        required: false
+        in: query
+        description: orderer__name
+        schema:
+          type: string
+      - name: orderer__name__icontains
+        required: false
+        in: query
+        description: orderer__name__icontains
         schema:
           type: string
       - name: orderer_id
@@ -35895,6 +36327,14 @@ components:
       - stripe
       - trial
       type: string
+    AccountOwnerChange:
+      type: object
+      properties:
+        owner:
+          type: string
+          format: uri
+      required:
+      - owner
     AccountRole:
       type: object
       properties:
@@ -38481,6 +38921,17 @@ components:
           - $ref: '#/components/schemas/RecipientEnum'
           - $ref: '#/components/schemas/BlankEnum'
           - $ref: '#/components/schemas/NullEnum'
+        emails:
+          type: array
+          items:
+            type: string
+            format: email
+            maxLength: 254
+        phones:
+          type: array
+          items:
+            type: string
+            maxLength: 128
         via_sms:
           type: boolean
         via_email:
@@ -38645,9 +39096,6 @@ components:
             type: string
             format: uri
           readOnly: true
-        assignee:
-          type: string
-          format: uri
         auto_assign:
           type: boolean
         description:
@@ -39790,6 +40238,17 @@ components:
           - $ref: '#/components/schemas/RecipientEnum'
           - $ref: '#/components/schemas/BlankEnum'
           - $ref: '#/components/schemas/NullEnum'
+        emails:
+          type: array
+          items:
+            type: string
+            format: email
+            maxLength: 254
+        phones:
+          type: array
+          items:
+            type: string
+            maxLength: 128
         via_sms:
           type: boolean
         via_email:
@@ -39854,9 +40313,6 @@ components:
             type: string
             format: uri
           readOnly: true
-        assignee:
-          type: string
-          format: uri
         auto_assign:
           type: boolean
         description:
@@ -40813,8 +41269,6 @@ components:
         email:
           type: string
           format: email
-          title: Email address
-          maxLength: 254
         phone:
           type: string
           maxLength: 128
@@ -41794,7 +42248,7 @@ components:
           type: string
           format: uri
         task:
-          $ref: '#/components/schemas/TaskSerializerV2'
+          $ref: '#/components/schemas/TaskEventTask'
         task_command:
           type: string
           format: uri
@@ -41852,6 +42306,177 @@ components:
       - updated_at
       - url
       - user
+    TaskEventTask:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          nullable: true
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 100
+        reference:
+          type: string
+          maxLength: 100
+        barcodes:
+          type: array
+          items:
+            type: string
+            maxLength: 128
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          type: string
+          format: uri
+        state:
+          allOf:
+          - $ref: '#/components/schemas/TaskStateEnum'
+          readOnly: true
+        assignee:
+          type: string
+          format: uri
+          nullable: true
+        order:
+          type: string
+          format: uri
+          nullable: true
+        orderer:
+          type: string
+          format: uri
+          writeOnly: true
+          nullable: true
+        orderer_name:
+          type: string
+          readOnly: true
+        route:
+          type: string
+          format: uri
+          nullable: true
+        category:
+          $ref: '#/components/schemas/TaskCategoryEnum'
+        contact:
+          $ref: '#/components/schemas/NestedContact'
+        address:
+          $ref: '#/components/schemas/NestedAddress'
+        description:
+          type: string
+        complete_after:
+          type: string
+          format: date-time
+          nullable: true
+        complete_before:
+          type: string
+          format: date-time
+          nullable: true
+        scheduled_time:
+          type: string
+          format: date-time
+          nullable: true
+        completed_at:
+          type: string
+          format: date-time
+          readOnly: true
+        cancelled_at:
+          type: string
+          format: date-time
+          readOnly: true
+        auto_assign:
+          type: boolean
+        assignee_proximity:
+          allOf:
+          - $ref: '#/components/schemas/AssigneeProximityEnum'
+          readOnly: true
+        position:
+          type: number
+          format: double
+          maximum: 253402300799.0
+          minimum: 0.0
+          nullable: true
+        priority:
+          type: integer
+          maximum: 2147483647
+          minimum: -2147483648
+        duration:
+          type: object
+          nullable: true
+          default: 4 10:55:34.12
+        size:
+          type: array
+          items:
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+          nullable: true
+        forms:
+          type: object
+          additionalProperties: {}
+          readOnly: true
+        documents:
+          type: array
+          items:
+            type: string
+            format: uri
+        signatures:
+          type: array
+          items:
+            type: string
+            format: uri
+        metafields:
+          type: object
+          additionalProperties: {}
+        trackers:
+          type: array
+          items:
+            type: string
+            format: uri
+          readOnly: true
+        issues:
+          type: array
+          items:
+            type: string
+            readOnly: true
+          readOnly: true
+        counts:
+          type: object
+          additionalProperties: {}
+          readOnly: true
+        actions:
+          type: object
+          additionalProperties: {}
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        contact_address_external_id:
+          type: string
+          nullable: true
+          readOnly: true
+      required:
+      - account
+      - actions
+      - address
+      - assignee_proximity
+      - cancelled_at
+      - completed_at
+      - contact_address_external_id
+      - counts
+      - created_at
+      - forms
+      - issues
+      - orderer_name
+      - state
+      - trackers
+      - updated_at
+      - url
     TaskEventTrack:
       type: object
       description: |-
@@ -42023,6 +42648,10 @@ components:
         updated_at:
           type: string
           format: date-time
+          readOnly: true
+        contact_address_external_id:
+          type: string
+          nullable: true
           readOnly: true
         account__name:
           type: string
@@ -42250,6 +42879,7 @@ components:
       - account__name
       - address__location
       - assignee__display_name
+      - contact_address_external_id
       - created_at
       - created_by__display_name
       - metadata__accepted_distance
@@ -43580,6 +44210,11 @@ components:
       type: string
     VersionEnum:
       enum:
+      - 2.4.10
+      - 2.4.9
+      - 2.4.8
+      - 2.4.7
+      - 2.4.6
       - 2.4.5
       - 2.4.4
       - 2.4.3
