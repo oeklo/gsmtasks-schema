@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.11
+  version: 2.4.12
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -43245,6 +43245,15 @@ components:
           $ref: '#/components/schemas/NestedContact'
         address:
           $ref: '#/components/schemas/NestedAddress'
+        contact_address:
+          type: string
+          format: uri
+          writeOnly: true
+          nullable: true
+        contact_address_external_id:
+          type: string
+          writeOnly: true
+          nullable: true
         description:
           type: string
         complete_after:
@@ -44950,6 +44959,15 @@ components:
           $ref: '#/components/schemas/NestedContact'
         address:
           $ref: '#/components/schemas/NestedAddress'
+        contact_address:
+          type: string
+          format: uri
+          writeOnly: true
+          nullable: true
+        contact_address_external_id:
+          type: string
+          nullable: true
+          readOnly: true
         description:
           type: string
         complete_after:
@@ -45044,14 +45062,9 @@ components:
           type: string
           format: date-time
           readOnly: true
-        contact_address_external_id:
-          type: string
-          nullable: true
-          readOnly: true
       required:
       - account
       - actions
-      - address
       - assignee_proximity
       - cancelled_at
       - completed_at
@@ -45819,6 +45832,15 @@ components:
           $ref: '#/components/schemas/NestedContact'
         address:
           $ref: '#/components/schemas/NestedAddress'
+        contact_address:
+          type: string
+          format: uri
+          writeOnly: true
+          nullable: true
+        contact_address_external_id:
+          type: string
+          writeOnly: true
+          nullable: true
         description:
           type: string
         complete_after:
@@ -45916,7 +45938,6 @@ components:
       required:
       - account
       - actions
-      - address
       - assignee_proximity
       - cancelled_at
       - completed_at
@@ -46798,6 +46819,7 @@ components:
       type: string
     VersionEnum:
       enum:
+      - 2.4.12
       - 2.4.11
       - 2.4.10
       - 2.4.9
