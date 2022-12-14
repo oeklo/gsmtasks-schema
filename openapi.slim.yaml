@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.12
+  version: 2.4.13
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -16505,6 +16505,17 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: updated_at_delay_latest
+        required: false
+        in: query
+        description: Ensures that the last updated data is not immediately available
+          in order to allow the latest changes to finish taking effect. If used, the
+          updated_at upper bound is limited to 2 seconds ago. This prevents the out-of-order
+          appearance of records. Availabe since API version `2.4.13`. For older versions,
+          this filter is forced True if `updated_at__gt` or `updated_at__gte`is used.
+        example: true
+        schema:
+          type: boolean
       tags:
       - scenes
       security:
@@ -21105,6 +21116,17 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: updated_at_delay_latest
+        required: false
+        in: query
+        description: Ensures that the last updated data is not immediately available
+          in order to allow the latest changes to finish taking effect. If used, the
+          updated_at upper bound is limited to 2 seconds ago. This prevents the out-of-order
+          appearance of records. Availabe since API version `2.4.13`. For older versions,
+          this filter is forced True if `updated_at__gt` or `updated_at__gte`is used.
+        example: true
+        schema:
+          type: boolean
       tags:
       - scenes
       security:
@@ -27584,6 +27606,17 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: updated_at_delay_latest
+        required: false
+        in: query
+        description: Ensures that the last updated data is not immediately available
+          in order to allow the latest changes to finish taking effect. If used, the
+          updated_at upper bound is limited to 2 seconds ago. This prevents the out-of-order
+          appearance of records. Availabe since API version `2.4.13`. For older versions,
+          this filter is forced True if `updated_at__gt` or `updated_at__gte`is used.
+        example: true
+        schema:
+          type: boolean
       tags:
       - task_exports
       security:
@@ -32664,6 +32697,17 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: updated_at_delay_latest
+        required: false
+        in: query
+        description: Ensures that the last updated data is not immediately available
+          in order to allow the latest changes to finish taking effect. If used, the
+          updated_at upper bound is limited to 2 seconds ago. This prevents the out-of-order
+          appearance of records. Availabe since API version `2.4.13`. For older versions,
+          this filter is forced True if `updated_at__gt` or `updated_at__gte`is used.
+        example: true
+        schema:
+          type: boolean
       tags:
       - tasks
       security:
@@ -41249,8 +41293,10 @@ components:
           maxLength: 200
         is_editable:
           type: boolean
+          description: Editable by manager
         is_editable_assignee:
           type: boolean
+          description: Editable by assignee
         is_required:
           type: boolean
         is_persistent:
@@ -42755,8 +42801,10 @@ components:
           maxLength: 200
         is_editable:
           type: boolean
+          description: Editable by manager
         is_editable_assignee:
           type: boolean
+          description: Editable by assignee
         is_required:
           type: boolean
         is_persistent:
@@ -46819,6 +46867,7 @@ components:
       type: string
     VersionEnum:
       enum:
+      - 2.4.13
       - 2.4.12
       - 2.4.11
       - 2.4.10
