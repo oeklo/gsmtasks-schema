@@ -3084,6 +3084,12 @@ paths:
         description: user
         schema:
           type: string
+      - name: user__email
+        required: false
+        in: query
+        description: user__email
+        schema:
+          type: string
       tags:
       - client_roles
       security:
