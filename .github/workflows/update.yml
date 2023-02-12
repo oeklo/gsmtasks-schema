@@ -1,0 +1,56 @@
+name: Update OpenAPI Workflow
+
+on:
+  schedule:
+  - cron: '0 * * * *'
+  workflow_dispatch: { }
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Install yq
+      run: |
+        pip3 install yq
+
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Backup original file
+      run: cp openapi.yaml openapi.old.yaml
+
+    - name: Download the latest version
+      uses: wei/wget@v1
+      with:
+        args: -O openapi.yaml https://api.gsmtasks.com/docs/schema/
+
+    - name: Preprocess files
+      run: |
+        expression='walk(if type == "object" then with_entries(if .key == "example" or .key == "examples" then empty else .key |= sub("[\\d.]+"; "$version") end ) else . end)'
+        yq -y "$expression" openapi.old.yaml > openapi.old.slim.yaml
+        yq -y "$expression" openapi.yaml > openapi.slim.yaml
+
+    - name: Compare files
+      run: |
+        set +e
+        diff openapi.old.slim.yaml openapi.slim.yaml
+        exit_code=$?
+        echo "exit_code=${exit_code}" >> $GITHUB_OUTPUT
+        set -e
+      id: compare
+      continue-on-error: true
+
+    - name: Outputs from Compare step
+      run: |
+        echo "Outputs from compare:"
+        echo "${{ toJson(steps.compare.outputs) }}"
+
+    - name: Commit and push changes
+      if: ${{ steps.compare.outputs.exit_code == 1 }}
+      run: |
+        git config --global user.email "action@github.com"
+        git config --global user.name "GitHub Action"
+        git add openapi.yaml openapi.slim.yaml
+        git commit -m "Update OpenAPI file"
+        git push
