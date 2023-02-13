@@ -11739,6 +11739,12 @@ paths:
     get:
       operationId: reviews_list
       parameters:
+      - name: account
+        required: false
+        in: query
+        description: account
+        schema:
+          type: string
       - name: created_at__date
         required: false
         in: query
@@ -60458,6 +60464,10 @@ components:
           type: string
           format: uuid
           readOnly: true
+        account:
+          type: string
+          format: uri
+          readOnly: true
         tracker:
           type: string
           format: uri
@@ -60480,6 +60490,7 @@ components:
           format: date-time
           readOnly: true
       required:
+      - account
       - created_at
       - id
       - last_assignee
