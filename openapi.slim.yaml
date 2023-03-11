@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.16
+  version: 2.4.17
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -4121,7 +4121,7 @@ paths:
             application/json; version=$version:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressExportList'
-            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.16:
+            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.17:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressExportList'
           description: ''
@@ -5715,7 +5715,7 @@ paths:
       responses:
         $version:
           content:
-            application/vnd$versionoai.openapi; version=2.4.16:
+            application/vnd$versionoai.openapi; version=2.4.17:
               schema:
                 type: object
                 additionalProperties: {}
@@ -5723,7 +5723,7 @@ paths:
               schema:
                 type: object
                 additionalProperties: {}
-            application/vnd$versionoai.openapi+json; version=2.4.16:
+            application/vnd$versionoai.openapi+json; version=2.4.17:
               schema:
                 type: object
                 additionalProperties: {}
@@ -11492,12 +11492,78 @@ paths:
           schema:
             type: string
             format: datetime
+        - name: created_by
+          required: false
+          in: query
+          description: created_by
+          schema:
+            type: string
         - name: cursor
           required: false
           in: query
           description: The pagination cursor value.
           schema:
             type: integer
+        - name: end_time__date
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: end_time__date_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: end_time__gt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__gt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__gte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__gte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
         - name: failed_at__date
           required: false
           in: query
@@ -11719,6 +11785,66 @@ paths:
           schema:
             type: string
             format: datetime
+        - name: start_time__date
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: start_time__date_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: start_time__gt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__gt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__gte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__gte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
         - name: started_at__date
           required: false
           in: query
@@ -11796,6 +11922,12 @@ paths:
           required: false
           in: query
           description: state__in
+          schema:
+            type: string
+        - name: tasks__id__in
+          required: false
+          in: query
+          description: tasks__id__in
           schema:
             type: string
         - name: total_distance__gt
@@ -12239,12 +12371,78 @@ paths:
           schema:
             type: string
             format: datetime
+        - name: created_by
+          required: false
+          in: query
+          description: created_by
+          schema:
+            type: string
         - name: cursor
           required: false
           in: query
           description: The pagination cursor value.
           schema:
             type: integer
+        - name: end_time__date
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: end_time__date_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: end_time__gt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__gt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__gte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__gte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
         - name: failed_at__date
           required: false
           in: query
@@ -12473,6 +12671,66 @@ paths:
           schema:
             type: string
             format: datetime
+        - name: start_time__date
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: start_time__date_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: start_time__gt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__gt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__gte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__gte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
         - name: started_at__date
           required: false
           in: query
@@ -12550,6 +12808,12 @@ paths:
           required: false
           in: query
           description: state__in
+          schema:
+            type: string
+        - name: tasks__id__in
+          required: false
+          in: query
+          description: tasks__id__in
           schema:
             type: string
         - name: total_distance__gt
@@ -12870,12 +13134,78 @@ paths:
           schema:
             type: string
             format: datetime
+        - name: created_by
+          required: false
+          in: query
+          description: created_by
+          schema:
+            type: string
         - name: cursor
           required: false
           in: query
           description: The pagination cursor value.
           schema:
             type: integer
+        - name: end_time__date
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: end_time__date_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: end_time__gt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__gt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__gte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__gte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
         - name: failed_at__date
           required: false
           in: query
@@ -13104,6 +13434,66 @@ paths:
           schema:
             type: string
             format: datetime
+        - name: start_time__date
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: start_time__date_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: start_time__gt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__gt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__gte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__gte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
         - name: started_at__date
           required: false
           in: query
@@ -13181,6 +13571,12 @@ paths:
           required: false
           in: query
           description: state__in
+          schema:
+            type: string
+        - name: tasks__id__in
+          required: false
+          in: query
+          description: tasks__id__in
           schema:
             type: string
         - name: total_distance__gt
@@ -13337,13 +13733,25 @@ paths:
         - name: account
           required: false
           in: query
-          description: account
+          schema:
+            type: string
+            format: uuid
+        - name: account__in
+          required: false
+          in: query
+          description: comma separated value
           schema:
             type: string
         - name: assignee
           required: false
           in: query
-          description: assignee
+          schema:
+            type: string
+            format: uuid
+        - name: assignee__in
+          required: false
+          in: query
+          description: comma separated value
           schema:
             type: string
         - name: code
@@ -13418,6 +13826,82 @@ paths:
           description: The pagination cursor value.
           schema:
             type: integer
+        - name: end_time__date
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: end_time__date_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: end_time__gt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__gt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__gte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__gte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: end_time__lte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: name
+          required: false
+          in: query
+          description: name
+          schema:
+            type: string
+        - name: objective
+          required: false
+          in: query
+          description: objective
+          schema:
+            type: string
+            enum:
+              - vehicles
+              - transport_time
+              - completion_time
         - name: ordering
           required: false
           in: query
@@ -13430,6 +13914,72 @@ paths:
           description: Number of results to return per page.
           schema:
             type: integer
+        - name: search
+          required: false
+          in: query
+          description: A search term.
+          schema:
+            type: string
+        - name: start_time__date
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: start_time__date_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: date
+        - name: start_time__gt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__gt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__gte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__gte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lt
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lt_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lte
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
+        - name: start_time__lte_or_isnull
+          required: false
+          in: query
+          schema:
+            type: string
+            format: datetime
         - name: updated_at__date
           required: false
           in: query
@@ -27580,7 +28130,7 @@ paths:
             application/json; version=$version:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskExportList'
-            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.16:
+            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.17:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskExportList'
           description: ''
@@ -48477,124 +49027,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskListReorderResponseTaskList'
           description: ''
-  /tasks/reposition/:
-    post:
-      operationId: tasks_reposition_create
-      parameters:
-        - in: query
-          name: format
-          schema:
-            type: string
-            enum:
-              - json
-              - xml
-        - in: query
-          name: order__orderer__company
-          schema:
-            type: string
-        - in: query
-          name: order__orderer__company__icontains
-          schema:
-            type: string
-        - in: query
-          name: order__orderer__company__iexact
-          schema:
-            type: string
-        - in: query
-          name: order__orderer__company__istartswith
-          schema:
-            type: string
-        - in: query
-          name: order__orderer__emails__contained_by
-          schema:
-            type: string
-          description: Filter the returned list where all target array values contained
-            in filter values. Comma separated values supported
-        - in: query
-          name: order__orderer__emails__contains
-          schema:
-            type: string
-          description: Filter the returned list where all filter_values are present.
-            Comma separated values supported
-        - in: query
-          name: order__orderer__emails__overlap
-          schema:
-            type: string
-          description: Filter the returned list where at least one filter value in
-            target array. Comma separated values supported
-        - in: query
-          name: order__orderer__name
-          schema:
-            type: string
-        - in: query
-          name: order__orderer__name__icontains
-          schema:
-            type: string
-        - in: query
-          name: order__orderer__name__iexact
-          schema:
-            type: string
-        - in: query
-          name: order__orderer__name__istartswith
-          schema:
-            type: string
-        - in: query
-          name: order__orderer__notes
-          schema:
-            type: string
-        - in: query
-          name: order__orderer__notes__icontains
-          schema:
-            type: string
-        - in: query
-          name: order__orderer__notes__iexact
-          schema:
-            type: string
-        - in: query
-          name: order__orderer__notes__istartswith
-          schema:
-            type: string
-        - in: query
-          name: order__orderer__phones__contained_by
-          schema:
-            type: string
-          description: Filter the returned list where all target array values contained
-            in filter values. Comma separated values supported
-        - in: query
-          name: order__orderer__phones__contains
-          schema:
-            type: string
-          description: Filter the returned list where all filter_values are present.
-            Comma separated values supported
-        - in: query
-          name: order__orderer__phones__overlap
-          schema:
-            type: string
-          description: Filter the returned list where at least one filter value in
-            target array. Comma separated values supported
-      tags:
-        - tasks
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/TaskRepositionRequest'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/TaskRepositionRequest'
-        required: true
-      security:
-        - tokenAuth: []
-      responses:
-        $version:
-          content:
-            application/json; version=$version:
-              schema:
-                $ref: '#/components/schemas/TaskRepositionRequest'
-            application/xml; version=$version:
-              schema:
-                $ref: '#/components/schemas/TaskRepositionRequest'
-          description: ''
   /time_location_features/:
     get:
       operationId: time_location_features_list
@@ -51608,6 +52040,10 @@ components:
           description: Allow choosing documents to sign.
         feature_tracker_reviews_allowed:
           type: boolean
+        feature_route_folders:
+          type: boolean
+          readOnly: true
+          description: Allow tasks to be grouped into routes in the WEB dashboard.
         auto_assign_orders:
           type: boolean
         auto_assign_max_tasks:
@@ -51696,6 +52132,7 @@ components:
         - dashboard_task_template
         - dashboard_worker_limit
         - feature_geocoding_country_code
+        - feature_route_folders
         - id
         - managers
         - name
@@ -54911,6 +55348,10 @@ components:
           description: Allow choosing documents to sign.
         feature_tracker_reviews_allowed:
           type: boolean
+        feature_route_folders:
+          type: boolean
+          readOnly: true
+          description: Allow tasks to be grouped into routes in the WEB dashboard.
         auto_assign_orders:
           type: boolean
         auto_assign_max_tasks:
@@ -55861,27 +56302,33 @@ components:
         code:
           type: string
           maxLength: 100
+        name:
+          type: string
+          maxLength: 100
         description:
           type: string
         assignee:
           type: string
           format: uri
+          nullable: true
         start_time:
           type: string
           format: date-time
           nullable: true
-        start_location:
+        start_address:
           allOf:
-            - $ref: '#/components/schemas/Location'
+            - $ref: '#/components/schemas/NestedAddress'
           nullable: true
         end_time:
           type: string
           format: date-time
           nullable: true
-        end_location:
+        end_address:
           allOf:
-            - $ref: '#/components/schemas/Location'
+            - $ref: '#/components/schemas/NestedAddress'
           nullable: true
+        objective:
+          $ref: '#/components/schemas/ObjectiveEnum'
         created_at:
           type: string
           format: date-time
@@ -56796,27 +57243,33 @@ components:
         code:
           type: string
           maxLength: 100
+        name:
+          type: string
+          maxLength: 100
         description:
           type: string
         assignee:
           type: string
           format: uri
+          nullable: true
         start_time:
           type: string
           format: date-time
           nullable: true
-        start_location:
+        start_address:
           allOf:
-            - $ref: '#/components/schemas/Location'
+            - $ref: '#/components/schemas/NestedAddress'
           nullable: true
         end_time:
           type: string
           format: date-time
           nullable: true
-        end_location:
+        end_address:
           allOf:
-            - $ref: '#/components/schemas/Location'
+            - $ref: '#/components/schemas/NestedAddress'
           nullable: true
+        objective:
+          $ref: '#/components/schemas/ObjectiveEnum'
         created_at:
           type: string
           format: date-time
@@ -56830,6 +57283,7 @@ components:
         - code
         - created_at
         - id
+        - name
         - updated_at
         - url
     RouteOptimizationResultRoute:
@@ -56967,7 +57421,7 @@ components:
             format: uri
         state:
           allOf:
-            - $ref: '#/components/schemas/RouteOptimizationSerializerV2StateEnum'
+            - $ref: '#/components/schemas/RouteOptimizationStateEnum'
           readOnly: true
         objective:
           nullable: true
@@ -56983,13 +57437,17 @@ components:
           type: string
           format: date-time
           nullable: true
-        start_location:
+        start_address:
           allOf:
-            - $ref: '#/components/schemas/Location'
+            - $ref: '#/components/schemas/NestedAddress'
           nullable: true
-        end_location:
+        end_time:
+          type: string
+          format: date-time
+          nullable: true
+        end_address:
           allOf:
-            - $ref: '#/components/schemas/Location'
+            - $ref: '#/components/schemas/NestedAddress'
           nullable: true
         unassign_not_optimal:
           type: boolean
@@ -57059,7 +57517,7 @@ components:
         - total_duration
         - updated_at
         - url
-    RouteOptimizationSerializerV$versionStateEnum:
+    RouteOptimizationStateEnum:
       enum:
         - pending
         - started
@@ -57728,6 +58186,10 @@ components:
           $ref: '#/components/schemas/NestedAddress'
         contact_address:
           $ref: '#/components/schemas/NestedContactAddress'
+        route:
+          type: string
+          format: uri
+          nullable: true
     TaskEvent:
       type: object
       properties:
@@ -58775,24 +59237,6 @@ components:
         - id
         - task
         - url
-    TaskRepositionRequest:
-      type: object
-      properties:
-        task:
-          type: string
-          format: uri
-        assignee:
-          type: string
-          format: uri
-          nullable: true
-        position:
-          type: number
-          format: double
-          maximum: 253402300799
-          minimum: 0
-      required:
-        - position
-        - task
     TaskSerializerV$version:
       type: object
       properties:
@@ -60013,6 +60457,7 @@ components:
       type: string
     VersionEnum:
       enum:
+        - 2.4.17
         - 2.4.16
         - 2.4.15
         - 2.4.14
