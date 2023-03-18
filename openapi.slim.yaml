@@ -28138,12 +28138,6 @@ paths:
     get:
       operationId: task_forms_list
       parameters:
-        - name: completed
-          required: false
-          in: query
-          description: completed
-          schema:
-            type: string
         - name: created_at__date
           required: false
           in: query
@@ -28223,12 +28217,6 @@ paths:
           description: Number of results to return per page.
           schema:
             type: integer
-        - name: task
-          required: false
-          in: query
-          description: task
-          schema:
-            type: string
         - name: updated_at__date
           required: false
           in: query
