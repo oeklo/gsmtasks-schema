@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.17
+  version: 2.4.18
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -15152,6 +15152,74 @@ paths:
       - tokenAuth: []
       responses:
         '204':
+          description: No response body
+  /routes/{id}/activate/:
+    post:
+      operationId: routes_activate_create
+      description: Action to activate the route. Available since version `2.4.18`
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this route.
+        required: true
+      tags:
+      - routes
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /routes/{id}/archive/:
+    post:
+      operationId: routes_archive_create
+      description: Action to archive the route. Available since version `2.4.18`
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this route.
+        required: true
+      tags:
+      - routes
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RouteArchive'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RouteArchive'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RouteArchive'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          description: No response body
+  /routes/{id}/draft/:
+    post:
+      operationId: routes_draft_create
+      description: Action to draft the route. Available since version `2.4.18`
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this route.
+        required: true
+      tags:
+      - routes
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
           description: No response body
   /scenes/dashboard/:
     get:
@@ -55719,6 +55787,8 @@ components:
           type: string
           format: uri
           readOnly: true
+        route_default_state:
+          $ref: '#/components/schemas/RouteDefaultStateEnum'
         distance_units:
           $ref: '#/components/schemas/DistanceUnitsEnum'
         task_duration:
@@ -55807,6 +55877,10 @@ components:
           type: boolean
           readOnly: true
           description: Allow tasks to be grouped into routes in the WEB dashboard.
+        feature_route_auto_archive:
+          type: boolean
+          readOnly: true
+          description: Auto archive the route when all tasks in that route are archived
         auto_assign_orders:
           type: boolean
         auto_assign_max_tasks:
@@ -55895,6 +55969,7 @@ components:
       - dashboard_task_template
       - dashboard_worker_limit
       - feature_geocoding_country_code
+      - feature_route_auto_archive
       - feature_route_folders
       - id
       - managers
@@ -59031,6 +59106,8 @@ components:
           type: string
           format: uri
           readOnly: true
+        route_default_state:
+          $ref: '#/components/schemas/RouteDefaultStateEnum'
         distance_units:
           $ref: '#/components/schemas/DistanceUnitsEnum'
         task_duration:
@@ -59119,6 +59196,10 @@ components:
           type: boolean
           readOnly: true
           description: Allow tasks to be grouped into routes in the WEB dashboard.
+        feature_route_auto_archive:
+          type: boolean
+          readOnly: true
+          description: Auto archive the route when all tasks in that route are archived
         auto_assign_orders:
           type: boolean
         auto_assign_max_tasks:
@@ -60094,6 +60175,10 @@ components:
           allOf:
           - $ref: '#/components/schemas/NestedAddress'
           nullable: true
+        state:
+          allOf:
+          - $ref: '#/components/schemas/State5d8Enum'
+          readOnly: true
         objective:
           $ref: '#/components/schemas/ObjectiveEnum'
         created_at:
@@ -61034,6 +61119,10 @@ components:
           allOf:
           - $ref: '#/components/schemas/NestedAddress'
           nullable: true
+        state:
+          allOf:
+          - $ref: '#/components/schemas/State5d8Enum'
+          readOnly: true
         objective:
           $ref: '#/components/schemas/ObjectiveEnum'
         created_at:
@@ -61050,8 +61139,22 @@ components:
       - created_at
       - id
       - name
+      - state
       - updated_at
       - url
+    RouteArchive:
+      type: object
+      properties:
+        task_action:
+          allOf:
+          - $ref: '#/components/schemas/TaskActionEnum'
+          default: unlink
+    RouteDefaultStateEnum:
+      enum:
+      - active
+      - archived
+      - draft
+      type: string
     RouteOptimizationResultRoute:
       type: object
       properties:
@@ -61523,6 +61626,12 @@ components:
       - mobile
       - integration
       type: string
+    State5d8Enum:
+      enum:
+      - active
+      - archived
+      - draft
+      type: string
     StatusEnum:
       enum:
       - on_duty
@@ -61796,6 +61905,13 @@ components:
           allOf:
           - $ref: '#/components/schemas/Location'
           nullable: true
+    TaskActionEnum:
+      enum:
+      - unassign
+      - unlink
+      - complete
+      - cancel
+      type: string
     TaskAddressFeature:
       type: object
       description: |-
@@ -61952,6 +62068,9 @@ components:
           type: string
           format: uri
           nullable: true
+        duration:
+          type: object
+          default: 4 10:55:34.12
     TaskEvent:
       type: object
       properties:
@@ -64217,6 +64336,7 @@ components:
       type: string
     VersionEnum:
       enum:
+      - 2.4.18
       - 2.4.17
       - 2.4.16
       - 2.4.15
