@@ -14693,6 +14693,12 @@ paths:
         description: code
         schema:
           type: string
+      - name: code__in
+        required: false
+        in: query
+        description: code__in
+        schema:
+          type: string
       - name: created_at__date
         required: false
         in: query
@@ -14839,10 +14845,28 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: external_id
+        required: false
+        in: query
+        description: external_id
+        schema:
+          type: string
+      - name: external_id__in
+        required: false
+        in: query
+        description: external_id__in
+        schema:
+          type: string
       - name: name
         required: false
         in: query
         description: name
+        schema:
+          type: string
+      - name: name__in
+        required: false
+        in: query
+        description: name__in
         schema:
           type: string
       - name: objective
@@ -14855,6 +14879,12 @@ paths:
           - vehicles
           - transport_time
           - completion_time
+      - name: objective__in
+        required: false
+        in: query
+        description: objective__in
+        schema:
+          type: string
       - name: ordering
         required: false
         in: query
@@ -14943,6 +14973,22 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: state
+        required: false
+        in: query
+        description: state
+        schema:
+          type: string
+          enum:
+          - active
+          - archived
+          - draft
+      - name: state__in
+        required: false
+        in: query
+        description: state__in
+        schema:
+          type: string
       - name: updated_at__date
         required: false
         in: query
