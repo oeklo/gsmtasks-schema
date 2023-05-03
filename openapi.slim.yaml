@@ -52962,6 +52962,10 @@ components:
           type: object
           additionalProperties: {}
           readOnly: true
+        services:
+          type: object
+          additionalProperties: {}
+          readOnly: true
         location:
           allOf:
             - $ref: '#/components/schemas/Location'
@@ -52985,6 +52989,7 @@ components:
         - location
         - notifications
         - permissions
+        - services
         - settings
         - templates
         - tracking
