@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.18
+  version: 2.4.19
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -4121,7 +4121,7 @@ paths:
             application/json; version=$version:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressExportList'
-            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.18:
+            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.19:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressExportList'
           description: ''
@@ -5715,7 +5715,7 @@ paths:
       responses:
         $version:
           content:
-            application/vnd$versionoai.openapi; version=2.4.18:
+            application/vnd$versionoai.openapi; version=2.4.19:
               schema:
                 type: object
                 additionalProperties: {}
@@ -5723,7 +5723,7 @@ paths:
               schema:
                 type: object
                 additionalProperties: {}
-            application/vnd$versionoai.openapi+json; version=2.4.18:
+            application/vnd$versionoai.openapi+json; version=2.4.19:
               schema:
                 type: object
                 additionalProperties: {}
@@ -28244,7 +28244,7 @@ paths:
             application/json; version=$version:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskExportList'
-            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.18:
+            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.19:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskExportList'
           description: ''
@@ -60478,10 +60478,11 @@ components:
           type: string
           format: date-time
           readOnly: true
-        predicted_delivery_at:
+        predicted_delivery_calculated_at:
           type: string
           format: date-time
           readOnly: true
+          description: When was the predicted delivery last calculated
         predicted_delivery_error:
           type: string
           readOnly: true
@@ -60493,7 +60494,7 @@ components:
         - language
         - logo
         - predicted_delivery
-        - predicted_delivery_at
+        - predicted_delivery_calculated_at
         - predicted_delivery_error
         - queue_positions
         - reviewed_at
@@ -60615,6 +60616,7 @@ components:
       type: string
     VersionEnum:
       enum:
+        - 2.4.19
         - 2.4.18
         - 2.4.17
         - 2.4.16
