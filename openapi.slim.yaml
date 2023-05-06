@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.18
+  version: 2.4.19
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -64250,10 +64250,11 @@ components:
           type: string
           format: date-time
           readOnly: true
-        predicted_delivery_at:
+        predicted_delivery_calculated_at:
           type: string
           format: date-time
           readOnly: true
+          description: When was the predicted delivery last calculated
         predicted_delivery_error:
           type: string
           readOnly: true
@@ -64265,7 +64266,7 @@ components:
       - language
       - logo
       - predicted_delivery
-      - predicted_delivery_at
+      - predicted_delivery_calculated_at
       - predicted_delivery_error
       - queue_positions
       - reviewed_at
@@ -64387,6 +64388,7 @@ components:
       type: string
     VersionEnum:
       enum:
+      - 2.4.19
       - 2.4.18
       - 2.4.17
       - 2.4.16
