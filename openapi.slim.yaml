@@ -7765,9 +7765,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/S3FileUpload'
           description: ''
-  /formrules/:
+  /form_rules/:
     get:
-      operationId: formrules_list
+      operationId: form_rules_list
       parameters:
       - name: account
         required: false
@@ -7801,7 +7801,7 @@ paths:
         schema:
           type: string
       tags:
-      - formrules
+      - form_rules
       security:
       - tokenAuth: []
       responses:
@@ -7815,7 +7815,7 @@ paths:
                 $ref: '#/components/schemas/PaginatedFormRuleList'
           description: ''
     post:
-      operationId: formrules_create
+      operationId: form_rules_create
       parameters:
       - in: query
         name: format
@@ -7825,7 +7825,7 @@ paths:
           - json
           - xlsx
       tags:
-      - formrules
+      - form_rules
       requestBody:
         content:
           application/json:
@@ -7850,9 +7850,9 @@ paths:
               schema:
                 $ref: '#/components/schemas/FormRule'
           description: ''
-  /formrules/{id}/:
+  /form_rules/{id}/:
     get:
-      operationId: formrules_retrieve
+      operationId: form_rules_retrieve
       parameters:
       - in: query
         name: format
@@ -7869,7 +7869,7 @@ paths:
         description: A UUID string identifying this form rule.
         required: true
       tags:
-      - formrules
+      - form_rules
       security:
       - tokenAuth: []
       responses:
@@ -7883,7 +7883,7 @@ paths:
                 $ref: '#/components/schemas/FormRule'
           description: ''
     put:
-      operationId: formrules_update
+      operationId: form_rules_update
       parameters:
       - in: query
         name: format
@@ -7900,7 +7900,7 @@ paths:
         description: A UUID string identifying this form rule.
         required: true
       tags:
-      - formrules
+      - form_rules
       requestBody:
         content:
           application/json:
@@ -7926,7 +7926,7 @@ paths:
                 $ref: '#/components/schemas/FormRule'
           description: ''
     patch:
-      operationId: formrules_partial_update
+      operationId: form_rules_partial_update
       parameters:
       - in: query
         name: format
@@ -7943,7 +7943,7 @@ paths:
         description: A UUID string identifying this form rule.
         required: true
       tags:
-      - formrules
+      - form_rules
       requestBody:
         content:
           application/json:
@@ -7968,7 +7968,7 @@ paths:
                 $ref: '#/components/schemas/FormRule'
           description: ''
     delete:
-      operationId: formrules_destroy
+      operationId: form_rules_destroy
       parameters:
       - in: query
         name: format
@@ -7985,7 +7985,7 @@ paths:
         description: A UUID string identifying this form rule.
         required: true
       tags:
-      - formrules
+      - form_rules
       security:
       - tokenAuth: []
       responses:
