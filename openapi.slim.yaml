@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.19
+  version: 2.4.20
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -7788,6 +7788,15 @@ paths:
           enum:
           - json
           - xlsx
+      - name: open_in
+        required: false
+        in: query
+        description: open_in
+        schema:
+          type: string
+          enum:
+          - webview
+          - in-app-browser
       - name: page_size
         required: false
         in: query
@@ -57695,6 +57704,8 @@ components:
         rules:
           type: object
           additionalProperties: {}
+        open_in:
+          $ref: '#/components/schemas/OpenInEnum'
       required:
       - account
       - edit_url
@@ -58691,6 +58702,11 @@ components:
           format: uri
       required:
       - account
+    OpenInEnum:
+      enum:
+      - webview
+      - in-app-browser
+      type: string
     Order:
       type: object
       properties:
@@ -59766,6 +59782,8 @@ components:
         rules:
           type: object
           additionalProperties: {}
+        open_in:
+          $ref: '#/components/schemas/OpenInEnum'
     PatchedInvoice:
       type: object
       properties:
@@ -60334,6 +60352,10 @@ components:
           type: string
           format: uri
           maxLength: 2048
+        open_in:
+          allOf:
+          - $ref: '#/components/schemas/OpenInEnum'
+          readOnly: true
         completed:
           type: boolean
         created_at:
@@ -62904,6 +62926,10 @@ components:
           type: string
           format: uri
           maxLength: 2048
+        open_in:
+          allOf:
+          - $ref: '#/components/schemas/OpenInEnum'
+          readOnly: true
         completed:
           type: boolean
         created_at:
@@ -62920,6 +62946,7 @@ components:
       - id
       - link
       - name
+      - open_in
       - task
       - updated_at
       - url
@@ -64388,6 +64415,7 @@ components:
       type: string
     VersionEnum:
       enum:
+      - 2.4.20
       - 2.4.19
       - 2.4.18
       - 2.4.17
