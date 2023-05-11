@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.19
+  version: 2.4.20
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -4121,7 +4121,7 @@ paths:
             application/json; version=$version:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressExportList'
-            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.19:
+            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.20:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressExportList'
           description: ''
@@ -5715,7 +5715,7 @@ paths:
       responses:
         $version:
           content:
-            application/vnd$versionoai.openapi; version=2.4.19:
+            application/vnd$versionoai.openapi; version=2.4.20:
               schema:
                 type: object
                 additionalProperties: {}
@@ -5723,7 +5723,7 @@ paths:
               schema:
                 type: object
                 additionalProperties: {}
-            application/vnd$versionoai.openapi+json; version=2.4.19:
+            application/vnd$versionoai.openapi+json; version=2.4.20:
               schema:
                 type: object
                 additionalProperties: {}
@@ -7389,6 +7389,15 @@ paths:
             enum:
               - json
               - xlsx
+        - name: open_in
+          required: false
+          in: query
+          description: open_in
+          schema:
+            type: string
+            enum:
+              - webview
+              - in-app-browser
         - name: page_size
           required: false
           in: query
@@ -28244,7 +28253,7 @@ paths:
             application/json; version=$version:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskExportList'
-            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.19:
+            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.20:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskExportList'
           description: ''
@@ -53920,6 +53929,8 @@ components:
         rules:
           type: object
           additionalProperties: {}
+        open_in:
+          $ref: '#/components/schemas/OpenInEnum'
       required:
         - account
         - edit_url
@@ -54916,6 +54927,11 @@ components:
           format: uri
       required:
         - account
+    OpenInEnum:
+      enum:
+        - webview
+        - in-app-browser
+      type: string
     Order:
       type: object
       properties:
@@ -55987,6 +56003,8 @@ components:
         rules:
           type: object
           additionalProperties: {}
+        open_in:
+          $ref: '#/components/schemas/OpenInEnum'
     PatchedInvoice:
       type: object
       properties:
@@ -56555,6 +56573,10 @@ components:
           type: string
           format: uri
           maxLength: 2048
+        open_in:
+          allOf:
+            - $ref: '#/components/schemas/OpenInEnum'
+          readOnly: true
         completed:
           type: boolean
         created_at:
@@ -59131,6 +59153,10 @@ components:
           type: string
           format: uri
           maxLength: 2048
+        open_in:
+          allOf:
+            - $ref: '#/components/schemas/OpenInEnum'
+          readOnly: true
         completed:
           type: boolean
         created_at:
@@ -59147,6 +59173,7 @@ components:
         - id
         - link
         - name
+        - open_in
         - task
         - updated_at
         - url
@@ -60616,6 +60643,7 @@ components:
       type: string
     VersionEnum:
       enum:
+        - 2.4.20
         - 2.4.19
         - 2.4.18
         - 2.4.17
