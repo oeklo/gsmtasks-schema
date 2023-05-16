@@ -52975,10 +52975,6 @@ components:
           type: object
           additionalProperties: {}
           readOnly: true
-        location:
-          allOf:
-            - $ref: '#/components/schemas/Location'
-          readOnly: true
         is_client_role:
           type: boolean
           default: false
@@ -52995,7 +52991,6 @@ components:
         - features
         - id
         - legacy_views
-        - location
         - notifications
         - permissions
         - services
