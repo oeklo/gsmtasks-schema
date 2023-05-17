@@ -57255,9 +57255,11 @@ components:
           readOnly: true
         name:
           type: string
+          maxLength: 30
         email:
           type: string
           format: email
+          maxLength: 254
         phone:
           type: string
           maxLength: 128
