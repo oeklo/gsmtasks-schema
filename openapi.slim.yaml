@@ -10757,6 +10757,7 @@ paths:
               - America/Cayman
               - America/Chicago
               - America/Chihuahua
+              - America/Ciudad_Juarez
               - America/Costa_Rica
               - America/Creston
               - America/Cuiaba
@@ -10820,7 +10821,6 @@ paths:
               - America/Montserrat
               - America/Nassau
               - America/New_York
-              - America/Nipigon
               - America/Nome
               - America/Noronha
               - America/North_Dakota/Beulah
@@ -10829,7 +10829,6 @@ paths:
               - America/Nuuk
               - America/Ojinaga
               - America/Panama
-              - America/Pangnirtung
               - America/Paramaribo
               - America/Phoenix
               - America/Port-au-Prince
@@ -10837,7 +10836,6 @@ paths:
               - America/Porto_Velho
               - America/Puerto_Rico
               - America/Punta_Arenas
-              - America/Rainy_River
               - America/Rankin_Inlet
               - America/Recife
               - America/Regina
@@ -10858,7 +10856,6 @@ paths:
               - America/Swift_Current
               - America/Tegucigalpa
               - America/Thule
-              - America/Thunder_Bay
               - America/Tijuana
               - America/Toronto
               - America/Tortola
@@ -10866,7 +10863,6 @@ paths:
               - America/Whitehorse
               - America/Winnipeg
               - America/Yakutat
-              - America/Yellowknife
               - Antarctica/Casey
               - Antarctica/Davis
               - Antarctica/DumontDUrville
@@ -11010,8 +11006,8 @@ paths:
               - Europe/Istanbul
               - Europe/Jersey
               - Europe/Kaliningrad
-              - Europe/Kiev
               - Europe/Kirov
+              - Europe/Kyiv
               - Europe/Lisbon
               - Europe/Ljubljana
               - Europe/London
@@ -11039,7 +11035,6 @@ paths:
               - Europe/Tallinn
               - Europe/Tirane
               - Europe/Ulyanovsk
-              - Europe/Uzhgorod
               - Europe/Vaduz
               - Europe/Vatican
               - Europe/Vienna
@@ -11047,7 +11042,6 @@ paths:
               - Europe/Volgograd
               - Europe/Warsaw
               - Europe/Zagreb
-              - Europe/Zaporozhye
               - Europe/Zurich
               - GMT
               - Indian/Antananarivo
@@ -59988,6 +59982,7 @@ components:
         - America/Cayman
         - America/Chicago
         - America/Chihuahua
+        - America/Ciudad_Juarez
         - America/Costa_Rica
         - America/Creston
         - America/Cuiaba
@@ -60051,7 +60046,6 @@ components:
         - America/Montserrat
         - America/Nassau
         - America/New_York
-        - America/Nipigon
         - America/Nome
         - America/Noronha
         - America/North_Dakota/Beulah
@@ -60060,7 +60054,6 @@ components:
         - America/Nuuk
         - America/Ojinaga
         - America/Panama
-        - America/Pangnirtung
         - America/Paramaribo
         - America/Phoenix
         - America/Port-au-Prince
@@ -60068,7 +60061,6 @@ components:
         - America/Porto_Velho
         - America/Puerto_Rico
         - America/Punta_Arenas
-        - America/Rainy_River
         - America/Rankin_Inlet
         - America/Recife
         - America/Regina
@@ -60089,7 +60081,6 @@ components:
         - America/Swift_Current
         - America/Tegucigalpa
         - America/Thule
-        - America/Thunder_Bay
         - America/Tijuana
         - America/Toronto
         - America/Tortola
@@ -60097,7 +60088,6 @@ components:
         - America/Whitehorse
         - America/Winnipeg
         - America/Yakutat
-        - America/Yellowknife
         - Antarctica/Casey
         - Antarctica/Davis
         - Antarctica/DumontDUrville
@@ -60241,8 +60231,8 @@ components:
         - Europe/Istanbul
         - Europe/Jersey
         - Europe/Kaliningrad
-        - Europe/Kiev
         - Europe/Kirov
+        - Europe/Kyiv
         - Europe/Lisbon
         - Europe/Ljubljana
         - Europe/London
@@ -60270,7 +60260,6 @@ components:
         - Europe/Tallinn
         - Europe/Tirane
         - Europe/Ulyanovsk
-        - Europe/Uzhgorod
         - Europe/Vaduz
         - Europe/Vatican
         - Europe/Vienna
@@ -60278,7 +60267,6 @@ components:
         - Europe/Volgograd
         - Europe/Warsaw
         - Europe/Zagreb
-        - Europe/Zaporozhye
         - Europe/Zurich
         - GMT
         - Indian/Antananarivo
