@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.20
+  version: 2.4.21
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -55809,6 +55809,8 @@ components:
             type: string
             format: email
             maxLength: 254
+        review_emails_to_assignee:
+          type: boolean
         website:
           type: string
           maxLength: 200
@@ -59135,6 +59137,8 @@ components:
             type: string
             format: email
             maxLength: 254
+        review_emails_to_assignee:
+          type: boolean
         website:
           type: string
           maxLength: 200
@@ -64400,6 +64404,7 @@ components:
       type: string
     VersionEnum:
       enum:
+      - 2.4.21
       - 2.4.20
       - 2.4.19
       - 2.4.18
