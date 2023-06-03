@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.20
+  version: 2.4.21
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -4121,7 +4121,7 @@ paths:
             application/json; version=$version:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressExportList'
-            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.20:
+            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.21:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressExportList'
           description: ''
@@ -5715,7 +5715,7 @@ paths:
       responses:
         $version:
           content:
-            application/vnd$versionoai.openapi; version=2.4.20:
+            application/vnd$versionoai.openapi; version=2.4.21:
               schema:
                 type: object
                 additionalProperties: {}
@@ -5723,7 +5723,7 @@ paths:
               schema:
                 type: object
                 additionalProperties: {}
-            application/vnd$versionoai.openapi+json; version=2.4.20:
+            application/vnd$versionoai.openapi+json; version=2.4.21:
               schema:
                 type: object
                 additionalProperties: {}
@@ -28247,7 +28247,7 @@ paths:
             application/json; version=$version:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskExportList'
-            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.20:
+            application/vnd$versionopenxmlformats-officedocument.spreadsheetml.sheet; version=2.4.21:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskExportList'
           description: ''
@@ -52034,6 +52034,8 @@ components:
             type: string
             format: email
             maxLength: 254
+        review_emails_to_assignee:
+          type: boolean
         website:
           type: string
           maxLength: 200
@@ -55356,6 +55358,8 @@ components:
             type: string
             format: email
             maxLength: 254
+        review_emails_to_assignee:
+          type: boolean
         website:
           type: string
           maxLength: 200
@@ -60628,6 +60632,7 @@ components:
       type: string
     VersionEnum:
       enum:
+        - 2.4.21
         - 2.4.20
         - 2.4.19
         - 2.4.18
