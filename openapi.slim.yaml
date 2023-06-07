@@ -161,7 +161,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: deleted_at__date
         required: false
         in: query
@@ -764,7 +764,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -864,7 +864,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedAccountList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedAccountList'
           description: ''
@@ -896,7 +896,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Account'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Account'
           description: ''
@@ -939,7 +939,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Account'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Account'
           description: ''
@@ -981,7 +981,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Account'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Account'
           description: ''
@@ -1014,7 +1014,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
           description: ''
@@ -1058,7 +1058,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountOwnerChange'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountOwnerChange'
           description: ''
@@ -1141,7 +1141,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -1248,7 +1248,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedAccountUserList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedAccountUserList'
           description: ''
@@ -1291,7 +1291,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountUser'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountUser'
           description: ''
@@ -1365,7 +1365,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripePaymentMethodAttach'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripePaymentMethodAttach'
           description: ''
@@ -1410,7 +1410,7 @@ paths:
             application/json; version=${version}:
               schema:
                 setup_intent: {}
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 setup_intent: {}
           description: Responds with external API response
@@ -1454,7 +1454,7 @@ paths:
             application/json; version=${version}:
               schema:
                 setup_intent: {}
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 setup_intent: {}
           description: Responds with external API response
@@ -1502,7 +1502,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripePaymentMethodDetach'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripePaymentMethodDetach'
           description: ''
@@ -1561,7 +1561,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripeSetupAttemptGet'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripeSetupAttemptGet'
           description: ''
@@ -1594,7 +1594,7 @@ paths:
             application/json; version=${version}:
               schema:
                 setup_intent: {}
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 setup_intent: {}
           description: Responds with external API response
@@ -1628,7 +1628,7 @@ paths:
               schema:
                 default_payment_method_id: null
                 attached_payment_methods: []
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 default_payment_method_id: null
                 attached_payment_methods: []
@@ -1674,7 +1674,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripePaymentMethodSetDefault'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripePaymentMethodSetDefault'
           description: ''
@@ -1707,7 +1707,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripeSetupIntentsGet'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripeSetupIntentsGet'
           description: ''
@@ -1790,7 +1790,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -1897,7 +1897,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedAccountUserList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedAccountUserList'
           description: ''
@@ -1940,7 +1940,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountUser'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountUser'
           description: ''
@@ -1977,7 +1977,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -2001,7 +2001,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedAddonList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedAddonList'
           description: ''
@@ -2033,7 +2033,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Addon'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Addon'
           description: ''
@@ -2076,7 +2076,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -2100,7 +2100,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedBraintreeCustomerList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedBraintreeCustomerList'
           description: ''
@@ -2136,7 +2136,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
           description: ''
@@ -2168,7 +2168,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
           description: ''
@@ -2211,7 +2211,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
           description: ''
@@ -2253,7 +2253,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
           description: ''
@@ -2285,7 +2285,7 @@ paths:
             application/json; version=${version}:
               schema:
                 token: {}
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 token: {}
           description: Responds with external API response
@@ -2460,7 +2460,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -2502,7 +2502,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedInvoiceList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedInvoiceList'
           description: ''
@@ -2534,7 +2534,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
           description: ''
@@ -2576,7 +2576,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
           description: ''
@@ -2618,7 +2618,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
           description: ''
@@ -2661,7 +2661,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
           description: ''
@@ -2680,7 +2680,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -2745,7 +2745,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedStripePaymentList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedStripePaymentList'
           description: ''
@@ -2777,7 +2777,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/StripePayment'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/StripePayment'
           description: ''
@@ -2790,7 +2790,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: customer
         required: false
         in: query
@@ -2849,7 +2849,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedBraintreeTransactionList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedBraintreeTransactionList'
           description: ''
@@ -2881,7 +2881,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeTransaction'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeTransaction'
           description: ''
@@ -2976,7 +2976,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -3100,7 +3100,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedClientRoleList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedClientRoleList'
           description: ''
@@ -3136,7 +3136,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
           description: ''
@@ -3168,7 +3168,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
           description: ''
@@ -3211,7 +3211,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
           description: ''
@@ -3253,7 +3253,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
           description: ''
@@ -3285,7 +3285,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
           description: ''
@@ -3374,7 +3374,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -3480,7 +3480,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedClientList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedClientList'
           description: ''
@@ -3516,7 +3516,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
           description: ''
@@ -3548,7 +3548,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
           description: ''
@@ -3591,7 +3591,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
           description: ''
@@ -3633,7 +3633,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
           description: ''
@@ -3646,7 +3646,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -3670,7 +3670,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedConfigurationSerializerV2List'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedConfigurationSerializerV2List'
           description: ''
@@ -4465,7 +4465,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: failed_at__date
         required: false
         in: query
@@ -4710,7 +4710,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressBackgroundImportList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressBackgroundImportList'
           description: ''
@@ -4746,7 +4746,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddressBackgroundImport'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddressBackgroundImport'
           description: ''
@@ -4778,7 +4778,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddressBackgroundImport'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddressBackgroundImport'
           description: ''
@@ -5464,7 +5464,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -5613,7 +5613,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressList'
           description: ''
@@ -5649,7 +5649,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
           description: ''
@@ -5681,7 +5681,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
           description: ''
@@ -5724,7 +5724,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
           description: ''
@@ -5766,7 +5766,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
           description: ''
@@ -5849,7 +5849,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -5891,7 +5891,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedDeviceList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedDeviceList'
           description: ''
@@ -5927,7 +5927,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Device'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Device'
           description: ''
@@ -5959,7 +5959,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Device'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Device'
           description: ''
@@ -6112,7 +6112,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: filename
         required: false
         in: query
@@ -6277,7 +6277,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedDocumentList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedDocumentList'
           description: ''
@@ -6312,7 +6312,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Document'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Document'
           description: ''
@@ -6344,7 +6344,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Document'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Document'
           description: ''
@@ -6488,7 +6488,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: external_id
         required: false
         in: query
@@ -6888,7 +6888,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedEmailList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedEmailList'
           description: ''
@@ -6924,7 +6924,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
           description: ''
@@ -6956,7 +6956,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
           description: ''
@@ -6999,7 +6999,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
           description: ''
@@ -7041,7 +7041,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
           description: ''
@@ -7097,7 +7097,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
           description: ''
@@ -7186,7 +7186,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -7280,7 +7280,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedExportList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedExportList'
           description: ''
@@ -7316,7 +7316,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
           description: ''
@@ -7348,7 +7348,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
           description: ''
@@ -7391,7 +7391,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
           description: ''
@@ -7433,7 +7433,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
           description: ''
@@ -7552,7 +7552,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: filename
         required: false
         in: query
@@ -7693,7 +7693,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedS3FileUploadList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedS3FileUploadList'
           description: ''
@@ -7729,7 +7729,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/S3FileUpload'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/S3FileUpload'
           description: ''
@@ -7761,7 +7761,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/S3FileUpload'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/S3FileUpload'
           description: ''
@@ -7780,7 +7780,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -7819,7 +7819,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedFormRuleList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedFormRuleList'
           description: ''
@@ -7855,7 +7855,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
           description: ''
@@ -7887,7 +7887,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
           description: ''
@@ -7930,7 +7930,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
           description: ''
@@ -7972,7 +7972,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
           description: ''
@@ -8033,7 +8033,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/IntegrationRequest'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/IntegrationRequest'
           description: ''
@@ -8122,7 +8122,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -8329,7 +8329,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedMetafieldList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedMetafieldList'
           description: ''
@@ -8365,7 +8365,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
           description: ''
@@ -8397,7 +8397,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
           description: ''
@@ -8440,7 +8440,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
           description: ''
@@ -8482,7 +8482,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
           description: ''
@@ -8595,7 +8595,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: event
         required: false
         in: query
@@ -8764,7 +8764,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedNotificationTemplateList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedNotificationTemplateList'
           description: ''
@@ -8800,7 +8800,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
           description: ''
@@ -8832,7 +8832,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
           description: ''
@@ -8875,7 +8875,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
           description: ''
@@ -8917,7 +8917,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
           description: ''
@@ -8985,7 +8985,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/RenderResponse'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/RenderResponse'
           description: ''
@@ -9074,7 +9074,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: event
         required: false
         in: query
@@ -9307,7 +9307,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedNotificationList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedNotificationList'
           description: ''
@@ -9343,7 +9343,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Notification'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Notification'
           description: ''
@@ -9375,7 +9375,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Notification'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Notification'
           description: ''
@@ -9464,7 +9464,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: external_id
         required: false
         in: query
@@ -9727,7 +9727,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PasswordChange'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PasswordChange'
           description: ''
@@ -9762,7 +9762,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PasswordReset'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PasswordReset'
           description: ''
@@ -9797,7 +9797,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PasswordResetConfirm'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PasswordResetConfirm'
           description: ''
@@ -9886,7 +9886,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: event
         required: false
         in: query
@@ -10218,7 +10218,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedPushNotificationList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedPushNotificationList'
           description: ''
@@ -10254,7 +10254,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
           description: ''
@@ -10286,7 +10286,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
           description: ''
@@ -10329,7 +10329,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
           description: ''
@@ -10371,7 +10371,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
           description: ''
@@ -10427,7 +10427,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
           description: ''
@@ -10554,7 +10554,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: is_active
         required: false
         in: query
@@ -11231,7 +11231,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Registration'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Registration'
           description: ''
@@ -11734,7 +11734,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TasksStatesCountResponse'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TasksStatesCountResponse'
           description: ''
@@ -11823,7 +11823,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -11859,7 +11859,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedReviewList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedReviewList'
           description: ''
@@ -11896,7 +11896,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Review'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Review'
           description: ''
@@ -11928,7 +11928,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Review'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Review'
           description: ''
@@ -12169,7 +12169,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: end_time__date
         required: false
         in: query
@@ -13148,7 +13148,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: end_time__date
         required: false
         in: query
@@ -14011,7 +14011,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: end_time__date
         required: false
         in: query
@@ -14777,7 +14777,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: end_time__date
         required: false
         in: query
@@ -16787,7 +16787,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: description
         required: false
         in: query
@@ -19142,7 +19142,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: external_id
         required: false
         in: query
@@ -19383,7 +19383,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: is_active
         required: false
         in: query
@@ -21434,7 +21434,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: description
         required: false
         in: query
@@ -23795,7 +23795,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: filename
         required: false
         in: query
@@ -23954,7 +23954,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedSignatureList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedSignatureList'
           description: ''
@@ -23990,7 +23990,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Signature'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Signature'
           description: ''
@@ -24022,7 +24022,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Signature'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Signature'
           description: ''
@@ -24178,7 +24178,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: failed_at__date
         required: false
         in: query
@@ -24617,7 +24617,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedSMSList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedSMSList'
           description: ''
@@ -24653,7 +24653,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
           description: ''
@@ -24685,7 +24685,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
           description: ''
@@ -24728,7 +24728,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
           description: ''
@@ -24770,7 +24770,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
           description: ''
@@ -24826,7 +24826,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
           description: ''
@@ -25072,7 +25072,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -25242,7 +25242,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskAddressFeatureList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskAddressFeatureList'
           description: ''
@@ -25274,7 +25274,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskAddressFeature'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskAddressFeature'
           description: ''
@@ -25454,7 +25454,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -25652,7 +25652,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskCommandList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskCommandList'
           description: ''
@@ -25688,7 +25688,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskCommand'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskCommand'
           description: ''
@@ -25720,7 +25720,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskCommand'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskCommand'
           description: ''
@@ -25763,7 +25763,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskCommand'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskCommand'
           description: ''
@@ -25858,7 +25858,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: event
         required: false
         in: query
@@ -26037,7 +26037,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskEventTrackList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskEventTrackList'
           description: ''
@@ -26069,7 +26069,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskEventTrack'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskEventTrack'
           description: ''
@@ -26161,7 +26161,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: event
         required: false
         in: query
@@ -26362,7 +26362,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskEventSerializerV2List'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskEventSerializerV2List'
           description: ''
@@ -26397,7 +26397,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskEventSerializerV2'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskEventSerializerV2'
           description: ''
@@ -30297,7 +30297,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -30391,7 +30391,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskFormList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskFormList'
           description: ''
@@ -30427,7 +30427,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
           description: ''
@@ -30459,7 +30459,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
           description: ''
@@ -30502,7 +30502,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
           description: ''
@@ -30544,7 +30544,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
           description: ''
@@ -30727,7 +30727,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: failed_at__date
         required: false
         in: query
@@ -30972,7 +30972,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTasksBackgroundImportList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTasksBackgroundImportList'
           description: ''
@@ -31008,7 +31008,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TasksBackgroundImport'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TasksBackgroundImport'
           description: ''
@@ -31040,7 +31040,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TasksBackgroundImport'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TasksBackgroundImport'
           description: ''
@@ -31129,7 +31129,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: field_names__contained_by
         required: false
         in: query
@@ -31259,7 +31259,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedImportMappingList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedImportMappingList'
           description: ''
@@ -31295,7 +31295,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ImportMapping'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ImportMapping'
           description: ''
@@ -31327,7 +31327,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ImportMapping'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ImportMapping'
           description: ''
@@ -31410,7 +31410,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -31510,7 +31510,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskMetadataList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskMetadataList'
           description: ''
@@ -31542,7 +31542,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskMetadata'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskMetadata'
           description: ''
@@ -33063,7 +33063,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: description
         required: false
         in: query
@@ -38316,7 +38316,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: description
         required: false
         in: query
@@ -42110,7 +42110,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: description
         required: false
         in: query
@@ -46200,7 +46200,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: description
         required: false
         in: query
@@ -50438,7 +50438,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: description
         required: false
         in: query
@@ -52796,7 +52796,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -52976,7 +52976,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTimeLocationFeatureList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTimeLocationFeatureList'
           description: ''
@@ -53003,7 +53003,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/TimeLocationFeature'
-        required: true
       security:
       - tokenAuth: []
       responses:
@@ -53012,7 +53011,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
           description: ''
@@ -53044,7 +53043,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
           description: ''
@@ -53078,7 +53077,6 @@ paths:
           multipart/form-data:
             schema:
               $ref: '#/components/schemas/TimeLocationFeature'
-        required: true
       security:
       - tokenAuth: []
       responses:
@@ -53087,7 +53085,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
           description: ''
@@ -53129,7 +53127,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
           description: ''
@@ -53236,7 +53234,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -53416,7 +53414,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTimeLocationList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTimeLocationList'
           description: ''
@@ -53452,7 +53450,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocation'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocation'
           description: ''
@@ -53484,7 +53482,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocation'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocation'
           description: ''
@@ -53573,7 +53571,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -53673,7 +53671,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTrackerList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTrackerList'
           description: ''
@@ -53709,7 +53707,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
           description: ''
@@ -53741,7 +53739,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
           description: ''
@@ -53784,7 +53782,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
           description: ''
@@ -53826,7 +53824,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
           description: ''
@@ -53858,7 +53856,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TrackerPublic'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TrackerPublic'
           description: ''
@@ -53871,7 +53869,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -53900,10 +53898,10 @@ paths:
           content:
             application/json; version=${version}:
               schema:
-                $ref: '#/components/schemas/PaginatedUserList'
+                $ref: '#/components/schemas/PaginatedReadableUserList'
             application/xml; version=${version}:
               schema:
-                $ref: '#/components/schemas/PaginatedUserList'
+                $ref: '#/components/schemas/PaginatedReadableUserList'
           description: ''
     post:
       operationId: users_create
@@ -53929,14 +53927,14 @@ paths:
       security:
       - tokenAuth: []
       responses:
-        '200':
+        '201':
           content:
             application/json; version=${version}:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/AuthenticatedUserCreate'
             application/xml; version=${version}:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/AuthenticatedUserCreate'
           description: ''
   /users/{id}/:
     get:
@@ -53965,10 +53963,10 @@ paths:
           content:
             application/json; version=${version}:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/ReadableUser'
             application/xml; version=${version}:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/ReadableUser'
           description: ''
     put:
       operationId: users_update
@@ -54005,10 +54003,10 @@ paths:
           content:
             application/json; version=${version}:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/AuthenticatedUserUpdate'
             application/xml; version=${version}:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/AuthenticatedUserUpdate'
           description: ''
     patch:
       operationId: users_partial_update
@@ -54044,10 +54042,10 @@ paths:
           content:
             application/json; version=${version}:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/AuthenticatedUserUpdate'
             application/xml; version=${version}:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/AuthenticatedUserUpdate'
           description: ''
     delete:
       operationId: users_destroy
@@ -54071,15 +54069,8 @@ paths:
       security:
       - tokenAuth: []
       responses:
-        '200':
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: '#/components/schemas/User'
-            application/xml; version=${version}:
-              schema:
-                $ref: '#/components/schemas/User'
-          description: ''
+        '204':
+          description: No response body
   /users/{id}/activate/:
     post:
       operationId: users_activate_create
@@ -54152,10 +54143,10 @@ paths:
           content:
             application/json; version=${version}:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/OnDuty'
             application/xml; version=${version}:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/OnDuty'
           description: ''
     put:
       operationId: users_on_duty_update
@@ -54192,10 +54183,10 @@ paths:
           content:
             application/json; version=${version}:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/OnDuty'
             application/xml; version=${version}:
               schema:
-                $ref: '#/components/schemas/User'
+                $ref: '#/components/schemas/OnDuty'
           description: ''
     delete:
       operationId: users_on_duty_destroy
@@ -54219,15 +54210,8 @@ paths:
       security:
       - tokenAuth: []
       responses:
-        '200':
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: '#/components/schemas/User'
-            application/xml; version=${version}:
-              schema:
-                $ref: '#/components/schemas/User'
-          description: ''
+        '204':
+          description: No response body
   /users_on_duty_log/:
     get:
       operationId: users_on_duty_log_list
@@ -54319,7 +54303,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -54443,7 +54427,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWorkingStateList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWorkingStateList'
           description: ''
@@ -54479,7 +54463,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
           description: ''
@@ -54511,7 +54495,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
           description: ''
@@ -54530,7 +54514,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - name: document_events
         required: false
         in: query
@@ -54606,7 +54590,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWebhookList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWebhookList'
           description: ''
@@ -54642,7 +54626,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
           description: ''
@@ -54674,7 +54658,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
           description: ''
@@ -54717,7 +54701,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
           description: ''
@@ -54759,7 +54743,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
           description: ''
@@ -54816,7 +54800,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
           description: ''
@@ -54849,7 +54833,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
           description: ''
@@ -54944,7 +54928,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -55130,7 +55114,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWorkerFeatureList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWorkerFeatureList'
           description: ''
@@ -55161,7 +55145,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkerFeature'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkerFeature'
           description: ''
@@ -55465,14 +55449,10 @@ paths:
           content:
             application/json; version=${version}:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/WorkerTrack'
-            application/xlsx; version=${version}:
+                $ref: '#/components/schemas/WorkerTrackList'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
-                type: array
-                items:
-                  $ref: '#/components/schemas/WorkerTrack'
+                $ref: '#/components/schemas/WorkerTrackList'
           description: ''
   /working_state/:
     get:
@@ -55565,7 +55545,7 @@ paths:
         in: query
         description: The pagination cursor value.
         schema:
-          type: integer
+          type: string
       - in: query
         name: format
         schema:
@@ -55689,7 +55669,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWorkingStateList'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWorkingStateList'
           description: ''
@@ -55725,7 +55705,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
           description: ''
@@ -55757,7 +55737,7 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
-            application/xlsx; version=${version}:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
           description: ''
@@ -55880,7 +55860,12 @@ components:
           allOf:
           - $ref: '#/components/schemas/ObjectiveEnum'
           title: Default optimization objective
-          description: Specify the default objective for your optimizationions
+          description: |-
+            Specify the default objective for your optimizationions
+
+            * `vehicles` - Vehicles
+            * `transport_time` - Transport Time
+            * `completion_time` - Completion Time
         reference_autogenerate:
           type: boolean
         reference_offset:
@@ -55918,7 +55903,258 @@ components:
           allOf:
           - $ref: '#/components/schemas/CountryCodeEnum'
           readOnly: true
-          description: Limit geocoding to the selected country.
+          description: |-
+            Limit geocoding to the selected country.
+
+            * `AW` - Aruba
+            * `AF` - Afghanistan
+            * `AO` - Angola
+            * `AI` - Anguilla
+            * `AX` - Åland Islands
+            * `AL` - Albania
+            * `AD` - Andorra
+            * `AE` - United Arab Emirates
+            * `AR` - Argentina
+            * `AM` - Armenia
+            * `AS` - American Samoa
+            * `AQ` - Antarctica
+            * `TF` - French Southern Territories
+            * `AG` - Antigua and Barbuda
+            * `AU` - Australia
+            * `AT` - Austria
+            * `AZ` - Azerbaijan
+            * `BI` - Burundi
+            * `BE` - Belgium
+            * `BJ` - Benin
+            * `BQ` - Bonaire, Sint Eustatius and Saba
+            * `BF` - Burkina Faso
+            * `BD` - Bangladesh
+            * `BG` - Bulgaria
+            * `BH` - Bahrain
+            * `BS` - Bahamas
+            * `BA` - Bosnia and Herzegovina
+            * `BL` - Saint Barthélemy
+            * `BY` - Belarus
+            * `BZ` - Belize
+            * `BM` - Bermuda
+            * `BO` - Bolivia, Plurinational State of
+            * `BR` - Brazil
+            * `BB` - Barbados
+            * `BN` - Brunei Darussalam
+            * `BT` - Bhutan
+            * `BV` - Bouvet Island
+            * `BW` - Botswana
+            * `CF` - Central African Republic
+            * `CA` - Canada
+            * `CC` - Cocos (Keeling) Islands
+            * `CH` - Switzerland
+            * `CL` - Chile
+            * `CN` - China
+            * `CI` - Côte d'Ivoire
+            * `CM` - Cameroon
+            * `CD` - Congo, The Democratic Republic of the
+            * `CG` - Congo
+            * `CK` - Cook Islands
+            * `CO` - Colombia
+            * `KM` - Comoros
+            * `CV` - Cabo Verde
+            * `CR` - Costa Rica
+            * `CU` - Cuba
+            * `CW` - Curaçao
+            * `CX` - Christmas Island
+            * `KY` - Cayman Islands
+            * `CY` - Cyprus
+            * `CZ` - Czechia
+            * `DE` - Germany
+            * `DJ` - Djibouti
+            * `DM` - Dominica
+            * `DK` - Denmark
+            * `DO` - Dominican Republic
+            * `DZ` - Algeria
+            * `EC` - Ecuador
+            * `EG` - Egypt
+            * `ER` - Eritrea
+            * `EH` - Western Sahara
+            * `ES` - Spain
+            * `EE` - Estonia
+            * `ET` - Ethiopia
+            * `FI` - Finland
+            * `FJ` - Fiji
+            * `FK` - Falkland Islands (Malvinas)
+            * `FR` - France
+            * `FO` - Faroe Islands
+            * `FM` - Micronesia, Federated States of
+            * `GA` - Gabon
+            * `GB` - United Kingdom
+            * `GE` - Georgia
+            * `GG` - Guernsey
+            * `GH` - Ghana
+            * `GI` - Gibraltar
+            * `GN` - Guinea
+            * `GP` - Guadeloupe
+            * `GM` - Gambia
+            * `GW` - Guinea-Bissau
+            * `GQ` - Equatorial Guinea
+            * `GR` - Greece
+            * `GD` - Grenada
+            * `GL` - Greenland
+            * `GT` - Guatemala
+            * `GF` - French Guiana
+            * `GU` - Guam
+            * `GY` - Guyana
+            * `HK` - Hong Kong
+            * `HM` - Heard Island and McDonald Islands
+            * `HN` - Honduras
+            * `HR` - Croatia
+            * `HT` - Haiti
+            * `HU` - Hungary
+            * `ID` - Indonesia
+            * `IM` - Isle of Man
+            * `IN` - India
+            * `IO` - British Indian Ocean Territory
+            * `IE` - Ireland
+            * `IR` - Iran, Islamic Republic of
+            * `IQ` - Iraq
+            * `IS` - Iceland
+            * `IL` - Israel
+            * `IT` - Italy
+            * `JM` - Jamaica
+            * `JE` - Jersey
+            * `JO` - Jordan
+            * `JP` - Japan
+            * `KZ` - Kazakhstan
+            * `KE` - Kenya
+            * `KG` - Kyrgyzstan
+            * `KH` - Cambodia
+            * `KI` - Kiribati
+            * `KN` - Saint Kitts and Nevis
+            * `KR` - Korea, Republic of
+            * `KW` - Kuwait
+            * `LA` - Lao People's Democratic Republic
+            * `LB` - Lebanon
+            * `LR` - Liberia
+            * `LY` - Libya
+            * `LC` - Saint Lucia
+            * `LI` - Liechtenstein
+            * `LK` - Sri Lanka
+            * `LS` - Lesotho
+            * `LT` - Lithuania
+            * `LU` - Luxembourg
+            * `LV` - Latvia
+            * `MO` - Macao
+            * `MF` - Saint Martin (French part)
+            * `MA` - Morocco
+            * `MC` - Monaco
+            * `MD` - Moldova, Republic of
+            * `MG` - Madagascar
+            * `MV` - Maldives
+            * `MX` - Mexico
+            * `MH` - Marshall Islands
+            * `MK` - North Macedonia
+            * `ML` - Mali
+            * `MT` - Malta
+            * `MM` - Myanmar
+            * `ME` - Montenegro
+            * `MN` - Mongolia
+            * `MP` - Northern Mariana Islands
+            * `MZ` - Mozambique
+            * `MR` - Mauritania
+            * `MS` - Montserrat
+            * `MQ` - Martinique
+            * `MU` - Mauritius
+            * `MW` - Malawi
+            * `MY` - Malaysia
+            * `YT` - Mayotte
+            * `NA` - Namibia
+            * `NC` - New Caledonia
+            * `NE` - Niger
+            * `NF` - Norfolk Island
+            * `NG` - Nigeria
+            * `NI` - Nicaragua
+            * `NU` - Niue
+            * `NL` - Netherlands
+            * `NO` - Norway
+            * `NP` - Nepal
+            * `NR` - Nauru
+            * `NZ` - New Zealand
+            * `OM` - Oman
+            * `PK` - Pakistan
+            * `PA` - Panama
+            * `PN` - Pitcairn
+            * `PE` - Peru
+            * `PH` - Philippines
+            * `PW` - Palau
+            * `PG` - Papua New Guinea
+            * `PL` - Poland
+            * `PR` - Puerto Rico
+            * `KP` - Korea, Democratic People's Republic of
+            * `PT` - Portugal
+            * `PY` - Paraguay
+            * `PS` - Palestine, State of
+            * `PF` - French Polynesia
+            * `QA` - Qatar
+            * `RE` - Réunion
+            * `RO` - Romania
+            * `RU` - Russian Federation
+            * `RW` - Rwanda
+            * `SA` - Saudi Arabia
+            * `SD` - Sudan
+            * `SN` - Senegal
+            * `SG` - Singapore
+            * `GS` - South Georgia and the South Sandwich Islands
+            * `SH` - Saint Helena, Ascension and Tristan da Cunha
+            * `SJ` - Svalbard and Jan Mayen
+            * `SB` - Solomon Islands
+            * `SL` - Sierra Leone
+            * `SV` - El Salvador
+            * `SM` - San Marino
+            * `SO` - Somalia
+            * `PM` - Saint Pierre and Miquelon
+            * `RS` - Serbia
+            * `SS` - South Sudan
+            * `ST` - Sao Tome and Principe
+            * `SR` - Suriname
+            * `SK` - Slovakia
+            * `SI` - Slovenia
+            * `SE` - Sweden
+            * `SZ` - Eswatini
+            * `SX` - Sint Maarten (Dutch part)
+            * `SC` - Seychelles
+            * `SY` - Syrian Arab Republic
+            * `TC` - Turks and Caicos Islands
+            * `TD` - Chad
+            * `TG` - Togo
+            * `TH` - Thailand
+            * `TJ` - Tajikistan
+            * `TK` - Tokelau
+            * `TM` - Turkmenistan
+            * `TL` - Timor-Leste
+            * `TO` - Tonga
+            * `TT` - Trinidad and Tobago
+            * `TN` - Tunisia
+            * `TR` - Turkey
+            * `TV` - Tuvalu
+            * `TW` - Taiwan, Province of China
+            * `TZ` - Tanzania, United Republic of
+            * `UG` - Uganda
+            * `UA` - Ukraine
+            * `UM` - United States Minor Outlying Islands
+            * `UY` - Uruguay
+            * `US` - United States
+            * `UZ` - Uzbekistan
+            * `VA` - Holy See (Vatican City State)
+            * `VC` - Saint Vincent and the Grenadines
+            * `VE` - Venezuela, Bolivarian Republic of
+            * `VG` - Virgin Islands, British
+            * `VI` - Virgin Islands, U.S.
+            * `VN` - Viet Nam
+            * `VU` - Vanuatu
+            * `WF` - Wallis and Futuna
+            * `WS` - Samoa
+            * `YE` - Yemen
+            * `ZA` - South Africa
+            * `ZM` - Zambia
+            * `ZW` - Zimbabwe
         feature_document_signing:
           type: boolean
           description: Allow choosing documents to sign.
@@ -55982,9 +56218,11 @@ components:
         stripe_customer_id:
           type: string
           readOnly: true
+          nullable: true
         stripe_payment_method_id:
           type: string
           readOnly: true
+          nullable: true
           description: 'Reflects current default payment method. For reference only. '
         billing_method:
           allOf:
@@ -56040,6 +56278,12 @@ components:
       - stripe
       - trial
       type: string
+      description: |-
+        * `braintree` - Braintree
+        * `free` - Free
+        * `invoice` - Invoice
+        * `stripe` - Stripe
+        * `trial` - Trial
     AccountOwnerChange:
       type: object
       properties:
@@ -56139,10 +56383,12 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         deleted_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -56180,6 +56426,10 @@ components:
       - active
       - deleted
       type: string
+      description: |-
+        * `inactive` - Inactive
+        * `active` - Active
+        * `deleted` - Deleted
     AccountRoleToken:
       type: object
       properties:
@@ -56196,6 +56446,11 @@ components:
       - trial_expired
       - payment_overdue
       type: string
+      description: |-
+        * `active` - Active
+        * `deactive` - Deactive
+        * `trial_expired` - Trial expired
+        * `payment_overdue` - Payment overdue
     AccountStripePaymentMethodAttach:
       type: object
       properties:
@@ -56257,6 +56512,9 @@ components:
       - service
       - delivery
       type: string
+      description: |-
+        * `service` - Service
+        * `delivery` - Pickup & delivery
     AccountUser:
       type: object
       properties:
@@ -56312,6 +56570,21 @@ components:
       - assignee_near
       - assignee_away
       type: string
+      description: |-
+        * `update` - Update
+        * `reassign` - Reassign
+        * `assign` - Assign
+        * `accept` - Accept
+        * `unaccept` - Un-accept
+        * `reject` - Reject
+        * `unassign` - Un-assign
+        * `transit` - Transit
+        * `activate` - Activate
+        * `complete` - Complete
+        * `fail` - Fail
+        * `cancel` - Cancel
+        * `assignee_near` - Assignee near
+        * `assignee_away` - Assignee away
     Addon:
       type: object
       properties:
@@ -56348,11 +56621,18 @@ components:
       - ios
       - web
       type: string
+      description: |-
+        * `android` - Android
+        * `ios` - iOS
+        * `web` - Web
     AssigneeProximityEnum:
       enum:
       - away
       - near
       type: string
+      description: |-
+        * `away` - Away
+        * `near` - Near
     AuthToken:
       type: object
       properties:
@@ -56533,9 +56813,11 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         response:
           type: string
           readOnly: true
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -56741,6 +57023,7 @@ components:
         legacy_views:
           type: object
           additionalProperties: {}
+          description: Get the current objects status
           readOnly: true
         services:
           type: object
@@ -56864,14 +57147,17 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         completed_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         failed_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         errors:
           type: object
           additionalProperties: {}
@@ -56879,6 +57165,7 @@ components:
         celery_task_id:
           type: string
           readOnly: true
+          nullable: true
         contact_addresses_created:
           type: array
           items:
@@ -57251,6 +57538,256 @@ components:
       - ZM
       - ZW
       type: string
+      description: |-
+        * `AW` - Aruba
+        * `AF` - Afghanistan
+        * `AO` - Angola
+        * `AI` - Anguilla
+        * `AX` - Åland Islands
+        * `AL` - Albania
+        * `AD` - Andorra
+        * `AE` - United Arab Emirates
+        * `AR` - Argentina
+        * `AM` - Armenia
+        * `AS` - American Samoa
+        * `AQ` - Antarctica
+        * `TF` - French Southern Territories
+        * `AG` - Antigua and Barbuda
+        * `AU` - Australia
+        * `AT` - Austria
+        * `AZ` - Azerbaijan
+        * `BI` - Burundi
+        * `BE` - Belgium
+        * `BJ` - Benin
+        * `BQ` - Bonaire, Sint Eustatius and Saba
+        * `BF` - Burkina Faso
+        * `BD` - Bangladesh
+        * `BG` - Bulgaria
+        * `BH` - Bahrain
+        * `BS` - Bahamas
+        * `BA` - Bosnia and Herzegovina
+        * `BL` - Saint Barthélemy
+        * `BY` - Belarus
+        * `BZ` - Belize
+        * `BM` - Bermuda
+        * `BO` - Bolivia, Plurinational State of
+        * `BR` - Brazil
+        * `BB` - Barbados
+        * `BN` - Brunei Darussalam
+        * `BT` - Bhutan
+        * `BV` - Bouvet Island
+        * `BW` - Botswana
+        * `CF` - Central African Republic
+        * `CA` - Canada
+        * `CC` - Cocos (Keeling) Islands
+        * `CH` - Switzerland
+        * `CL` - Chile
+        * `CN` - China
+        * `CI` - Côte d'Ivoire
+        * `CM` - Cameroon
+        * `CD` - Congo, The Democratic Republic of the
+        * `CG` - Congo
+        * `CK` - Cook Islands
+        * `CO` - Colombia
+        * `KM` - Comoros
+        * `CV` - Cabo Verde
+        * `CR` - Costa Rica
+        * `CU` - Cuba
+        * `CW` - Curaçao
+        * `CX` - Christmas Island
+        * `KY` - Cayman Islands
+        * `CY` - Cyprus
+        * `CZ` - Czechia
+        * `DE` - Germany
+        * `DJ` - Djibouti
+        * `DM` - Dominica
+        * `DK` - Denmark
+        * `DO` - Dominican Republic
+        * `DZ` - Algeria
+        * `EC` - Ecuador
+        * `EG` - Egypt
+        * `ER` - Eritrea
+        * `EH` - Western Sahara
+        * `ES` - Spain
+        * `EE` - Estonia
+        * `ET` - Ethiopia
+        * `FI` - Finland
+        * `FJ` - Fiji
+        * `FK` - Falkland Islands (Malvinas)
+        * `FR` - France
+        * `FO` - Faroe Islands
+        * `FM` - Micronesia, Federated States of
+        * `GA` - Gabon
+        * `GB` - United Kingdom
+        * `GE` - Georgia
+        * `GG` - Guernsey
+        * `GH` - Ghana
+        * `GI` - Gibraltar
+        * `GN` - Guinea
+        * `GP` - Guadeloupe
+        * `GM` - Gambia
+        * `GW` - Guinea-Bissau
+        * `GQ` - Equatorial Guinea
+        * `GR` - Greece
+        * `GD` - Grenada
+        * `GL` - Greenland
+        * `GT` - Guatemala
+        * `GF` - French Guiana
+        * `GU` - Guam
+        * `GY` - Guyana
+        * `HK` - Hong Kong
+        * `HM` - Heard Island and McDonald Islands
+        * `HN` - Honduras
+        * `HR` - Croatia
+        * `HT` - Haiti
+        * `HU` - Hungary
+        * `ID` - Indonesia
+        * `IM` - Isle of Man
+        * `IN` - India
+        * `IO` - British Indian Ocean Territory
+        * `IE` - Ireland
+        * `IR` - Iran, Islamic Republic of
+        * `IQ` - Iraq
+        * `IS` - Iceland
+        * `IL` - Israel
+        * `IT` - Italy
+        * `JM` - Jamaica
+        * `JE` - Jersey
+        * `JO` - Jordan
+        * `JP` - Japan
+        * `KZ` - Kazakhstan
+        * `KE` - Kenya
+        * `KG` - Kyrgyzstan
+        * `KH` - Cambodia
+        * `KI` - Kiribati
+        * `KN` - Saint Kitts and Nevis
+        * `KR` - Korea, Republic of
+        * `KW` - Kuwait
+        * `LA` - Lao People's Democratic Republic
+        * `LB` - Lebanon
+        * `LR` - Liberia
+        * `LY` - Libya
+        * `LC` - Saint Lucia
+        * `LI` - Liechtenstein
+        * `LK` - Sri Lanka
+        * `LS` - Lesotho
+        * `LT` - Lithuania
+        * `LU` - Luxembourg
+        * `LV` - Latvia
+        * `MO` - Macao
+        * `MF` - Saint Martin (French part)
+        * `MA` - Morocco
+        * `MC` - Monaco
+        * `MD` - Moldova, Republic of
+        * `MG` - Madagascar
+        * `MV` - Maldives
+        * `MX` - Mexico
+        * `MH` - Marshall Islands
+        * `MK` - North Macedonia
+        * `ML` - Mali
+        * `MT` - Malta
+        * `MM` - Myanmar
+        * `ME` - Montenegro
+        * `MN` - Mongolia
+        * `MP` - Northern Mariana Islands
+        * `MZ` - Mozambique
+        * `MR` - Mauritania
+        * `MS` - Montserrat
+        * `MQ` - Martinique
+        * `MU` - Mauritius
+        * `MW` - Malawi
+        * `MY` - Malaysia
+        * `YT` - Mayotte
+        * `NA` - Namibia
+        * `NC` - New Caledonia
+        * `NE` - Niger
+        * `NF` - Norfolk Island
+        * `NG` - Nigeria
+        * `NI` - Nicaragua
+        * `NU` - Niue
+        * `NL` - Netherlands
+        * `NO` - Norway
+        * `NP` - Nepal
+        * `NR` - Nauru
+        * `NZ` - New Zealand
+        * `OM` - Oman
+        * `PK` - Pakistan
+        * `PA` - Panama
+        * `PN` - Pitcairn
+        * `PE` - Peru
+        * `PH` - Philippines
+        * `PW` - Palau
+        * `PG` - Papua New Guinea
+        * `PL` - Poland
+        * `PR` - Puerto Rico
+        * `KP` - Korea, Democratic People's Republic of
+        * `PT` - Portugal
+        * `PY` - Paraguay
+        * `PS` - Palestine, State of
+        * `PF` - French Polynesia
+        * `QA` - Qatar
+        * `RE` - Réunion
+        * `RO` - Romania
+        * `RU` - Russian Federation
+        * `RW` - Rwanda
+        * `SA` - Saudi Arabia
+        * `SD` - Sudan
+        * `SN` - Senegal
+        * `SG` - Singapore
+        * `GS` - South Georgia and the South Sandwich Islands
+        * `SH` - Saint Helena, Ascension and Tristan da Cunha
+        * `SJ` - Svalbard and Jan Mayen
+        * `SB` - Solomon Islands
+        * `SL` - Sierra Leone
+        * `SV` - El Salvador
+        * `SM` - San Marino
+        * `SO` - Somalia
+        * `PM` - Saint Pierre and Miquelon
+        * `RS` - Serbia
+        * `SS` - South Sudan
+        * `ST` - Sao Tome and Principe
+        * `SR` - Suriname
+        * `SK` - Slovakia
+        * `SI` - Slovenia
+        * `SE` - Sweden
+        * `SZ` - Eswatini
+        * `SX` - Sint Maarten (Dutch part)
+        * `SC` - Seychelles
+        * `SY` - Syrian Arab Republic
+        * `TC` - Turks and Caicos Islands
+        * `TD` - Chad
+        * `TG` - Togo
+        * `TH` - Thailand
+        * `TJ` - Tajikistan
+        * `TK` - Tokelau
+        * `TM` - Turkmenistan
+        * `TL` - Timor-Leste
+        * `TO` - Tonga
+        * `TT` - Trinidad and Tobago
+        * `TN` - Tunisia
+        * `TR` - Turkey
+        * `TV` - Tuvalu
+        * `TW` - Taiwan, Province of China
+        * `TZ` - Tanzania, United Republic of
+        * `UG` - Uganda
+        * `UA` - Ukraine
+        * `UM` - United States Minor Outlying Islands
+        * `UY` - Uruguay
+        * `US` - United States
+        * `UZ` - Uzbekistan
+        * `VA` - Holy See (Vatican City State)
+        * `VC` - Saint Vincent and the Grenadines
+        * `VE` - Venezuela, Bolivarian Republic of
+        * `VG` - Virgin Islands, British
+        * `VI` - Virgin Islands, U.S.
+        * `VN` - Viet Nam
+        * `VU` - Vanuatu
+        * `WF` - Wallis and Futuna
+        * `WS` - Samoa
+        * `YE` - Yemen
+        * `ZA` - South Africa
+        * `ZM` - Zambia
+        * `ZW` - Zimbabwe
     DashboardScene:
       type: object
       properties:
@@ -57297,6 +57834,11 @@ components:
       - DD/MM/YYYY
       - MM/DD/YYYY
       type: string
+      description: |-
+        * `DD.MM.YYYY` - DD.MM.YYYY
+        * `YYYY-MM-DD` - YYYY-MM-DD
+        * `DD/MM/YYYY` - DD/MM/YYYY
+        * `MM/DD/YYYY` - MM/DD/YYYY
     Device:
       type: object
       properties:
@@ -57403,6 +57945,9 @@ components:
       - kilometers
       - miles
       type: string
+      description: |-
+        * `kilometers` - Kilometers
+        * `miles` - Miles
     Document:
       type: object
       properties:
@@ -57444,6 +57989,7 @@ components:
         mimetype:
           type: string
           readOnly: true
+          nullable: true
         thumbnail:
           type: string
           format: uri
@@ -57548,14 +58094,17 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         failed_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         received_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -57581,6 +58130,12 @@ components:
       - failed
       - received
       type: string
+      description: |-
+        * `queued` - Queued
+        * `over_quota` - Over quota
+        * `sent` - Sent
+        * `failed` - Failed
+        * `received` - Received
     EventEnum:
       enum:
       - create
@@ -57598,6 +58153,21 @@ components:
       - assignee_away
       - updated
       type: string
+      description: |-
+        * `create` - Create
+        * `assign` - Assign
+        * `unassign` - Unassign
+        * `reject` - Reject
+        * `accept` - Accept
+        * `unaccept` - Unaccept
+        * `transit` - Transit
+        * `activate` - Activate
+        * `complete` - Complete
+        * `fail` - Fail
+        * `cancel` - Cancel
+        * `assignee_near` - Assignee near
+        * `assignee_away` - Assignee away
+        * `updated` - Updated
     Export:
       type: object
       properties:
@@ -57647,6 +58217,7 @@ components:
       enum:
       - tasks
       type: string
+      description: '* `tasks` - Tasks'
     FeatureAddressAutosuggestProviderEnum:
       enum:
       - google
@@ -57654,11 +58225,18 @@ components:
       - regio
       - janaseta
       type: string
+      description: |-
+        * `google` - Google
+        * `heremaps` - Here Maps
+        * `regio` - Regio
+        * `janaseta` - Jana Seta
     FieldEnum:
       enum:
       - state
       - assignee_proximity
       type: string
+      description: "* `` - \n* `state` - State\n* `assignee_proximity` - Assignee\
+        \ proximity"
     FormRule:
       type: object
       properties:
@@ -57709,6 +58287,17 @@ components:
       - json
       - xlsx
       type: string
+      description: |-
+        * `json` - JSON
+        * `xlsx` - XLSX
+    GisFeatureCollectionEnum:
+      type: string
+      enum:
+      - FeatureCollection
+    GisFeatureEnum:
+      type: string
+      enum:
+      - Feature
     ImportMapping:
       type: object
       properties:
@@ -57811,12 +58400,14 @@ components:
             type: string
             format: date
           readOnly: true
+          nullable: true
           description: Indicates what period the price was calculated for
         total_no_vat:
           type: string
           format: decimal
           pattern: ^-?\d{0,7}(?:\.\d{0,2})?$
           readOnly: true
+          nullable: true
         total_vat:
           type: string
           format: decimal
@@ -57841,6 +58432,7 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         items:
           type: array
           items:
@@ -57858,6 +58450,7 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -57925,6 +58518,10 @@ components:
       - invoice
       - stripe
       type: string
+      description: |-
+        * `braintree` - Braintree
+        * `invoice` - Invoice
+        * `stripe` - Stripe
     InvoiceItem:
       type: object
       properties:
@@ -57986,6 +58583,12 @@ components:
       - paid
       - cancelled
       type: string
+      description: |-
+        * `draft` - Draft
+        * `confirmed` - Confirmed
+        * `overdue` - Overdue
+        * `paid` - Paid
+        * `cancelled` - Cancelled
     LanguageEnum:
       enum:
       - af
@@ -58085,6 +58688,103 @@ components:
       - zh-hans
       - zh-hant
       type: string
+      description: |-
+        * `af` - Afrikaans
+        * `ar` - Arabic
+        * `ar-dz` - Algerian Arabic
+        * `ast` - Asturian
+        * `az` - Azerbaijani
+        * `bg` - Bulgarian
+        * `be` - Belarusian
+        * `bn` - Bengali
+        * `br` - Breton
+        * `bs` - Bosnian
+        * `ca` - Catalan
+        * `cs` - Czech
+        * `cy` - Welsh
+        * `da` - Danish
+        * `de` - German
+        * `dsb` - Lower Sorbian
+        * `el` - Greek
+        * `en` - English
+        * `en-au` - Australian English
+        * `en-gb` - British English
+        * `eo` - Esperanto
+        * `es` - Spanish
+        * `es-ar` - Argentinian Spanish
+        * `es-co` - Colombian Spanish
+        * `es-mx` - Mexican Spanish
+        * `es-ni` - Nicaraguan Spanish
+        * `es-ve` - Venezuelan Spanish
+        * `et` - Estonian
+        * `eu` - Basque
+        * `fa` - Persian
+        * `fi` - Finnish
+        * `fr` - French
+        * `fy` - Frisian
+        * `ga` - Irish
+        * `gd` - Scottish Gaelic
+        * `gl` - Galician
+        * `he` - Hebrew
+        * `hi` - Hindi
+        * `hr` - Croatian
+        * `hsb` - Upper Sorbian
+        * `hu` - Hungarian
+        * `hy` - Armenian
+        * `ia` - Interlingua
+        * `id` - Indonesian
+        * `ig` - Igbo
+        * `io` - Ido
+        * `is` - Icelandic
+        * `it` - Italian
+        * `ja` - Japanese
+        * `ka` - Georgian
+        * `kab` - Kabyle
+        * `kk` - Kazakh
+        * `km` - Khmer
+        * `kn` - Kannada
+        * `ko` - Korean
+        * `ky` - Kyrgyz
+        * `lb` - Luxembourgish
+        * `lt` - Lithuanian
+        * `lv` - Latvian
+        * `mk` - Macedonian
+        * `ml` - Malayalam
+        * `mn` - Mongolian
+        * `mr` - Marathi
+        * `my` - Burmese
+        * `nb` - Norwegian Bokmål
+        * `ne` - Nepali
+        * `nl` - Dutch
+        * `nn` - Norwegian Nynorsk
+        * `os` - Ossetic
+        * `pa` - Punjabi
+        * `pl` - Polish
+        * `pt` - Portuguese
+        * `pt-br` - Brazilian Portuguese
+        * `ro` - Romanian
+        * `ru` - Russian
+        * `sk` - Slovak
+        * `sl` - Slovenian
+        * `sq` - Albanian
+        * `sr` - Serbian
+        * `sr-latn` - Serbian Latin
+        * `sv` - Swedish
+        * `sw` - Swahili
+        * `ta` - Tamil
+        * `te` - Telugu
+        * `tg` - Tajik
+        * `th` - Thai
+        * `tk` - Turkmen
+        * `tr` - Turkish
+        * `tt` - Tatar
+        * `udm` - Udmurt
+        * `uk` - Ukrainian
+        * `ur` - Urdu
+        * `uz` - Uzbek
+        * `vi` - Vietnamese
+        * `zh-hans` - Simplified Chinese
+        * `zh-hant` - Traditional Chinese
     LegacyNestedContact:
       type: object
       description: |-
@@ -58189,10 +58889,12 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         cancelled_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         assignee:
           type: string
           format: uri
@@ -58297,6 +58999,10 @@ components:
       - warning
       - success
       type: string
+      description: |-
+        * `danger` - Danger
+        * `warning` - warning
+        * `success` - success
     Location:
       type: object
       properties:
@@ -58316,6 +59022,7 @@ components:
       enum:
       - Point
       type: string
+      description: '* `Point` - Point'
     Metafield:
       type: object
       properties:
@@ -58337,11 +59044,11 @@ components:
         namespace:
           type: string
           default: gsmtasks
-          pattern: '[a-z0-9]+$'
+          pattern: ^[a-z0-9_]+$
           maxLength: 20
         key:
           type: string
-          pattern: '[a-z0-9]+$'
+          pattern: ^[a-z0-9_]+$
           maxLength: 20
         field_name:
           type: string
@@ -58412,11 +59119,18 @@ components:
       - email
       - sms
       type: string
+      description: |-
+        * `app` - app
+        * `email` - email
+        * `sms` - sms
     ModeEnum:
       enum:
       - online
       - offline
       type: string
+      description: |-
+        * `online` - Online
+        * `offline` - Offline
     NestedAddress:
       type: object
       properties:
@@ -58465,10 +59179,12 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         geocode_failed_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
       required:
       - geocode_failed_at
       - geocoded_at
@@ -58685,6 +59401,10 @@ components:
       - transport_time
       - completion_time
       type: string
+      description: |-
+        * `vehicles` - Vehicles
+        * `transport_time` - Transport Time
+        * `completion_time` - Completion Time
     OnDuty:
       type: object
       properties:
@@ -58698,6 +59418,9 @@ components:
       - webview
       - in-app-browser
       type: string
+      description: |-
+        * `webview` - Webview
+        * `in-app-browser` - In app browser
     Order:
       type: object
       properties:
@@ -58942,6 +59665,10 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/PushNotification'
+    PaginatedReadableUserList:
+      type: array
+      items:
+        $ref: '#/components/schemas/ReadableUser'
     PaginatedRecurrenceList:
       type: array
       items:
@@ -58979,9 +59706,7 @@ components:
       items:
         $ref: '#/components/schemas/StripePayment'
     PaginatedTaskAddressFeatureList:
-      type: array
-      items:
-        $ref: '#/components/schemas/TaskAddressFeature'
+      $ref: '#/components/schemas/TaskAddressFeatureList'
     PaginatedTaskCommandList:
       type: array
       items:
@@ -58995,9 +59720,7 @@ components:
       items:
         $ref: '#/components/schemas/TaskEventSerializerV2'
     PaginatedTaskEventTrackList:
-      type: array
-      items:
-        $ref: '#/components/schemas/TaskEventTrack'
+      $ref: '#/components/schemas/TaskEventTrackList'
     PaginatedTaskExportList:
       type: array
       items:
@@ -59027,9 +59750,7 @@ components:
       items:
         $ref: '#/components/schemas/TasksBackgroundImport'
     PaginatedTimeLocationFeatureList:
-      type: array
-      items:
-        $ref: '#/components/schemas/TimeLocationFeature'
+      $ref: '#/components/schemas/TimeLocationFeatureList'
     PaginatedTimeLocationList:
       type: array
       items:
@@ -59038,18 +59759,12 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/Tracker'
-    PaginatedUserList:
-      type: array
-      items:
-        $ref: '#/components/schemas/User'
     PaginatedWebhookList:
       type: array
       items:
         $ref: '#/components/schemas/Webhook'
     PaginatedWorkerFeatureList:
-      type: array
-      items:
-        $ref: '#/components/schemas/WorkerFeature'
+      $ref: '#/components/schemas/WorkerFeatureList'
     PaginatedWorkingStateList:
       type: array
       items:
@@ -59208,7 +59923,12 @@ components:
           allOf:
           - $ref: '#/components/schemas/ObjectiveEnum'
           title: Default optimization objective
-          description: Specify the default objective for your optimizationions
+          description: |-
+            Specify the default objective for your optimizationions
+
+            * `vehicles` - Vehicles
+            * `transport_time` - Transport Time
+            * `completion_time` - Completion Time
         reference_autogenerate:
           type: boolean
         reference_offset:
@@ -59246,7 +59966,258 @@ components:
           allOf:
           - $ref: '#/components/schemas/CountryCodeEnum'
           readOnly: true
-          description: Limit geocoding to the selected country.
+          description: |-
+            Limit geocoding to the selected country.
+
+            * `AW` - Aruba
+            * `AF` - Afghanistan
+            * `AO` - Angola
+            * `AI` - Anguilla
+            * `AX` - Åland Islands
+            * `AL` - Albania
+            * `AD` - Andorra
+            * `AE` - United Arab Emirates
+            * `AR` - Argentina
+            * `AM` - Armenia
+            * `AS` - American Samoa
+            * `AQ` - Antarctica
+            * `TF` - French Southern Territories
+            * `AG` - Antigua and Barbuda
+            * `AU` - Australia
+            * `AT` - Austria
+            * `AZ` - Azerbaijan
+            * `BI` - Burundi
+            * `BE` - Belgium
+            * `BJ` - Benin
+            * `BQ` - Bonaire, Sint Eustatius and Saba
+            * `BF` - Burkina Faso
+            * `BD` - Bangladesh
+            * `BG` - Bulgaria
+            * `BH` - Bahrain
+            * `BS` - Bahamas
+            * `BA` - Bosnia and Herzegovina
+            * `BL` - Saint Barthélemy
+            * `BY` - Belarus
+            * `BZ` - Belize
+            * `BM` - Bermuda
+            * `BO` - Bolivia, Plurinational State of
+            * `BR` - Brazil
+            * `BB` - Barbados
+            * `BN` - Brunei Darussalam
+            * `BT` - Bhutan
+            * `BV` - Bouvet Island
+            * `BW` - Botswana
+            * `CF` - Central African Republic
+            * `CA` - Canada
+            * `CC` - Cocos (Keeling) Islands
+            * `CH` - Switzerland
+            * `CL` - Chile
+            * `CN` - China
+            * `CI` - Côte d'Ivoire
+            * `CM` - Cameroon
+            * `CD` - Congo, The Democratic Republic of the
+            * `CG` - Congo
+            * `CK` - Cook Islands
+            * `CO` - Colombia
+            * `KM` - Comoros
+            * `CV` - Cabo Verde
+            * `CR` - Costa Rica
+            * `CU` - Cuba
+            * `CW` - Curaçao
+            * `CX` - Christmas Island
+            * `KY` - Cayman Islands
+            * `CY` - Cyprus
+            * `CZ` - Czechia
+            * `DE` - Germany
+            * `DJ` - Djibouti
+            * `DM` - Dominica
+            * `DK` - Denmark
+            * `DO` - Dominican Republic
+            * `DZ` - Algeria
+            * `EC` - Ecuador
+            * `EG` - Egypt
+            * `ER` - Eritrea
+            * `EH` - Western Sahara
+            * `ES` - Spain
+            * `EE` - Estonia
+            * `ET` - Ethiopia
+            * `FI` - Finland
+            * `FJ` - Fiji
+            * `FK` - Falkland Islands (Malvinas)
+            * `FR` - France
+            * `FO` - Faroe Islands
+            * `FM` - Micronesia, Federated States of
+            * `GA` - Gabon
+            * `GB` - United Kingdom
+            * `GE` - Georgia
+            * `GG` - Guernsey
+            * `GH` - Ghana
+            * `GI` - Gibraltar
+            * `GN` - Guinea
+            * `GP` - Guadeloupe
+            * `GM` - Gambia
+            * `GW` - Guinea-Bissau
+            * `GQ` - Equatorial Guinea
+            * `GR` - Greece
+            * `GD` - Grenada
+            * `GL` - Greenland
+            * `GT` - Guatemala
+            * `GF` - French Guiana
+            * `GU` - Guam
+            * `GY` - Guyana
+            * `HK` - Hong Kong
+            * `HM` - Heard Island and McDonald Islands
+            * `HN` - Honduras
+            * `HR` - Croatia
+            * `HT` - Haiti
+            * `HU` - Hungary
+            * `ID` - Indonesia
+            * `IM` - Isle of Man
+            * `IN` - India
+            * `IO` - British Indian Ocean Territory
+            * `IE` - Ireland
+            * `IR` - Iran, Islamic Republic of
+            * `IQ` - Iraq
+            * `IS` - Iceland
+            * `IL` - Israel
+            * `IT` - Italy
+            * `JM` - Jamaica
+            * `JE` - Jersey
+            * `JO` - Jordan
+            * `JP` - Japan
+            * `KZ` - Kazakhstan
+            * `KE` - Kenya
+            * `KG` - Kyrgyzstan
+            * `KH` - Cambodia
+            * `KI` - Kiribati
+            * `KN` - Saint Kitts and Nevis
+            * `KR` - Korea, Republic of
+            * `KW` - Kuwait
+            * `LA` - Lao People's Democratic Republic
+            * `LB` - Lebanon
+            * `LR` - Liberia
+            * `LY` - Libya
+            * `LC` - Saint Lucia
+            * `LI` - Liechtenstein
+            * `LK` - Sri Lanka
+            * `LS` - Lesotho
+            * `LT` - Lithuania
+            * `LU` - Luxembourg
+            * `LV` - Latvia
+            * `MO` - Macao
+            * `MF` - Saint Martin (French part)
+            * `MA` - Morocco
+            * `MC` - Monaco
+            * `MD` - Moldova, Republic of
+            * `MG` - Madagascar
+            * `MV` - Maldives
+            * `MX` - Mexico
+            * `MH` - Marshall Islands
+            * `MK` - North Macedonia
+            * `ML` - Mali
+            * `MT` - Malta
+            * `MM` - Myanmar
+            * `ME` - Montenegro
+            * `MN` - Mongolia
+            * `MP` - Northern Mariana Islands
+            * `MZ` - Mozambique
+            * `MR` - Mauritania
+            * `MS` - Montserrat
+            * `MQ` - Martinique
+            * `MU` - Mauritius
+            * `MW` - Malawi
+            * `MY` - Malaysia
+            * `YT` - Mayotte
+            * `NA` - Namibia
+            * `NC` - New Caledonia
+            * `NE` - Niger
+            * `NF` - Norfolk Island
+            * `NG` - Nigeria
+            * `NI` - Nicaragua
+            * `NU` - Niue
+            * `NL` - Netherlands
+            * `NO` - Norway
+            * `NP` - Nepal
+            * `NR` - Nauru
+            * `NZ` - New Zealand
+            * `OM` - Oman
+            * `PK` - Pakistan
+            * `PA` - Panama
+            * `PN` - Pitcairn
+            * `PE` - Peru
+            * `PH` - Philippines
+            * `PW` - Palau
+            * `PG` - Papua New Guinea
+            * `PL` - Poland
+            * `PR` - Puerto Rico
+            * `KP` - Korea, Democratic People's Republic of
+            * `PT` - Portugal
+            * `PY` - Paraguay
+            * `PS` - Palestine, State of
+            * `PF` - French Polynesia
+            * `QA` - Qatar
+            * `RE` - Réunion
+            * `RO` - Romania
+            * `RU` - Russian Federation
+            * `RW` - Rwanda
+            * `SA` - Saudi Arabia
+            * `SD` - Sudan
+            * `SN` - Senegal
+            * `SG` - Singapore
+            * `GS` - South Georgia and the South Sandwich Islands
+            * `SH` - Saint Helena, Ascension and Tristan da Cunha
+            * `SJ` - Svalbard and Jan Mayen
+            * `SB` - Solomon Islands
+            * `SL` - Sierra Leone
+            * `SV` - El Salvador
+            * `SM` - San Marino
+            * `SO` - Somalia
+            * `PM` - Saint Pierre and Miquelon
+            * `RS` - Serbia
+            * `SS` - South Sudan
+            * `ST` - Sao Tome and Principe
+            * `SR` - Suriname
+            * `SK` - Slovakia
+            * `SI` - Slovenia
+            * `SE` - Sweden
+            * `SZ` - Eswatini
+            * `SX` - Sint Maarten (Dutch part)
+            * `SC` - Seychelles
+            * `SY` - Syrian Arab Republic
+            * `TC` - Turks and Caicos Islands
+            * `TD` - Chad
+            * `TG` - Togo
+            * `TH` - Thailand
+            * `TJ` - Tajikistan
+            * `TK` - Tokelau
+            * `TM` - Turkmenistan
+            * `TL` - Timor-Leste
+            * `TO` - Tonga
+            * `TT` - Trinidad and Tobago
+            * `TN` - Tunisia
+            * `TR` - Turkey
+            * `TV` - Tuvalu
+            * `TW` - Taiwan, Province of China
+            * `TZ` - Tanzania, United Republic of
+            * `UG` - Uganda
+            * `UA` - Ukraine
+            * `UM` - United States Minor Outlying Islands
+            * `UY` - Uruguay
+            * `US` - United States
+            * `UZ` - Uzbekistan
+            * `VA` - Holy See (Vatican City State)
+            * `VC` - Saint Vincent and the Grenadines
+            * `VE` - Venezuela, Bolivarian Republic of
+            * `VG` - Virgin Islands, British
+            * `VI` - Virgin Islands, U.S.
+            * `VN` - Viet Nam
+            * `VU` - Vanuatu
+            * `WF` - Wallis and Futuna
+            * `WS` - Samoa
+            * `YE` - Yemen
+            * `ZA` - South Africa
+            * `ZM` - Zambia
+            * `ZW` - Zimbabwe
         feature_document_signing:
           type: boolean
           description: Allow choosing documents to sign.
@@ -59310,9 +60281,11 @@ components:
         stripe_customer_id:
           type: string
           readOnly: true
+          nullable: true
         stripe_payment_method_id:
           type: string
           readOnly: true
+          nullable: true
           description: 'Reflects current default payment method. For reference only. '
         billing_method:
           allOf:
@@ -59432,10 +60405,12 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         deleted_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -59691,14 +60666,17 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         failed_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         received_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -59806,12 +60784,14 @@ components:
             type: string
             format: date
           readOnly: true
+          nullable: true
           description: Indicates what period the price was calculated for
         total_no_vat:
           type: string
           format: decimal
           pattern: ^-?\d{0,7}(?:\.\d{0,2})?$
           readOnly: true
+          nullable: true
         total_vat:
           type: string
           format: decimal
@@ -59836,6 +60816,7 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         items:
           type: array
           items:
@@ -59853,6 +60834,7 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -59882,11 +60864,11 @@ components:
         namespace:
           type: string
           default: gsmtasks
-          pattern: '[a-z0-9]+$'
+          pattern: ^[a-z0-9_]+$
           maxLength: 20
         key:
           type: string
-          pattern: '[a-z0-9]+$'
+          pattern: ^[a-z0-9_]+$
           maxLength: 20
         field_name:
           type: string
@@ -60124,14 +61106,17 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         failed_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         sent_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -60168,14 +61153,17 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         last_scheduled_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         next_scheduled_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         tasks_data:
           type: object
           additionalProperties: {}
@@ -60300,14 +61288,17 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         failed_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         received_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -60440,10 +61431,12 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         cancelled_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         auto_assign:
           type: boolean
         assignee_proximity:
@@ -60518,65 +61511,90 @@ components:
           readOnly: true
     PatchedTimeLocationFeature:
       type: object
-      description: |-
-        A subclass of ModelSerializer
-        that outputs geojson-ready data as
-        features and feature collections
       properties:
-        model:
-          type: string
-          readOnly: true
+        type:
+          $ref: '#/components/schemas/GisFeatureEnum'
         id:
           type: string
           format: uuid
           readOnly: true
-        source:
-          type: string
-          readOnly: true
-        user:
-          type: string
-          format: uri
-          readOnly: true
-        time:
-          type: string
-          format: date-time
-        state:
-          $ref: '#/components/schemas/TimeLocationStateEnum'
-        heading:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-          nullable: true
-        speed:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-          nullable: true
-        altitude:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-          nullable: true
-        accuracy:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-          nullable: true
-        battery_level:
-          type: string
-          format: decimal
-          pattern: ^-?\d{0,1}(?:\.\d{0,3})?$
-          nullable: true
-        created_at:
-          type: string
-          format: date-time
-          readOnly: true
-        updated_at:
-          type: string
-          format: date-time
-          readOnly: true
-        location:
-          $ref: '#/components/schemas/Location'
+        geometry:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+              - Point
+            coordinates:
+              type: array
+              items:
+                type: number
+                format: float
+              example:
+              - 12.9721
+              - 77.5933
+              minItems: 2
+              maxItems: 3
+        properties:
+          type: object
+          properties:
+            model:
+              type: string
+              readOnly: true
+            source:
+              type: string
+              readOnly: true
+              nullable: true
+            user:
+              type: string
+              format: uri
+              readOnly: true
+            time:
+              type: string
+              format: date-time
+            state:
+              enum:
+              - unknown
+              - stopped
+              - moving
+              type: string
+              description: |-
+                * `unknown` - Unknown
+                * `stopped` - Stopped
+                * `moving` - Moving
+            heading:
+              type: integer
+              maximum: 2147483647
+              minimum: -2147483648
+              nullable: true
+            speed:
+              type: integer
+              maximum: 2147483647
+              minimum: -2147483648
+              nullable: true
+            altitude:
+              type: integer
+              maximum: 2147483647
+              minimum: -2147483648
+              nullable: true
+            accuracy:
+              type: integer
+              maximum: 2147483647
+              minimum: -2147483648
+              nullable: true
+            battery_level:
+              type: string
+              format: decimal
+              pattern: ^-?\d{0,1}(?:\.\d{0,3})?$
+              nullable: true
+            created_at:
+              type: string
+              format: date-time
+              readOnly: true
+            updated_at:
+              type: string
+              format: date-time
+              readOnly: true
     PatchedTracker:
       type: object
       properties:
@@ -60645,6 +61663,7 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_by:
           type: string
           format: uri
@@ -60706,10 +61725,12 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         disabled_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -60791,14 +61812,17 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         failed_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         sent_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -60823,6 +61847,11 @@ components:
       - failed
       - sent
       type: string
+      description: |-
+        * `queued` - Queued
+        * `pending` - Pending
+        * `failed` - Failed
+        * `sent` - Sent
     ReadableUser:
       type: object
       properties:
@@ -60869,6 +61898,12 @@ components:
       - contact
       - client
       type: string
+      description: |-
+        * `account` - Account
+        * `assignee` - Assignee
+        * `orderer` - Orderer
+        * `contact` - Contact
+        * `client` - Client
     Recurrence:
       type: object
       properties:
@@ -60901,14 +61936,17 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         last_scheduled_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         next_scheduled_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         tasks_data:
           type: object
           additionalProperties: {}
@@ -61223,6 +62261,10 @@ components:
       - archived
       - draft
       type: string
+      description: |-
+        * `active` - Active
+        * `archived` - Archived
+        * `draft` - Draft
     RouteOptimizationResultRoute:
       type: object
       properties:
@@ -61391,9 +62433,11 @@ components:
         total_distance:
           type: integer
           readOnly: true
+          nullable: true
         total_duration:
           type: object
           readOnly: true
+          nullable: true
           default: 4 10:55:34.12
         commit:
           type: boolean
@@ -61404,26 +62448,32 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         scheduled_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         started_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         ready_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         completed_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         failed_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -61463,6 +62513,13 @@ components:
       - over_quota
       - failed
       type: string
+      description: |-
+        * `pending` - Pending
+        * `started` - Started
+        * `ready` - Ready
+        * `completed` - Completed
+        * `over_quota` - Over quota
+        * `failed` - Failed
     S3FileUpload:
       type: object
       description: |-
@@ -61573,14 +62630,17 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         failed_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         received_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -61628,6 +62688,7 @@ components:
         mimetype:
           type: string
           readOnly: true
+          nullable: true
         thumbnail:
           type: string
           format: uri
@@ -61694,17 +62755,28 @@ components:
       - mobile
       - integration
       type: string
+      description: |-
+        * `web` - Web
+        * `mobile` - Mobile
+        * `integration` - Integration
     State5d8Enum:
       enum:
       - active
       - archived
       - draft
       type: string
+      description: |-
+        * `active` - Active
+        * `archived` - Archived
+        * `draft` - Draft
     StatusEnum:
       enum:
       - on_duty
       - off_duty
       type: string
+      description: |-
+        * `on_duty` - On duty
+        * `off_duty` - Off duty
     StripePayment:
       type: object
       properties:
@@ -61774,6 +62846,14 @@ components:
       - retried
       - cancelled
       type: string
+      description: |-
+        * `draft` - Draft
+        * `failed` - Failed to upload
+        * `saved` - Saved
+        * `settled` - Settled
+        * `rejected` - Rejected
+        * `retried` - Retried
+        * `cancelled` - Cancelled
     StripeStateEnum:
       enum:
       - requires_payment_method
@@ -61783,6 +62863,15 @@ components:
       - processing
       - succeeded
       - canceled
+      description: |-
+        * `None` - Unknown
+        * `requires_payment_method` - Requires payment method
+        * `requires_confirmation` - Requires confirmation
+        * `requires_capture` - requires capture
+        * `requires_action` - requires action
+        * `processing` - Processing
+        * `succeeded` - Succeeded
+        * `canceled` - Canceled
     Task:
       type: object
       properties:
@@ -61854,10 +62943,12 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         cancelled_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         assignee:
           type: string
           format: uri
@@ -61980,39 +63071,91 @@ components:
       - complete
       - cancel
       type: string
+      description: |-
+        * `unassign` - Unassign
+        * `unlink` - Unlink
+        * `complete` - Complete
+        * `cancel` - Cancel
     TaskAddressFeature:
       type: object
-      description: |-
-        A subclass of ModelSerializer
-        that outputs geojson-ready data as
-        features and feature collections
       properties:
-        model:
-          type: string
-          readOnly: true
+        type:
+          $ref: '#/components/schemas/GisFeatureEnum'
         id:
           type: string
           format: uuid
           readOnly: true
-        task:
-          type: string
-          format: uri
-          readOnly: true
-        formatted_address:
-          type: string
-          readOnly: true
-        category:
-          $ref: '#/components/schemas/TaskCategoryEnum'
-        state:
-          $ref: '#/components/schemas/TaskStateEnum'
         geometry:
-          $ref: '#/components/schemas/Location'
-      required:
-      - formatted_address
-      - geometry
-      - id
-      - model
-      - task
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+              - Point
+            coordinates:
+              type: array
+              items:
+                type: number
+                format: float
+              example:
+              - 12.9721
+              - 77.5933
+              minItems: 2
+              maxItems: 3
+        properties:
+          type: object
+          properties:
+            model:
+              type: string
+              readOnly: true
+            task:
+              type: string
+              format: uri
+              readOnly: true
+            formatted_address:
+              type: string
+              readOnly: true
+            category:
+              enum:
+              - assignment
+              - pick_up
+              - drop_off
+              - warehouse
+              type: string
+              description: |-
+                * `assignment` - Assignment
+                * `pick_up` - Pick-Up
+                * `drop_off` - Drop-Off
+                * `warehouse` - Warehouse
+            state:
+              enum:
+              - unassigned
+              - assigned
+              - accepted
+              - transit
+              - active
+              - completed
+              - failed
+              - cancelled
+              type: string
+              description: |-
+                * `unassigned` - Unassigned
+                * `assigned` - Assigned
+                * `accepted` - Accepted
+                * `transit` - Transit
+                * `active` - Active
+                * `completed` - Completed
+                * `failed` - Failed
+                * `cancelled` - Cancelled
+    TaskAddressFeatureList:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/GisFeatureCollectionEnum'
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskAddressFeature'
     TaskAssign:
       type: object
       properties:
@@ -62034,6 +63177,11 @@ components:
       - drop_off
       - warehouse
       type: string
+      description: |-
+        * `assignment` - Assignment
+        * `pick_up` - Pick-Up
+        * `drop_off` - Drop-Off
+        * `warehouse` - Warehouse
     TaskCommand:
       type: object
       properties:
@@ -62114,6 +63262,10 @@ components:
       - accepted
       - rejected
       type: string
+      description: |-
+        * `pending` - Pending
+        * `accepted` - Accepted
+        * `rejected` - Rejected
     TaskCommandTaskData:
       type: object
       properties:
@@ -62368,10 +63520,12 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         cancelled_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         auto_assign:
           type: boolean
         assignee_proximity:
@@ -62462,78 +63616,144 @@ components:
       - url
     TaskEventTrack:
       type: object
-      description: |-
-        A subclass of ModelSerializer
-        that outputs geojson-ready data as
-        features and feature collections
       properties:
+        type:
+          $ref: '#/components/schemas/GisFeatureEnum'
         id:
           type: string
           format: uuid
           readOnly: true
-        model:
-          type: string
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        task:
-          type: string
-          format: uuid
-          readOnly: true
-        task_event:
-          type: string
-          format: uri
-          readOnly: true
-        event:
-          allOf:
-          - $ref: '#/components/schemas/EventEnum'
-          readOnly: true
-        from_state:
-          allOf:
-          - $ref: '#/components/schemas/TaskEventTransitionStatesEnum'
-          readOnly: true
-        to_state:
-          allOf:
-          - $ref: '#/components/schemas/TaskEventTransitionStatesEnum'
-          readOnly: true
-        user:
-          type: string
-          format: uuid
-          readOnly: true
-        notes:
-          type: string
-          description: Event notes
-        assignee:
-          type: string
-          format: uuid
-          nullable: true
-        created_at:
-          type: string
-          format: date-time
-          readOnly: true
-        updated_at:
-          type: string
-          format: date-time
-          readOnly: true
-        track:
-          allOf:
-          - $ref: '#/components/schemas/Location'
-          readOnly: true
-      required:
-      - created_at
-      - event
-      - from_state
-      - id
-      - model
-      - task
-      - task_event
-      - to_state
-      - track
-      - updated_at
-      - url
-      - user
+        geometry: {}
+        properties:
+          type: object
+          properties:
+            model:
+              type: string
+              readOnly: true
+            url:
+              type: string
+              format: uri
+              readOnly: true
+            task:
+              type: string
+              format: uuid
+              readOnly: true
+            task_event:
+              type: string
+              format: uri
+              readOnly: true
+            event:
+              enum:
+              - create
+              - assign
+              - unassign
+              - reject
+              - accept
+              - unaccept
+              - transit
+              - activate
+              - complete
+              - fail
+              - cancel
+              - assignee_near
+              - assignee_away
+              - updated
+              type: string
+              description: |-
+                * `create` - Create
+                * `assign` - Assign
+                * `unassign` - Unassign
+                * `reject` - Reject
+                * `accept` - Accept
+                * `unaccept` - Unaccept
+                * `transit` - Transit
+                * `activate` - Activate
+                * `complete` - Complete
+                * `fail` - Fail
+                * `cancel` - Cancel
+                * `assignee_near` - Assignee near
+                * `assignee_away` - Assignee away
+                * `updated` - Updated
+              readOnly: true
+            from_state:
+              enum:
+              - unassigned
+              - assigned
+              - accepted
+              - transit
+              - active
+              - completed
+              - failed
+              - cancelled
+              - away
+              - near
+              type: string
+              description: |-
+                * `unassigned` - Unassigned
+                * `assigned` - Assigned
+                * `accepted` - Accepted
+                * `transit` - Transit
+                * `active` - Active
+                * `completed` - Completed
+                * `failed` - Failed
+                * `cancelled` - Cancelled
+                * `away` - Away
+                * `near` - Near
+              readOnly: true
+            to_state:
+              enum:
+              - unassigned
+              - assigned
+              - accepted
+              - transit
+              - active
+              - completed
+              - failed
+              - cancelled
+              - away
+              - near
+              type: string
+              description: |-
+                * `unassigned` - Unassigned
+                * `assigned` - Assigned
+                * `accepted` - Accepted
+                * `transit` - Transit
+                * `active` - Active
+                * `completed` - Completed
+                * `failed` - Failed
+                * `cancelled` - Cancelled
+                * `away` - Away
+                * `near` - Near
+              readOnly: true
+            user:
+              type: string
+              format: uuid
+              readOnly: true
+              nullable: true
+            notes:
+              type: string
+              description: Event notes
+            assignee:
+              type: string
+              format: uuid
+              nullable: true
+            created_at:
+              type: string
+              format: date-time
+              readOnly: true
+            updated_at:
+              type: string
+              format: date-time
+              readOnly: true
+    TaskEventTrackList:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/GisFeatureCollectionEnum'
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskEventTrack'
     TaskEventTransitionStatesEnum:
       enum:
       - unassigned
@@ -62547,11 +63767,25 @@ components:
       - away
       - near
       type: string
+      description: |-
+        * `unassigned` - Unassigned
+        * `assigned` - Assigned
+        * `accepted` - Accepted
+        * `transit` - Transit
+        * `active` - Active
+        * `completed` - Completed
+        * `failed` - Failed
+        * `cancelled` - Cancelled
+        * `away` - Away
+        * `near` - Near
     TaskExpiryStateEnum:
       enum:
       - cancelled
       - completed
       type: string
+      description: |-
+        * `cancelled` - Cancelled
+        * `completed` - Completed
     TaskExport:
       type: object
       properties:
@@ -63271,10 +64505,12 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         cancelled_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         auto_assign:
           type: boolean
         assignee_proximity:
@@ -63373,6 +64609,15 @@ components:
       - failed
       - cancelled
       type: string
+      description: |-
+        * `unassigned` - Unassigned
+        * `assigned` - Assigned
+        * `accepted` - Accepted
+        * `transit` - Transit
+        * `active` - Active
+        * `completed` - Completed
+        * `failed` - Failed
+        * `cancelled` - Cancelled
     TasksBackgroundImport:
       type: object
       properties:
@@ -63409,14 +64654,17 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         completed_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         failed_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         errors:
           type: object
           additionalProperties: {}
@@ -63465,6 +64713,11 @@ components:
       - completed
       - failed
       type: string
+      description: |-
+        * `pending` - Pending
+        * `started` - Started
+        * `completed` - Completed
+        * `failed` - Failed
     TasksStatesCount:
       type: object
       properties:
@@ -63524,6 +64777,9 @@ components:
       - HH:mm
       - h:mm A
       type: string
+      description: |-
+        * `HH:mm` - HH:mm (24 hour
+        * `h:mm A` - h:mm A (12 hour)
     TimeLocation:
       type: object
       properties:
@@ -63538,6 +64794,7 @@ components:
         source:
           type: string
           readOnly: true
+          nullable: true
         user:
           type: string
           format: uri
@@ -63593,80 +64850,109 @@ components:
       - user
     TimeLocationFeature:
       type: object
-      description: |-
-        A subclass of ModelSerializer
-        that outputs geojson-ready data as
-        features and feature collections
       properties:
-        model:
-          type: string
-          readOnly: true
+        type:
+          $ref: '#/components/schemas/GisFeatureEnum'
         id:
           type: string
           format: uuid
           readOnly: true
-        source:
-          type: string
-          readOnly: true
-        user:
-          type: string
-          format: uri
-          readOnly: true
-        time:
-          type: string
-          format: date-time
-        state:
-          $ref: '#/components/schemas/TimeLocationStateEnum'
-        heading:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-          nullable: true
-        speed:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-          nullable: true
-        altitude:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-          nullable: true
-        accuracy:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-          nullable: true
-        battery_level:
-          type: string
-          format: decimal
-          pattern: ^-?\d{0,1}(?:\.\d{0,3})?$
-          nullable: true
-        created_at:
-          type: string
-          format: date-time
-          readOnly: true
-        updated_at:
-          type: string
-          format: date-time
-          readOnly: true
-        location:
-          $ref: '#/components/schemas/Location'
-      required:
-      - created_at
-      - id
-      - location
-      - model
-      - source
-      - time
-      - updated_at
-      - user
+        geometry:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+              - Point
+            coordinates:
+              type: array
+              items:
+                type: number
+                format: float
+              example:
+              - 12.9721
+              - 77.5933
+              minItems: 2
+              maxItems: 3
+        properties:
+          type: object
+          properties:
+            model:
+              type: string
+              readOnly: true
+            source:
+              type: string
+              readOnly: true
+              nullable: true
+            user:
+              type: string
+              format: uri
+              readOnly: true
+            time:
+              type: string
+              format: date-time
+            state:
+              enum:
+              - unknown
+              - stopped
+              - moving
+              type: string
+              description: |-
+                * `unknown` - Unknown
+                * `stopped` - Stopped
+                * `moving` - Moving
+            heading:
+              type: integer
+              maximum: 2147483647
+              minimum: -2147483648
+              nullable: true
+            speed:
+              type: integer
+              maximum: 2147483647
+              minimum: -2147483648
+              nullable: true
+            altitude:
+              type: integer
+              maximum: 2147483647
+              minimum: -2147483648
+              nullable: true
+            accuracy:
+              type: integer
+              maximum: 2147483647
+              minimum: -2147483648
+              nullable: true
+            battery_level:
+              type: string
+              format: decimal
+              pattern: ^-?\d{0,1}(?:\.\d{0,3})?$
+              nullable: true
+            created_at:
+              type: string
+              format: date-time
+              readOnly: true
+            updated_at:
+              type: string
+              format: date-time
+              readOnly: true
+    TimeLocationFeatureList:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/GisFeatureCollectionEnum'
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/TimeLocationFeature'
     TimeLocationStateEnum:
       enum:
       - unknown
       - stopped
       - moving
       type: string
+      description: |-
+        * `unknown` - Unknown
+        * `stopped` - Stopped
+        * `moving` - Moving
     TimezoneEnum:
       enum:
       - Africa/Abidjan
@@ -64103,6 +65389,440 @@ components:
       - US/Pacific
       - UTC
       type: string
+      description: |-
+        * `Africa/Abidjan` - Africa/Abidjan
+        * `Africa/Accra` - Africa/Accra
+        * `Africa/Addis_Ababa` - Africa/Addis_Ababa
+        * `Africa/Algiers` - Africa/Algiers
+        * `Africa/Asmara` - Africa/Asmara
+        * `Africa/Bamako` - Africa/Bamako
+        * `Africa/Bangui` - Africa/Bangui
+        * `Africa/Banjul` - Africa/Banjul
+        * `Africa/Bissau` - Africa/Bissau
+        * `Africa/Blantyre` - Africa/Blantyre
+        * `Africa/Brazzaville` - Africa/Brazzaville
+        * `Africa/Bujumbura` - Africa/Bujumbura
+        * `Africa/Cairo` - Africa/Cairo
+        * `Africa/Casablanca` - Africa/Casablanca
+        * `Africa/Ceuta` - Africa/Ceuta
+        * `Africa/Conakry` - Africa/Conakry
+        * `Africa/Dakar` - Africa/Dakar
+        * `Africa/Dar_es_Salaam` - Africa/Dar_es_Salaam
+        * `Africa/Djibouti` - Africa/Djibouti
+        * `Africa/Douala` - Africa/Douala
+        * `Africa/El_Aaiun` - Africa/El_Aaiun
+        * `Africa/Freetown` - Africa/Freetown
+        * `Africa/Gaborone` - Africa/Gaborone
+        * `Africa/Harare` - Africa/Harare
+        * `Africa/Johannesburg` - Africa/Johannesburg
+        * `Africa/Juba` - Africa/Juba
+        * `Africa/Kampala` - Africa/Kampala
+        * `Africa/Khartoum` - Africa/Khartoum
+        * `Africa/Kigali` - Africa/Kigali
+        * `Africa/Kinshasa` - Africa/Kinshasa
+        * `Africa/Lagos` - Africa/Lagos
+        * `Africa/Libreville` - Africa/Libreville
+        * `Africa/Lome` - Africa/Lome
+        * `Africa/Luanda` - Africa/Luanda
+        * `Africa/Lubumbashi` - Africa/Lubumbashi
+        * `Africa/Lusaka` - Africa/Lusaka
+        * `Africa/Malabo` - Africa/Malabo
+        * `Africa/Maputo` - Africa/Maputo
+        * `Africa/Maseru` - Africa/Maseru
+        * `Africa/Mbabane` - Africa/Mbabane
+        * `Africa/Mogadishu` - Africa/Mogadishu
+        * `Africa/Monrovia` - Africa/Monrovia
+        * `Africa/Nairobi` - Africa/Nairobi
+        * `Africa/Ndjamena` - Africa/Ndjamena
+        * `Africa/Niamey` - Africa/Niamey
+        * `Africa/Nouakchott` - Africa/Nouakchott
+        * `Africa/Ouagadougou` - Africa/Ouagadougou
+        * `Africa/Porto-Novo` - Africa/Porto-Novo
+        * `Africa/Sao_Tome` - Africa/Sao_Tome
+        * `Africa/Tripoli` - Africa/Tripoli
+        * `Africa/Tunis` - Africa/Tunis
+        * `Africa/Windhoek` - Africa/Windhoek
+        * `America/Adak` - America/Adak
+        * `America/Anchorage` - America/Anchorage
+        * `America/Anguilla` - America/Anguilla
+        * `America/Antigua` - America/Antigua
+        * `America/Araguaina` - America/Araguaina
+        * `America/Argentina/Buenos_Aires` - America/Argentina/Buenos_Aires
+        * `America/Argentina/Catamarca` - America/Argentina/Catamarca
+        * `America/Argentina/Cordoba` - America/Argentina/Cordoba
+        * `America/Argentina/Jujuy` - America/Argentina/Jujuy
+        * `America/Argentina/La_Rioja` - America/Argentina/La_Rioja
+        * `America/Argentina/Mendoza` - America/Argentina/Mendoza
+        * `America/Argentina/Rio_Gallegos` - America/Argentina/Rio_Gallegos
+        * `America/Argentina/Salta` - America/Argentina/Salta
+        * `America/Argentina/San_Juan` - America/Argentina/San_Juan
+        * `America/Argentina/San_Luis` - America/Argentina/San_Luis
+        * `America/Argentina/Tucuman` - America/Argentina/Tucuman
+        * `America/Argentina/Ushuaia` - America/Argentina/Ushuaia
+        * `America/Aruba` - America/Aruba
+        * `America/Asuncion` - America/Asuncion
+        * `America/Atikokan` - America/Atikokan
+        * `America/Bahia` - America/Bahia
+        * `America/Bahia_Banderas` - America/Bahia_Banderas
+        * `America/Barbados` - America/Barbados
+        * `America/Belem` - America/Belem
+        * `America/Belize` - America/Belize
+        * `America/Blanc-Sablon` - America/Blanc-Sablon
+        * `America/Boa_Vista` - America/Boa_Vista
+        * `America/Bogota` - America/Bogota
+        * `America/Boise` - America/Boise
+        * `America/Cambridge_Bay` - America/Cambridge_Bay
+        * `America/Campo_Grande` - America/Campo_Grande
+        * `America/Cancun` - America/Cancun
+        * `America/Caracas` - America/Caracas
+        * `America/Cayenne` - America/Cayenne
+        * `America/Cayman` - America/Cayman
+        * `America/Chicago` - America/Chicago
+        * `America/Chihuahua` - America/Chihuahua
+        * `America/Ciudad_Juarez` - America/Ciudad_Juarez
+        * `America/Costa_Rica` - America/Costa_Rica
+        * `America/Creston` - America/Creston
+        * `America/Cuiaba` - America/Cuiaba
+        * `America/Curacao` - America/Curacao
+        * `America/Danmarkshavn` - America/Danmarkshavn
+        * `America/Dawson` - America/Dawson
+        * `America/Dawson_Creek` - America/Dawson_Creek
+        * `America/Denver` - America/Denver
+        * `America/Detroit` - America/Detroit
+        * `America/Dominica` - America/Dominica
+        * `America/Edmonton` - America/Edmonton
+        * `America/Eirunepe` - America/Eirunepe
+        * `America/El_Salvador` - America/El_Salvador
+        * `America/Fort_Nelson` - America/Fort_Nelson
+        * `America/Fortaleza` - America/Fortaleza
+        * `America/Glace_Bay` - America/Glace_Bay
+        * `America/Goose_Bay` - America/Goose_Bay
+        * `America/Grand_Turk` - America/Grand_Turk
+        * `America/Grenada` - America/Grenada
+        * `America/Guadeloupe` - America/Guadeloupe
+        * `America/Guatemala` - America/Guatemala
+        * `America/Guayaquil` - America/Guayaquil
+        * `America/Guyana` - America/Guyana
+        * `America/Halifax` - America/Halifax
+        * `America/Havana` - America/Havana
+        * `America/Hermosillo` - America/Hermosillo
+        * `America/Indiana/Indianapolis` - America/Indiana/Indianapolis
+        * `America/Indiana/Knox` - America/Indiana/Knox
+        * `America/Indiana/Marengo` - America/Indiana/Marengo
+        * `America/Indiana/Petersburg` - America/Indiana/Petersburg
+        * `America/Indiana/Tell_City` - America/Indiana/Tell_City
+        * `America/Indiana/Vevay` - America/Indiana/Vevay
+        * `America/Indiana/Vincennes` - America/Indiana/Vincennes
+        * `America/Indiana/Winamac` - America/Indiana/Winamac
+        * `America/Inuvik` - America/Inuvik
+        * `America/Iqaluit` - America/Iqaluit
+        * `America/Jamaica` - America/Jamaica
+        * `America/Juneau` - America/Juneau
+        * `America/Kentucky/Louisville` - America/Kentucky/Louisville
+        * `America/Kentucky/Monticello` - America/Kentucky/Monticello
+        * `America/Kralendijk` - America/Kralendijk
+        * `America/La_Paz` - America/La_Paz
+        * `America/Lima` - America/Lima
+        * `America/Los_Angeles` - America/Los_Angeles
+        * `America/Lower_Princes` - America/Lower_Princes
+        * `America/Maceio` - America/Maceio
+        * `America/Managua` - America/Managua
+        * `America/Manaus` - America/Manaus
+        * `America/Marigot` - America/Marigot
+        * `America/Martinique` - America/Martinique
+        * `America/Matamoros` - America/Matamoros
+        * `America/Mazatlan` - America/Mazatlan
+        * `America/Menominee` - America/Menominee
+        * `America/Merida` - America/Merida
+        * `America/Metlakatla` - America/Metlakatla
+        * `America/Mexico_City` - America/Mexico_City
+        * `America/Miquelon` - America/Miquelon
+        * `America/Moncton` - America/Moncton
+        * `America/Monterrey` - America/Monterrey
+        * `America/Montevideo` - America/Montevideo
+        * `America/Montserrat` - America/Montserrat
+        * `America/Nassau` - America/Nassau
+        * `America/New_York` - America/New_York
+        * `America/Nome` - America/Nome
+        * `America/Noronha` - America/Noronha
+        * `America/North_Dakota/Beulah` - America/North_Dakota/Beulah
+        * `America/North_Dakota/Center` - America/North_Dakota/Center
+        * `America/North_Dakota/New_Salem` - America/North_Dakota/New_Salem
+        * `America/Nuuk` - America/Nuuk
+        * `America/Ojinaga` - America/Ojinaga
+        * `America/Panama` - America/Panama
+        * `America/Paramaribo` - America/Paramaribo
+        * `America/Phoenix` - America/Phoenix
+        * `America/Port-au-Prince` - America/Port-au-Prince
+        * `America/Port_of_Spain` - America/Port_of_Spain
+        * `America/Porto_Velho` - America/Porto_Velho
+        * `America/Puerto_Rico` - America/Puerto_Rico
+        * `America/Punta_Arenas` - America/Punta_Arenas
+        * `America/Rankin_Inlet` - America/Rankin_Inlet
+        * `America/Recife` - America/Recife
+        * `America/Regina` - America/Regina
+        * `America/Resolute` - America/Resolute
+        * `America/Rio_Branco` - America/Rio_Branco
+        * `America/Santarem` - America/Santarem
+        * `America/Santiago` - America/Santiago
+        * `America/Santo_Domingo` - America/Santo_Domingo
+        * `America/Sao_Paulo` - America/Sao_Paulo
+        * `America/Scoresbysund` - America/Scoresbysund
+        * `America/Sitka` - America/Sitka
+        * `America/St_Barthelemy` - America/St_Barthelemy
+        * `America/St_Johns` - America/St_Johns
+        * `America/St_Kitts` - America/St_Kitts
+        * `America/St_Lucia` - America/St_Lucia
+        * `America/St_Thomas` - America/St_Thomas
+        * `America/St_Vincent` - America/St_Vincent
+        * `America/Swift_Current` - America/Swift_Current
+        * `America/Tegucigalpa` - America/Tegucigalpa
+        * `America/Thule` - America/Thule
+        * `America/Tijuana` - America/Tijuana
+        * `America/Toronto` - America/Toronto
+        * `America/Tortola` - America/Tortola
+        * `America/Vancouver` - America/Vancouver
+        * `America/Whitehorse` - America/Whitehorse
+        * `America/Winnipeg` - America/Winnipeg
+        * `America/Yakutat` - America/Yakutat
+        * `Antarctica/Casey` - Antarctica/Casey
+        * `Antarctica/Davis` - Antarctica/Davis
+        * `Antarctica/DumontDUrville` - Antarctica/DumontDUrville
+        * `Antarctica/Macquarie` - Antarctica/Macquarie
+        * `Antarctica/Mawson` - Antarctica/Mawson
+        * `Antarctica/McMurdo` - Antarctica/McMurdo
+        * `Antarctica/Palmer` - Antarctica/Palmer
+        * `Antarctica/Rothera` - Antarctica/Rothera
+        * `Antarctica/Syowa` - Antarctica/Syowa
+        * `Antarctica/Troll` - Antarctica/Troll
+        * `Antarctica/Vostok` - Antarctica/Vostok
+        * `Arctic/Longyearbyen` - Arctic/Longyearbyen
+        * `Asia/Aden` - Asia/Aden
+        * `Asia/Almaty` - Asia/Almaty
+        * `Asia/Amman` - Asia/Amman
+        * `Asia/Anadyr` - Asia/Anadyr
+        * `Asia/Aqtau` - Asia/Aqtau
+        * `Asia/Aqtobe` - Asia/Aqtobe
+        * `Asia/Ashgabat` - Asia/Ashgabat
+        * `Asia/Atyrau` - Asia/Atyrau
+        * `Asia/Baghdad` - Asia/Baghdad
+        * `Asia/Bahrain` - Asia/Bahrain
+        * `Asia/Baku` - Asia/Baku
+        * `Asia/Bangkok` - Asia/Bangkok
+        * `Asia/Barnaul` - Asia/Barnaul
+        * `Asia/Beirut` - Asia/Beirut
+        * `Asia/Bishkek` - Asia/Bishkek
+        * `Asia/Brunei` - Asia/Brunei
+        * `Asia/Chita` - Asia/Chita
+        * `Asia/Choibalsan` - Asia/Choibalsan
+        * `Asia/Colombo` - Asia/Colombo
+        * `Asia/Damascus` - Asia/Damascus
+        * `Asia/Dhaka` - Asia/Dhaka
+        * `Asia/Dili` - Asia/Dili
+        * `Asia/Dubai` - Asia/Dubai
+        * `Asia/Dushanbe` - Asia/Dushanbe
+        * `Asia/Famagusta` - Asia/Famagusta
+        * `Asia/Gaza` - Asia/Gaza
+        * `Asia/Hebron` - Asia/Hebron
+        * `Asia/Ho_Chi_Minh` - Asia/Ho_Chi_Minh
+        * `Asia/Hong_Kong` - Asia/Hong_Kong
+        * `Asia/Hovd` - Asia/Hovd
+        * `Asia/Irkutsk` - Asia/Irkutsk
+        * `Asia/Jakarta` - Asia/Jakarta
+        * `Asia/Jayapura` - Asia/Jayapura
+        * `Asia/Jerusalem` - Asia/Jerusalem
+        * `Asia/Kabul` - Asia/Kabul
+        * `Asia/Kamchatka` - Asia/Kamchatka
+        * `Asia/Karachi` - Asia/Karachi
+        * `Asia/Kathmandu` - Asia/Kathmandu
+        * `Asia/Khandyga` - Asia/Khandyga
+        * `Asia/Kolkata` - Asia/Kolkata
+        * `Asia/Krasnoyarsk` - Asia/Krasnoyarsk
+        * `Asia/Kuala_Lumpur` - Asia/Kuala_Lumpur
+        * `Asia/Kuching` - Asia/Kuching
+        * `Asia/Kuwait` - Asia/Kuwait
+        * `Asia/Macau` - Asia/Macau
+        * `Asia/Magadan` - Asia/Magadan
+        * `Asia/Makassar` - Asia/Makassar
+        * `Asia/Manila` - Asia/Manila
+        * `Asia/Muscat` - Asia/Muscat
+        * `Asia/Nicosia` - Asia/Nicosia
+        * `Asia/Novokuznetsk` - Asia/Novokuznetsk
+        * `Asia/Novosibirsk` - Asia/Novosibirsk
+        * `Asia/Omsk` - Asia/Omsk
+        * `Asia/Oral` - Asia/Oral
+        * `Asia/Phnom_Penh` - Asia/Phnom_Penh
+        * `Asia/Pontianak` - Asia/Pontianak
+        * `Asia/Pyongyang` - Asia/Pyongyang
+        * `Asia/Qatar` - Asia/Qatar
+        * `Asia/Qostanay` - Asia/Qostanay
+        * `Asia/Qyzylorda` - Asia/Qyzylorda
+        * `Asia/Riyadh` - Asia/Riyadh
+        * `Asia/Sakhalin` - Asia/Sakhalin
+        * `Asia/Samarkand` - Asia/Samarkand
+        * `Asia/Seoul` - Asia/Seoul
+        * `Asia/Shanghai` - Asia/Shanghai
+        * `Asia/Singapore` - Asia/Singapore
+        * `Asia/Srednekolymsk` - Asia/Srednekolymsk
+        * `Asia/Taipei` - Asia/Taipei
+        * `Asia/Tashkent` - Asia/Tashkent
+        * `Asia/Tbilisi` - Asia/Tbilisi
+        * `Asia/Tehran` - Asia/Tehran
+        * `Asia/Thimphu` - Asia/Thimphu
+        * `Asia/Tokyo` - Asia/Tokyo
+        * `Asia/Tomsk` - Asia/Tomsk
+        * `Asia/Ulaanbaatar` - Asia/Ulaanbaatar
+        * `Asia/Urumqi` - Asia/Urumqi
+        * `Asia/Ust-Nera` - Asia/Ust-Nera
+        * `Asia/Vientiane` - Asia/Vientiane
+        * `Asia/Vladivostok` - Asia/Vladivostok
+        * `Asia/Yakutsk` - Asia/Yakutsk
+        * `Asia/Yangon` - Asia/Yangon
+        * `Asia/Yekaterinburg` - Asia/Yekaterinburg
+        * `Asia/Yerevan` - Asia/Yerevan
+        * `Atlantic/Azores` - Atlantic/Azores
+        * `Atlantic/Bermuda` - Atlantic/Bermuda
+        * `Atlantic/Canary` - Atlantic/Canary
+        * `Atlantic/Cape_Verde` - Atlantic/Cape_Verde
+        * `Atlantic/Faroe` - Atlantic/Faroe
+        * `Atlantic/Madeira` - Atlantic/Madeira
+        * `Atlantic/Reykjavik` - Atlantic/Reykjavik
+        * `Atlantic/South_Georgia` - Atlantic/South_Georgia
+        * `Atlantic/St_Helena` - Atlantic/St_Helena
+        * `Atlantic/Stanley` - Atlantic/Stanley
+        * `Australia/Adelaide` - Australia/Adelaide
+        * `Australia/Brisbane` - Australia/Brisbane
+        * `Australia/Broken_Hill` - Australia/Broken_Hill
+        * `Australia/Darwin` - Australia/Darwin
+        * `Australia/Eucla` - Australia/Eucla
+        * `Australia/Hobart` - Australia/Hobart
+        * `Australia/Lindeman` - Australia/Lindeman
+        * `Australia/Lord_Howe` - Australia/Lord_Howe
+        * `Australia/Melbourne` - Australia/Melbourne
+        * `Australia/Perth` - Australia/Perth
+        * `Australia/Sydney` - Australia/Sydney
+        * `Canada/Atlantic` - Canada/Atlantic
+        * `Canada/Central` - Canada/Central
+        * `Canada/Eastern` - Canada/Eastern
+        * `Canada/Mountain` - Canada/Mountain
+        * `Canada/Newfoundland` - Canada/Newfoundland
+        * `Canada/Pacific` - Canada/Pacific
+        * `Europe/Amsterdam` - Europe/Amsterdam
+        * `Europe/Andorra` - Europe/Andorra
+        * `Europe/Astrakhan` - Europe/Astrakhan
+        * `Europe/Athens` - Europe/Athens
+        * `Europe/Belgrade` - Europe/Belgrade
+        * `Europe/Berlin` - Europe/Berlin
+        * `Europe/Bratislava` - Europe/Bratislava
+        * `Europe/Brussels` - Europe/Brussels
+        * `Europe/Bucharest` - Europe/Bucharest
+        * `Europe/Budapest` - Europe/Budapest
+        * `Europe/Busingen` - Europe/Busingen
+        * `Europe/Chisinau` - Europe/Chisinau
+        * `Europe/Copenhagen` - Europe/Copenhagen
+        * `Europe/Dublin` - Europe/Dublin
+        * `Europe/Gibraltar` - Europe/Gibraltar
+        * `Europe/Guernsey` - Europe/Guernsey
+        * `Europe/Helsinki` - Europe/Helsinki
+        * `Europe/Isle_of_Man` - Europe/Isle_of_Man
+        * `Europe/Istanbul` - Europe/Istanbul
+        * `Europe/Jersey` - Europe/Jersey
+        * `Europe/Kaliningrad` - Europe/Kaliningrad
+        * `Europe/Kirov` - Europe/Kirov
+        * `Europe/Kyiv` - Europe/Kyiv
+        * `Europe/Lisbon` - Europe/Lisbon
+        * `Europe/Ljubljana` - Europe/Ljubljana
+        * `Europe/London` - Europe/London
+        * `Europe/Luxembourg` - Europe/Luxembourg
+        * `Europe/Madrid` - Europe/Madrid
+        * `Europe/Malta` - Europe/Malta
+        * `Europe/Mariehamn` - Europe/Mariehamn
+        * `Europe/Minsk` - Europe/Minsk
+        * `Europe/Monaco` - Europe/Monaco
+        * `Europe/Moscow` - Europe/Moscow
+        * `Europe/Oslo` - Europe/Oslo
+        * `Europe/Paris` - Europe/Paris
+        * `Europe/Podgorica` - Europe/Podgorica
+        * `Europe/Prague` - Europe/Prague
+        * `Europe/Riga` - Europe/Riga
+        * `Europe/Rome` - Europe/Rome
+        * `Europe/Samara` - Europe/Samara
+        * `Europe/San_Marino` - Europe/San_Marino
+        * `Europe/Sarajevo` - Europe/Sarajevo
+        * `Europe/Saratov` - Europe/Saratov
+        * `Europe/Simferopol` - Europe/Simferopol
+        * `Europe/Skopje` - Europe/Skopje
+        * `Europe/Sofia` - Europe/Sofia
+        * `Europe/Stockholm` - Europe/Stockholm
+        * `Europe/Tallinn` - Europe/Tallinn
+        * `Europe/Tirane` - Europe/Tirane
+        * `Europe/Ulyanovsk` - Europe/Ulyanovsk
+        * `Europe/Vaduz` - Europe/Vaduz
+        * `Europe/Vatican` - Europe/Vatican
+        * `Europe/Vienna` - Europe/Vienna
+        * `Europe/Vilnius` - Europe/Vilnius
+        * `Europe/Volgograd` - Europe/Volgograd
+        * `Europe/Warsaw` - Europe/Warsaw
+        * `Europe/Zagreb` - Europe/Zagreb
+        * `Europe/Zurich` - Europe/Zurich
+        * `GMT` - GMT
+        * `Indian/Antananarivo` - Indian/Antananarivo
+        * `Indian/Chagos` - Indian/Chagos
+        * `Indian/Christmas` - Indian/Christmas
+        * `Indian/Cocos` - Indian/Cocos
+        * `Indian/Comoro` - Indian/Comoro
+        * `Indian/Kerguelen` - Indian/Kerguelen
+        * `Indian/Mahe` - Indian/Mahe
+        * `Indian/Maldives` - Indian/Maldives
+        * `Indian/Mauritius` - Indian/Mauritius
+        * `Indian/Mayotte` - Indian/Mayotte
+        * `Indian/Reunion` - Indian/Reunion
+        * `Pacific/Apia` - Pacific/Apia
+        * `Pacific/Auckland` - Pacific/Auckland
+        * `Pacific/Bougainville` - Pacific/Bougainville
+        * `Pacific/Chatham` - Pacific/Chatham
+        * `Pacific/Chuuk` - Pacific/Chuuk
+        * `Pacific/Easter` - Pacific/Easter
+        * `Pacific/Efate` - Pacific/Efate
+        * `Pacific/Fakaofo` - Pacific/Fakaofo
+        * `Pacific/Fiji` - Pacific/Fiji
+        * `Pacific/Funafuti` - Pacific/Funafuti
+        * `Pacific/Galapagos` - Pacific/Galapagos
+        * `Pacific/Gambier` - Pacific/Gambier
+        * `Pacific/Guadalcanal` - Pacific/Guadalcanal
+        * `Pacific/Guam` - Pacific/Guam
+        * `Pacific/Honolulu` - Pacific/Honolulu
+        * `Pacific/Kanton` - Pacific/Kanton
+        * `Pacific/Kiritimati` - Pacific/Kiritimati
+        * `Pacific/Kosrae` - Pacific/Kosrae
+        * `Pacific/Kwajalein` - Pacific/Kwajalein
+        * `Pacific/Majuro` - Pacific/Majuro
+        * `Pacific/Marquesas` - Pacific/Marquesas
+        * `Pacific/Midway` - Pacific/Midway
+        * `Pacific/Nauru` - Pacific/Nauru
+        * `Pacific/Niue` - Pacific/Niue
+        * `Pacific/Norfolk` - Pacific/Norfolk
+        * `Pacific/Noumea` - Pacific/Noumea
+        * `Pacific/Pago_Pago` - Pacific/Pago_Pago
+        * `Pacific/Palau` - Pacific/Palau
+        * `Pacific/Pitcairn` - Pacific/Pitcairn
+        * `Pacific/Pohnpei` - Pacific/Pohnpei
+        * `Pacific/Port_Moresby` - Pacific/Port_Moresby
+        * `Pacific/Rarotonga` - Pacific/Rarotonga
+        * `Pacific/Saipan` - Pacific/Saipan
+        * `Pacific/Tahiti` - Pacific/Tahiti
+        * `Pacific/Tarawa` - Pacific/Tarawa
+        * `Pacific/Tongatapu` - Pacific/Tongatapu
+        * `Pacific/Wake` - Pacific/Wake
+        * `Pacific/Wallis` - Pacific/Wallis
+        * `US/Alaska` - US/Alaska
+        * `US/Arizona` - US/Arizona
+        * `US/Central` - US/Central
+        * `US/Eastern` - US/Eastern
+        * `US/Hawaii` - US/Hawaii
+        * `US/Mountain` - US/Mountain
+        * `US/Pacific` - US/Pacific
+        * `UTC` - UTC
     Tracker:
       type: object
       properties:
@@ -64171,6 +65891,7 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_by:
           type: string
           format: uri
@@ -64262,18 +65983,22 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         predicted_delivery:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         predicted_delivery_calculated_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
           description: When was the predicted delivery last calculated
         predicted_delivery_error:
           type: string
           readOnly: true
+          nullable: true
           description: Predicted delivery time calculation error
       required:
       - account
@@ -64337,12 +66062,6 @@ components:
       - failed_at
       - id
       - url
-    User:
-      oneOf:
-      - $ref: '#/components/schemas/OnDuty'
-      - $ref: '#/components/schemas/AuthenticatedUserCreate'
-      - $ref: '#/components/schemas/AuthenticatedUserUpdate'
-      - $ref: '#/components/schemas/ReadableUser'
     UserActivation:
       type: object
       properties:
@@ -64392,6 +66111,11 @@ components:
       - decimal
       - choice
       type: string
+      description: |-
+        * `string` - String
+        * `integer` - Integer
+        * `decimal` - Decimal
+        * `choice` - Choice
     VehicleProfileEnum:
       enum:
       - bike
@@ -64402,6 +66126,14 @@ components:
       - small_truck
       - truck
       type: string
+      description: |-
+        * `bike` - Bike
+        * `bus` - Bus
+        * `car` - Car
+        * `foot` - Foot
+        * `scooter` - Scooter
+        * `small_truck` - Small truck
+        * `truck` - Truck
     VersionEnum:
       enum:
       - 2.4.21
@@ -64444,6 +66176,46 @@ components:
       - 1.1.0
       - 1.0.0
       type: string
+      description: |-
+        * `2.4.21` - 2.4.21
+        * `2.4.20` - 2.4.20
+        * `2.4.19` - 2.4.19
+        * `2.4.18` - 2.4.18
+        * `2.4.17` - 2.4.17
+        * `2.4.16` - 2.4.16
+        * `2.4.15` - 2.4.15
+        * `2.4.14` - 2.4.14
+        * `2.4.13` - 2.4.13
+        * `2.4.12` - 2.4.12
+        * `2.4.11` - 2.4.11
+        * `2.4.10` - 2.4.10
+        * `2.4.9` - 2.4.9
+        * `2.4.8` - 2.4.8
+        * `2.4.7` - 2.4.7
+        * `2.4.6` - 2.4.6
+        * `2.4.5` - 2.4.5
+        * `2.4.4` - 2.4.4
+        * `2.4.3` - 2.4.3
+        * `2.4.2` - 2.4.2
+        * `2.4.1` - 2.4.1
+        * `2.3.5` - 2.3.5
+        * `2.3.4` - 2.3.4
+        * `2.3.3` - 2.3.3
+        * `2.3.2` - 2.3.2
+        * `2.3.1` - 2.3.1
+        * `2.3.0` - 2.3.0
+        * `2.2.6` - 2.2.6
+        * `2.2.5` - 2.2.5
+        * `2.2.4` - 2.2.4
+        * `2.2.3` - 2.2.3
+        * `2.2.2` - 2.2.2
+        * `2.2.1` - 2.2.1
+        * `2.2.0` - 2.2.0
+        * `2.1.1` - 2.1.1
+        * `2.1.0` - 2.1.0
+        * `2.0.0` - 2.0.0
+        * `1.1.0` - 1.1.0
+        * `1.0.0` - 1.0.0
     Webhook:
       type: object
       properties:
@@ -64501,10 +66273,12 @@ components:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         disabled_at:
           type: string
           format: date-time
           readOnly: true
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -64532,110 +66306,139 @@ components:
       - active
       - disabled
       type: string
+      description: |-
+        * `inactive` - inactive
+        * `active` - active
+        * `disabled` - disabled
     WorkerFeature:
       type: object
-      description: |-
-        A subclass of ModelSerializer
-        that outputs geojson-ready data as
-        features and feature collections
       properties:
-        model:
-          type: string
-          readOnly: true
+        type:
+          $ref: '#/components/schemas/GisFeatureEnum'
         id:
           type: string
           format: uuid
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        time_location:
-          type: string
-          format: uri
-          readOnly: true
-        source:
-          type: string
-          readOnly: true
-        user:
-          type: string
-          format: uri
-          readOnly: true
-        user_name:
-          type: string
-          readOnly: true
-        time:
-          type: string
-          format: date-time
-        state:
-          $ref: '#/components/schemas/TimeLocationStateEnum'
-        heading:
-          type: integer
-          nullable: true
-        speed:
-          type: integer
-          nullable: true
-        altitude:
-          type: integer
-          nullable: true
-        accuracy:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-          nullable: true
-        battery_level:
-          type: string
-          format: decimal
-          pattern: ^-?\d{0,1}(?:\.\d{0,3})?$
-          nullable: true
-        created_at:
-          type: string
-          format: date-time
-          readOnly: true
-        updated_at:
-          type: string
-          format: date-time
-          readOnly: true
-        location:
-          $ref: '#/components/schemas/Location'
-      required:
-      - created_at
-      - id
-      - location
-      - model
-      - source
-      - time
-      - time_location
-      - updated_at
-      - url
-      - user
-      - user_name
+        geometry:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+              - Point
+            coordinates:
+              type: array
+              items:
+                type: number
+                format: float
+              example:
+              - 12.9721
+              - 77.5933
+              minItems: 2
+              maxItems: 3
+        properties:
+          type: object
+          properties:
+            model:
+              type: string
+              readOnly: true
+            url:
+              type: string
+              format: uri
+              readOnly: true
+            time_location:
+              type: string
+              format: uri
+              readOnly: true
+            source:
+              type: string
+              readOnly: true
+              nullable: true
+            user:
+              type: string
+              format: uri
+              readOnly: true
+            user_name:
+              type: string
+              readOnly: true
+            time:
+              type: string
+              format: date-time
+            state:
+              enum:
+              - unknown
+              - stopped
+              - moving
+              type: string
+              description: |-
+                * `unknown` - Unknown
+                * `stopped` - Stopped
+                * `moving` - Moving
+            heading:
+              type: integer
+              nullable: true
+            speed:
+              type: integer
+              nullable: true
+            altitude:
+              type: integer
+              nullable: true
+            accuracy:
+              type: integer
+              maximum: 2147483647
+              minimum: -2147483648
+              nullable: true
+            battery_level:
+              type: string
+              format: decimal
+              pattern: ^-?\d{0,1}(?:\.\d{0,3})?$
+              nullable: true
+            created_at:
+              type: string
+              format: date-time
+              readOnly: true
+            updated_at:
+              type: string
+              format: date-time
+              readOnly: true
+    WorkerFeatureList:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/GisFeatureCollectionEnum'
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkerFeature'
     WorkerTrack:
       type: object
-      description: |-
-        A subclass of ModelSerializer
-        that outputs geojson-ready data as
-        features and feature collections
       properties:
+        type:
+          $ref: '#/components/schemas/GisFeatureEnum'
         id:
           type: string
           readOnly: true
-        track:
-          $ref: '#/components/schemas/Location'
-        user:
-          type: string
-          format: uuid
-        start_time:
-          type: string
-          format: date-time
-        end_time:
-          type: string
-          format: date-time
-      required:
-      - end_time
-      - id
-      - start_time
-      - track
-      - user
+        geometry: {}
+        properties:
+          type: object
+          properties:
+            user:
+              type: string
+              format: uuid
+            start_time:
+              type: string
+              format: date-time
+            end_time:
+              type: string
+              format: date-time
+    WorkerTrackList:
+      type: object
+      properties:
+        type:
+          $ref: '#/components/schemas/GisFeatureCollectionEnum'
+        features:
+          type: array
+          items:
+            $ref: '#/components/schemas/WorkerTrack'
     WorkingState:
       type: object
       properties:
