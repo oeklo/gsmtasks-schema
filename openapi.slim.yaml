@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.21
+  version: 2.4.22
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -54567,7 +54567,7 @@ paths:
           enum:
           - inactive
           - active
-          - disabled
+          - failed
       - name: task_events
         required: false
         in: query
@@ -61712,10 +61712,7 @@ components:
             type: string
             format: email
             maxLength: 254
-        failure_count:
-          type: integer
-          readOnly: true
-        disable_message:
+        fail_message:
           type: string
           readOnly: true
         shared_secret:
@@ -61726,7 +61723,7 @@ components:
           format: date-time
           readOnly: true
           nullable: true
-        disabled_at:
+        failed_at:
           type: string
           format: date-time
           readOnly: true
@@ -66136,6 +66133,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.22
       - 2.4.21
       - 2.4.20
       - 2.4.19
@@ -66177,6 +66175,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.22` - 2.4.22
         * `2.4.21` - 2.4.21
         * `2.4.20` - 2.4.20
         * `2.4.19` - 2.4.19
@@ -66260,10 +66259,7 @@ components:
             type: string
             format: email
             maxLength: 254
-        failure_count:
-          type: integer
-          readOnly: true
-        disable_message:
+        fail_message:
           type: string
           readOnly: true
         shared_secret:
@@ -66274,7 +66270,7 @@ components:
           format: date-time
           readOnly: true
           nullable: true
-        disabled_at:
+        failed_at:
           type: string
           format: date-time
           readOnly: true
@@ -66291,9 +66287,8 @@ components:
       - account
       - activated_at
       - created_at
-      - disable_message
-      - disabled_at
-      - failure_count
+      - fail_message
+      - failed_at
       - id
       - name
       - state
@@ -66304,12 +66299,12 @@ components:
       enum:
       - inactive
       - active
-      - disabled
+      - failed
       type: string
       description: |-
         * `inactive` - inactive
         * `active` - active
-        * `disabled` - disabled
+        * `failed` - failed
     WorkerFeature:
       type: object
       properties:
