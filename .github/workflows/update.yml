@@ -21,9 +21,9 @@ jobs:
       run: cp openapi.yaml openapi.old.yaml
 
     - name: Download the latest version
-      uses: wei/wget@v1
+      uses: enflo/curl-action@master
       with:
-        args: -O openapi.yaml https://api.gsmtasks.com/docs/schema/
+        curl: -o openapi.yaml https://api.gsmtasks.com/docs/schema/
 
     - name: Preprocess files
       run: |
