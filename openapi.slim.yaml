@@ -53432,7 +53432,10 @@ components:
           default: 4 10:55:34.12
         distance_units:
           type: string
+        create_contact_address:
+          type: boolean
       required:
+        - create_contact_address
         - distance_units
         - task_category
         - task_duration
