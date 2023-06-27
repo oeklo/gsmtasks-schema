@@ -7224,6 +7224,7 @@ paths:
               - web
               - mobile
               - integration
+              - tracker-logs
         - name: updated_at__date
           required: false
           in: query
@@ -54749,7 +54750,7 @@ components:
         source:
           nullable: true
           oneOf:
-            - $ref: '#/components/schemas/SourceEnum'
+            - $ref: '#/components/schemas/SourceF1fEnum'
             - $ref: '#/components/schemas/BlankEnum'
             - $ref: '#/components/schemas/NullEnum'
         visible_to_worker:
@@ -59678,7 +59679,7 @@ components:
         source:
           nullable: true
           oneOf:
-            - $ref: '#/components/schemas/SourceEnum'
+            - $ref: '#/components/schemas/S3FileUploadSourceEnum'
             - $ref: '#/components/schemas/BlankEnum'
             - $ref: '#/components/schemas/NullEnum'
         created_at:
@@ -59699,6 +59700,20 @@ components:
         - s3_signature
         - updated_at
         - url
+    S$versionFileUploadSourceEnum:
+      enum:
+        - web
+        - mobile
+        - integration
+        - tracker-logs
+      type: string
+      description: '* `web` - Web
+
+        * `mobile` - Mobile
+
+        * `integration` - Integration
+
+        * `tracker-logs` - Tracker logs'
     SMS:
       type: object
       properties:
@@ -59829,7 +59844,7 @@ components:
         source:
           nullable: true
           oneOf:
-            - $ref: '#/components/schemas/SourceEnum'
+            - $ref: '#/components/schemas/SourceF1fEnum'
             - $ref: '#/components/schemas/BlankEnum'
             - $ref: '#/components/schemas/NullEnum'
         created_at:
@@ -59867,7 +59882,7 @@ components:
       required:
         - account
         - signatures
-    SourceEnum:
+    SourceF$versionfEnum:
       enum:
         - web
         - mobile
