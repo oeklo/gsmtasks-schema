@@ -8911,6 +8911,30 @@ paths:
               schema:
                 $ref: '#/components/schemas/Notification'
           description: ''
+  /optimizations/{id}/:
+    get:
+      operationId: optimizations_retrieve
+      parameters:
+        - in: query
+          name: format
+          schema:
+            type: string
+            enum:
+              - json
+              - xlsx
+        - in: path
+          name: id
+          schema:
+            type: string
+            format: uuid
+          required: true
+      tags:
+        - optimizations
+      security:
+        - tokenAuth: []
+      responses:
+        $version:
+          description: No response body
   /orders/:
     get:
       operationId: orders_list
