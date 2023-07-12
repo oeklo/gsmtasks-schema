@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.24
+  version: 2.4.25
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -12903,6 +12903,40 @@ paths:
       responses:
         '200':
           description: No response body
+  /route_optimizations/{id}/report/:
+    get:
+      operationId: route_optimizations_report_retrieve
+      description: Returns a rendered report
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - html
+          - pdf
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this route optimization.
+        required: true
+      tags:
+      - route_optimizations
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            text/html; version=${version}:
+              schema:
+                type: string
+            application/pdf; version=${version}:
+              schema:
+                type: string
+                format: byte
+          description: ''
   /route_optimizations/{id}/results/:
     get:
       operationId: route_optimizations_results_retrieve
@@ -66183,6 +66217,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.25
       - 2.4.24
       - 2.4.23
       - 2.4.22
@@ -66227,6 +66262,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.25` - 2.4.25
         * `2.4.24` - 2.4.24
         * `2.4.23` - 2.4.23
         * `2.4.22` - 2.4.22
