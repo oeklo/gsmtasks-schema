@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.25
+  version: 2.4.27
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -44594,6 +44594,148 @@ paths:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
+  /tasks/{id}/pod/:
+    get:
+      operationId: tasks_pod_retrieve
+      description: Returns a rendered POD
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - html
+          - pdf
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this task.
+        required: true
+      - in: query
+        name: order__orderer__company
+        schema:
+          type: string
+      - in: query
+        name: order__orderer__company__icontains
+        schema:
+          type: string
+      - in: query
+        name: order__orderer__company__iexact
+        schema:
+          type: string
+      - in: query
+        name: order__orderer__company__istartswith
+        schema:
+          type: string
+      - in: query
+        name: order__orderer__emails__contained_by
+        schema:
+          type: string
+        description: Filter the returned list where all target array values contained
+          in filter values. Comma separated values supported
+        examples:
+          Example:
+            value: example1@mail.ee,example2@mail.ee
+            summary: example
+      - in: query
+        name: order__orderer__emails__contains
+        schema:
+          type: string
+        description: Filter the returned list where all filter_values are present.
+          Comma separated values supported
+        examples:
+          Example:
+            value: example1@mail.ee,example2@mail.ee
+            summary: example
+      - in: query
+        name: order__orderer__emails__overlap
+        schema:
+          type: string
+        description: Filter the returned list where at least one filter value in target
+          array. Comma separated values supported
+        examples:
+          Example:
+            value: example1@mail.ee,example2@mail.ee
+            summary: example
+      - in: query
+        name: order__orderer__name
+        schema:
+          type: string
+      - in: query
+        name: order__orderer__name__icontains
+        schema:
+          type: string
+      - in: query
+        name: order__orderer__name__iexact
+        schema:
+          type: string
+      - in: query
+        name: order__orderer__name__istartswith
+        schema:
+          type: string
+      - in: query
+        name: order__orderer__notes
+        schema:
+          type: string
+      - in: query
+        name: order__orderer__notes__icontains
+        schema:
+          type: string
+      - in: query
+        name: order__orderer__notes__iexact
+        schema:
+          type: string
+      - in: query
+        name: order__orderer__notes__istartswith
+        schema:
+          type: string
+      - in: query
+        name: order__orderer__phones__contained_by
+        schema:
+          type: string
+        description: Filter the returned list where all target array values contained
+          in filter values. Comma separated values supported
+        examples:
+          Example:
+            value: +3725012345,5022333
+            summary: example
+      - in: query
+        name: order__orderer__phones__contains
+        schema:
+          type: string
+        description: Filter the returned list where all filter_values are present.
+          Comma separated values supported
+        examples:
+          Example:
+            value: +3725012345,5022333
+            summary: example
+      - in: query
+        name: order__orderer__phones__overlap
+        schema:
+          type: string
+        description: Filter the returned list where at least one filter value in target
+          array. Comma separated values supported
+        examples:
+          Example:
+            value: +3725012345,5022333
+            summary: example
+      tags:
+      - tasks
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            text/html; version=${version}:
+              schema:
+                type: string
+            application/pdf; version=${version}:
+              schema:
+                type: string
+                format: byte
+          description: ''
   /tasks/{id}/reject/:
     post:
       operationId: tasks_reject_create
@@ -66217,6 +66359,8 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.27
+      - 2.4.26
       - 2.4.25
       - 2.4.24
       - 2.4.23
@@ -66262,6 +66406,8 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.27` - 2.4.27
+        * `2.4.26` - 2.4.26
         * `2.4.25` - 2.4.25
         * `2.4.24` - 2.4.24
         * `2.4.23` - 2.4.23
