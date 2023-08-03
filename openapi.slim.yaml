@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.27
+  version: 2.4.28
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -47911,6 +47911,18 @@ components:
           type: boolean
           readOnly: true
           description: Auto archive the route when all tasks in that route are archived
+        feature_signature_required:
+          type: boolean
+        feature_signature_required_task_category:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskCategoryEnum'
+        feature_picture_required:
+          type: boolean
+        feature_picture_required_task_category:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskCategoryEnum'
         auto_assign_orders:
           type: boolean
         auto_assign_max_tasks:
@@ -51638,6 +51650,18 @@ components:
           type: boolean
           readOnly: true
           description: Auto archive the route when all tasks in that route are archived
+        feature_signature_required:
+          type: boolean
+        feature_signature_required_task_category:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskCategoryEnum'
+        feature_picture_required:
+          type: boolean
+        feature_picture_required_task_category:
+          type: array
+          items:
+            $ref: '#/components/schemas/TaskCategoryEnum'
         auto_assign_orders:
           type: boolean
         auto_assign_max_tasks:
@@ -57473,6 +57497,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.28
       - 2.4.27
       - 2.4.26
       - 2.4.25
@@ -57520,6 +57545,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.28` - 2.4.28
         * `2.4.27` - 2.4.27
         * `2.4.26` - 2.4.26
         * `2.4.25` - 2.4.25
