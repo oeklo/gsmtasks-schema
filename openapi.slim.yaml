@@ -251,6 +251,12 @@ paths:
         example: true
         schema:
           type: boolean
+      - name: is_admin
+        required: false
+        in: query
+        description: is_admin
+        schema:
+          type: string
       - name: is_integration
         required: false
         in: query
@@ -1062,263 +1068,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccountOwnerChange'
           description: ''
-  /accounts/{id}/managers/:
-    get:
-      operationId: accounts_managers_list
-      parameters:
-      - name: created_at__date
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: date
-      - name: created_at__date_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: date
-      - name: created_at__gt
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: created_at__gt_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: created_at__gte
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: created_at__gte_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: created_at__lt
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: created_at__lt_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: created_at__lte
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: created_at__lte_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: cursor
-        required: false
-        in: query
-        description: The pagination cursor value.
-        schema:
-          type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this account.
-        required: true
-      - name: page_size
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: search
-        required: false
-        in: query
-        description: A search term.
-        schema:
-          type: string
-      - name: updated_at__date
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: date
-      - name: updated_at__date_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: date
-      - name: updated_at__gt
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: updated_at__gt_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: updated_at__gte
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: updated_at__gte_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: updated_at__lt
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: updated_at__lt_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: updated_at__lte
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: updated_at__lte_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      tags:
-      - accounts
-      security:
-      - tokenAuth: []
-      responses:
-        '200':
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: '#/components/schemas/PaginatedAccountUserList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: '#/components/schemas/PaginatedAccountUserList'
-          description: ''
-    post:
-      operationId: accounts_managers_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this account.
-        required: true
-      tags:
-      - accounts
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AccountUser'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/AccountUser'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/AccountUser'
-        required: true
-      security:
-      - tokenAuth: []
-      responses:
-        '200':
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: '#/components/schemas/AccountUser'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: '#/components/schemas/AccountUser'
-          description: ''
-    delete:
-      operationId: accounts_managers_destroy
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this account.
-        required: true
-      tags:
-      - accounts
-      security:
-      - tokenAuth: []
-      responses:
-        '204':
-          description: No response body
   /accounts/{id}/stripe_attach_payment_method/:
     put:
       operationId: accounts_stripe_attach_payment_method_update
@@ -1711,263 +1460,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/AccountStripeSetupIntentsGet'
           description: ''
-  /accounts/{id}/workers/:
-    get:
-      operationId: accounts_workers_list
-      parameters:
-      - name: created_at__date
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: date
-      - name: created_at__date_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: date
-      - name: created_at__gt
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: created_at__gt_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: created_at__gte
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: created_at__gte_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: created_at__lt
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: created_at__lt_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: created_at__lte
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: created_at__lte_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: cursor
-        required: false
-        in: query
-        description: The pagination cursor value.
-        schema:
-          type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this account.
-        required: true
-      - name: page_size
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - name: search
-        required: false
-        in: query
-        description: A search term.
-        schema:
-          type: string
-      - name: updated_at__date
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: date
-      - name: updated_at__date_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: date
-      - name: updated_at__gt
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: updated_at__gt_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: updated_at__gte
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: updated_at__gte_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: updated_at__lt
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: updated_at__lt_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: updated_at__lte
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      - name: updated_at__lte_or_isnull
-        required: false
-        in: query
-        example: '${date}'
-        schema:
-          type: string
-          format: datetime
-      tags:
-      - accounts
-      security:
-      - tokenAuth: []
-      responses:
-        '200':
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: '#/components/schemas/PaginatedAccountUserList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: '#/components/schemas/PaginatedAccountUserList'
-          description: ''
-    post:
-      operationId: accounts_workers_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this account.
-        required: true
-      tags:
-      - accounts
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/AccountUser'
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: '#/components/schemas/AccountUser'
-          multipart/form-data:
-            schema:
-              $ref: '#/components/schemas/AccountUser'
-        required: true
-      security:
-      - tokenAuth: []
-      responses:
-        '200':
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: '#/components/schemas/AccountUser'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: '#/components/schemas/AccountUser'
-          description: ''
-    delete:
-      operationId: accounts_workers_destroy
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this account.
-        required: true
-      tags:
-      - accounts
-      security:
-      - tokenAuth: []
-      responses:
-        '204':
-          description: No response body
   /addons/:
     get:
       operationId: addons_list
@@ -47962,14 +47454,6 @@ components:
         dashboard_worker_limit:
           type: integer
           readOnly: true
-        managers:
-          type: string
-          format: uri
-          readOnly: true
-        workers:
-          type: string
-          format: uri
-          readOnly: true
         stripe_customer_id:
           type: string
           readOnly: true
@@ -48016,7 +47500,6 @@ components:
       - feature_route_auto_archive
       - feature_route_folders
       - id
-      - managers
       - name
       - owner
       - slug
@@ -48024,7 +47507,6 @@ components:
       - stripe_customer_id
       - stripe_payment_method_id
       - url
-      - workers
     AccountBillingMethodEnum:
       enum:
       - braintree
@@ -48112,6 +47594,9 @@ components:
           type: string
           format: uri
           readOnly: true
+        is_admin:
+          type: boolean
+          title: Admin status
         is_manager:
           type: boolean
           title: Manager status
@@ -48270,44 +47755,6 @@ components:
       description: |-
         * `service` - Service
         * `delivery` - Pickup & delivery
-    AccountUser:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        first_name:
-          type: string
-          readOnly: true
-        last_name:
-          type: string
-          readOnly: true
-        display_name:
-          type: string
-          readOnly: true
-        email:
-          type: string
-          format: email
-        phone:
-          type: string
-          readOnly: true
-        is_on_duty:
-          type: boolean
-          readOnly: true
-      required:
-      - display_name
-      - email
-      - first_name
-      - id
-      - is_on_duty
-      - last_name
-      - phone
-      - url
     ActionEnum:
       enum:
       - update
@@ -51004,10 +50451,6 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/AccountRole'
-    PaginatedAccountUserList:
-      type: array
-      items:
-        $ref: '#/components/schemas/AccountUser'
     PaginatedAddonList:
       type: array
       items:
@@ -51701,14 +51144,6 @@ components:
         dashboard_worker_limit:
           type: integer
           readOnly: true
-        managers:
-          type: string
-          format: uri
-          readOnly: true
-        workers:
-          type: string
-          format: uri
-          readOnly: true
         stripe_customer_id:
           type: string
           readOnly: true
@@ -51810,6 +51245,9 @@ components:
           type: string
           format: uri
           readOnly: true
+        is_admin:
+          type: boolean
+          title: Admin status
         is_manager:
           type: boolean
           title: Manager status
