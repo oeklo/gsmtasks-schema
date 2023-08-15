@@ -16,6 +16,13 @@ paths:
         description: account
         schema:
           type: string
+      - name: activated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: activated_at__date
         required: false
         in: query
@@ -86,6 +93,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -162,6 +176,13 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
+      - name: deleted_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: deleted_at__date
         required: false
         in: query
@@ -327,6 +348,13 @@ paths:
         description: ''
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -695,6 +723,13 @@ paths:
     get:
       operationId: accounts_list
       parameters:
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -790,6 +825,13 @@ paths:
         description: A search term.
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -1801,6 +1843,13 @@ paths:
           - braintree
           - invoice
           - stripe
+      - name: confirmed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: confirmed_at__date
         required: false
         in: query
@@ -1874,9 +1923,10 @@ paths:
       - name: created_at
         required: false
         in: query
-        description: created_at
+        example: '${date}'
         schema:
           type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -2393,6 +2443,13 @@ paths:
         description: client
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -2500,6 +2557,13 @@ paths:
         description: A search term.
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -2791,6 +2855,13 @@ paths:
         description: account
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -2892,6 +2963,13 @@ paths:
         description: slug
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -3560,6 +3638,13 @@ paths:
         schema:
           type: string
         example: abc,def
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -3718,6 +3803,13 @@ paths:
         in: query
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -3812,6 +3904,13 @@ paths:
         description: account
         schema:
           type: string
+      - name: completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: completed_at__date
         required: false
         in: query
@@ -3882,6 +3981,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -3958,6 +4064,13 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
+      - name: failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: failed_at__date
         required: false
         in: query
@@ -4041,6 +4154,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: started_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: started_at__date
         required: false
         in: query
@@ -4122,6 +4242,13 @@ paths:
           - started
           - completed
           - failed
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -4439,6 +4566,13 @@ paths:
         in: query
         schema:
           type: string
+      - name: address__geocode_failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: address__geocode_failed_at__date
         required: false
         in: query
@@ -4509,6 +4643,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: address__geocoded_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: address__geocoded_at__date
         required: false
         in: query
@@ -4881,6 +5022,13 @@ paths:
         in: query
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -5025,6 +5173,13 @@ paths:
         in: query
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -5266,6 +5421,13 @@ paths:
     get:
       operationId: devices_list
       parameters:
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -5517,6 +5679,13 @@ paths:
     get:
       operationId: documents_list
       parameters:
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -5689,6 +5858,13 @@ paths:
         description: task
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -5905,6 +6081,13 @@ paths:
         description: account
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -5993,6 +6176,13 @@ paths:
         description: external_id__icontains
         schema:
           type: string
+      - name: failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: failed_at__date
         required: false
         in: query
@@ -6112,6 +6302,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: received_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: received_at__date
         required: false
         in: query
@@ -6200,6 +6397,13 @@ paths:
         description: A search term.
         schema:
           type: string
+      - name: sent_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: sent_at__date
         required: false
         in: query
@@ -6300,6 +6504,13 @@ paths:
         description: subject__icontains
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -6603,6 +6814,13 @@ paths:
         description: account
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -6692,6 +6910,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -6957,6 +7182,13 @@ paths:
     get:
       operationId: file_uploads_list
       parameters:
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -7106,6 +7338,13 @@ paths:
           - mobile
           - integration
           - tracker-logs
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -7540,6 +7779,13 @@ paths:
         description: account
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -7731,6 +7977,13 @@ paths:
         description: show_when_task_type_pick_up
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -8013,6 +8266,13 @@ paths:
         description: account
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -8159,6 +8419,13 @@ paths:
         description: A search term.
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -8492,6 +8759,13 @@ paths:
         description: account
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -8626,6 +8900,13 @@ paths:
         description: A search term.
         schema:
           type: string
+      - name: sent_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: sent_at__date
         required: false
         in: query
@@ -8702,6 +8983,13 @@ paths:
         description: task
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -8882,6 +9170,13 @@ paths:
         description: account
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -8994,6 +9289,13 @@ paths:
         description: A search term.
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -9304,6 +9606,13 @@ paths:
         description: account
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -9419,6 +9728,13 @@ paths:
         description: external_id__icontains
         schema:
           type: string
+      - name: failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: failed_at__date
         required: false
         in: query
@@ -9526,6 +9842,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: pending_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: pending_at__date
         required: false
         in: query
@@ -9631,6 +9954,13 @@ paths:
         description: subject__icontains
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -9960,6 +10290,13 @@ paths:
         description: comma separated value
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -10054,6 +10391,13 @@ paths:
         description: is_active
         schema:
           type: string
+      - name: last_errored_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: last_errored_at__date
         required: false
         in: query
@@ -10124,6 +10468,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: last_recurred_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: last_recurred_at__date
         required: false
         in: query
@@ -10194,6 +10545,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: last_scheduled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: last_scheduled_at__date
         required: false
         in: query
@@ -10264,6 +10622,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: next_scheduled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: next_scheduled_at__date
         required: false
         in: query
@@ -10500,6 +10865,13 @@ paths:
         schema:
           type: string
           format: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -11241,6 +11613,13 @@ paths:
         description: account
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -11441,6 +11820,13 @@ paths:
         description: assignees__id__in
         schema:
           type: string
+      - name: commited_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: commited_at__date
         required: false
         in: query
@@ -11511,6 +11897,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: completed_at__date
         required: false
         in: query
@@ -11581,6 +11974,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -11663,6 +12063,13 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
+      - name: end_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: end_time__date
         required: false
         in: query
@@ -11733,6 +12140,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: failed_at__date
         required: false
         in: query
@@ -11844,6 +12258,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: ready_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: ready_at__date
         required: false
         in: query
@@ -11914,6 +12335,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: scheduled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: scheduled_at__date
         required: false
         in: query
@@ -11984,6 +12412,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: start_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: start_time__date
         required: false
         in: query
@@ -12054,6 +12489,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: started_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: started_at__date
         required: false
         in: query
@@ -12197,6 +12639,13 @@ paths:
         description: total_duration__lte
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -12454,6 +12903,13 @@ paths:
         description: assignees__id__in
         schema:
           type: string
+      - name: commited_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: commited_at__date
         required: false
         in: query
@@ -12524,6 +12980,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: completed_at__date
         required: false
         in: query
@@ -12594,6 +13057,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -12676,6 +13146,13 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
+      - name: end_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: end_time__date
         required: false
         in: query
@@ -12746,6 +13223,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: failed_at__date
         required: false
         in: query
@@ -12864,6 +13348,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: ready_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: ready_at__date
         required: false
         in: query
@@ -12934,6 +13425,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: scheduled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: scheduled_at__date
         required: false
         in: query
@@ -13004,6 +13502,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: start_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: start_time__date
         required: false
         in: query
@@ -13074,6 +13579,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: started_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: started_at__date
         required: false
         in: query
@@ -13217,6 +13729,13 @@ paths:
         description: total_duration__lte
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -13317,6 +13836,13 @@ paths:
         description: assignees__id__in
         schema:
           type: string
+      - name: commited_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: commited_at__date
         required: false
         in: query
@@ -13387,6 +13913,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: completed_at__date
         required: false
         in: query
@@ -13457,6 +13990,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -13539,6 +14079,13 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
+      - name: end_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: end_time__date
         required: false
         in: query
@@ -13609,6 +14156,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: failed_at__date
         required: false
         in: query
@@ -13727,6 +14281,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: ready_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: ready_at__date
         required: false
         in: query
@@ -13797,6 +14358,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: scheduled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: scheduled_at__date
         required: false
         in: query
@@ -13867,6 +14435,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: start_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: start_time__date
         required: false
         in: query
@@ -13937,6 +14512,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: started_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: started_at__date
         required: false
         in: query
@@ -14080,6 +14662,13 @@ paths:
         description: total_duration__lte
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -14229,6 +14818,13 @@ paths:
         description: code__in
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -14305,6 +14901,13 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
+      - name: end_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: end_time__date
         required: false
         in: query
@@ -14433,6 +15036,13 @@ paths:
         description: A search term.
         schema:
           type: string
+      - name: start_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: start_time__date
         required: false
         in: query
@@ -14519,6 +15129,13 @@ paths:
         description: state__in
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -14801,6 +15418,13 @@ paths:
     get:
       operationId: signatures_list
       parameters:
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -14967,6 +15591,13 @@ paths:
         description: task
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -15196,6 +15827,13 @@ paths:
         description: alphanumeric_sender_id__icontains
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -15272,6 +15910,13 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
+      - name: failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: failed_at__date
         required: false
         in: query
@@ -15436,6 +16081,13 @@ paths:
         description: provider__in
         schema:
           type: string
+      - name: received_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: received_at__date
         required: false
         in: query
@@ -15542,6 +16194,13 @@ paths:
         description: segments_count__lte
         schema:
           type: string
+      - name: sent_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: sent_at__date
         required: false
         in: query
@@ -15630,6 +16289,13 @@ paths:
         description: state__in
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -15950,6 +16616,13 @@ paths:
           - pick_up
           - drop_off
           - warehouse
+      - name: complete_after
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: complete_after__date
         required: false
         in: query
@@ -16020,6 +16693,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: complete_before
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: complete_before__date
         required: false
         in: query
@@ -16090,6 +16770,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -16185,6 +16872,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: position
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: position__date
         required: false
         in: query
@@ -16255,6 +16949,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -16375,6 +17076,13 @@ paths:
     get:
       operationId: task_commands_list
       parameters:
+      - name: accepted_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: accepted_at__date
         required: false
         in: query
@@ -16472,6 +17180,13 @@ paths:
         description: assignee
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -16561,6 +17276,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: rejected_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: rejected_at__date
         required: false
         in: query
@@ -16659,6 +17381,13 @@ paths:
         description: time
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -16876,6 +17605,13 @@ paths:
         description: comma separated value
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -17038,6 +17774,13 @@ paths:
           - cancelled
           - away
           - near
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -17179,6 +17922,13 @@ paths:
         description: assignee
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -17369,6 +18119,13 @@ paths:
         description: to_state__in
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -17706,6 +18463,13 @@ paths:
         description: address__formatted_address__search
         schema:
           type: string
+      - name: address__geocode_failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: address__geocode_failed_at__date
         required: false
         in: query
@@ -17776,6 +18540,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: address__geocoded_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: address__geocoded_at__date
         required: false
         in: query
@@ -18342,6 +19113,13 @@ paths:
         schema:
           type: string
         example: abc,def
+      - name: cancelled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: cancelled_at__date
         required: false
         in: query
@@ -18429,6 +19207,13 @@ paths:
         description: category__in
         schema:
           type: string
+      - name: complete_after
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: complete_after__date
         required: false
         in: query
@@ -18499,6 +19284,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: complete_before
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: complete_before__date
         required: false
         in: query
@@ -18569,6 +19361,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: completed_at__date
         required: false
         in: query
@@ -18934,6 +19733,13 @@ paths:
         description: contact_id__isnull
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -19649,6 +20455,13 @@ paths:
         description: metadata__forms_count__lte
         schema:
           type: string
+      - name: metadata__last_accepted_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_accepted_at__date
         required: false
         in: query
@@ -19719,6 +20532,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_active_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_active_at__date
         required: false
         in: query
@@ -19789,6 +20609,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_assigned_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_assigned_at__date
         required: false
         in: query
@@ -19859,6 +20686,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_cancelled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_cancelled_at__date
         required: false
         in: query
@@ -19929,6 +20763,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_completed_at__date
         required: false
         in: query
@@ -19999,6 +20840,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_failed_at__date
         required: false
         in: query
@@ -20069,6 +20917,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_transit_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_transit_at__date
         required: false
         in: query
@@ -20139,6 +20994,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_unassigned_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_unassigned_at__date
         required: false
         in: query
@@ -20408,6 +21270,13 @@ paths:
         description: order__auto_assign
         schema:
           type: string
+      - name: order__created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: order__created_at__date
         required: false
         in: query
@@ -20809,6 +21678,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: position
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: position__date
         required: false
         in: query
@@ -21041,6 +21917,13 @@ paths:
         description: route_id__isnull
         schema:
           type: string
+      - name: scheduled_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: scheduled_time__date
         required: false
         in: query
@@ -21216,6 +22099,13 @@ paths:
         description: unassignee_id__isnull
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -21315,6 +22205,13 @@ paths:
     get:
       operationId: task_forms_list
       parameters:
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -21404,6 +22301,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -21675,6 +22579,13 @@ paths:
         description: account
         schema:
           type: string
+      - name: completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: completed_at__date
         required: false
         in: query
@@ -21745,6 +22656,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -21821,6 +22739,13 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
+      - name: failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: failed_at__date
         required: false
         in: query
@@ -21904,6 +22829,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: started_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: started_at__date
         required: false
         in: query
@@ -21985,6 +22917,13 @@ paths:
           - started
           - completed
           - failed
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -22147,6 +23086,13 @@ paths:
         description: account
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -22272,6 +23218,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -22428,6 +23381,13 @@ paths:
     get:
       operationId: task_metadatas_list
       parameters:
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -22523,6 +23483,13 @@ paths:
         description: task
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -22835,6 +23802,13 @@ paths:
         description: address__formatted_address__search
         schema:
           type: string
+      - name: address__geocode_failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: address__geocode_failed_at__date
         required: false
         in: query
@@ -22905,6 +23879,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: address__geocoded_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: address__geocoded_at__date
         required: false
         in: query
@@ -23471,6 +24452,13 @@ paths:
         schema:
           type: string
         example: abc,def
+      - name: cancelled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: cancelled_at__date
         required: false
         in: query
@@ -23558,6 +24546,13 @@ paths:
         description: category__in
         schema:
           type: string
+      - name: complete_after
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: complete_after__date
         required: false
         in: query
@@ -23628,6 +24623,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: complete_before
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: complete_before__date
         required: false
         in: query
@@ -23698,6 +24700,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: completed_at__date
         required: false
         in: query
@@ -24063,6 +25072,13 @@ paths:
         description: contact_id__isnull
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -24770,6 +25786,13 @@ paths:
         description: metadata__forms_count__lte
         schema:
           type: string
+      - name: metadata__last_accepted_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_accepted_at__date
         required: false
         in: query
@@ -24840,6 +25863,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_active_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_active_at__date
         required: false
         in: query
@@ -24910,6 +25940,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_assigned_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_assigned_at__date
         required: false
         in: query
@@ -24980,6 +26017,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_cancelled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_cancelled_at__date
         required: false
         in: query
@@ -25050,6 +26094,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_completed_at__date
         required: false
         in: query
@@ -25120,6 +26171,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_failed_at__date
         required: false
         in: query
@@ -25190,6 +26248,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_transit_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_transit_at__date
         required: false
         in: query
@@ -25260,6 +26325,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_unassigned_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_unassigned_at__date
         required: false
         in: query
@@ -25529,6 +26601,13 @@ paths:
         description: order__auto_assign
         schema:
           type: string
+      - name: order__created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: order__created_at__date
         required: false
         in: query
@@ -25924,6 +27003,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: position
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: position__date
         required: false
         in: query
@@ -26156,6 +27242,13 @@ paths:
         description: route_id__isnull
         schema:
           type: string
+      - name: scheduled_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: scheduled_time__date
         required: false
         in: query
@@ -26331,6 +27424,13 @@ paths:
         description: unassignee_id__isnull
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -28088,6 +29188,13 @@ paths:
         description: address__formatted_address__search
         schema:
           type: string
+      - name: address__geocode_failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: address__geocode_failed_at__date
         required: false
         in: query
@@ -28158,6 +29265,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: address__geocoded_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: address__geocoded_at__date
         required: false
         in: query
@@ -28724,6 +29838,13 @@ paths:
         schema:
           type: string
         example: abc,def
+      - name: cancelled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: cancelled_at__date
         required: false
         in: query
@@ -28811,6 +29932,13 @@ paths:
         description: category__in
         schema:
           type: string
+      - name: complete_after
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: complete_after__date
         required: false
         in: query
@@ -28881,6 +30009,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: complete_before
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: complete_before__date
         required: false
         in: query
@@ -28951,6 +30086,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: completed_at__date
         required: false
         in: query
@@ -29316,6 +30458,13 @@ paths:
         description: contact_id__isnull
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -30030,6 +31179,13 @@ paths:
         description: metadata__forms_count__lte
         schema:
           type: string
+      - name: metadata__last_accepted_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_accepted_at__date
         required: false
         in: query
@@ -30100,6 +31256,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_active_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_active_at__date
         required: false
         in: query
@@ -30170,6 +31333,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_assigned_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_assigned_at__date
         required: false
         in: query
@@ -30240,6 +31410,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_cancelled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_cancelled_at__date
         required: false
         in: query
@@ -30310,6 +31487,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_completed_at__date
         required: false
         in: query
@@ -30380,6 +31564,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_failed_at__date
         required: false
         in: query
@@ -30450,6 +31641,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_transit_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_transit_at__date
         required: false
         in: query
@@ -30520,6 +31718,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_unassigned_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_unassigned_at__date
         required: false
         in: query
@@ -30789,6 +31994,13 @@ paths:
         description: order__auto_assign
         schema:
           type: string
+      - name: order__created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: order__created_at__date
         required: false
         in: query
@@ -31184,6 +32396,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: position
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: position__date
         required: false
         in: query
@@ -31416,6 +32635,13 @@ paths:
         description: route_id__isnull
         schema:
           type: string
+      - name: scheduled_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: scheduled_time__date
         required: false
         in: query
@@ -31591,6 +32817,13 @@ paths:
         description: unassignee_id__isnull
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -31882,6 +33115,13 @@ paths:
         description: address__formatted_address__search
         schema:
           type: string
+      - name: address__geocode_failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: address__geocode_failed_at__date
         required: false
         in: query
@@ -31952,6 +33192,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: address__geocoded_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: address__geocoded_at__date
         required: false
         in: query
@@ -32518,6 +33765,13 @@ paths:
         schema:
           type: string
         example: abc,def
+      - name: cancelled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: cancelled_at__date
         required: false
         in: query
@@ -32605,6 +33859,13 @@ paths:
         description: category__in
         schema:
           type: string
+      - name: complete_after
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: complete_after__date
         required: false
         in: query
@@ -32675,6 +33936,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: complete_before
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: complete_before__date
         required: false
         in: query
@@ -32745,6 +34013,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: completed_at__date
         required: false
         in: query
@@ -33110,6 +34385,13 @@ paths:
         description: contact_id__isnull
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -33824,6 +35106,13 @@ paths:
         description: metadata__forms_count__lte
         schema:
           type: string
+      - name: metadata__last_accepted_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_accepted_at__date
         required: false
         in: query
@@ -33894,6 +35183,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_active_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_active_at__date
         required: false
         in: query
@@ -33964,6 +35260,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_assigned_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_assigned_at__date
         required: false
         in: query
@@ -34034,6 +35337,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_cancelled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_cancelled_at__date
         required: false
         in: query
@@ -34104,6 +35414,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_completed_at__date
         required: false
         in: query
@@ -34174,6 +35491,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_failed_at__date
         required: false
         in: query
@@ -34244,6 +35568,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_transit_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_transit_at__date
         required: false
         in: query
@@ -34314,6 +35645,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_unassigned_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_unassigned_at__date
         required: false
         in: query
@@ -34583,6 +35921,13 @@ paths:
         description: order__auto_assign
         schema:
           type: string
+      - name: order__created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: order__created_at__date
         required: false
         in: query
@@ -34978,6 +36323,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: position
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: position__date
         required: false
         in: query
@@ -35210,6 +36562,13 @@ paths:
         description: route_id__isnull
         schema:
           type: string
+      - name: scheduled_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: scheduled_time__date
         required: false
         in: query
@@ -35385,6 +36744,13 @@ paths:
         description: unassignee_id__isnull
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -36114,6 +37480,13 @@ paths:
         description: address__formatted_address__search
         schema:
           type: string
+      - name: address__geocode_failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: address__geocode_failed_at__date
         required: false
         in: query
@@ -36184,6 +37557,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: address__geocoded_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: address__geocoded_at__date
         required: false
         in: query
@@ -36750,6 +38130,13 @@ paths:
         schema:
           type: string
         example: abc,def
+      - name: cancelled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: cancelled_at__date
         required: false
         in: query
@@ -36837,6 +38224,13 @@ paths:
         description: category__in
         schema:
           type: string
+      - name: complete_after
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: complete_after__date
         required: false
         in: query
@@ -36907,6 +38301,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: complete_before
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: complete_before__date
         required: false
         in: query
@@ -36977,6 +38378,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: completed_at__date
         required: false
         in: query
@@ -37342,6 +38750,13 @@ paths:
         description: contact_id__isnull
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -38056,6 +39471,13 @@ paths:
         description: metadata__forms_count__lte
         schema:
           type: string
+      - name: metadata__last_accepted_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_accepted_at__date
         required: false
         in: query
@@ -38126,6 +39548,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_active_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_active_at__date
         required: false
         in: query
@@ -38196,6 +39625,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_assigned_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_assigned_at__date
         required: false
         in: query
@@ -38266,6 +39702,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_cancelled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_cancelled_at__date
         required: false
         in: query
@@ -38336,6 +39779,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_completed_at__date
         required: false
         in: query
@@ -38406,6 +39856,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_failed_at__date
         required: false
         in: query
@@ -38476,6 +39933,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_transit_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_transit_at__date
         required: false
         in: query
@@ -38546,6 +40010,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_unassigned_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_unassigned_at__date
         required: false
         in: query
@@ -38815,6 +40286,13 @@ paths:
         description: order__auto_assign
         schema:
           type: string
+      - name: order__created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: order__created_at__date
         required: false
         in: query
@@ -39210,6 +40688,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: position
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: position__date
         required: false
         in: query
@@ -39442,6 +40927,13 @@ paths:
         description: route_id__isnull
         schema:
           type: string
+      - name: scheduled_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: scheduled_time__date
         required: false
         in: query
@@ -39617,6 +41109,13 @@ paths:
         description: unassignee_id__isnull
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -40352,6 +41851,13 @@ paths:
         description: address__formatted_address__search
         schema:
           type: string
+      - name: address__geocode_failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: address__geocode_failed_at__date
         required: false
         in: query
@@ -40422,6 +41928,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: address__geocoded_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: address__geocoded_at__date
         required: false
         in: query
@@ -40988,6 +42501,13 @@ paths:
         schema:
           type: string
         example: abc,def
+      - name: cancelled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: cancelled_at__date
         required: false
         in: query
@@ -41075,6 +42595,13 @@ paths:
         description: category__in
         schema:
           type: string
+      - name: complete_after
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: complete_after__date
         required: false
         in: query
@@ -41145,6 +42672,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: complete_before
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: complete_before__date
         required: false
         in: query
@@ -41215,6 +42749,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: completed_at__date
         required: false
         in: query
@@ -41580,6 +43121,13 @@ paths:
         description: contact_id__isnull
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -42287,6 +43835,13 @@ paths:
         description: metadata__forms_count__lte
         schema:
           type: string
+      - name: metadata__last_accepted_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_accepted_at__date
         required: false
         in: query
@@ -42357,6 +43912,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_active_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_active_at__date
         required: false
         in: query
@@ -42427,6 +43989,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_assigned_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_assigned_at__date
         required: false
         in: query
@@ -42497,6 +44066,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_cancelled_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_cancelled_at__date
         required: false
         in: query
@@ -42567,6 +44143,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_completed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_completed_at__date
         required: false
         in: query
@@ -42637,6 +44220,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_failed_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_failed_at__date
         required: false
         in: query
@@ -42707,6 +44297,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_transit_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_transit_at__date
         required: false
         in: query
@@ -42777,6 +44374,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: metadata__last_unassigned_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: metadata__last_unassigned_at__date
         required: false
         in: query
@@ -43046,6 +44650,13 @@ paths:
         description: order__auto_assign
         schema:
           type: string
+      - name: order__created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: order__created_at__date
         required: false
         in: query
@@ -43441,6 +45052,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: position
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: position__date
         required: false
         in: query
@@ -43673,6 +45291,13 @@ paths:
         description: route_id__isnull
         schema:
           type: string
+      - name: scheduled_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: scheduled_time__date
         required: false
         in: query
@@ -43848,6 +45473,13 @@ paths:
         description: unassignee_id__isnull
         schema:
           type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -43956,6 +45588,13 @@ paths:
     get:
       operationId: time_location_features_list
       parameters:
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -44055,6 +45694,13 @@ paths:
           - unknown
           - stopped
           - moving
+      - name: time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: time__date
         required: false
         in: query
@@ -44125,6 +45771,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -44394,6 +46047,13 @@ paths:
     get:
       operationId: time_locations_list
       parameters:
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -44493,6 +46153,13 @@ paths:
           - unknown
           - stopped
           - moving
+      - name: time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: time__date
         required: false
         in: query
@@ -44563,6 +46230,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -44731,6 +46405,13 @@ paths:
         description: account
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -44826,6 +46507,13 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -45463,6 +47151,13 @@ paths:
         description: account_role
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -45576,6 +47271,13 @@ paths:
           enum:
           - on_duty
           - off_duty
+      - name: timestamp
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: timestamp__date
         required: false
         in: query
@@ -46088,6 +47790,13 @@ paths:
         description: comma separated value
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -46187,6 +47896,13 @@ paths:
           - unknown
           - stopped
           - moving
+      - name: time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: time__date
         required: false
         in: query
@@ -46257,6 +47973,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -46388,6 +48111,13 @@ paths:
     get:
       operationId: worker_tracks_list
       parameters:
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -46458,6 +48188,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: end_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: end_time__date
         required: false
         in: query
@@ -46535,6 +48272,13 @@ paths:
           enum:
           - json
           - xlsx
+      - name: start_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: start_time__date
         required: false
         in: query
@@ -46605,6 +48349,13 @@ paths:
         schema:
           type: string
           format: datetime
+      - name: updated_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: updated_at__date
         required: false
         in: query
@@ -46705,6 +48456,13 @@ paths:
         description: account_role
         schema:
           type: string
+      - name: created_at
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: created_at__date
         required: false
         in: query
@@ -46818,6 +48576,13 @@ paths:
           enum:
           - on_duty
           - off_duty
+      - name: timestamp
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
       - name: timestamp__date
         required: false
         in: query
