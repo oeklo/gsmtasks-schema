@@ -50926,6 +50926,10 @@ components:
           readOnly: true
         description:
           type: string
+        s3_response_headers:
+          type: object
+          additionalProperties: {}
+          writeOnly: true
         created_by:
           type: string
           format: uri
@@ -55296,6 +55300,10 @@ components:
           allOf:
           - $ref: '#/components/schemas/Location'
           nullable: true
+        s3_response_headers:
+          type: object
+          additionalProperties: {}
+          writeOnly: true
         created_by:
           type: string
           format: uri
