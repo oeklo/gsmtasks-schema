@@ -48623,6 +48623,7 @@ components:
         - br
         - bs
         - ca
+        - ckb
         - cs
         - cy
         - da
@@ -48675,6 +48676,7 @@ components:
         - ml
         - mn
         - mr
+        - ms
         - my
         - nb
         - ne
@@ -48730,6 +48732,8 @@ components:
         * `bs` - Bosnian
 
         * `ca` - Catalan
+
+        * `ckb` - Central Kurdish (Sorani)
 
         * `cs` - Czech
 
@@ -48834,6 +48838,8 @@ components:
         * `mn` - Mongolian
 
         * `mr` - Marathi
+
+        * `ms` - Malay
 
         * `my` - Burmese
 
