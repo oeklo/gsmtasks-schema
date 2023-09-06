@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.29
+  version: 2.4.31
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -686,6 +686,40 @@ paths:
             application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountRole'
+          description: ''
+  /account_roles/{id}/resend_token/:
+    post:
+      operationId: account_roles_resend_token_create
+      description: Action to resend a new activateion token to the account role. Available
+        since version `2.4.30`
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xml
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this account role.
+        required: true
+      tags:
+      - account_roles
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json; version=${version}:
+              schema:
+                type: string
+            application/xml; version=${version}:
+              schema:
+                type: string
           description: ''
   /account_roles/{id}/token/:
     get:
@@ -49423,6 +49457,9 @@ components:
           type: string
           format: uuid
           writeOnly: true
+        password:
+          type: string
+          writeOnly: true
       required:
       - token
     AccountRoleStateEnum:
@@ -53777,6 +53814,10 @@ components:
         account:
           type: string
           format: uri
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 100
         order:
           type: string
           format: uri
@@ -54539,6 +54580,10 @@ components:
         account:
           type: string
           format: uri
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 100
         order:
           type: string
           format: uri
@@ -58730,6 +58775,8 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.31
+      - 2.4.30
       - 2.4.29
       - 2.4.28
       - 2.4.27
@@ -58779,6 +58826,8 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.31` - 2.4.31
+        * `2.4.30` - 2.4.30
         * `2.4.29` - 2.4.29
         * `2.4.28` - 2.4.28
         * `2.4.27` - 2.4.27
