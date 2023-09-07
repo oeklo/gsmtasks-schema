@@ -5713,6 +5713,18 @@ paths:
     get:
       operationId: documents_list
       parameters:
+      - name: account
+        required: false
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: account__in
+        required: false
+        in: query
+        description: comma separated value
+        schema:
+          type: string
       - name: created_at
         required: false
         in: query
@@ -5855,7 +5867,13 @@ paths:
       - name: order
         required: false
         in: query
-        description: order
+        schema:
+          type: string
+          format: uuid
+      - name: order__in
+        required: false
+        in: query
+        description: comma separated value
         schema:
           type: string
       - name: ordering
@@ -5889,7 +5907,13 @@ paths:
       - name: task
         required: false
         in: query
-        description: task
+        schema:
+          type: string
+          format: uuid
+      - name: task__in
+        required: false
+        in: query
+        description: comma separated value
         schema:
           type: string
       - name: updated_at
@@ -15452,6 +15476,18 @@ paths:
     get:
       operationId: signatures_list
       parameters:
+      - name: account
+        required: false
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: account__in
+        required: false
+        in: query
+        description: comma separated value
+        schema:
+          type: string
       - name: created_at
         required: false
         in: query
@@ -15622,7 +15658,13 @@ paths:
       - name: task
         required: false
         in: query
-        description: task
+        schema:
+          type: string
+          format: uuid
+      - name: task__in
+        required: false
+        in: query
+        description: comma separated value
         schema:
           type: string
       - name: updated_at
@@ -23505,6 +23547,12 @@ paths:
           enum:
           - json
           - xlsx
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
       - name: page_size
         required: false
         in: query
