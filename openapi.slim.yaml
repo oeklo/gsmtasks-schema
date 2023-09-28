@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.32
+  version: 2.4.33
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -50995,6 +50995,10 @@ components:
           type: string
           format: uri
           nullable: true
+        recurrence:
+          type: string
+          format: uri
+          nullable: true
         file_upload:
           type: string
           format: uri
@@ -52242,6 +52246,25 @@ components:
       description: |-
         * `webview` - Webview
         * `in-app-browser` - In app browser
+    OrderData:
+      type: object
+      properties:
+        auto_assign:
+          type: boolean
+          default: false
+        description:
+          type: string
+        reference:
+          type: string
+          default: ''
+          maxLength: 100
+        client:
+          type: string
+          format: uri
+          nullable: true
+        orderer:
+          type: object
+          additionalProperties: {}
     OrderSerializerV2:
       type: object
       properties:
@@ -52266,6 +52289,7 @@ components:
         client:
           type: string
           format: uri
+          nullable: true
         orderer:
           $ref: '#/components/schemas/NestedContact'
         tasks:
@@ -53754,6 +53778,7 @@ components:
         client:
           type: string
           format: uri
+          nullable: true
         orderer:
           $ref: '#/components/schemas/NestedContact'
         tasks:
@@ -53872,10 +53897,11 @@ components:
           type: string
           nullable: true
           maxLength: 100
-        order:
+        assignee:
           type: string
           format: uri
-        assignee:
+          nullable: true
+        route:
           type: string
           format: uri
           nullable: true
@@ -53904,6 +53930,8 @@ components:
         tasks_data:
           type: object
           additionalProperties: {}
+        order_data:
+          $ref: '#/components/schemas/OrderData'
         created_by:
           type: string
           format: uri
@@ -54638,10 +54666,11 @@ components:
           type: string
           nullable: true
           maxLength: 100
-        order:
+        assignee:
           type: string
           format: uri
-        assignee:
+          nullable: true
+        route:
           type: string
           format: uri
           nullable: true
@@ -54670,6 +54699,8 @@ components:
         tasks_data:
           type: object
           additionalProperties: {}
+        order_data:
+          $ref: '#/components/schemas/OrderData'
         created_by:
           type: string
           format: uri
@@ -54690,7 +54721,6 @@ components:
       - last_recurred_at
       - last_scheduled_at
       - next_scheduled_at
-      - order
       - rrule
       - updated_at
       - url
@@ -58829,6 +58859,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.33
       - 2.4.32
       - 2.4.31
       - 2.4.30
@@ -58881,6 +58912,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.33` - 2.4.33
         * `2.4.32` - 2.4.32
         * `2.4.31` - 2.4.31
         * `2.4.30` - 2.4.30
