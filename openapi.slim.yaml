@@ -53905,6 +53905,11 @@ components:
           type: string
           format: uri
           nullable: true
+        order_data:
+          $ref: '#/components/schemas/OrderData'
+        tasks_data:
+          type: object
+          additionalProperties: {}
         is_active:
           type: boolean
           default: true
@@ -53927,11 +53932,6 @@ components:
           format: date-time
           readOnly: true
           nullable: true
-        tasks_data:
-          type: object
-          additionalProperties: {}
-        order_data:
-          $ref: '#/components/schemas/OrderData'
         created_by:
           type: string
           format: uri
@@ -54674,6 +54674,11 @@ components:
           type: string
           format: uri
           nullable: true
+        order_data:
+          $ref: '#/components/schemas/OrderData'
+        tasks_data:
+          type: object
+          additionalProperties: {}
         is_active:
           type: boolean
           default: true
@@ -54696,11 +54701,6 @@ components:
           format: date-time
           readOnly: true
           nullable: true
-        tasks_data:
-          type: object
-          additionalProperties: {}
-        order_data:
-          $ref: '#/components/schemas/OrderData'
         created_by:
           type: string
           format: uri
