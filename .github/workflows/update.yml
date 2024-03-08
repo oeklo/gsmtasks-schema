@@ -10,15 +10,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - name: Set up Go
+      uses: actions/setup-go@v5
     - name: Install yq
       run: |
-        pip3 install yq
+        go install github.com/mikefarah/yq/v4@latest
 
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    - name: Backup original file
-      run: cp openapi.yaml openapi.old.yaml
+    - name: Backup original files
+      run: |
+        mv openapi.yaml openapi.old.yaml
+        mv openapi.slim.yaml openapi.old.slim.yaml
 
     - name: Download the latest version
       uses: enflo/curl-action@master
@@ -27,9 +31,11 @@ jobs:
 
     - name: Preprocess files
       run: |
-        expression='walk(if type == "object" then with_entries(if .key == "example" or .key == "examples" then empty else .key |= sub("[\\d.]+"; "$version") end ) else . end)'
-        yq -y "$expression" openapi.old.yaml > openapi.old.slim.yaml
-        yq -y "$expression" openapi.yaml > openapi.slim.yaml
+        VERSION=$(~/go/bin/yq e '.info.version' openapi.yaml)
+        sed -e "s/; version=${VERSION}/; version=\${version}/g"\
+         -e "s/[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}T[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}[+-][0-9]\{2\}:[0-9]\{2\}/\${date}/g"\
+         -e "s/[0-9a-fA-F]\{8\}-[0-9a-fA-F]\{4\}-[0-9a-fA-F]\{4\}-[0-9a-fA-F]\{4\}-[0-9a-fA-F]\{12\}/\${uuid}/g"\
+         openapi.yaml > openapi.slim.yaml
 
     - name: Compare files
       run: |
@@ -49,8 +55,9 @@ jobs:
     - name: Commit and push changes
       if: ${{ steps.compare.outputs.exit_code == 1 }}
       run: |
+        VERSION=$(~/go/bin/yq e '.info.version' openapi.yaml)
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
         git add openapi.yaml openapi.slim.yaml
-        git commit -m "Update OpenAPI file"
+        git commit -m "Update OpenAPI ${VERSION}"
         git push
