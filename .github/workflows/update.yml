@@ -17,7 +17,7 @@ jobs:
         go install github.com/mikefarah/yq/v4@latest
 
     - name: Checkout repository
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
 
     - name: Backup original files
       run: |
