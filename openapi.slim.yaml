@@ -58697,8 +58697,7 @@ components:
         last_task_images:
           type: array
           items:
-            type: str
-          readOnly: true
+            type: string
         logo:
           type: string
           format: uri
