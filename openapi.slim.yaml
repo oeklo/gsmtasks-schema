@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.35
+  version: 2.4.36
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -17805,6 +17805,8 @@ paths:
         schema:
           type: string
           enum:
+          - draft
+          - scheduled
           - unassigned
           - assigned
           - accepted
@@ -17846,6 +17848,8 @@ paths:
         schema:
           type: string
           enum:
+          - draft
+          - scheduled
           - unassigned
           - assigned
           - accepted
@@ -18138,6 +18142,8 @@ paths:
         schema:
           type: string
           enum:
+          - draft
+          - scheduled
           - unassigned
           - assigned
           - accepted
@@ -18185,6 +18191,8 @@ paths:
         schema:
           type: string
           enum:
+          - draft
+          - scheduled
           - unassigned
           - assigned
           - accepted
@@ -19195,6 +19203,83 @@ paths:
         schema:
           type: string
         example: abc,def
+      - name: calendar_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__date
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__date_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__gt
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gt_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gte
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gte_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lt
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lt_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lte
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lte_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
       - name: cancelled_at
         required: false
         in: query
@@ -22119,6 +22204,8 @@ paths:
         schema:
           type: string
           enum:
+          - draft
+          - scheduled
           - unassigned
           - assigned
           - accepted
@@ -24540,6 +24627,83 @@ paths:
         schema:
           type: string
         example: abc,def
+      - name: calendar_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__date
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__date_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__gt
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gt_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gte
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gte_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lt
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lt_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lte
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lte_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
       - name: cancelled_at
         required: false
         in: query
@@ -27450,6 +27614,8 @@ paths:
         schema:
           type: string
           enum:
+          - draft
+          - scheduled
           - unassigned
           - assigned
           - accepted
@@ -29926,6 +30092,83 @@ paths:
         schema:
           type: string
         example: abc,def
+      - name: calendar_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__date
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__date_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__gt
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gt_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gte
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gte_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lt
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lt_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lte
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lte_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
       - name: cancelled_at
         required: false
         in: query
@@ -32843,6 +33086,8 @@ paths:
         schema:
           type: string
           enum:
+          - draft
+          - scheduled
           - unassigned
           - assigned
           - accepted
@@ -33853,6 +34098,83 @@ paths:
         schema:
           type: string
         example: abc,def
+      - name: calendar_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__date
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__date_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__gt
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gt_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gte
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gte_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lt
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lt_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lte
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lte_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
       - name: cancelled_at
         required: false
         in: query
@@ -36770,6 +37092,8 @@ paths:
         schema:
           type: string
           enum:
+          - draft
+          - scheduled
           - unassigned
           - assigned
           - accepted
@@ -38218,6 +38542,83 @@ paths:
         schema:
           type: string
         example: abc,def
+      - name: calendar_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__date
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__date_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__gt
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gt_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gte
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gte_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lt
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lt_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lte
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lte_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
       - name: cancelled_at
         required: false
         in: query
@@ -41135,6 +41536,8 @@ paths:
         schema:
           type: string
           enum:
+          - draft
+          - scheduled
           - unassigned
           - assigned
           - accepted
@@ -42589,6 +42992,83 @@ paths:
         schema:
           type: string
         example: abc,def
+      - name: calendar_time
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__date
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__date_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: date
+      - name: calendar_time__gt
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gt_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gte
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__gte_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lt
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lt_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lte
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
+      - name: calendar_time__lte_or_isnull
+        required: false
+        in: query
+        example: '${date}'
+        schema:
+          type: string
+          format: datetime
       - name: cancelled_at
         required: false
         in: query
@@ -45499,6 +45979,8 @@ paths:
         schema:
           type: string
           enum:
+          - draft
+          - scheduled
           - unassigned
           - assigned
           - accepted
@@ -52316,6 +52798,10 @@ components:
           type: string
           format: uri
           readOnly: true
+        recurrence:
+          type: string
+          format: uri
+          readOnly: true
         created_at:
           type: string
           format: date-time
@@ -52329,6 +52815,7 @@ components:
       - created_at
       - created_by
       - documents
+      - recurrence
       - updated_at
       - url
     PaginatedAccountList:
@@ -53805,6 +54292,10 @@ components:
           type: string
           format: uri
           readOnly: true
+        recurrence:
+          type: string
+          format: uri
+          readOnly: true
         created_at:
           type: string
           format: date-time
@@ -53915,6 +54406,9 @@ components:
           default: true
         rrule:
           type: string
+        recreate_tasks:
+          type: boolean
+          writeOnly: true
         timezone:
           $ref: '#/components/schemas/TimezoneEnum'
         last_recurred_at:
@@ -54180,6 +54674,11 @@ components:
           nullable: true
         description:
           type: string
+        calendar_time:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
         complete_after:
           type: string
           format: date-time
@@ -54251,6 +54750,10 @@ components:
           items:
             type: string
             format: uri
+          readOnly: true
+        recurrence:
+          type: string
+          format: uri
           readOnly: true
         issues:
           type: array
@@ -54684,6 +55187,9 @@ components:
           default: true
         rrule:
           type: string
+        recreate_tasks:
+          type: boolean
+          writeOnly: true
         timezone:
           $ref: '#/components/schemas/TimezoneEnum'
         last_recurred_at:
@@ -55873,6 +56379,8 @@ components:
                 * `warehouse` - Warehouse
             state:
               enum:
+              - draft
+              - scheduled
               - unassigned
               - assigned
               - accepted
@@ -55883,6 +56391,8 @@ components:
               - cancelled
               type: string
               description: |-
+                * `draft` - Draft
+                * `scheduled` - Scheduled
                 * `unassigned` - Unassigned
                 * `assigned` - Assigned
                 * `accepted` - Accepted
@@ -56248,6 +56758,11 @@ components:
           readOnly: true
         description:
           type: string
+        calendar_time:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
         complete_after:
           type: string
           format: date-time
@@ -56320,6 +56835,10 @@ components:
             type: string
             format: uri
           readOnly: true
+        recurrence:
+          type: string
+          format: uri
+          readOnly: true
         issues:
           type: array
           items:
@@ -56350,6 +56869,7 @@ components:
       - account
       - actions
       - assignee_proximity
+      - calendar_time
       - cancelled_at
       - completed_at
       - contact_address_external_id
@@ -56359,6 +56879,7 @@ components:
       - forms
       - issues
       - orderer_name
+      - recurrence
       - state
       - trackers
       - updated_at
@@ -56426,6 +56947,8 @@ components:
               readOnly: true
             from_state:
               enum:
+              - draft
+              - scheduled
               - unassigned
               - assigned
               - accepted
@@ -56438,6 +56961,8 @@ components:
               - near
               type: string
               description: |-
+                * `draft` - Draft
+                * `scheduled` - Scheduled
                 * `unassigned` - Unassigned
                 * `assigned` - Assigned
                 * `accepted` - Accepted
@@ -56451,6 +56976,8 @@ components:
               readOnly: true
             to_state:
               enum:
+              - draft
+              - scheduled
               - unassigned
               - assigned
               - accepted
@@ -56463,6 +56990,8 @@ components:
               - near
               type: string
               description: |-
+                * `draft` - Draft
+                * `scheduled` - Scheduled
                 * `unassigned` - Unassigned
                 * `assigned` - Assigned
                 * `accepted` - Accepted
@@ -56505,6 +57034,8 @@ components:
             $ref: '#/components/schemas/TaskEventTrack'
     TaskEventTransitionStatesEnum:
       enum:
+      - draft
+      - scheduled
       - unassigned
       - assigned
       - accepted
@@ -56517,6 +57048,8 @@ components:
       - near
       type: string
       description: |-
+        * `draft` - Draft
+        * `scheduled` - Scheduled
         * `unassigned` - Unassigned
         * `assigned` - Assigned
         * `accepted` - Accepted
@@ -57199,6 +57732,11 @@ components:
           nullable: true
         description:
           type: string
+        calendar_time:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
         complete_after:
           type: string
           format: date-time
@@ -57271,6 +57809,10 @@ components:
             type: string
             format: uri
           readOnly: true
+        recurrence:
+          type: string
+          format: uri
+          readOnly: true
         issues:
           type: array
           items:
@@ -57301,6 +57843,7 @@ components:
       - account
       - actions
       - assignee_proximity
+      - calendar_time
       - cancelled_at
       - completed_at
       - counts
@@ -57309,12 +57852,15 @@ components:
       - forms
       - issues
       - orderer_name
+      - recurrence
       - state
       - trackers
       - updated_at
       - url
     TaskStateEnum:
       enum:
+      - draft
+      - scheduled
       - unassigned
       - assigned
       - accepted
@@ -57325,6 +57871,8 @@ components:
       - cancelled
       type: string
       description: |-
+        * `draft` - Draft
+        * `scheduled` - Scheduled
         * `unassigned` - Unassigned
         * `assigned` - Assigned
         * `accepted` - Accepted
@@ -57436,6 +57984,10 @@ components:
     TasksStatesCount:
       type: object
       properties:
+        scheduled:
+          type: integer
+          readOnly: true
+          default: 0
         unassigned:
           type: integer
           readOnly: true
@@ -57475,6 +58027,7 @@ components:
       - cancelled
       - completed
       - failed
+      - scheduled
       - transit
       - unassigned
     TasksStatesCountResponse:
@@ -58877,6 +59430,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.36
       - 2.4.35
       - 2.4.34
       - 2.4.33
@@ -58932,6 +59486,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.36` - 2.4.36
         * `2.4.35` - 2.4.35
         * `2.4.34` - 2.4.34
         * `2.4.33` - 2.4.33
