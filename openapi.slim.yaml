@@ -54406,7 +54406,7 @@ components:
           default: true
         rrule:
           type: string
-        recreate_tasks:
+        reset_recurrence:
           type: boolean
           writeOnly: true
         timezone:
@@ -55187,7 +55187,7 @@ components:
           default: true
         rrule:
           type: string
-        recreate_tasks:
+        reset_recurrence:
           type: boolean
           writeOnly: true
         timezone:
