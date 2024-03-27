@@ -51732,15 +51732,21 @@ components:
     FeatureAddressAutosuggestProviderEnum:
       enum:
       - google
+      - regio-ee
       - heremaps
-      - regio
       - janaseta
+      - reach-u
+      - nominatim
+      - in-ads
       type: string
       description: |-
         * `google` - Google
-        * `heremaps` - Here Maps
-        * `regio` - Regio
+        * `regio-ee` - Regio-Ee
+        * `heremaps` - Heremaps
         * `janaseta` - Jana Seta
+        * `reach-u` - Reach-U
+        * `nominatim` - Nominatim
+        * `in-ads` - In-ADS
     FieldEnum:
       enum:
       - state
