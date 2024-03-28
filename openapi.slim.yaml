@@ -51733,7 +51733,6 @@ components:
       enum:
       - google
       - regio-ee
-      - heremaps
       - janaseta
       - reach-u
       - nominatim
@@ -51742,7 +51741,6 @@ components:
       description: |-
         * `google` - Google
         * `regio-ee` - Regio-Ee
-        * `heremaps` - Heremaps
         * `janaseta` - Jana Seta
         * `reach-u` - Reach-U
         * `nominatim` - Nominatim
