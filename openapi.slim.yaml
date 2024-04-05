@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.36
+  version: 2.4.37
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -49917,6 +49917,18 @@ components:
           type: string
           format: decimal
           pattern: ^-?\d{0,1}(?:\.\d{0,1})?$
+        optimize_return_to_depot:
+          type: boolean
+        optimize_earliest_start:
+          type: string
+          format: time
+          nullable: true
+          description: 'Earliest start of vehicle '
+        optimize_latest_end:
+          type: string
+          format: time
+          nullable: true
+          description: the time the vehicle needs to be at its end location at latest.
         route_start_address:
           allOf:
           - $ref: '#/components/schemas/NestedAddress'
@@ -53612,6 +53624,18 @@ components:
           type: string
           format: decimal
           pattern: ^-?\d{0,1}(?:\.\d{0,1})?$
+        optimize_return_to_depot:
+          type: boolean
+        optimize_earliest_start:
+          type: string
+          format: time
+          nullable: true
+          description: 'Earliest start of vehicle '
+        optimize_latest_end:
+          type: string
+          format: time
+          nullable: true
+          description: the time the vehicle needs to be at its end location at latest.
         route_start_address:
           allOf:
           - $ref: '#/components/schemas/NestedAddress'
@@ -59434,6 +59458,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.37
       - 2.4.36
       - 2.4.35
       - 2.4.34
@@ -59490,6 +59515,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.37` - 2.4.37
         * `2.4.36` - 2.4.36
         * `2.4.35` - 2.4.35
         * `2.4.34` - 2.4.34
