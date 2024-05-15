@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.38
+  version: 2.4.40
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -8129,6 +8129,7 @@ paths:
           - integer
           - decimal
           - choice
+          - link
       tags:
       - metafields
       security:
@@ -8424,6 +8425,7 @@ paths:
           - assign
           - unassign
           - reject
+          - restart
           - accept
           - unaccept
           - transit
@@ -8917,6 +8919,7 @@ paths:
           - assign
           - unassign
           - reject
+          - restart
           - accept
           - unaccept
           - transit
@@ -9764,6 +9767,7 @@ paths:
           - assign
           - unassign
           - reject
+          - restart
           - accept
           - unaccept
           - transit
@@ -17244,6 +17248,7 @@ paths:
           enum:
           - update
           - reassign
+          - restart
           - assign
           - accept
           - unaccept
@@ -17781,6 +17786,7 @@ paths:
           - assign
           - unassign
           - reject
+          - restart
           - accept
           - unaccept
           - transit
@@ -18102,6 +18108,7 @@ paths:
           - assign
           - unassign
           - reject
+          - restart
           - accept
           - unaccept
           - transit
@@ -50115,6 +50122,7 @@ components:
       enum:
       - update
       - reassign
+      - restart
       - assign
       - accept
       - unaccept
@@ -50131,6 +50139,7 @@ components:
       description: |-
         * `update` - Update
         * `reassign` - Reassign
+        * `restart` - Restart
         * `assign` - Assign
         * `accept` - Accept
         * `unaccept` - Un-accept
@@ -51671,6 +51680,7 @@ components:
       - assign
       - unassign
       - reject
+      - restart
       - accept
       - unaccept
       - transit
@@ -51687,6 +51697,7 @@ components:
         * `assign` - Assign
         * `unassign` - Unassign
         * `reject` - Reject
+        * `restart` - Restart
         * `accept` - Accept
         * `unaccept` - Unaccept
         * `transit` - Transit
@@ -56957,6 +56968,7 @@ components:
               - assign
               - unassign
               - reject
+              - restart
               - accept
               - unaccept
               - transit
@@ -56973,6 +56985,7 @@ components:
                 * `assign` - Assign
                 * `unassign` - Unassign
                 * `reject` - Reject
+                * `restart` - Restart
                 * `accept` - Accept
                 * `unaccept` - Unaccept
                 * `transit` - Transit
@@ -59443,12 +59456,14 @@ components:
       - integer
       - decimal
       - choice
+      - link
       type: string
       description: |-
         * `string` - String
         * `integer` - Integer
         * `decimal` - Decimal
         * `choice` - Choice
+        * `link` - Link
     VehicleProfileEnum:
       enum:
       - bike
@@ -59469,6 +59484,8 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.40
+      - 2.4.39
       - 2.4.38
       - 2.4.37
       - 2.4.36
@@ -59527,6 +59544,8 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.40` - 2.4.40
+        * `2.4.39` - 2.4.39
         * `2.4.38` - 2.4.38
         * `2.4.37` - 2.4.37
         * `2.4.36` - 2.4.36
