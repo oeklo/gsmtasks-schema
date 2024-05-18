@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.40
+  version: 2.4.41
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -52419,7 +52419,10 @@ components:
           type: boolean
         is_persistent:
           type: boolean
-          description: Metadata, that will be copied to on recurrence.
+          description: Metadata, that will be copied during recurrence.
+        is_cloned:
+          type: boolean
+          description: Metadata, that will be copied during cloning.
         is_searchable:
           type: boolean
         show_in_list_view:
@@ -54193,7 +54196,10 @@ components:
           type: boolean
         is_persistent:
           type: boolean
-          description: Metadata, that will be copied to on recurrence.
+          description: Metadata, that will be copied during recurrence.
+        is_cloned:
+          type: boolean
+          description: Metadata, that will be copied during cloning.
         is_searchable:
           type: boolean
         show_in_list_view:
@@ -59484,6 +59490,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.41
       - 2.4.40
       - 2.4.39
       - 2.4.38
@@ -59544,6 +59551,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.41` - 2.4.41
         * `2.4.40` - 2.4.40
         * `2.4.39` - 2.4.39
         * `2.4.38` - 2.4.38
