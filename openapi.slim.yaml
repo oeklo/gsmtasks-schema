@@ -2853,38 +2853,6 @@ paths:
               schema:
                 $ref: '#/components/schemas/ClientRole'
           description: ''
-  /client_roles/{id}/notify/:
-    post:
-      operationId: client_roles_notify_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this client role.
-        required: true
-      tags:
-      - client_roles
-      security:
-      - tokenAuth: []
-      responses:
-        '200':
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: '#/components/schemas/ClientRole'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: '#/components/schemas/ClientRole'
-          description: ''
   /clients/:
     get:
       operationId: clients_list
@@ -11229,6 +11197,7 @@ paths:
           - Africa/Addis_Ababa
           - Africa/Algiers
           - Africa/Asmara
+          - Africa/Asmera
           - Africa/Bamako
           - Africa/Bangui
           - Africa/Banjul
@@ -11273,6 +11242,7 @@ paths:
           - Africa/Ouagadougou
           - Africa/Porto-Novo
           - Africa/Sao_Tome
+          - Africa/Timbuktu
           - Africa/Tripoli
           - Africa/Tunis
           - Africa/Windhoek
@@ -11283,6 +11253,7 @@ paths:
           - America/Araguaina
           - America/Argentina/Buenos_Aires
           - America/Argentina/Catamarca
+          - America/Argentina/ComodRivadavia
           - America/Argentina/Cordoba
           - America/Argentina/Jujuy
           - America/Argentina/La_Rioja
@@ -11296,6 +11267,7 @@ paths:
           - America/Aruba
           - America/Asuncion
           - America/Atikokan
+          - America/Atka
           - America/Bahia
           - America/Bahia_Banderas
           - America/Barbados
@@ -11305,15 +11277,19 @@ paths:
           - America/Boa_Vista
           - America/Bogota
           - America/Boise
+          - America/Buenos_Aires
           - America/Cambridge_Bay
           - America/Campo_Grande
           - America/Cancun
           - America/Caracas
+          - America/Catamarca
           - America/Cayenne
           - America/Cayman
           - America/Chicago
           - America/Chihuahua
           - America/Ciudad_Juarez
+          - America/Coral_Harbour
+          - America/Cordoba
           - America/Costa_Rica
           - America/Creston
           - America/Cuiaba
@@ -11327,9 +11303,12 @@ paths:
           - America/Edmonton
           - America/Eirunepe
           - America/El_Salvador
+          - America/Ensenada
           - America/Fort_Nelson
+          - America/Fort_Wayne
           - America/Fortaleza
           - America/Glace_Bay
+          - America/Godthab
           - America/Goose_Bay
           - America/Grand_Turk
           - America/Grenada
@@ -11348,16 +11327,20 @@ paths:
           - America/Indiana/Vevay
           - America/Indiana/Vincennes
           - America/Indiana/Winamac
+          - America/Indianapolis
           - America/Inuvik
           - America/Iqaluit
           - America/Jamaica
+          - America/Jujuy
           - America/Juneau
           - America/Kentucky/Louisville
           - America/Kentucky/Monticello
+          - America/Knox_IN
           - America/Kralendijk
           - America/La_Paz
           - America/Lima
           - America/Los_Angeles
+          - America/Louisville
           - America/Lower_Princes
           - America/Maceio
           - America/Managua
@@ -11366,6 +11349,7 @@ paths:
           - America/Martinique
           - America/Matamoros
           - America/Mazatlan
+          - America/Mendoza
           - America/Menominee
           - America/Merida
           - America/Metlakatla
@@ -11374,9 +11358,11 @@ paths:
           - America/Moncton
           - America/Monterrey
           - America/Montevideo
+          - America/Montreal
           - America/Montserrat
           - America/Nassau
           - America/New_York
+          - America/Nipigon
           - America/Nome
           - America/Noronha
           - America/North_Dakota/Beulah
@@ -11385,23 +11371,29 @@ paths:
           - America/Nuuk
           - America/Ojinaga
           - America/Panama
+          - America/Pangnirtung
           - America/Paramaribo
           - America/Phoenix
           - America/Port-au-Prince
           - America/Port_of_Spain
+          - America/Porto_Acre
           - America/Porto_Velho
           - America/Puerto_Rico
           - America/Punta_Arenas
+          - America/Rainy_River
           - America/Rankin_Inlet
           - America/Recife
           - America/Regina
           - America/Resolute
           - America/Rio_Branco
+          - America/Rosario
+          - America/Santa_Isabel
           - America/Santarem
           - America/Santiago
           - America/Santo_Domingo
           - America/Sao_Paulo
           - America/Scoresbysund
+          - America/Shiprock
           - America/Sitka
           - America/St_Barthelemy
           - America/St_Johns
@@ -11412,13 +11404,16 @@ paths:
           - America/Swift_Current
           - America/Tegucigalpa
           - America/Thule
+          - America/Thunder_Bay
           - America/Tijuana
           - America/Toronto
           - America/Tortola
           - America/Vancouver
+          - America/Virgin
           - America/Whitehorse
           - America/Winnipeg
           - America/Yakutat
+          - America/Yellowknife
           - Antarctica/Casey
           - Antarctica/Davis
           - Antarctica/DumontDUrville
@@ -11427,6 +11422,7 @@ paths:
           - Antarctica/McMurdo
           - Antarctica/Palmer
           - Antarctica/Rothera
+          - Antarctica/South_Pole
           - Antarctica/Syowa
           - Antarctica/Troll
           - Antarctica/Vostok
@@ -11438,6 +11434,7 @@ paths:
           - Asia/Aqtau
           - Asia/Aqtobe
           - Asia/Ashgabat
+          - Asia/Ashkhabad
           - Asia/Atyrau
           - Asia/Baghdad
           - Asia/Bahrain
@@ -11447,9 +11444,13 @@ paths:
           - Asia/Beirut
           - Asia/Bishkek
           - Asia/Brunei
+          - Asia/Calcutta
           - Asia/Chita
           - Asia/Choibalsan
+          - Asia/Chongqing
+          - Asia/Chungking
           - Asia/Colombo
+          - Asia/Dacca
           - Asia/Damascus
           - Asia/Dhaka
           - Asia/Dili
@@ -11457,24 +11458,29 @@ paths:
           - Asia/Dushanbe
           - Asia/Famagusta
           - Asia/Gaza
+          - Asia/Harbin
           - Asia/Hebron
           - Asia/Ho_Chi_Minh
           - Asia/Hong_Kong
           - Asia/Hovd
           - Asia/Irkutsk
+          - Asia/Istanbul
           - Asia/Jakarta
           - Asia/Jayapura
           - Asia/Jerusalem
           - Asia/Kabul
           - Asia/Kamchatka
           - Asia/Karachi
+          - Asia/Kashgar
           - Asia/Kathmandu
+          - Asia/Katmandu
           - Asia/Khandyga
           - Asia/Kolkata
           - Asia/Krasnoyarsk
           - Asia/Kuala_Lumpur
           - Asia/Kuching
           - Asia/Kuwait
+          - Asia/Macao
           - Asia/Macau
           - Asia/Magadan
           - Asia/Makassar
@@ -11491,7 +11497,9 @@ paths:
           - Asia/Qatar
           - Asia/Qostanay
           - Asia/Qyzylorda
+          - Asia/Rangoon
           - Asia/Riyadh
+          - Asia/Saigon
           - Asia/Sakhalin
           - Asia/Samarkand
           - Asia/Seoul
@@ -11502,10 +11510,14 @@ paths:
           - Asia/Tashkent
           - Asia/Tbilisi
           - Asia/Tehran
+          - Asia/Tel_Aviv
+          - Asia/Thimbu
           - Asia/Thimphu
           - Asia/Tokyo
           - Asia/Tomsk
+          - Asia/Ujung_Pandang
           - Asia/Ulaanbaatar
+          - Asia/Ulan_Bator
           - Asia/Urumqi
           - Asia/Ust-Nera
           - Asia/Vientiane
@@ -11518,33 +11530,99 @@ paths:
           - Atlantic/Bermuda
           - Atlantic/Canary
           - Atlantic/Cape_Verde
+          - Atlantic/Faeroe
           - Atlantic/Faroe
+          - Atlantic/Jan_Mayen
           - Atlantic/Madeira
           - Atlantic/Reykjavik
           - Atlantic/South_Georgia
           - Atlantic/St_Helena
           - Atlantic/Stanley
+          - Australia/ACT
           - Australia/Adelaide
           - Australia/Brisbane
           - Australia/Broken_Hill
+          - Australia/Canberra
+          - Australia/Currie
           - Australia/Darwin
           - Australia/Eucla
           - Australia/Hobart
+          - Australia/LHI
           - Australia/Lindeman
           - Australia/Lord_Howe
           - Australia/Melbourne
+          - Australia/NSW
+          - Australia/North
           - Australia/Perth
+          - Australia/Queensland
+          - Australia/South
           - Australia/Sydney
+          - Australia/Tasmania
+          - Australia/Victoria
+          - Australia/West
+          - Australia/Yancowinna
+          - Brazil/Acre
+          - Brazil/DeNoronha
+          - Brazil/East
+          - Brazil/West
+          - CET
+          - CST6CDT
           - Canada/Atlantic
           - Canada/Central
           - Canada/Eastern
           - Canada/Mountain
           - Canada/Newfoundland
           - Canada/Pacific
+          - Canada/Saskatchewan
+          - Canada/Yukon
+          - Chile/Continental
+          - Chile/EasterIsland
+          - Cuba
+          - EET
+          - EST
+          - EST5EDT
+          - Egypt
+          - Eire
+          - Etc/GMT
+          - Etc/GMT+0
+          - Etc/GMT+1
+          - Etc/GMT+10
+          - Etc/GMT+11
+          - Etc/GMT+12
+          - Etc/GMT+2
+          - Etc/GMT+3
+          - Etc/GMT+4
+          - Etc/GMT+5
+          - Etc/GMT+6
+          - Etc/GMT+7
+          - Etc/GMT+8
+          - Etc/GMT+9
+          - Etc/GMT-0
+          - Etc/GMT-1
+          - Etc/GMT-10
+          - Etc/GMT-11
+          - Etc/GMT-12
+          - Etc/GMT-13
+          - Etc/GMT-14
+          - Etc/GMT-2
+          - Etc/GMT-3
+          - Etc/GMT-4
+          - Etc/GMT-5
+          - Etc/GMT-6
+          - Etc/GMT-7
+          - Etc/GMT-8
+          - Etc/GMT-9
+          - Etc/GMT0
+          - Etc/Greenwich
+          - Etc/UCT
+          - Etc/UTC
+          - Etc/Universal
+          - Etc/Zulu
           - Europe/Amsterdam
           - Europe/Andorra
           - Europe/Astrakhan
           - Europe/Athens
+          - Europe/Belfast
           - Europe/Belgrade
           - Europe/Berlin
           - Europe/Bratislava
@@ -11562,6 +11640,7 @@ paths:
           - Europe/Istanbul
           - Europe/Jersey
           - Europe/Kaliningrad
+          - Europe/Kiev
           - Europe/Kirov
           - Europe/Kyiv
           - Europe/Lisbon
@@ -11574,6 +11653,7 @@ paths:
           - Europe/Minsk
           - Europe/Monaco
           - Europe/Moscow
+          - Europe/Nicosia
           - Europe/Oslo
           - Europe/Paris
           - Europe/Podgorica
@@ -11590,7 +11670,9 @@ paths:
           - Europe/Stockholm
           - Europe/Tallinn
           - Europe/Tirane
+          - Europe/Tiraspol
           - Europe/Ulyanovsk
+          - Europe/Uzhgorod
           - Europe/Vaduz
           - Europe/Vatican
           - Europe/Vienna
@@ -11598,8 +11680,19 @@ paths:
           - Europe/Volgograd
           - Europe/Warsaw
           - Europe/Zagreb
+          - Europe/Zaporozhye
           - Europe/Zurich
+          - Factory
+          - GB
+          - GB-Eire
           - GMT
+          - GMT+0
+          - GMT-0
+          - GMT0
+          - Greenwich
+          - HST
+          - Hongkong
+          - Iceland
           - Indian/Antananarivo
           - Indian/Chagos
           - Indian/Christmas
@@ -11611,6 +11704,23 @@ paths:
           - Indian/Mauritius
           - Indian/Mayotte
           - Indian/Reunion
+          - Iran
+          - Israel
+          - Jamaica
+          - Japan
+          - Kwajalein
+          - Libya
+          - MET
+          - MST
+          - MST7MDT
+          - Mexico/BajaNorte
+          - Mexico/BajaSur
+          - Mexico/General
+          - NZ
+          - NZ-CHAT
+          - Navajo
+          - PRC
+          - PST8PDT
           - Pacific/Apia
           - Pacific/Auckland
           - Pacific/Bougainville
@@ -11618,6 +11728,7 @@ paths:
           - Pacific/Chuuk
           - Pacific/Easter
           - Pacific/Efate
+          - Pacific/Enderbury
           - Pacific/Fakaofo
           - Pacific/Fiji
           - Pacific/Funafuti
@@ -11626,6 +11737,7 @@ paths:
           - Pacific/Guadalcanal
           - Pacific/Guam
           - Pacific/Honolulu
+          - Pacific/Johnston
           - Pacific/Kanton
           - Pacific/Kiritimati
           - Pacific/Kosrae
@@ -11641,22 +11753,43 @@ paths:
           - Pacific/Palau
           - Pacific/Pitcairn
           - Pacific/Pohnpei
+          - Pacific/Ponape
           - Pacific/Port_Moresby
           - Pacific/Rarotonga
           - Pacific/Saipan
+          - Pacific/Samoa
           - Pacific/Tahiti
           - Pacific/Tarawa
           - Pacific/Tongatapu
+          - Pacific/Truk
           - Pacific/Wake
           - Pacific/Wallis
+          - Pacific/Yap
+          - Poland
+          - Portugal
+          - ROC
+          - ROK
+          - Singapore
+          - Turkey
+          - UCT
           - US/Alaska
+          - US/Aleutian
           - US/Arizona
           - US/Central
+          - US/East-Indiana
           - US/Eastern
           - US/Hawaii
+          - US/Indiana-Starke
+          - US/Michigan
           - US/Mountain
           - US/Pacific
+          - US/Samoa
           - UTC
+          - Universal
+          - W-SU
+          - WET
+          - Zulu
+          - localtime
       tags:
       - reports
       security:
@@ -49709,7 +49842,7 @@ components:
             * `TO` - Tonga
             * `TT` - Trinidad and Tobago
             * `TN` - Tunisia
-            * `TR` - Turkey
+            * `TR` - Türkiye
             * `TV` - Tuvalu
             * `TW` - Taiwan, Province of China
             * `TZ` - Tanzania, United Republic of
@@ -51337,7 +51470,7 @@ components:
         * `TO` - Tonga
         * `TT` - Trinidad and Tobago
         * `TN` - Tunisia
-        * `TR` - Turkey
+        * `TR` - Türkiye
         * `TV` - Tuvalu
         * `TW` - Taiwan, Province of China
         * `TZ` - Tanzania, United Republic of
@@ -53471,7 +53604,7 @@ components:
             * `TO` - Tonga
             * `TT` - Trinidad and Tobago
             * `TN` - Tunisia
-            * `TR` - Turkey
+            * `TR` - Türkiye
             * `TV` - Tuvalu
             * `TW` - Taiwan, Province of China
             * `TZ` - Tanzania, United Republic of
@@ -58300,6 +58433,7 @@ components:
       - Africa/Addis_Ababa
       - Africa/Algiers
       - Africa/Asmara
+      - Africa/Asmera
       - Africa/Bamako
       - Africa/Bangui
       - Africa/Banjul
@@ -58344,6 +58478,7 @@ components:
       - Africa/Ouagadougou
       - Africa/Porto-Novo
       - Africa/Sao_Tome
+      - Africa/Timbuktu
       - Africa/Tripoli
       - Africa/Tunis
       - Africa/Windhoek
@@ -58354,6 +58489,7 @@ components:
       - America/Araguaina
       - America/Argentina/Buenos_Aires
       - America/Argentina/Catamarca
+      - America/Argentina/ComodRivadavia
       - America/Argentina/Cordoba
       - America/Argentina/Jujuy
       - America/Argentina/La_Rioja
@@ -58367,6 +58503,7 @@ components:
       - America/Aruba
       - America/Asuncion
       - America/Atikokan
+      - America/Atka
       - America/Bahia
       - America/Bahia_Banderas
       - America/Barbados
@@ -58376,15 +58513,19 @@ components:
       - America/Boa_Vista
       - America/Bogota
       - America/Boise
+      - America/Buenos_Aires
       - America/Cambridge_Bay
       - America/Campo_Grande
       - America/Cancun
       - America/Caracas
+      - America/Catamarca
       - America/Cayenne
       - America/Cayman
       - America/Chicago
       - America/Chihuahua
       - America/Ciudad_Juarez
+      - America/Coral_Harbour
+      - America/Cordoba
       - America/Costa_Rica
       - America/Creston
       - America/Cuiaba
@@ -58398,9 +58539,12 @@ components:
       - America/Edmonton
       - America/Eirunepe
       - America/El_Salvador
+      - America/Ensenada
       - America/Fort_Nelson
+      - America/Fort_Wayne
       - America/Fortaleza
       - America/Glace_Bay
+      - America/Godthab
       - America/Goose_Bay
       - America/Grand_Turk
       - America/Grenada
@@ -58419,16 +58563,20 @@ components:
       - America/Indiana/Vevay
       - America/Indiana/Vincennes
       - America/Indiana/Winamac
+      - America/Indianapolis
       - America/Inuvik
       - America/Iqaluit
       - America/Jamaica
+      - America/Jujuy
       - America/Juneau
       - America/Kentucky/Louisville
       - America/Kentucky/Monticello
+      - America/Knox_IN
       - America/Kralendijk
       - America/La_Paz
       - America/Lima
       - America/Los_Angeles
+      - America/Louisville
       - America/Lower_Princes
       - America/Maceio
       - America/Managua
@@ -58437,6 +58585,7 @@ components:
       - America/Martinique
       - America/Matamoros
       - America/Mazatlan
+      - America/Mendoza
       - America/Menominee
       - America/Merida
       - America/Metlakatla
@@ -58445,9 +58594,11 @@ components:
       - America/Moncton
       - America/Monterrey
       - America/Montevideo
+      - America/Montreal
       - America/Montserrat
       - America/Nassau
       - America/New_York
+      - America/Nipigon
       - America/Nome
       - America/Noronha
       - America/North_Dakota/Beulah
@@ -58456,23 +58607,29 @@ components:
       - America/Nuuk
       - America/Ojinaga
       - America/Panama
+      - America/Pangnirtung
       - America/Paramaribo
       - America/Phoenix
       - America/Port-au-Prince
       - America/Port_of_Spain
+      - America/Porto_Acre
       - America/Porto_Velho
       - America/Puerto_Rico
       - America/Punta_Arenas
+      - America/Rainy_River
       - America/Rankin_Inlet
       - America/Recife
       - America/Regina
       - America/Resolute
       - America/Rio_Branco
+      - America/Rosario
+      - America/Santa_Isabel
       - America/Santarem
       - America/Santiago
       - America/Santo_Domingo
       - America/Sao_Paulo
       - America/Scoresbysund
+      - America/Shiprock
       - America/Sitka
       - America/St_Barthelemy
       - America/St_Johns
@@ -58483,13 +58640,16 @@ components:
       - America/Swift_Current
       - America/Tegucigalpa
       - America/Thule
+      - America/Thunder_Bay
       - America/Tijuana
       - America/Toronto
       - America/Tortola
       - America/Vancouver
+      - America/Virgin
       - America/Whitehorse
       - America/Winnipeg
       - America/Yakutat
+      - America/Yellowknife
       - Antarctica/Casey
       - Antarctica/Davis
       - Antarctica/DumontDUrville
@@ -58498,6 +58658,7 @@ components:
       - Antarctica/McMurdo
       - Antarctica/Palmer
       - Antarctica/Rothera
+      - Antarctica/South_Pole
       - Antarctica/Syowa
       - Antarctica/Troll
       - Antarctica/Vostok
@@ -58509,6 +58670,7 @@ components:
       - Asia/Aqtau
       - Asia/Aqtobe
       - Asia/Ashgabat
+      - Asia/Ashkhabad
       - Asia/Atyrau
       - Asia/Baghdad
       - Asia/Bahrain
@@ -58518,9 +58680,13 @@ components:
       - Asia/Beirut
       - Asia/Bishkek
       - Asia/Brunei
+      - Asia/Calcutta
       - Asia/Chita
       - Asia/Choibalsan
+      - Asia/Chongqing
+      - Asia/Chungking
       - Asia/Colombo
+      - Asia/Dacca
       - Asia/Damascus
       - Asia/Dhaka
       - Asia/Dili
@@ -58528,24 +58694,29 @@ components:
       - Asia/Dushanbe
       - Asia/Famagusta
       - Asia/Gaza
+      - Asia/Harbin
       - Asia/Hebron
       - Asia/Ho_Chi_Minh
       - Asia/Hong_Kong
       - Asia/Hovd
       - Asia/Irkutsk
+      - Asia/Istanbul
       - Asia/Jakarta
       - Asia/Jayapura
       - Asia/Jerusalem
       - Asia/Kabul
       - Asia/Kamchatka
       - Asia/Karachi
+      - Asia/Kashgar
       - Asia/Kathmandu
+      - Asia/Katmandu
       - Asia/Khandyga
       - Asia/Kolkata
       - Asia/Krasnoyarsk
       - Asia/Kuala_Lumpur
       - Asia/Kuching
       - Asia/Kuwait
+      - Asia/Macao
       - Asia/Macau
       - Asia/Magadan
       - Asia/Makassar
@@ -58562,7 +58733,9 @@ components:
       - Asia/Qatar
       - Asia/Qostanay
       - Asia/Qyzylorda
+      - Asia/Rangoon
       - Asia/Riyadh
+      - Asia/Saigon
       - Asia/Sakhalin
       - Asia/Samarkand
       - Asia/Seoul
@@ -58573,10 +58746,14 @@ components:
       - Asia/Tashkent
       - Asia/Tbilisi
       - Asia/Tehran
+      - Asia/Tel_Aviv
+      - Asia/Thimbu
       - Asia/Thimphu
       - Asia/Tokyo
       - Asia/Tomsk
+      - Asia/Ujung_Pandang
       - Asia/Ulaanbaatar
+      - Asia/Ulan_Bator
       - Asia/Urumqi
       - Asia/Ust-Nera
       - Asia/Vientiane
@@ -58589,33 +58766,99 @@ components:
       - Atlantic/Bermuda
       - Atlantic/Canary
       - Atlantic/Cape_Verde
+      - Atlantic/Faeroe
       - Atlantic/Faroe
+      - Atlantic/Jan_Mayen
       - Atlantic/Madeira
       - Atlantic/Reykjavik
       - Atlantic/South_Georgia
       - Atlantic/St_Helena
       - Atlantic/Stanley
+      - Australia/ACT
       - Australia/Adelaide
       - Australia/Brisbane
       - Australia/Broken_Hill
+      - Australia/Canberra
+      - Australia/Currie
       - Australia/Darwin
       - Australia/Eucla
       - Australia/Hobart
+      - Australia/LHI
       - Australia/Lindeman
       - Australia/Lord_Howe
       - Australia/Melbourne
+      - Australia/NSW
+      - Australia/North
       - Australia/Perth
+      - Australia/Queensland
+      - Australia/South
       - Australia/Sydney
+      - Australia/Tasmania
+      - Australia/Victoria
+      - Australia/West
+      - Australia/Yancowinna
+      - Brazil/Acre
+      - Brazil/DeNoronha
+      - Brazil/East
+      - Brazil/West
+      - CET
+      - CST6CDT
       - Canada/Atlantic
       - Canada/Central
       - Canada/Eastern
       - Canada/Mountain
       - Canada/Newfoundland
       - Canada/Pacific
+      - Canada/Saskatchewan
+      - Canada/Yukon
+      - Chile/Continental
+      - Chile/EasterIsland
+      - Cuba
+      - EET
+      - EST
+      - EST5EDT
+      - Egypt
+      - Eire
+      - Etc/GMT
+      - Etc/GMT+0
+      - Etc/GMT+1
+      - Etc/GMT+10
+      - Etc/GMT+11
+      - Etc/GMT+12
+      - Etc/GMT+2
+      - Etc/GMT+3
+      - Etc/GMT+4
+      - Etc/GMT+5
+      - Etc/GMT+6
+      - Etc/GMT+7
+      - Etc/GMT+8
+      - Etc/GMT+9
+      - Etc/GMT-0
+      - Etc/GMT-1
+      - Etc/GMT-10
+      - Etc/GMT-11
+      - Etc/GMT-12
+      - Etc/GMT-13
+      - Etc/GMT-14
+      - Etc/GMT-2
+      - Etc/GMT-3
+      - Etc/GMT-4
+      - Etc/GMT-5
+      - Etc/GMT-6
+      - Etc/GMT-7
+      - Etc/GMT-8
+      - Etc/GMT-9
+      - Etc/GMT0
+      - Etc/Greenwich
+      - Etc/UCT
+      - Etc/UTC
+      - Etc/Universal
+      - Etc/Zulu
       - Europe/Amsterdam
       - Europe/Andorra
       - Europe/Astrakhan
       - Europe/Athens
+      - Europe/Belfast
       - Europe/Belgrade
       - Europe/Berlin
       - Europe/Bratislava
@@ -58633,6 +58876,7 @@ components:
       - Europe/Istanbul
       - Europe/Jersey
       - Europe/Kaliningrad
+      - Europe/Kiev
       - Europe/Kirov
       - Europe/Kyiv
       - Europe/Lisbon
@@ -58645,6 +58889,7 @@ components:
       - Europe/Minsk
       - Europe/Monaco
       - Europe/Moscow
+      - Europe/Nicosia
       - Europe/Oslo
       - Europe/Paris
       - Europe/Podgorica
@@ -58661,7 +58906,9 @@ components:
       - Europe/Stockholm
       - Europe/Tallinn
       - Europe/Tirane
+      - Europe/Tiraspol
       - Europe/Ulyanovsk
+      - Europe/Uzhgorod
       - Europe/Vaduz
       - Europe/Vatican
       - Europe/Vienna
@@ -58669,8 +58916,19 @@ components:
       - Europe/Volgograd
       - Europe/Warsaw
       - Europe/Zagreb
+      - Europe/Zaporozhye
       - Europe/Zurich
+      - Factory
+      - GB
+      - GB-Eire
       - GMT
+      - GMT+0
+      - GMT-0
+      - GMT0
+      - Greenwich
+      - HST
+      - Hongkong
+      - Iceland
       - Indian/Antananarivo
       - Indian/Chagos
       - Indian/Christmas
@@ -58682,6 +58940,23 @@ components:
       - Indian/Mauritius
       - Indian/Mayotte
       - Indian/Reunion
+      - Iran
+      - Israel
+      - Jamaica
+      - Japan
+      - Kwajalein
+      - Libya
+      - MET
+      - MST
+      - MST7MDT
+      - Mexico/BajaNorte
+      - Mexico/BajaSur
+      - Mexico/General
+      - NZ
+      - NZ-CHAT
+      - Navajo
+      - PRC
+      - PST8PDT
       - Pacific/Apia
       - Pacific/Auckland
       - Pacific/Bougainville
@@ -58689,6 +58964,7 @@ components:
       - Pacific/Chuuk
       - Pacific/Easter
       - Pacific/Efate
+      - Pacific/Enderbury
       - Pacific/Fakaofo
       - Pacific/Fiji
       - Pacific/Funafuti
@@ -58697,6 +58973,7 @@ components:
       - Pacific/Guadalcanal
       - Pacific/Guam
       - Pacific/Honolulu
+      - Pacific/Johnston
       - Pacific/Kanton
       - Pacific/Kiritimati
       - Pacific/Kosrae
@@ -58712,22 +58989,43 @@ components:
       - Pacific/Palau
       - Pacific/Pitcairn
       - Pacific/Pohnpei
+      - Pacific/Ponape
       - Pacific/Port_Moresby
       - Pacific/Rarotonga
       - Pacific/Saipan
+      - Pacific/Samoa
       - Pacific/Tahiti
       - Pacific/Tarawa
       - Pacific/Tongatapu
+      - Pacific/Truk
       - Pacific/Wake
       - Pacific/Wallis
+      - Pacific/Yap
+      - Poland
+      - Portugal
+      - ROC
+      - ROK
+      - Singapore
+      - Turkey
+      - UCT
       - US/Alaska
+      - US/Aleutian
       - US/Arizona
       - US/Central
+      - US/East-Indiana
       - US/Eastern
       - US/Hawaii
+      - US/Indiana-Starke
+      - US/Michigan
       - US/Mountain
       - US/Pacific
+      - US/Samoa
       - UTC
+      - Universal
+      - W-SU
+      - WET
+      - Zulu
+      - localtime
       type: string
       description: |-
         * `Africa/Abidjan` - Africa/Abidjan
@@ -58735,6 +59033,7 @@ components:
         * `Africa/Addis_Ababa` - Africa/Addis_Ababa
         * `Africa/Algiers` - Africa/Algiers
         * `Africa/Asmara` - Africa/Asmara
+        * `Africa/Asmera` - Africa/Asmera
         * `Africa/Bamako` - Africa/Bamako
         * `Africa/Bangui` - Africa/Bangui
         * `Africa/Banjul` - Africa/Banjul
@@ -58779,6 +59078,7 @@ components:
         * `Africa/Ouagadougou` - Africa/Ouagadougou
         * `Africa/Porto-Novo` - Africa/Porto-Novo
         * `Africa/Sao_Tome` - Africa/Sao_Tome
+        * `Africa/Timbuktu` - Africa/Timbuktu
         * `Africa/Tripoli` - Africa/Tripoli
         * `Africa/Tunis` - Africa/Tunis
         * `Africa/Windhoek` - Africa/Windhoek
@@ -58789,6 +59089,7 @@ components:
         * `America/Araguaina` - America/Araguaina
         * `America/Argentina/Buenos_Aires` - America/Argentina/Buenos_Aires
         * `America/Argentina/Catamarca` - America/Argentina/Catamarca
+        * `America/Argentina/ComodRivadavia` - America/Argentina/ComodRivadavia
         * `America/Argentina/Cordoba` - America/Argentina/Cordoba
         * `America/Argentina/Jujuy` - America/Argentina/Jujuy
         * `America/Argentina/La_Rioja` - America/Argentina/La_Rioja
@@ -58802,6 +59103,7 @@ components:
         * `America/Aruba` - America/Aruba
         * `America/Asuncion` - America/Asuncion
         * `America/Atikokan` - America/Atikokan
+        * `America/Atka` - America/Atka
         * `America/Bahia` - America/Bahia
         * `America/Bahia_Banderas` - America/Bahia_Banderas
         * `America/Barbados` - America/Barbados
@@ -58811,15 +59113,19 @@ components:
         * `America/Boa_Vista` - America/Boa_Vista
         * `America/Bogota` - America/Bogota
         * `America/Boise` - America/Boise
+        * `America/Buenos_Aires` - America/Buenos_Aires
         * `America/Cambridge_Bay` - America/Cambridge_Bay
         * `America/Campo_Grande` - America/Campo_Grande
         * `America/Cancun` - America/Cancun
         * `America/Caracas` - America/Caracas
+        * `America/Catamarca` - America/Catamarca
         * `America/Cayenne` - America/Cayenne
         * `America/Cayman` - America/Cayman
         * `America/Chicago` - America/Chicago
         * `America/Chihuahua` - America/Chihuahua
         * `America/Ciudad_Juarez` - America/Ciudad_Juarez
+        * `America/Coral_Harbour` - America/Coral_Harbour
+        * `America/Cordoba` - America/Cordoba
         * `America/Costa_Rica` - America/Costa_Rica
         * `America/Creston` - America/Creston
         * `America/Cuiaba` - America/Cuiaba
@@ -58833,9 +59139,12 @@ components:
         * `America/Edmonton` - America/Edmonton
         * `America/Eirunepe` - America/Eirunepe
         * `America/El_Salvador` - America/El_Salvador
+        * `America/Ensenada` - America/Ensenada
         * `America/Fort_Nelson` - America/Fort_Nelson
+        * `America/Fort_Wayne` - America/Fort_Wayne
         * `America/Fortaleza` - America/Fortaleza
         * `America/Glace_Bay` - America/Glace_Bay
+        * `America/Godthab` - America/Godthab
         * `America/Goose_Bay` - America/Goose_Bay
         * `America/Grand_Turk` - America/Grand_Turk
         * `America/Grenada` - America/Grenada
@@ -58854,16 +59163,20 @@ components:
         * `America/Indiana/Vevay` - America/Indiana/Vevay
         * `America/Indiana/Vincennes` - America/Indiana/Vincennes
         * `America/Indiana/Winamac` - America/Indiana/Winamac
+        * `America/Indianapolis` - America/Indianapolis
         * `America/Inuvik` - America/Inuvik
         * `America/Iqaluit` - America/Iqaluit
         * `America/Jamaica` - America/Jamaica
+        * `America/Jujuy` - America/Jujuy
         * `America/Juneau` - America/Juneau
         * `America/Kentucky/Louisville` - America/Kentucky/Louisville
         * `America/Kentucky/Monticello` - America/Kentucky/Monticello
+        * `America/Knox_IN` - America/Knox_IN
         * `America/Kralendijk` - America/Kralendijk
         * `America/La_Paz` - America/La_Paz
         * `America/Lima` - America/Lima
         * `America/Los_Angeles` - America/Los_Angeles
+        * `America/Louisville` - America/Louisville
         * `America/Lower_Princes` - America/Lower_Princes
         * `America/Maceio` - America/Maceio
         * `America/Managua` - America/Managua
@@ -58872,6 +59185,7 @@ components:
         * `America/Martinique` - America/Martinique
         * `America/Matamoros` - America/Matamoros
         * `America/Mazatlan` - America/Mazatlan
+        * `America/Mendoza` - America/Mendoza
         * `America/Menominee` - America/Menominee
         * `America/Merida` - America/Merida
         * `America/Metlakatla` - America/Metlakatla
@@ -58880,9 +59194,11 @@ components:
         * `America/Moncton` - America/Moncton
         * `America/Monterrey` - America/Monterrey
         * `America/Montevideo` - America/Montevideo
+        * `America/Montreal` - America/Montreal
         * `America/Montserrat` - America/Montserrat
         * `America/Nassau` - America/Nassau
         * `America/New_York` - America/New_York
+        * `America/Nipigon` - America/Nipigon
         * `America/Nome` - America/Nome
         * `America/Noronha` - America/Noronha
         * `America/North_Dakota/Beulah` - America/North_Dakota/Beulah
@@ -58891,23 +59207,29 @@ components:
         * `America/Nuuk` - America/Nuuk
         * `America/Ojinaga` - America/Ojinaga
         * `America/Panama` - America/Panama
+        * `America/Pangnirtung` - America/Pangnirtung
         * `America/Paramaribo` - America/Paramaribo
         * `America/Phoenix` - America/Phoenix
         * `America/Port-au-Prince` - America/Port-au-Prince
         * `America/Port_of_Spain` - America/Port_of_Spain
+        * `America/Porto_Acre` - America/Porto_Acre
         * `America/Porto_Velho` - America/Porto_Velho
         * `America/Puerto_Rico` - America/Puerto_Rico
         * `America/Punta_Arenas` - America/Punta_Arenas
+        * `America/Rainy_River` - America/Rainy_River
         * `America/Rankin_Inlet` - America/Rankin_Inlet
         * `America/Recife` - America/Recife
         * `America/Regina` - America/Regina
         * `America/Resolute` - America/Resolute
         * `America/Rio_Branco` - America/Rio_Branco
+        * `America/Rosario` - America/Rosario
+        * `America/Santa_Isabel` - America/Santa_Isabel
         * `America/Santarem` - America/Santarem
         * `America/Santiago` - America/Santiago
         * `America/Santo_Domingo` - America/Santo_Domingo
         * `America/Sao_Paulo` - America/Sao_Paulo
         * `America/Scoresbysund` - America/Scoresbysund
+        * `America/Shiprock` - America/Shiprock
         * `America/Sitka` - America/Sitka
         * `America/St_Barthelemy` - America/St_Barthelemy
         * `America/St_Johns` - America/St_Johns
@@ -58918,13 +59240,16 @@ components:
         * `America/Swift_Current` - America/Swift_Current
         * `America/Tegucigalpa` - America/Tegucigalpa
         * `America/Thule` - America/Thule
+        * `America/Thunder_Bay` - America/Thunder_Bay
         * `America/Tijuana` - America/Tijuana
         * `America/Toronto` - America/Toronto
         * `America/Tortola` - America/Tortola
         * `America/Vancouver` - America/Vancouver
+        * `America/Virgin` - America/Virgin
         * `America/Whitehorse` - America/Whitehorse
         * `America/Winnipeg` - America/Winnipeg
         * `America/Yakutat` - America/Yakutat
+        * `America/Yellowknife` - America/Yellowknife
         * `Antarctica/Casey` - Antarctica/Casey
         * `Antarctica/Davis` - Antarctica/Davis
         * `Antarctica/DumontDUrville` - Antarctica/DumontDUrville
@@ -58933,6 +59258,7 @@ components:
         * `Antarctica/McMurdo` - Antarctica/McMurdo
         * `Antarctica/Palmer` - Antarctica/Palmer
         * `Antarctica/Rothera` - Antarctica/Rothera
+        * `Antarctica/South_Pole` - Antarctica/South_Pole
         * `Antarctica/Syowa` - Antarctica/Syowa
         * `Antarctica/Troll` - Antarctica/Troll
         * `Antarctica/Vostok` - Antarctica/Vostok
@@ -58944,6 +59270,7 @@ components:
         * `Asia/Aqtau` - Asia/Aqtau
         * `Asia/Aqtobe` - Asia/Aqtobe
         * `Asia/Ashgabat` - Asia/Ashgabat
+        * `Asia/Ashkhabad` - Asia/Ashkhabad
         * `Asia/Atyrau` - Asia/Atyrau
         * `Asia/Baghdad` - Asia/Baghdad
         * `Asia/Bahrain` - Asia/Bahrain
@@ -58953,9 +59280,13 @@ components:
         * `Asia/Beirut` - Asia/Beirut
         * `Asia/Bishkek` - Asia/Bishkek
         * `Asia/Brunei` - Asia/Brunei
+        * `Asia/Calcutta` - Asia/Calcutta
         * `Asia/Chita` - Asia/Chita
         * `Asia/Choibalsan` - Asia/Choibalsan
+        * `Asia/Chongqing` - Asia/Chongqing
+        * `Asia/Chungking` - Asia/Chungking
         * `Asia/Colombo` - Asia/Colombo
+        * `Asia/Dacca` - Asia/Dacca
         * `Asia/Damascus` - Asia/Damascus
         * `Asia/Dhaka` - Asia/Dhaka
         * `Asia/Dili` - Asia/Dili
@@ -58963,24 +59294,29 @@ components:
         * `Asia/Dushanbe` - Asia/Dushanbe
         * `Asia/Famagusta` - Asia/Famagusta
         * `Asia/Gaza` - Asia/Gaza
+        * `Asia/Harbin` - Asia/Harbin
         * `Asia/Hebron` - Asia/Hebron
         * `Asia/Ho_Chi_Minh` - Asia/Ho_Chi_Minh
         * `Asia/Hong_Kong` - Asia/Hong_Kong
         * `Asia/Hovd` - Asia/Hovd
         * `Asia/Irkutsk` - Asia/Irkutsk
+        * `Asia/Istanbul` - Asia/Istanbul
         * `Asia/Jakarta` - Asia/Jakarta
         * `Asia/Jayapura` - Asia/Jayapura
         * `Asia/Jerusalem` - Asia/Jerusalem
         * `Asia/Kabul` - Asia/Kabul
         * `Asia/Kamchatka` - Asia/Kamchatka
         * `Asia/Karachi` - Asia/Karachi
+        * `Asia/Kashgar` - Asia/Kashgar
         * `Asia/Kathmandu` - Asia/Kathmandu
+        * `Asia/Katmandu` - Asia/Katmandu
         * `Asia/Khandyga` - Asia/Khandyga
         * `Asia/Kolkata` - Asia/Kolkata
         * `Asia/Krasnoyarsk` - Asia/Krasnoyarsk
         * `Asia/Kuala_Lumpur` - Asia/Kuala_Lumpur
         * `Asia/Kuching` - Asia/Kuching
         * `Asia/Kuwait` - Asia/Kuwait
+        * `Asia/Macao` - Asia/Macao
         * `Asia/Macau` - Asia/Macau
         * `Asia/Magadan` - Asia/Magadan
         * `Asia/Makassar` - Asia/Makassar
@@ -58997,7 +59333,9 @@ components:
         * `Asia/Qatar` - Asia/Qatar
         * `Asia/Qostanay` - Asia/Qostanay
         * `Asia/Qyzylorda` - Asia/Qyzylorda
+        * `Asia/Rangoon` - Asia/Rangoon
         * `Asia/Riyadh` - Asia/Riyadh
+        * `Asia/Saigon` - Asia/Saigon
         * `Asia/Sakhalin` - Asia/Sakhalin
         * `Asia/Samarkand` - Asia/Samarkand
         * `Asia/Seoul` - Asia/Seoul
@@ -59008,10 +59346,14 @@ components:
         * `Asia/Tashkent` - Asia/Tashkent
         * `Asia/Tbilisi` - Asia/Tbilisi
         * `Asia/Tehran` - Asia/Tehran
+        * `Asia/Tel_Aviv` - Asia/Tel_Aviv
+        * `Asia/Thimbu` - Asia/Thimbu
         * `Asia/Thimphu` - Asia/Thimphu
         * `Asia/Tokyo` - Asia/Tokyo
         * `Asia/Tomsk` - Asia/Tomsk
+        * `Asia/Ujung_Pandang` - Asia/Ujung_Pandang
         * `Asia/Ulaanbaatar` - Asia/Ulaanbaatar
+        * `Asia/Ulan_Bator` - Asia/Ulan_Bator
         * `Asia/Urumqi` - Asia/Urumqi
         * `Asia/Ust-Nera` - Asia/Ust-Nera
         * `Asia/Vientiane` - Asia/Vientiane
@@ -59024,33 +59366,99 @@ components:
         * `Atlantic/Bermuda` - Atlantic/Bermuda
         * `Atlantic/Canary` - Atlantic/Canary
         * `Atlantic/Cape_Verde` - Atlantic/Cape_Verde
+        * `Atlantic/Faeroe` - Atlantic/Faeroe
         * `Atlantic/Faroe` - Atlantic/Faroe
+        * `Atlantic/Jan_Mayen` - Atlantic/Jan_Mayen
         * `Atlantic/Madeira` - Atlantic/Madeira
         * `Atlantic/Reykjavik` - Atlantic/Reykjavik
         * `Atlantic/South_Georgia` - Atlantic/South_Georgia
         * `Atlantic/St_Helena` - Atlantic/St_Helena
         * `Atlantic/Stanley` - Atlantic/Stanley
+        * `Australia/ACT` - Australia/ACT
         * `Australia/Adelaide` - Australia/Adelaide
         * `Australia/Brisbane` - Australia/Brisbane
         * `Australia/Broken_Hill` - Australia/Broken_Hill
+        * `Australia/Canberra` - Australia/Canberra
+        * `Australia/Currie` - Australia/Currie
         * `Australia/Darwin` - Australia/Darwin
         * `Australia/Eucla` - Australia/Eucla
         * `Australia/Hobart` - Australia/Hobart
+        * `Australia/LHI` - Australia/LHI
         * `Australia/Lindeman` - Australia/Lindeman
         * `Australia/Lord_Howe` - Australia/Lord_Howe
         * `Australia/Melbourne` - Australia/Melbourne
+        * `Australia/NSW` - Australia/NSW
+        * `Australia/North` - Australia/North
         * `Australia/Perth` - Australia/Perth
+        * `Australia/Queensland` - Australia/Queensland
+        * `Australia/South` - Australia/South
         * `Australia/Sydney` - Australia/Sydney
+        * `Australia/Tasmania` - Australia/Tasmania
+        * `Australia/Victoria` - Australia/Victoria
+        * `Australia/West` - Australia/West
+        * `Australia/Yancowinna` - Australia/Yancowinna
+        * `Brazil/Acre` - Brazil/Acre
+        * `Brazil/DeNoronha` - Brazil/DeNoronha
+        * `Brazil/East` - Brazil/East
+        * `Brazil/West` - Brazil/West
+        * `CET` - CET
+        * `CST6CDT` - CST6CDT
         * `Canada/Atlantic` - Canada/Atlantic
         * `Canada/Central` - Canada/Central
         * `Canada/Eastern` - Canada/Eastern
         * `Canada/Mountain` - Canada/Mountain
         * `Canada/Newfoundland` - Canada/Newfoundland
         * `Canada/Pacific` - Canada/Pacific
+        * `Canada/Saskatchewan` - Canada/Saskatchewan
+        * `Canada/Yukon` - Canada/Yukon
+        * `Chile/Continental` - Chile/Continental
+        * `Chile/EasterIsland` - Chile/EasterIsland
+        * `Cuba` - Cuba
+        * `EET` - EET
+        * `EST` - EST
+        * `EST5EDT` - EST5EDT
+        * `Egypt` - Egypt
+        * `Eire` - Eire
+        * `Etc/GMT` - Etc/GMT
+        * `Etc/GMT+0` - Etc/GMT+0
+        * `Etc/GMT+1` - Etc/GMT+1
+        * `Etc/GMT+10` - Etc/GMT+10
+        * `Etc/GMT+11` - Etc/GMT+11
+        * `Etc/GMT+12` - Etc/GMT+12
+        * `Etc/GMT+2` - Etc/GMT+2
+        * `Etc/GMT+3` - Etc/GMT+3
+        * `Etc/GMT+4` - Etc/GMT+4
+        * `Etc/GMT+5` - Etc/GMT+5
+        * `Etc/GMT+6` - Etc/GMT+6
+        * `Etc/GMT+7` - Etc/GMT+7
+        * `Etc/GMT+8` - Etc/GMT+8
+        * `Etc/GMT+9` - Etc/GMT+9
+        * `Etc/GMT-0` - Etc/GMT-0
+        * `Etc/GMT-1` - Etc/GMT-1
+        * `Etc/GMT-10` - Etc/GMT-10
+        * `Etc/GMT-11` - Etc/GMT-11
+        * `Etc/GMT-12` - Etc/GMT-12
+        * `Etc/GMT-13` - Etc/GMT-13
+        * `Etc/GMT-14` - Etc/GMT-14
+        * `Etc/GMT-2` - Etc/GMT-2
+        * `Etc/GMT-3` - Etc/GMT-3
+        * `Etc/GMT-4` - Etc/GMT-4
+        * `Etc/GMT-5` - Etc/GMT-5
+        * `Etc/GMT-6` - Etc/GMT-6
+        * `Etc/GMT-7` - Etc/GMT-7
+        * `Etc/GMT-8` - Etc/GMT-8
+        * `Etc/GMT-9` - Etc/GMT-9
+        * `Etc/GMT0` - Etc/GMT0
+        * `Etc/Greenwich` - Etc/Greenwich
+        * `Etc/UCT` - Etc/UCT
+        * `Etc/UTC` - Etc/UTC
+        * `Etc/Universal` - Etc/Universal
+        * `Etc/Zulu` - Etc/Zulu
         * `Europe/Amsterdam` - Europe/Amsterdam
         * `Europe/Andorra` - Europe/Andorra
         * `Europe/Astrakhan` - Europe/Astrakhan
         * `Europe/Athens` - Europe/Athens
+        * `Europe/Belfast` - Europe/Belfast
         * `Europe/Belgrade` - Europe/Belgrade
         * `Europe/Berlin` - Europe/Berlin
         * `Europe/Bratislava` - Europe/Bratislava
@@ -59068,6 +59476,7 @@ components:
         * `Europe/Istanbul` - Europe/Istanbul
         * `Europe/Jersey` - Europe/Jersey
         * `Europe/Kaliningrad` - Europe/Kaliningrad
+        * `Europe/Kiev` - Europe/Kiev
         * `Europe/Kirov` - Europe/Kirov
         * `Europe/Kyiv` - Europe/Kyiv
         * `Europe/Lisbon` - Europe/Lisbon
@@ -59080,6 +59489,7 @@ components:
         * `Europe/Minsk` - Europe/Minsk
         * `Europe/Monaco` - Europe/Monaco
         * `Europe/Moscow` - Europe/Moscow
+        * `Europe/Nicosia` - Europe/Nicosia
         * `Europe/Oslo` - Europe/Oslo
         * `Europe/Paris` - Europe/Paris
         * `Europe/Podgorica` - Europe/Podgorica
@@ -59096,7 +59506,9 @@ components:
         * `Europe/Stockholm` - Europe/Stockholm
         * `Europe/Tallinn` - Europe/Tallinn
         * `Europe/Tirane` - Europe/Tirane
+        * `Europe/Tiraspol` - Europe/Tiraspol
         * `Europe/Ulyanovsk` - Europe/Ulyanovsk
+        * `Europe/Uzhgorod` - Europe/Uzhgorod
         * `Europe/Vaduz` - Europe/Vaduz
         * `Europe/Vatican` - Europe/Vatican
         * `Europe/Vienna` - Europe/Vienna
@@ -59104,8 +59516,19 @@ components:
         * `Europe/Volgograd` - Europe/Volgograd
         * `Europe/Warsaw` - Europe/Warsaw
         * `Europe/Zagreb` - Europe/Zagreb
+        * `Europe/Zaporozhye` - Europe/Zaporozhye
         * `Europe/Zurich` - Europe/Zurich
+        * `Factory` - Factory
+        * `GB` - GB
+        * `GB-Eire` - GB-Eire
         * `GMT` - GMT
+        * `GMT+0` - GMT+0
+        * `GMT-0` - GMT-0
+        * `GMT0` - GMT0
+        * `Greenwich` - Greenwich
+        * `HST` - HST
+        * `Hongkong` - Hongkong
+        * `Iceland` - Iceland
         * `Indian/Antananarivo` - Indian/Antananarivo
         * `Indian/Chagos` - Indian/Chagos
         * `Indian/Christmas` - Indian/Christmas
@@ -59117,6 +59540,23 @@ components:
         * `Indian/Mauritius` - Indian/Mauritius
         * `Indian/Mayotte` - Indian/Mayotte
         * `Indian/Reunion` - Indian/Reunion
+        * `Iran` - Iran
+        * `Israel` - Israel
+        * `Jamaica` - Jamaica
+        * `Japan` - Japan
+        * `Kwajalein` - Kwajalein
+        * `Libya` - Libya
+        * `MET` - MET
+        * `MST` - MST
+        * `MST7MDT` - MST7MDT
+        * `Mexico/BajaNorte` - Mexico/BajaNorte
+        * `Mexico/BajaSur` - Mexico/BajaSur
+        * `Mexico/General` - Mexico/General
+        * `NZ` - NZ
+        * `NZ-CHAT` - NZ-CHAT
+        * `Navajo` - Navajo
+        * `PRC` - PRC
+        * `PST8PDT` - PST8PDT
         * `Pacific/Apia` - Pacific/Apia
         * `Pacific/Auckland` - Pacific/Auckland
         * `Pacific/Bougainville` - Pacific/Bougainville
@@ -59124,6 +59564,7 @@ components:
         * `Pacific/Chuuk` - Pacific/Chuuk
         * `Pacific/Easter` - Pacific/Easter
         * `Pacific/Efate` - Pacific/Efate
+        * `Pacific/Enderbury` - Pacific/Enderbury
         * `Pacific/Fakaofo` - Pacific/Fakaofo
         * `Pacific/Fiji` - Pacific/Fiji
         * `Pacific/Funafuti` - Pacific/Funafuti
@@ -59132,6 +59573,7 @@ components:
         * `Pacific/Guadalcanal` - Pacific/Guadalcanal
         * `Pacific/Guam` - Pacific/Guam
         * `Pacific/Honolulu` - Pacific/Honolulu
+        * `Pacific/Johnston` - Pacific/Johnston
         * `Pacific/Kanton` - Pacific/Kanton
         * `Pacific/Kiritimati` - Pacific/Kiritimati
         * `Pacific/Kosrae` - Pacific/Kosrae
@@ -59147,22 +59589,43 @@ components:
         * `Pacific/Palau` - Pacific/Palau
         * `Pacific/Pitcairn` - Pacific/Pitcairn
         * `Pacific/Pohnpei` - Pacific/Pohnpei
+        * `Pacific/Ponape` - Pacific/Ponape
         * `Pacific/Port_Moresby` - Pacific/Port_Moresby
         * `Pacific/Rarotonga` - Pacific/Rarotonga
         * `Pacific/Saipan` - Pacific/Saipan
+        * `Pacific/Samoa` - Pacific/Samoa
         * `Pacific/Tahiti` - Pacific/Tahiti
         * `Pacific/Tarawa` - Pacific/Tarawa
         * `Pacific/Tongatapu` - Pacific/Tongatapu
+        * `Pacific/Truk` - Pacific/Truk
         * `Pacific/Wake` - Pacific/Wake
         * `Pacific/Wallis` - Pacific/Wallis
+        * `Pacific/Yap` - Pacific/Yap
+        * `Poland` - Poland
+        * `Portugal` - Portugal
+        * `ROC` - ROC
+        * `ROK` - ROK
+        * `Singapore` - Singapore
+        * `Turkey` - Turkey
+        * `UCT` - UCT
         * `US/Alaska` - US/Alaska
+        * `US/Aleutian` - US/Aleutian
         * `US/Arizona` - US/Arizona
         * `US/Central` - US/Central
+        * `US/East-Indiana` - US/East-Indiana
         * `US/Eastern` - US/Eastern
         * `US/Hawaii` - US/Hawaii
+        * `US/Indiana-Starke` - US/Indiana-Starke
+        * `US/Michigan` - US/Michigan
         * `US/Mountain` - US/Mountain
         * `US/Pacific` - US/Pacific
+        * `US/Samoa` - US/Samoa
         * `UTC` - UTC
+        * `Universal` - Universal
+        * `W-SU` - W-SU
+        * `WET` - WET
+        * `Zulu` - Zulu
+        * `localtime` - localtime
     Tracker:
       type: object
       properties:
