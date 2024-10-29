@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.44
+  version: 2.4.45
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -314,6 +314,26 @@ paths:
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - accounts
+            - last_time_locations
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: accounts,users
+            summary: Regular sideloading
       - name: state
         required: false
         in: query
@@ -496,6 +516,26 @@ paths:
           format: uuid
         description: A UUID string identifying this account role.
         required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - accounts
+            - last_time_locations
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: accounts,users
+            summary: Regular sideloading
       tags:
       - account_roles
       security:
@@ -739,6 +779,26 @@ paths:
           format: uuid
         description: A UUID string identifying this account role.
         required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - accounts
+            - last_time_locations
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: accounts,users
+            summary: Regular sideloading
       tags:
       - account_roles
       security:
@@ -1614,20 +1674,20 @@ paths:
         content:
           application/x-www-form-urlencoded:
             schema:
-              $ref: '#/components/schemas/AuthToken'
+              $ref: '#/components/schemas/Authentication'
           multipart/form-data:
             schema:
-              $ref: '#/components/schemas/AuthToken'
+              $ref: '#/components/schemas/Authentication'
           application/json:
             schema:
-              $ref: '#/components/schemas/AuthToken'
+              $ref: '#/components/schemas/Authentication'
         required: true
       responses:
         '200':
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/AuthToken'
+                $ref: '#/components/schemas/Authentication'
           description: ''
   /billing/customers/:
     get:
@@ -2597,6 +2657,26 @@ paths:
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - accounts
+            - clients
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: accounts,users
+            summary: Regular sideloading
       - name: updated_at
         required: false
         in: query
@@ -2754,6 +2834,26 @@ paths:
           format: uuid
         description: A UUID string identifying this client role.
         required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - accounts
+            - clients
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: accounts,users
+            summary: Regular sideloading
       tags:
       - client_roles
       security:
@@ -5531,6 +5631,25 @@ paths:
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - accounts
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: accounts,users
+            summary: Regular sideloading
       - name: user
         required: false
         in: query
@@ -5611,6 +5730,25 @@ paths:
           format: uuid
         description: A UUID string identifying this device.
         required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - accounts
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: accounts,users
+            summary: Regular sideloading
       tags:
       - devices
       security:
@@ -7801,6 +7939,16 @@ paths:
               schema:
                 $ref: '#/components/schemas/IntegrationRequest'
           description: ''
+  /logout/:
+    post:
+      operationId: logout_create
+      tags:
+      - logout
+      security:
+      - tokenAuth: []
+      responses:
+        '201':
+          description: No response body
   /metafields/:
     get:
       operationId: metafields_list
@@ -9013,6 +9161,24 @@ paths:
         schema:
           type: string
           format: datetime
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - tasks
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: tasks
+            summary: Regular sideloading
       - name: task
         required: false
         in: query
@@ -9182,6 +9348,24 @@ paths:
           format: uuid
         description: A UUID string identifying this notification.
         required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - tasks
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: tasks
+            summary: Regular sideloading
       tags:
       - notifications
       security:
@@ -9325,6 +9509,31 @@ paths:
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - assignees
+            - clients
+            - documents
+            - signatures
+            - tasks
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: clients,tasks
+            summary: Regular sideloading
+          MultiSourceSideloadingForDocuments:
+            value: documents[documents,tasks__documents,recurrence__documents]
+            summary: Multi source sideloading for documents
       - name: updated_at
         required: false
         in: query
@@ -9449,6 +9658,31 @@ paths:
           format: uuid
         description: A UUID string identifying this order.
         required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - assignees
+            - clients
+            - documents
+            - signatures
+            - tasks
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: clients,tasks
+            summary: Regular sideloading
+          MultiSourceSideloadingForDocuments:
+            value: documents[documents,tasks__documents,recurrence__documents]
+            summary: Multi source sideloading for documents
       tags:
       - orders
       security:
@@ -10762,6 +10996,25 @@ paths:
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - documents
+            - orders
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: orders,documents
+            summary: Regular sideloading
       - name: tasks_data__address__formatted_address__exact
         required: false
         in: query
@@ -11026,6 +11279,25 @@ paths:
           format: uuid
         description: A UUID string identifying this recurrence.
         required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - documents
+            - orders
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: orders,documents
+            summary: Regular sideloading
       tags:
       - recurrences
       security:
@@ -11917,6 +12189,26 @@ paths:
         description: Number of results to return per page.
         schema:
           type: integer
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - last_assignees
+            - last_tasks
+            - trackers
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: trackers,last_tasks
+            summary: Regular sideloading
       - name: tracker
         required: false
         in: query
@@ -11992,6 +12284,26 @@ paths:
           format: uuid
         description: A UUID string identifying this review.
         required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - last_assignees
+            - last_tasks
+            - trackers
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: trackers,last_tasks
+            summary: Regular sideloading
       tags:
       - reviews
       security:
@@ -12614,6 +12926,30 @@ paths:
         schema:
           type: string
           format: datetime
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - assignees
+            - created_bys
+            - tasks
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: assignees,tasks
+            summary: Regular sideloading
+          MultiSourceSideloadingForUsers:
+            value: users[assignees,created_bys]
+            summary: Multi source sideloading for users
       - name: start_time
         required: false
         in: query
@@ -12983,6 +13319,30 @@ paths:
           format: uuid
         description: A UUID string identifying this route optimization.
         required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - assignees
+            - created_bys
+            - tasks
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: assignees,tasks
+            summary: Regular sideloading
+          MultiSourceSideloadingForUsers:
+            value: users[assignees,created_bys]
+            summary: Multi source sideloading for users
       tags:
       - route_optimizations
       security:
@@ -13041,6 +13401,30 @@ paths:
           format: uuid
         description: A UUID string identifying this route optimization.
         required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - assignees
+            - created_bys
+            - tasks
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: assignees,tasks
+            summary: Regular sideloading
+          MultiSourceSideloadingForUsers:
+            value: users[assignees,created_bys]
+            summary: Multi source sideloading for users
       tags:
       - route_optimizations
       security:
@@ -13074,6 +13458,30 @@ paths:
           format: uuid
         description: A UUID string identifying this route optimization.
         required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - assignees
+            - created_bys
+            - tasks
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: assignees,tasks
+            summary: Regular sideloading
+          MultiSourceSideloadingForUsers:
+            value: users[assignees,created_bys]
+            summary: Multi source sideloading for users
       tags:
       - route_optimizations
       security:
@@ -13704,6 +14112,30 @@ paths:
         schema:
           type: string
           format: datetime
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - assignees
+            - created_bys
+            - tasks
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: assignees,tasks
+            summary: Regular sideloading
+          MultiSourceSideloadingForUsers:
+            value: users[assignees,created_bys]
+            summary: Multi source sideloading for users
       - name: start_time
         required: false
         in: query
@@ -17574,6 +18006,24 @@ paths:
         schema:
           type: string
           format: datetime
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - tasks
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: tasks
+            summary: Regular sideloading
       - name: state
         required: false
         in: query
@@ -17753,6 +18203,24 @@ paths:
           format: uuid
         description: A UUID string identifying this task command.
         required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - tasks
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: tasks
+            summary: Regular sideloading
       tags:
       - task_commands
       security:
@@ -27144,114 +27612,6 @@ paths:
           be True.
         schema:
           type: string
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       - name: order__reference
         required: false
         in: query
@@ -27718,6 +28078,34 @@ paths:
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - assignees
+            - clients
+            - documents
+            - metadatas
+            - orders
+            - routes
+            - signatures
+            - trackers
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: assignees,clients
+            summary: Regular sideloading
+          MultiSourceSideloadingForDocuments:
+            value: documents[documents,order__documents,recurrence__documents]
+            summary: Multi source sideloading for documents
       - name: size__contained_by
         required: false
         in: query
@@ -27931,114 +28319,6 @@ paths:
           enum:
           - json
           - xml
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       tags:
       - tasks
       requestBody:
@@ -28081,113 +28361,33 @@ paths:
         description: A UUID string identifying this task.
         required: true
       - in: query
-        name: order__orderer__company
+        name: sideload
         schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
+          type: array
+          items:
+            type: string
+            enum:
+            - assignees
+            - clients
+            - documents
+            - metadatas
+            - orders
+            - routes
+            - signatures
+            - trackers
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
         examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
+          RegularSideloading:
+            value: assignees,clients
+            summary: Regular sideloading
+          MultiSourceSideloadingForDocuments:
+            value: documents[documents,order__documents,recurrence__documents]
+            summary: Multi source sideloading for documents
       tags:
       - tasks
       security:
@@ -28219,114 +28419,6 @@ paths:
           format: uuid
         description: A UUID string identifying this task.
         required: true
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       tags:
       - tasks
       requestBody:
@@ -28367,114 +28459,6 @@ paths:
           format: uuid
         description: A UUID string identifying this task.
         required: true
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       tags:
       - tasks
       requestBody:
@@ -28515,114 +28499,6 @@ paths:
           format: uuid
         description: A UUID string identifying this task.
         required: true
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       tags:
       - tasks
       requestBody:
@@ -28663,114 +28539,6 @@ paths:
           format: uuid
         description: A UUID string identifying this task.
         required: true
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       tags:
       - tasks
       requestBody:
@@ -28812,114 +28580,6 @@ paths:
           format: uuid
         description: A UUID string identifying this task.
         required: true
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       tags:
       - tasks
       requestBody:
@@ -28960,114 +28620,6 @@ paths:
           format: uuid
         description: A UUID string identifying this task.
         required: true
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       tags:
       - tasks
       requestBody:
@@ -29109,114 +28661,6 @@ paths:
           format: uuid
         description: A UUID string identifying this task.
         required: true
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       tags:
       - tasks
       requestBody:
@@ -29257,114 +28701,6 @@ paths:
           format: uuid
         description: A UUID string identifying this task.
         required: true
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       tags:
       - tasks
       requestBody:
@@ -32616,114 +31952,6 @@ paths:
           be True.
         schema:
           type: string
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       - name: order__reference
         required: false
         in: query
@@ -33190,6 +32418,34 @@ paths:
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - assignees
+            - clients
+            - documents
+            - metadatas
+            - orders
+            - routes
+            - signatures
+            - trackers
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: assignees,clients
+            summary: Regular sideloading
+          MultiSourceSideloadingForDocuments:
+            value: documents[documents,order__documents,recurrence__documents]
+            summary: Multi source sideloading for documents
       - name: size__contained_by
         required: false
         in: query
@@ -36622,114 +35878,6 @@ paths:
           be True.
         schema:
           type: string
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       - name: order__reference
         required: false
         in: query
@@ -37196,6 +36344,34 @@ paths:
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - assignees
+            - clients
+            - documents
+            - metadatas
+            - orders
+            - routes
+            - signatures
+            - trackers
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: assignees,clients
+            summary: Regular sideloading
+          MultiSourceSideloadingForDocuments:
+            value: documents[documents,order__documents,recurrence__documents]
+            summary: Multi source sideloading for documents
       - name: size__contained_by
         required: false
         in: query
@@ -37417,114 +36593,6 @@ paths:
           format: uuid
         description: A UUID string identifying this task.
         required: true
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       tags:
       - tasks
       requestBody:
@@ -37567,113 +36635,33 @@ paths:
         description: A UUID string identifying this task.
         required: true
       - in: query
-        name: order__orderer__company
+        name: sideload
         schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
+          type: array
+          items:
+            type: string
+            enum:
+            - assignees
+            - clients
+            - documents
+            - metadatas
+            - orders
+            - routes
+            - signatures
+            - trackers
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
         examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
+          RegularSideloading:
+            value: assignees,clients
+            summary: Regular sideloading
+          MultiSourceSideloadingForDocuments:
+            value: documents[documents,order__documents,recurrence__documents]
+            summary: Multi source sideloading for documents
       tags:
       - tasks
       security:
@@ -37707,114 +36695,6 @@ paths:
           format: uuid
         description: A UUID string identifying this task.
         required: true
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       tags:
       - tasks
       requestBody:
@@ -41066,114 +39946,6 @@ paths:
           be True.
         schema:
           type: string
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       - name: order__reference
         required: false
         in: query
@@ -41640,6 +40412,34 @@ paths:
         description: A search term.
         schema:
           type: string
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - assignees
+            - clients
+            - documents
+            - metadatas
+            - orders
+            - routes
+            - signatures
+            - trackers
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be filtered
+          by the sources by declaring the required sources in square brackets after
+          the sideloading key. All available Mutli-source fields will have an example
+          provided with all available sources. The comma separated sources can be
+          ommited with the square brackets if all sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: assignees,clients
+            summary: Regular sideloading
+          MultiSourceSideloadingForDocuments:
+            value: documents[documents,order__documents,recurrence__documents]
+            summary: Multi source sideloading for documents
       - name: size__contained_by
         required: false
         in: query
@@ -41861,114 +40661,6 @@ paths:
           format: uuid
         description: A UUID string identifying this task.
         required: true
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       tags:
       - tasks
       requestBody:
@@ -42009,114 +40701,6 @@ paths:
           format: uuid
         description: A UUID string identifying this task.
         required: true
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       tags:
       - tasks
       requestBody:
@@ -42157,114 +40741,6 @@ paths:
           format: uuid
         description: A UUID string identifying this task.
         required: true
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       tags:
       - tasks
       requestBody:
@@ -45509,114 +43985,6 @@ paths:
           be True.
         schema:
           type: string
-      - in: query
-        name: order__orderer__company
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__company__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__emails__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__emails__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: example1@mail.ee,example2@mail.ee
-            summary: example
-      - in: query
-        name: order__orderer__name
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__name__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__icontains
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__iexact
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__notes__istartswith
-        schema:
-          type: string
-      - in: query
-        name: order__orderer__phones__contained_by
-        schema:
-          type: string
-        description: Filter the returned list where all target array values contained
-          in filter values. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__contains
-        schema:
-          type: string
-        description: Filter the returned list where all filter_values are present.
-          Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
-      - in: query
-        name: order__orderer__phones__overlap
-        schema:
-          type: string
-        description: Filter the returned list where at least one filter value in target
-          array. Comma separated values supported
-        examples:
-          Example:
-            value: +3725012345,5022333
-            summary: example
       - name: order__reference
         required: false
         in: query
@@ -50172,8 +48540,6 @@ components:
       properties:
         token:
           type: string
-          format: uuid
-          readOnly: true
       required:
       - token
     AccountStateEnum:
@@ -50334,22 +48700,6 @@ components:
       description: |-
         * `away` - Away
         * `near` - Near
-    AuthToken:
-      type: object
-      properties:
-        username:
-          type: string
-          writeOnly: true
-        password:
-          type: string
-          writeOnly: true
-        token:
-          type: string
-          readOnly: true
-      required:
-      - password
-      - token
-      - username
     AuthenticatedUserCreate:
       type: object
       properties:
@@ -50419,6 +48769,20 @@ components:
       - email
       - id
       - url
+    Authentication:
+      type: object
+      properties:
+        username:
+          type: string
+          format: email
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+          maxLength: 128
+      required:
+      - password
+      - username
     BlankEnum:
       enum:
       - ''
@@ -59973,6 +58337,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.45
       - 2.4.44
       - 2.4.43
       - 2.4.42
@@ -60037,6 +58402,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.45` - 2.4.45
         * `2.4.44` - 2.4.44
         * `2.4.43` - 2.4.43
         * `2.4.42` - 2.4.42
