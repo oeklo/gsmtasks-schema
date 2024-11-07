@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.45
+  version: 2.4.46
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -900,6 +900,15 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
+      - name: explicit_permissions
+        required: false
+        in: query
+        description: Filter the returned list by explicit permissions, multiple, comma
+          separated values supported.
+        schema:
+          type: string
+        style: form
+        explode: false
       - in: query
         name: format
         schema:
@@ -907,6 +916,12 @@ paths:
           enum:
           - json
           - xlsx
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
       - name: page_size
         required: false
         in: query
@@ -46118,6 +46133,47 @@ paths:
                 additionalProperties: {}
                 description: Unspecified response body
           description: ''
+  /users/{id}/hijack/:
+    post:
+      operationId: users_hijack_create
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xml
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this user.
+        required: true
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ReadableUser'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/ReadableUser'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: '#/components/schemas/ReadableUser'
+            application/xml; version=${version}:
+              schema:
+                $ref: '#/components/schemas/ReadableUser'
+          description: ''
   /users/{id}/on_duty/:
     get:
       operationId: users_on_duty_retrieve
@@ -58337,6 +58393,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.46
       - 2.4.45
       - 2.4.44
       - 2.4.43
@@ -58402,6 +58459,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.46` - 2.4.46
         * `2.4.45` - 2.4.45
         * `2.4.44` - 2.4.44
         * `2.4.43` - 2.4.43
