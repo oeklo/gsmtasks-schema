@@ -58393,6 +58393,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.47
       - 2.4.46
       - 2.4.45
       - 2.4.44
@@ -58459,6 +58460,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.47` - 2.4.47
         * `2.4.46` - 2.4.46
         * `2.4.45` - 2.4.45
         * `2.4.44` - 2.4.44
