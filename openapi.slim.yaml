@@ -50391,6 +50391,22 @@ components:
       description: |-
         * `json` - JSON
         * `xlsx` - XLSX
+    GeocodingProviderEnum:
+      enum:
+      - google
+      - regio-ee
+      - janaseta
+      - reach-u
+      - nominatim
+      - in-ads
+      type: string
+      description: |-
+        * `google` - Google
+        * `regio-ee` - Regio-Ee
+        * `janaseta` - Jana Seta
+        * `reach-u` - Reach-U
+        * `nominatim` - Nominatim
+        * `in-ads` - In-ADS
     GisFeatureCollectionEnum:
       type: string
       enum:
@@ -51055,6 +51071,12 @@ components:
         street:
           type: string
           maxLength: 200
+        geocoding_provider:
+          readOnly: true
+          nullable: true
+          oneOf:
+          - $ref: '#/components/schemas/GeocodingProviderEnum'
+          - $ref: '#/components/schemas/NullEnum'
         house_number:
           type: string
           maxLength: 100
@@ -51090,6 +51112,7 @@ components:
       required:
       - geocode_failed_at
       - geocoded_at
+      - geocoding_provider
     NestedContact:
       type: object
       properties:
