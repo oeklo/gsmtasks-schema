@@ -54170,10 +54170,6 @@ components:
           type: integer
         unassigned_count:
           type: integer
-        optimized_tasks_count:
-          type: integer
-        unoptimized_tasks_count:
-          type: integer
         distance:
           type: integer
         completion_time:
@@ -54191,12 +54187,10 @@ components:
       required:
       - completion_time
       - distance
-      - optimized_tasks_count
       - routes
       - service_time
       - transport_time
       - unassigned_count
-      - unoptimized_tasks_count
       - vehicles_count
       - waiting_time
     RouteOptimizationResultTask:
