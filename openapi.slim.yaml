@@ -54184,6 +54184,10 @@ components:
           type: array
           items:
             $ref: '#/components/schemas/RouteOptimizationResultRoute'
+        unoptimized:
+          type: array
+          items:
+            $ref: '#/components/schemas/RouteOptimizationResultTask'
       required:
       - completion_time
       - distance
@@ -54191,6 +54195,7 @@ components:
       - service_time
       - transport_time
       - unassigned_count
+      - unoptimized
       - vehicles_count
       - waiting_time
     RouteOptimizationResultTask:
@@ -54234,8 +54239,6 @@ components:
           type: integer
         actual_distance:
           type: integer
-        is_optimal:
-          type: boolean
       required:
       - actual_arrival_time
       - actual_departure_time
@@ -54246,7 +54249,6 @@ components:
       - departure_time
       - distance
       - id
-      - is_optimal
       - location
       - position
       - reference
