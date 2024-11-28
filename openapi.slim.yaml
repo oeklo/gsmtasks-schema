@@ -761,58 +761,6 @@ paths:
               schema:
                 type: string
           description: ''
-  /account_roles/{id}/token/:
-    get:
-      operationId: account_roles_token_retrieve
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this account role.
-        required: true
-      - in: query
-        name: sideload
-        schema:
-          type: array
-          items:
-            type: string
-            enum:
-            - accounts
-            - last_time_locations
-            - users
-        description: This option allows you to fetch related obejcts for all of the
-          relations with a signle query. Multi-source sideloadable fields can be filtered
-          by the sources by declaring the required sources in square brackets after
-          the sideloading key. All available Mutli-source fields will have an example
-          provided with all available sources. The comma separated sources can be
-          ommited with the square brackets if all sources are to be sideloaded.
-        examples:
-          RegularSideloading:
-            value: accounts,users
-            summary: Regular sideloading
-      tags:
-      - account_roles
-      security:
-      - tokenAuth: []
-      responses:
-        '200':
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: '#/components/schemas/AccountRoleToken'
-            application/xml; version=${version}:
-              schema:
-                $ref: '#/components/schemas/AccountRoleToken'
-          description: ''
   /accounts/:
     get:
       operationId: accounts_list
@@ -48591,13 +48539,6 @@ components:
         * `inactive` - Inactive
         * `active` - Active
         * `deleted` - Deleted
-    AccountRoleToken:
-      type: object
-      properties:
-        token:
-          type: string
-      required:
-      - token
     AccountStateEnum:
       enum:
       - active
