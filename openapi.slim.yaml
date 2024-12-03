@@ -53716,6 +53716,7 @@ components:
           type: string
           format: date-time
           nullable: true
+          title: Password expired at
       required:
       - display_name
       - email
