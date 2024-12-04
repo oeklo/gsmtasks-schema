@@ -481,10 +481,10 @@ paths:
         content:
           application/json:
             schema:
-              $ref: '#/components/schemas/AccountRole'
+              $ref: '#/components/schemas/AccountRoleCreate'
           application/xml:
             schema:
-              $ref: '#/components/schemas/AccountRole'
+              $ref: '#/components/schemas/AccountRoleCreate'
         required: true
       security:
       - tokenAuth: []
@@ -493,10 +493,10 @@ paths:
           content:
             application/json; version=${version}:
               schema:
-                $ref: '#/components/schemas/AccountRole'
+                $ref: '#/components/schemas/AccountRoleCreate'
             application/xml; version=${version}:
               schema:
-                $ref: '#/components/schemas/AccountRole'
+                $ref: '#/components/schemas/AccountRoleCreate'
           description: ''
   /account_roles/{id}/:
     get:
@@ -48402,7 +48402,7 @@ components:
           format: uri
         state:
           allOf:
-          - $ref: '#/components/schemas/AccountRoleStateEnum'
+          - $ref: '#/components/schemas/State584Enum'
           readOnly: true
         email:
           type: string
@@ -48529,16 +48529,144 @@ components:
           writeOnly: true
       required:
       - token
-    AccountRoleStateEnum:
-      enum:
-      - inactive
-      - active
-      - deleted
-      type: string
-      description: |-
-        * `inactive` - Inactive
-        * `active` - Active
-        * `deleted` - Deleted
+    AccountRoleCreate:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          type: string
+          format: uri
+        user:
+          type: string
+          format: uri
+        state:
+          allOf:
+          - $ref: '#/components/schemas/State584Enum'
+          readOnly: true
+        email:
+          type: string
+          format: email
+          readOnly: true
+        display_name:
+          type: string
+          nullable: true
+          maxLength: 100
+        phone:
+          type: string
+          maxLength: 128
+        vehicle_registration_number:
+          type: string
+          title: Vehicle registration
+          maxLength: 32
+        vehicle_profile:
+          $ref: '#/components/schemas/VehicleProfileEnum'
+        vehicle_capacity:
+          type: array
+          items:
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+          nullable: true
+        vehicle_speed_factor:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,1}(?:\.\d{0,1})?$
+        vehicle_service_time_factor:
+          type: string
+          format: decimal
+          pattern: ^-?\d{0,1}(?:\.\d{0,1})?$
+        optimize_return_to_depot:
+          type: boolean
+        optimize_earliest_start:
+          type: string
+          format: time
+          nullable: true
+          description: 'Earliest start of vehicle '
+        optimize_latest_end:
+          type: string
+          format: time
+          nullable: true
+          description: the time the vehicle needs to be at its end location at latest.
+        route_start_address:
+          allOf:
+          - $ref: '#/components/schemas/NestedAddress'
+          nullable: true
+        route_end_address:
+          allOf:
+          - $ref: '#/components/schemas/NestedAddress'
+          nullable: true
+        signature_image:
+          type: string
+          format: uri
+          readOnly: true
+        is_admin:
+          type: boolean
+          title: Admin status
+        is_manager:
+          type: boolean
+          title: Manager status
+        is_worker:
+          type: boolean
+          title: Worker status
+        is_integration:
+          type: boolean
+          title: Integration status
+        is_active:
+          type: boolean
+          readOnly: true
+        is_on_duty:
+          type: boolean
+          readOnly: true
+        show_unassigned:
+          type: boolean
+          title: Show unassigned tasks
+        last_time_location:
+          type: string
+          format: uri
+          readOnly: true
+        activated_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        deleted_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+        token:
+          type: string
+          readOnly: true
+      required:
+      - account
+      - activated_at
+      - created_at
+      - deleted_at
+      - email
+      - id
+      - is_active
+      - is_on_duty
+      - last_time_location
+      - signature_image
+      - state
+      - token
+      - updated_at
+      - url
     AccountStateEnum:
       enum:
       - active
@@ -52138,7 +52266,7 @@ components:
           format: uri
         state:
           allOf:
-          - $ref: '#/components/schemas/AccountRoleStateEnum'
+          - $ref: '#/components/schemas/State584Enum'
           readOnly: true
         email:
           type: string
@@ -54597,6 +54725,16 @@ components:
         * `web` - Web
         * `mobile` - Mobile
         * `integration` - Integration
+    State584Enum:
+      enum:
+      - inactive
+      - active
+      - deleted
+      type: string
+      description: |-
+        * `inactive` - Inactive
+        * `active` - Active
+        * `deleted` - Deleted
     State5d8Enum:
       enum:
       - active
