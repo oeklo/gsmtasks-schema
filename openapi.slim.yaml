@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.46
+  version: 2.4.47
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -46036,51 +46036,6 @@ paths:
       responses:
         '204':
           description: No response body
-  /users/{id}/activate/:
-    post:
-      operationId: users_activate_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this user.
-        required: true
-      tags:
-      - users
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/UserActivation'
-          application/xml:
-            schema:
-              $ref: '#/components/schemas/UserActivation'
-        required: true
-      security:
-      - tokenAuth: []
-      responses:
-        '200':
-          content:
-            application/json; version=${version}:
-              schema:
-                type: object
-                additionalProperties: {}
-                description: Unspecified response body
-            application/xml; version=${version}:
-              schema:
-                type: object
-                additionalProperties: {}
-                description: Unspecified response body
-          description: ''
   /users/{id}/hijack/:
     post:
       operationId: users_hijack_create
@@ -46218,6 +46173,44 @@ paths:
       responses:
         '204':
           description: No response body
+  /users/verify_email/:
+    post:
+      operationId: users_verify_email_create
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xml
+      tags:
+      - users
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UserEmailVerification'
+          application/xml:
+            schema:
+              $ref: '#/components/schemas/UserEmailVerification'
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json; version=${version}:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+            application/xml; version=${version}:
+              schema:
+                type: object
+                additionalProperties: {}
+                description: Unspecified response body
+          description: ''
   /users_on_duty_log/:
     get:
       operationId: users_on_duty_log_list
@@ -51717,7 +51710,7 @@ components:
     PasswordResetConfirm:
       type: object
       properties:
-        uidb64:
+        uid:
           type: string
         token:
           type: string
@@ -51729,7 +51722,7 @@ components:
       - new_password1
       - new_password2
       - token
-      - uidb64
+      - uid
     PatchedAccount:
       type: object
       properties:
@@ -58414,14 +58407,10 @@ components:
       - failed_at
       - id
       - url
-    UserActivation:
+    UserEmailVerification:
       type: object
       properties:
         token:
-          type: string
-          format: uuid
-          writeOnly: true
-        password:
           type: string
           writeOnly: true
       required:
