@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.47
+  version: 2.4.48
   description: The GSMtasks API is a RESTful web service for developers to programmatically
     interact with GSMtasks data, real-time delivery and task management and route
     optimization functionality.
@@ -58343,9 +58343,14 @@ components:
           readOnly: true
           nullable: true
           description: Predicted delivery time calculation error
+        default_map_location:
+          type: object
+          additionalProperties: {}
+          readOnly: true
       required:
       - account
       - assignees
+      - default_map_location
       - id
       - language
       - last_task_event_notes
@@ -58481,6 +58486,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.48
       - 2.4.47
       - 2.4.46
       - 2.4.45
@@ -58548,6 +58554,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.48` - 2.4.48
         * `2.4.47` - 2.4.47
         * `2.4.46` - 2.4.46
         * `2.4.45` - 2.4.45
