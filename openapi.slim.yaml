@@ -48238,9 +48238,7 @@ components:
           type: boolean
         feature_tracker_url:
           type: string
-          format: uri
           readOnly: true
-          nullable: true
         feature_route_folders:
           type: boolean
           readOnly: true
@@ -52142,9 +52140,7 @@ components:
           type: boolean
         feature_tracker_url:
           type: string
-          format: uri
           readOnly: true
-          nullable: true
         feature_route_folders:
           type: boolean
           readOnly: true
