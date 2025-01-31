@@ -51056,6 +51056,9 @@ components:
           description: Editable by assignee
         is_required:
           type: boolean
+        is_required_before_complete:
+          type: boolean
+          title: Required before complete
         is_persistent:
           type: boolean
           description: Metadata, that will be copied during recurrence.
@@ -51334,6 +51337,8 @@ components:
           - $ref: '#/components/schemas/TaskCategoryEnum'
           - $ref: '#/components/schemas/BlankEnum'
           - $ref: '#/components/schemas/NullEnum'
+        scheduled_time_added:
+          type: boolean
         scheduled_time_change:
           type: boolean
         recipient:
@@ -52846,6 +52851,9 @@ components:
           description: Editable by assignee
         is_required:
           type: boolean
+        is_required_before_complete:
+          type: boolean
+          title: Required before complete
         is_persistent:
           type: boolean
           description: Metadata, that will be copied during recurrence.
@@ -52910,6 +52918,8 @@ components:
           - $ref: '#/components/schemas/TaskCategoryEnum'
           - $ref: '#/components/schemas/BlankEnum'
           - $ref: '#/components/schemas/NullEnum'
+        scheduled_time_added:
+          type: boolean
         scheduled_time_change:
           type: boolean
         recipient:
@@ -54376,6 +54386,8 @@ components:
           - $ref: '#/components/schemas/NestedAddress'
           nullable: true
         unassign_not_optimal:
+          type: boolean
+        ignore_time_windows:
           type: boolean
         total_distance:
           type: integer
