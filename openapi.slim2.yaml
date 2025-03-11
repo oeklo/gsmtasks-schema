@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.49
+  version: 2.4.50
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -13430,10 +13430,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.4.49:
+            text/html; version=2.4.50:
               schema:
                 type: string
-            application/pdf; version=2.4.49:
+            application/pdf; version=2.4.50:
               schema:
                 type: string
                 format: byte
@@ -36665,10 +36665,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.4.49:
+            text/html; version=2.4.50:
               schema:
                 type: string
-            application/pdf; version=2.4.49:
+            application/pdf; version=2.4.50:
               schema:
                 type: string
                 format: byte
@@ -48447,6 +48447,19 @@ components:
             maximum: 2147483647
             minimum: -2147483648
           nullable: true
+        vehicle_capacity_divisor:
+          type: array
+          items:
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+          nullable: true
+        vehicle_capacity_units:
+          type: array
+          items:
+            type: string
+            maxLength: 100
+          nullable: true
         vehicle_speed_factor:
           type: string
           format: decimal
@@ -48592,6 +48605,19 @@ components:
             type: integer
             maximum: 2147483647
             minimum: -2147483648
+          nullable: true
+        vehicle_capacity_divisor:
+          type: array
+          items:
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+          nullable: true
+        vehicle_capacity_units:
+          type: array
+          items:
+            type: string
+            maxLength: 100
           nullable: true
         vehicle_speed_factor:
           type: string
@@ -52321,6 +52347,19 @@ components:
             type: integer
             maximum: 2147483647
             minimum: -2147483648
+          nullable: true
+        vehicle_capacity_divisor:
+          type: array
+          items:
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+          nullable: true
+        vehicle_capacity_units:
+          type: array
+          items:
+            type: string
+            maxLength: 100
           nullable: true
         vehicle_speed_factor:
           type: string
@@ -58534,6 +58573,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.50
       - 2.4.49
       - 2.4.48
       - 2.4.47
@@ -58603,6 +58643,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.50` - 2.4.50
         * `2.4.49` - 2.4.49
         * `2.4.48` - 2.4.48
         * `2.4.47` - 2.4.47
