@@ -48460,6 +48460,8 @@ components:
             type: string
             maxLength: 100
           nullable: true
+        show_vehicle_capacity:
+          type: boolean
         vehicle_speed_factor:
           type: string
           format: decimal
@@ -48619,6 +48621,8 @@ components:
             type: string
             maxLength: 100
           nullable: true
+        show_vehicle_capacity:
+          type: boolean
         vehicle_speed_factor:
           type: string
           format: decimal
@@ -52361,6 +52365,8 @@ components:
             type: string
             maxLength: 100
           nullable: true
+        show_vehicle_capacity:
+          type: boolean
         vehicle_speed_factor:
           type: string
           format: decimal
