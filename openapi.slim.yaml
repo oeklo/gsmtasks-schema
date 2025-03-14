@@ -48412,6 +48412,8 @@ components:
         phone:
           type: string
           maxLength: 128
+        require_sequential_completion:
+          type: boolean
         vehicle_registration_number:
           type: string
           title: Vehicle registration
@@ -48573,6 +48575,8 @@ components:
         phone:
           type: string
           maxLength: 128
+        require_sequential_completion:
+          type: boolean
         vehicle_registration_number:
           type: string
           title: Vehicle registration
@@ -52315,6 +52319,8 @@ components:
         phone:
           type: string
           maxLength: 128
+        require_sequential_completion:
+          type: boolean
         vehicle_registration_number:
           type: string
           title: Vehicle registration
