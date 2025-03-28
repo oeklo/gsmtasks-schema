@@ -6827,115 +6827,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Email"
           description: ""
-    put:
-      operationId: emails_update
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this email.
-        required: true
-      tags:
-      - emails
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/Email"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Email"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Email"
-        required: true
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Email"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Email"
-          description: ""
-    patch:
-      operationId: emails_partial_update
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this email.
-        required: true
-      tags:
-      - emails
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/PatchedEmail"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedEmail"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedEmail"
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Email"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Email"
-          description: ""
-    delete:
-      operationId: emails_destroy
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this email.
-        required: true
-      tags:
-      - emails
-      security:
-      - tokenAuth: []
-      responses:
-        "204":
-          description: No response body
   /emails/{id}/resend/:
     post:
       operationId: emails_resend_create
@@ -10382,115 +10273,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/PushNotification"
           description: ""
-    put:
-      operationId: push_notifications_update
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this push notification.
-        required: true
-      tags:
-      - push_notifications
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/PushNotification"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PushNotification"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PushNotification"
-        required: true
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PushNotification"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PushNotification"
-          description: ""
-    patch:
-      operationId: push_notifications_partial_update
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this push notification.
-        required: true
-      tags:
-      - push_notifications
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/PatchedPushNotification"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedPushNotification"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedPushNotification"
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PushNotification"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PushNotification"
-          description: ""
-    delete:
-      operationId: push_notifications_destroy
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this push notification.
-        required: true
-      tags:
-      - push_notifications
-      security:
-      - tokenAuth: []
-      responses:
-        "204":
-          description: No response body
   /push_notifications/{id}/resend/:
     post:
       operationId: push_notifications_resend_create
@@ -17106,115 +16888,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/SMS"
           description: ""
-    put:
-      operationId: sms_update
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this sms.
-        required: true
-      tags:
-      - sms
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/SMS"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/SMS"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/SMS"
-        required: true
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/SMS"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/SMS"
-          description: ""
-    patch:
-      operationId: sms_partial_update
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this sms.
-        required: true
-      tags:
-      - sms
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/PatchedSMS"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedSMS"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedSMS"
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/SMS"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/SMS"
-          description: ""
-    delete:
-      operationId: sms_destroy
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this sms.
-        required: true
-      tags:
-      - sms
-      security:
-      - tokenAuth: []
-      responses:
-        "204":
-          description: No response body
   /sms/{id}/resend/:
     post:
       operationId: sms_resend_create
@@ -45863,6 +45536,18 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
+      - name: email
+        required: false
+        in: query
+        description: email
+        schema:
+          type: string
+      - name: first_name
+        required: false
+        in: query
+        description: first_name
+        schema:
+          type: string
       - in: query
         name: format
         schema:
@@ -45870,12 +45555,24 @@ paths:
           enum:
           - json
           - xml
+      - name: last_name
+        required: false
+        in: query
+        description: last_name
+        schema:
+          type: string
       - name: page_size
         required: false
         in: query
         description: Number of results to return per page.
         schema:
           type: integer
+      - name: phone
+        required: false
+        in: query
+        description: phone
+        schema:
+          type: string
       - name: search
         required: false
         in: query
@@ -46040,30 +45737,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/AuthenticatedUserUpdate"
           description: ""
-    delete:
-      operationId: users_destroy
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this user.
-        required: true
-      tags:
-      - users
-      security:
-      - tokenAuth: []
-      responses:
-        "204":
-          description: No response body
   /users/{id}/hijack/:
     post:
       operationId: users_hijack_create
@@ -52649,73 +52322,6 @@ components:
           type: string
           format: date-time
           readOnly: true
-    PatchedEmail:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        account:
-          type: string
-          format: uri
-        external_id:
-          type: string
-          maxLength: 34
-        state:
-          allOf:
-          - $ref: "#/components/schemas/EmailStateEnum"
-          readOnly: true
-        notification:
-          type: string
-          format: uri
-          readOnly: true
-        sender:
-          type: string
-          format: uri
-          readOnly: true
-        from_email:
-          type: string
-          format: email
-          maxLength: 254
-        reply_to_email:
-          type: string
-          format: email
-          maxLength: 254
-        to_emails:
-          type: array
-          items:
-            type: string
-            format: email
-            maxLength: 254
-        subject:
-          type: string
-          maxLength: 250
-        message:
-          type: string
-        sent_at:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        failed_at:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        received_at:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        created_at:
-          type: string
-          format: date-time
-          readOnly: true
     PatchedExport:
       type: object
       properties:
@@ -53105,72 +52711,6 @@ components:
           type: string
           format: date-time
           readOnly: true
-    PatchedPushNotification:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        account:
-          type: string
-          format: uri
-        external_id:
-          type: string
-          format: uuid
-          nullable: true
-        state:
-          allOf:
-          - $ref: "#/components/schemas/PushNotificationStateEnum"
-          readOnly: true
-        notification:
-          type: string
-          format: uri
-          readOnly: true
-        recipient:
-          type: string
-          format: uri
-          readOnly: true
-        task:
-          type: string
-          format: uri
-          readOnly: true
-        event:
-          nullable: true
-          oneOf:
-          - $ref: "#/components/schemas/EventEnum"
-          - $ref: "#/components/schemas/BlankEnum"
-          - $ref: "#/components/schemas/NullEnum"
-        subject:
-          type: string
-        message:
-          type: string
-        error:
-          type: string
-          nullable: true
-        pending_at:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        failed_at:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        sent_at:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        created_at:
-          type: string
-          format: date-time
-          readOnly: true
     PatchedRecurrence:
       type: object
       properties:
@@ -53296,70 +52836,6 @@ components:
           format: date-time
           readOnly: true
         updated_at:
-          type: string
-          format: date-time
-          readOnly: true
-    PatchedSMS:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        account:
-          type: string
-          format: uri
-        external_id:
-          type: string
-          maxLength: 34
-        state:
-          allOf:
-          - $ref: "#/components/schemas/EmailStateEnum"
-          readOnly: true
-        notification:
-          type: string
-          format: uri
-          readOnly: true
-        sender:
-          type: string
-          format: uri
-          readOnly: true
-        alphanumeric_sender_id:
-          type: string
-          maxLength: 20
-        phone:
-          type: string
-          maxLength: 128
-        message:
-          type: string
-          nullable: true
-        segments_count:
-          type: integer
-          maximum: 2147483647
-          minimum: -2147483648
-        error:
-          type: string
-          nullable: true
-        sent_at:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        failed_at:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        received_at:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        created_at:
           type: string
           format: date-time
           readOnly: true
