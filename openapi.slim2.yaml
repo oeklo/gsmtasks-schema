@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.50
+  version: 2.4.51
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -13219,10 +13219,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.4.50:
+            text/html; version=2.4.51:
               schema:
                 type: string
-            application/pdf; version=2.4.50:
+            application/pdf; version=2.4.51:
               schema:
                 type: string
                 format: byte
@@ -36345,10 +36345,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.4.50:
+            text/html; version=2.4.51:
               schema:
                 type: string
-            application/pdf; version=2.4.50:
+            application/pdf; version=2.4.51:
               schema:
                 type: string
                 format: byte
@@ -47950,7 +47950,7 @@ components:
         feature_route_folders:
           type: boolean
           readOnly: true
-          description: Allow tasks to be grouped into routes in the WEB dashboard.
+          description: Allow tasks to be grouped into routes.
         feature_route_auto_archive:
           type: boolean
           readOnly: true
@@ -51899,7 +51899,7 @@ components:
         feature_route_folders:
           type: boolean
           readOnly: true
-          description: Allow tasks to be grouped into routes in the WEB dashboard.
+          description: Allow tasks to be grouped into routes.
         feature_route_auto_archive:
           type: boolean
           readOnly: true
@@ -58070,6 +58070,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.51
       - 2.4.50
       - 2.4.49
       - 2.4.48
@@ -58140,6 +58141,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.51` - 2.4.51
         * `2.4.50` - 2.4.50
         * `2.4.49` - 2.4.49
         * `2.4.48` - 2.4.48
