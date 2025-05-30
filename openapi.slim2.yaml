@@ -5758,13 +5758,17 @@ paths:
     get:
       operationId: docs_schema_retrieve
       description: >-
-        OpenApi3 schema for this API. Format can be selected via content
-        negotiation.
+        Cached version of SpectacularAPIView that includes API version in cache
+        key.
 
 
-        - YAML: application/vnd.oai.openapi
+        Cache is automatically invalidated when:
 
-        - JSON: application/vnd.oai.openapi+json
+        - API version in settings.REST_FRAMEWORK['CURRENT_VERSION'] changes
+
+        - Accept or Accept-Language headers change
+
+        - 24 hours pass (cache timeout)
       parameters:
       - in: query
         name: format

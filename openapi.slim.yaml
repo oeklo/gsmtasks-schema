@@ -464,10 +464,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedAccountRoleList'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedAccountRoleList'
           description: ''
@@ -497,10 +497,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountRoleCreate'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountRoleCreate'
           description: ''
@@ -549,10 +549,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountRole'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountRole'
           description: ''
@@ -589,10 +589,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountRole'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountRole'
           description: ''
@@ -628,10 +628,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountRole'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountRole'
           description: ''
@@ -694,10 +694,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 type: string
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 type: string
           description: ''
@@ -726,10 +726,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountRole'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountRole'
           description: ''
@@ -760,10 +760,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 type: string
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 type: string
           description: ''
@@ -972,10 +972,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedAccountList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedAccountList'
           description: ''
@@ -1004,10 +1004,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Account'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Account'
           description: ''
@@ -1047,10 +1047,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Account'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Account'
           description: ''
@@ -1089,10 +1089,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Account'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Account'
           description: ''
@@ -1122,10 +1122,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
           description: ''
@@ -1166,10 +1166,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountOwnerChange'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountOwnerChange'
           description: ''
@@ -1216,10 +1216,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripePaymentMethodAttach'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripePaymentMethodAttach'
           description: ''
@@ -1261,10 +1261,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 setup_intent: {}
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 setup_intent: {}
           description: Responds with external API response
@@ -1305,10 +1305,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 setup_intent: {}
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 setup_intent: {}
           description: Responds with external API response
@@ -1353,10 +1353,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripePaymentMethodDetach'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripePaymentMethodDetach'
           description: ''
@@ -1412,10 +1412,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripeSetupAttemptGet'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripeSetupAttemptGet'
           description: ''
@@ -1445,10 +1445,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 setup_intent: {}
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 setup_intent: {}
           description: Responds with external API response
@@ -1478,11 +1478,11 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 default_payment_method_id: null
                 attached_payment_methods: []
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 default_payment_method_id: null
                 attached_payment_methods: []
@@ -1525,10 +1525,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripePaymentMethodSetDefault'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripePaymentMethodSetDefault'
           description: ''
@@ -1558,10 +1558,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripeSetupIntentsGet'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/AccountStripeSetupIntentsGet'
           description: ''
@@ -1595,10 +1595,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedAddonList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedAddonList'
           description: ''
@@ -1627,10 +1627,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Addon'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Addon'
           description: ''
@@ -1694,10 +1694,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedBraintreeCustomerList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedBraintreeCustomerList'
           description: ''
@@ -1730,10 +1730,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
           description: ''
@@ -1762,10 +1762,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
           description: ''
@@ -1805,10 +1805,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
           description: ''
@@ -1847,10 +1847,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeCustomer'
           description: ''
@@ -1879,10 +1879,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 token: {}
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 token: {}
           description: Responds with external API response
@@ -2104,10 +2104,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedInvoiceList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedInvoiceList'
           description: ''
@@ -2136,10 +2136,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
           description: ''
@@ -2178,10 +2178,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
           description: ''
@@ -2220,10 +2220,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
           description: ''
@@ -2263,10 +2263,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Invoice'
           description: ''
@@ -2347,10 +2347,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedStripePaymentList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedStripePaymentList'
           description: ''
@@ -2379,10 +2379,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/StripePayment'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/StripePayment'
           description: ''
@@ -2451,10 +2451,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedBraintreeTransactionList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedBraintreeTransactionList'
           description: ''
@@ -2483,10 +2483,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeTransaction'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/BraintreeTransaction'
           description: ''
@@ -2742,10 +2742,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedClientRoleList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedClientRoleList'
           description: ''
@@ -2778,10 +2778,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
           description: ''
@@ -2830,10 +2830,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
           description: ''
@@ -2873,10 +2873,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
           description: ''
@@ -2915,10 +2915,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ClientRole'
           description: ''
@@ -3124,10 +3124,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedClientList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedClientList'
           description: ''
@@ -3160,10 +3160,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
           description: ''
@@ -3192,10 +3192,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
           description: ''
@@ -3235,10 +3235,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
           description: ''
@@ -3277,10 +3277,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Client'
           description: ''
@@ -3314,10 +3314,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedConfigurationSerializerV2List'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedConfigurationSerializerV2List'
           description: ''
@@ -3964,10 +3964,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressExportList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressExportList'
           description: ''
@@ -4403,10 +4403,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressBackgroundImportList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressBackgroundImportList'
           description: ''
@@ -4439,10 +4439,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddressBackgroundImport'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddressBackgroundImport'
           description: ''
@@ -4471,10 +4471,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddressBackgroundImport'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddressBackgroundImport'
           description: ''
@@ -5334,10 +5334,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedContactAddressList'
           description: ''
@@ -5370,10 +5370,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
           description: ''
@@ -5402,10 +5402,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
           description: ''
@@ -5445,10 +5445,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
           description: ''
@@ -5487,10 +5487,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ContactAddress'
           description: ''
@@ -5638,10 +5638,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedDeviceList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedDeviceList'
           description: ''
@@ -5674,10 +5674,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Device'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Device'
           description: ''
@@ -5725,10 +5725,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Device'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Device'
           description: ''
@@ -5736,10 +5736,12 @@ paths:
     get:
       operationId: docs_schema_retrieve
       description: |-
-        OpenApi3 schema for this API. Format can be selected via content negotiation.
+        Cached version of SpectacularAPIView that includes API version in cache key.
 
-        - YAML: application/vnd.oai.openapi
-        - JSON: application/vnd.oai.openapi+json
+        Cache is automatically invalidated when:
+        - API version in settings.REST_FRAMEWORK['CURRENT_VERSION'] changes
+        - Accept or Accept-Language headers change
+        - 24 hours pass (cache timeout)
       parameters:
       - in: query
         name: format
@@ -5773,19 +5775,19 @@ paths:
       responses:
         '200':
           content:
-            application/vnd.oai.openapi; version=2.4.51:
+            application/vnd.oai.openapi; version=${version}:
               schema:
                 type: object
                 additionalProperties: {}
-            application/yaml; version=2.4.51:
+            application/yaml; version=${version}:
               schema:
                 type: object
                 additionalProperties: {}
-            application/vnd.oai.openapi+json; version=2.4.51:
+            application/vnd.oai.openapi+json; version=${version}:
               schema:
                 type: object
                 additionalProperties: {}
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 type: object
                 additionalProperties: {}
@@ -6081,10 +6083,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedDocumentList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedDocumentList'
           description: ''
@@ -6116,10 +6118,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Document'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Document'
           description: ''
@@ -6148,10 +6150,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Document'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Document'
           description: ''
@@ -6727,10 +6729,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedEmailList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedEmailList'
           description: ''
@@ -6763,10 +6765,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
           description: ''
@@ -6795,10 +6797,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
           description: ''
@@ -6827,10 +6829,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Email'
           description: ''
@@ -7024,10 +7026,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedExportList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedExportList'
           description: ''
@@ -7060,10 +7062,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
           description: ''
@@ -7092,10 +7094,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
           description: ''
@@ -7135,10 +7137,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
           description: ''
@@ -7177,10 +7179,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Export'
           description: ''
@@ -7452,10 +7454,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedS3FileUploadList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedS3FileUploadList'
           description: ''
@@ -7488,10 +7490,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/S3FileUpload'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/S3FileUpload'
           description: ''
@@ -7520,10 +7522,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/S3FileUpload'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/S3FileUpload'
           description: ''
@@ -7578,10 +7580,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedFormRuleList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedFormRuleList'
           description: ''
@@ -7614,10 +7616,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
           description: ''
@@ -7646,10 +7648,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
           description: ''
@@ -7689,10 +7691,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
           description: ''
@@ -7731,10 +7733,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/FormRule'
           description: ''
@@ -7792,10 +7794,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/IntegrationRequest'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/IntegrationRequest'
           description: ''
@@ -8114,10 +8116,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedMetafieldList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedMetafieldList'
           description: ''
@@ -8150,10 +8152,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
           description: ''
@@ -8182,10 +8184,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
           description: ''
@@ -8225,10 +8227,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
           description: ''
@@ -8267,10 +8269,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Metafield'
           description: ''
@@ -8564,10 +8566,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedNotificationTemplateList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedNotificationTemplateList'
           description: ''
@@ -8600,10 +8602,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
           description: ''
@@ -8632,10 +8634,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
           description: ''
@@ -8675,10 +8677,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
           description: ''
@@ -8717,10 +8719,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/NotificationTemplate'
           description: ''
@@ -8785,10 +8787,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/RenderResponse'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/RenderResponse'
           description: ''
@@ -9147,10 +9149,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedNotificationList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedNotificationList'
           description: ''
@@ -9183,10 +9185,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Notification'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Notification'
           description: ''
@@ -9233,10 +9235,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Notification'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Notification'
           description: ''
@@ -9478,7 +9480,7 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedOrderSerializerV2List'
           description: ''
@@ -9503,7 +9505,7 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/OrderSerializerV2'
           description: ''
@@ -9550,7 +9552,7 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/OrderSerializerV2'
           description: ''
@@ -9583,7 +9585,7 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/OrderSerializerV2'
           description: ''
@@ -9615,7 +9617,7 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/OrderSerializerV2'
           description: ''
@@ -9649,10 +9651,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PasswordChange'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PasswordChange'
           description: ''
@@ -9684,10 +9686,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PasswordReset'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PasswordReset'
           description: ''
@@ -9719,10 +9721,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PasswordResetConfirm'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PasswordResetConfirm'
           description: ''
@@ -10169,10 +10171,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedPushNotificationList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedPushNotificationList'
           description: ''
@@ -10205,10 +10207,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
           description: ''
@@ -10237,10 +10239,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
           description: ''
@@ -10269,10 +10271,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PushNotification'
           description: ''
@@ -10990,7 +10992,7 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedRecurrenceList'
           description: ''
@@ -11015,7 +11017,7 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Recurrence'
           description: ''
@@ -11056,7 +11058,7 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Recurrence'
           description: ''
@@ -11089,7 +11091,7 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Recurrence'
           description: ''
@@ -11121,7 +11123,7 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Recurrence'
           description: ''
@@ -11153,10 +11155,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Registration'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Registration'
           description: ''
@@ -11822,10 +11824,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TasksStatesCountResponse'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TasksStatesCountResponse'
           description: ''
@@ -11974,10 +11976,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedReviewList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedReviewList'
           description: ''
@@ -12011,10 +12013,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Review'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Review'
           description: ''
@@ -12063,10 +12065,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Review'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Review'
           description: ''
@@ -13013,10 +13015,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedRouteOptimizationSerializerV2List'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedRouteOptimizationSerializerV2List'
           description: ''
@@ -13046,10 +13048,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/RouteOptimizationSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/RouteOptimizationSerializerV2'
           description: ''
@@ -13102,10 +13104,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/RouteOptimizationSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/RouteOptimizationSerializerV2'
           description: ''
@@ -13184,10 +13186,10 @@ paths:
       responses:
         '200':
           content:
-            text/html; version=2.4.51:
+            text/html; version=${version}:
               schema:
                 type: string
-            application/pdf; version=2.4.51:
+            application/pdf; version=${version}:
               schema:
                 type: string
                 format: byte
@@ -13241,10 +13243,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/RouteOptimizationResultSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/RouteOptimizationResultSerializerV2'
           description: ''
@@ -14199,10 +14201,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedRouteList'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedRouteList'
           description: ''
@@ -15132,10 +15134,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedRouteList'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedRouteList'
           description: ''
@@ -15599,7 +15601,7 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedRouteList'
           description: ''
@@ -15624,7 +15626,7 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Route'
           description: ''
@@ -15646,7 +15648,7 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Route'
           description: ''
@@ -15679,7 +15681,7 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Route'
           description: ''
@@ -15711,7 +15713,7 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Route'
           description: ''
@@ -16079,10 +16081,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedSignatureList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedSignatureList'
           description: ''
@@ -16115,10 +16117,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Signature'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Signature'
           description: ''
@@ -16147,10 +16149,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Signature'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Signature'
           description: ''
@@ -16777,10 +16779,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedSMSList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedSMSList'
           description: ''
@@ -16813,10 +16815,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
           description: ''
@@ -16845,10 +16847,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
           description: ''
@@ -16877,10 +16879,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/SMS'
           description: ''
@@ -17328,10 +17330,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskAddressFeatureList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskAddressFeatureList'
           description: ''
@@ -17360,10 +17362,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskAddressFeature'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskAddressFeature'
           description: ''
@@ -17785,10 +17787,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskCommandList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskCommandList'
           description: ''
@@ -17821,10 +17823,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskCommand'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskCommand'
           description: ''
@@ -17871,10 +17873,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskCommand'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskCommand'
           description: ''
@@ -17914,10 +17916,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskCommand'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskCommand'
           description: ''
@@ -18207,10 +18209,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskEventTrackList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskEventTrackList'
           description: ''
@@ -18239,10 +18241,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskEventTrack'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskEventTrack'
           description: ''
@@ -18551,10 +18553,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskEventSerializerV2List'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskEventSerializerV2List'
           description: ''
@@ -18586,10 +18588,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskEventSerializerV2'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskEventSerializerV2'
           description: ''
@@ -22615,10 +22617,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskExportList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskExportList'
           description: ''
@@ -22806,10 +22808,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskFormList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskFormList'
           description: ''
@@ -22842,10 +22844,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
           description: ''
@@ -22874,10 +22876,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
           description: ''
@@ -22917,10 +22919,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
           description: ''
@@ -22959,10 +22961,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskForm'
           description: ''
@@ -23422,10 +23424,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTasksBackgroundImportList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTasksBackgroundImportList'
           description: ''
@@ -23458,10 +23460,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TasksBackgroundImport'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TasksBackgroundImport'
           description: ''
@@ -23490,10 +23492,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TasksBackgroundImport'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TasksBackgroundImport'
           description: ''
@@ -23723,10 +23725,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedImportMappingList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedImportMappingList'
           description: ''
@@ -23759,10 +23761,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ImportMapping'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ImportMapping'
           description: ''
@@ -23791,10 +23793,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ImportMapping'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/ImportMapping'
           description: ''
@@ -23994,10 +23996,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskMetadataList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskMetadataList'
           description: ''
@@ -24026,10 +24028,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskMetadata'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskMetadata'
           description: ''
@@ -27945,10 +27947,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskSerializerV2List'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskSerializerV2List'
           description: ''
@@ -27978,10 +27980,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
@@ -28038,10 +28040,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
@@ -28078,10 +28080,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
@@ -28117,10 +28119,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
@@ -28157,10 +28159,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
@@ -28198,10 +28200,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Task'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/Task'
           description: ''
@@ -28238,10 +28240,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
@@ -28279,10 +28281,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
@@ -28319,10 +28321,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
@@ -28359,10 +28361,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
@@ -32285,10 +32287,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedDocumentList'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedDocumentList'
           description: ''
@@ -36211,10 +36213,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskEventList'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskEventList'
           description: ''
@@ -36251,10 +36253,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
@@ -36312,10 +36314,10 @@ paths:
       responses:
         '200':
           content:
-            text/html; version=2.4.51:
+            text/html; version=${version}:
               schema:
                 type: string
-            application/pdf; version=2.4.51:
+            application/pdf; version=${version}:
               schema:
                 type: string
                 format: byte
@@ -36353,10 +36355,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
@@ -40279,10 +40281,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedSignatureList'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedSignatureList'
           description: ''
@@ -40319,10 +40321,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
@@ -40359,10 +40361,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
@@ -40399,10 +40401,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/TaskSerializerV2'
           description: ''
@@ -44299,10 +44301,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskListReorderResponseTaskList'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTaskListReorderResponseTaskList'
           description: ''
@@ -44583,10 +44585,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTimeLocationFeatureList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTimeLocationFeatureList'
           description: ''
@@ -44618,10 +44620,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
           description: ''
@@ -44650,10 +44652,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
           description: ''
@@ -44692,10 +44694,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
           description: ''
@@ -44734,10 +44736,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocationFeature'
           description: ''
@@ -45042,10 +45044,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTimeLocationList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTimeLocationList'
           description: ''
@@ -45078,10 +45080,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocation'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocation'
           description: ''
@@ -45110,10 +45112,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocation'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TimeLocation'
           description: ''
@@ -45313,10 +45315,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTrackerList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedTrackerList'
           description: ''
@@ -45349,10 +45351,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
           description: ''
@@ -45381,10 +45383,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
           description: ''
@@ -45424,10 +45426,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
           description: ''
@@ -45466,10 +45468,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Tracker'
           description: ''
@@ -45498,10 +45500,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/TrackerPublic'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/TrackerPublic'
           description: ''
@@ -45565,10 +45567,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedReadableUserList'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedReadableUserList'
           description: ''
@@ -45598,10 +45600,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AuthenticatedUserCreate'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/AuthenticatedUserCreate'
           description: ''
@@ -45630,10 +45632,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ReadableUser'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/ReadableUser'
           description: ''
@@ -45670,10 +45672,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AuthenticatedUserUpdate'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/AuthenticatedUserUpdate'
           description: ''
@@ -45709,10 +45711,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/AuthenticatedUserUpdate'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/AuthenticatedUserUpdate'
           description: ''
@@ -45750,10 +45752,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/ReadableUser'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/ReadableUser'
           description: ''
@@ -45782,10 +45784,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/OnDuty'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/OnDuty'
           description: ''
@@ -45822,10 +45824,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/OnDuty'
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 $ref: '#/components/schemas/OnDuty'
           description: ''
@@ -45880,12 +45882,12 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 type: object
                 additionalProperties: {}
                 description: Unspecified response body
-            application/xml; version=2.4.51:
+            application/xml; version=${version}:
               schema:
                 type: object
                 additionalProperties: {}
@@ -46117,10 +46119,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWorkingStateList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWorkingStateList'
           description: ''
@@ -46153,10 +46155,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
           description: ''
@@ -46185,10 +46187,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
           description: ''
@@ -46280,10 +46282,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWebhookList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWebhookList'
           description: ''
@@ -46316,10 +46318,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
           description: ''
@@ -46348,10 +46350,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
           description: ''
@@ -46391,10 +46393,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
           description: ''
@@ -46433,10 +46435,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
           description: ''
@@ -46490,10 +46492,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
           description: ''
@@ -46523,10 +46525,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/Webhook'
           description: ''
@@ -46825,10 +46827,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWorkerFeatureList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWorkerFeatureList'
           description: ''
@@ -46856,10 +46858,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkerFeature'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkerFeature'
           description: ''
@@ -47189,10 +47191,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkerTrackList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkerTrackList'
           description: ''
@@ -47422,10 +47424,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWorkingStateList'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/PaginatedWorkingStateList'
           description: ''
@@ -47458,10 +47460,10 @@ paths:
       responses:
         '201':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
           description: ''
@@ -47490,10 +47492,10 @@ paths:
       responses:
         '200':
           content:
-            application/json; version=2.4.51:
+            application/json; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=2.4.51:
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: '#/components/schemas/WorkingState'
           description: ''
