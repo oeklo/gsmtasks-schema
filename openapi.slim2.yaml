@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.51
+  version: 2.4.52
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -13223,10 +13223,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.4.51:
+            text/html; version=2.4.52:
               schema:
                 type: string
-            application/pdf; version=2.4.51:
+            application/pdf; version=2.4.52:
               schema:
                 type: string
                 format: byte
@@ -36349,10 +36349,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.4.51:
+            text/html; version=2.4.52:
               schema:
                 type: string
-            application/pdf; version=2.4.51:
+            application/pdf; version=2.4.52:
               schema:
                 type: string
                 format: byte
@@ -47971,6 +47971,24 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/TaskCategoryEnum"
+        feature_show_unassigned_capacity:
+          type: boolean
+          description: Show unassigned capacity.
+        capacity_divisor:
+          type: array
+          items:
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+          nullable: true
+          description: Capacity divisors for calculations.
+        capacity_units:
+          type: array
+          items:
+            type: string
+            maxLength: 100
+          nullable: true
+          description: Capacity unit names.
         auto_assign_orders:
           type: boolean
         auto_assign_max_tasks:
@@ -51920,6 +51938,24 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/TaskCategoryEnum"
+        feature_show_unassigned_capacity:
+          type: boolean
+          description: Show unassigned capacity.
+        capacity_divisor:
+          type: array
+          items:
+            type: integer
+            maximum: 2147483647
+            minimum: -2147483648
+          nullable: true
+          description: Capacity divisors for calculations.
+        capacity_units:
+          type: array
+          items:
+            type: string
+            maxLength: 100
+          nullable: true
+          description: Capacity unit names.
         auto_assign_orders:
           type: boolean
         auto_assign_max_tasks:
@@ -58074,6 +58110,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.52
       - 2.4.51
       - 2.4.50
       - 2.4.49
@@ -58145,6 +58182,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.52` - 2.4.52
         * `2.4.51` - 2.4.51
         * `2.4.50` - 2.4.50
         * `2.4.49` - 2.4.49
