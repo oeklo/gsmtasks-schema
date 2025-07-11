@@ -48611,6 +48611,9 @@ components:
         is_editable_assignee:
           type: boolean
           description: Editable by assignee
+        is_editable_when_archived:
+          type: boolean
+          description: Editable when task is completed or cancelled
         is_required:
           type: boolean
         is_required_before_complete:
@@ -50370,6 +50373,9 @@ components:
         is_editable_assignee:
           type: boolean
           description: Editable by assignee
+        is_editable_when_archived:
+          type: boolean
+          description: Editable when task is completed or cancelled
         is_required:
           type: boolean
         is_required_before_complete:
