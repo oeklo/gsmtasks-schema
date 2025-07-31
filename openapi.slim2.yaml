@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.52
+  version: 2.4.53
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -8025,6 +8025,7 @@ paths:
           - choice
           - decimal
           - integer
+          - json
           - link
           - string
         description: |-
@@ -8034,6 +8035,7 @@ paths:
           * `choice` - Choice
           * `link` - Link
           * `assignee` - Assignee
+          * `json` - JSON
       tags:
       - metafields
       security:
@@ -13143,10 +13145,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.4.52:
+            text/html; version=2.4.53:
               schema:
                 type: string
-            application/pdf; version=2.4.52:
+            application/pdf; version=2.4.53:
               schema:
                 type: string
                 format: byte
@@ -34925,10 +34927,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.4.52:
+            text/html; version=2.4.53:
               schema:
                 type: string
-            application/pdf; version=2.4.52:
+            application/pdf; version=2.4.53:
               schema:
                 type: string
                 format: byte
@@ -55882,6 +55884,7 @@ components:
       - choice
       - link
       - assignee
+      - json
       type: string
       description: |-
         * `string` - String
@@ -55890,6 +55893,7 @@ components:
         * `choice` - Choice
         * `link` - Link
         * `assignee` - Assignee
+        * `json` - JSON
     VehicleProfileEnum:
       enum:
       - bike
@@ -55910,6 +55914,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.4.53
       - 2.4.52
       - 2.4.51
       - 2.4.50
@@ -55982,6 +55987,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.4.53` - 2.4.53
         * `2.4.52` - 2.4.52
         * `2.4.51` - 2.4.51
         * `2.4.50` - 2.4.50
