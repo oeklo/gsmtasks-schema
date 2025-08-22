@@ -53525,6 +53525,14 @@ components:
           type: string
           format: date-time
           default: null
+        metadata__last_assignee_near_at:
+          type: string
+          format: date-time
+          default: null
+        metadata__last_assignee_away_at:
+          type: string
+          format: date-time
+          default: null
       required:
       - account__name
       - address__location
@@ -53811,6 +53819,14 @@ components:
           format: date-time
           nullable: true
         last_cancelled_at:
+          type: string
+          format: date-time
+          nullable: true
+        last_assignee_near_at:
+          type: string
+          format: date-time
+          nullable: true
+        last_assignee_away_at:
           type: string
           format: date-time
           nullable: true
