@@ -6095,6 +6095,90 @@ paths:
               schema:
                 $ref: '#/components/schemas/Document'
           description: ''
+    put:
+      operationId: documents_update
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this document.
+        required: true
+      tags:
+      - documents
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DocumentUpdate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DocumentUpdate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/DocumentUpdate'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: '#/components/schemas/DocumentUpdate'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
+              schema:
+                $ref: '#/components/schemas/DocumentUpdate'
+          description: ''
+    patch:
+      operationId: documents_partial_update
+      parameters:
+      - in: query
+        name: format
+        schema:
+          type: string
+          enum:
+          - json
+          - xlsx
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this document.
+        required: true
+      tags:
+      - documents
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PatchedDocumentUpdate'
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/PatchedDocumentUpdate'
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/PatchedDocumentUpdate'
+      security:
+      - tokenAuth: []
+      responses:
+        '200':
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: '#/components/schemas/DocumentUpdate'
+            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
+              schema:
+                $ref: '#/components/schemas/DocumentUpdate'
+          description: ''
     delete:
       operationId: documents_destroy
       parameters:
@@ -47764,6 +47848,18 @@ components:
       required:
       - account
       - documents
+    DocumentUpdate:
+      type: object
+      description: |-
+        Serializer for updating only the visibility fields of a document.
+
+        - visible_to_client: Can be updated by any authenticated user with document access
+        - visible_to_worker: Can only be updated by managers
+      properties:
+        visible_to_client:
+          type: boolean
+        visible_to_worker:
+          type: boolean
     Email:
       type: object
       properties:
@@ -50163,6 +50259,18 @@ components:
           type: string
           format: date-time
           readOnly: true
+    PatchedDocumentUpdate:
+      type: object
+      description: |-
+        Serializer for updating only the visibility fields of a document.
+
+        - visible_to_client: Can be updated by any authenticated user with document access
+        - visible_to_worker: Can only be updated by managers
+      properties:
+        visible_to_client:
+          type: boolean
+        visible_to_worker:
+          type: boolean
     PatchedExport:
       type: object
       properties:
