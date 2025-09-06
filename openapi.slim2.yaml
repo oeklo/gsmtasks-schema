@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.4.53
+  version: 2.5.0
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -1086,39 +1086,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Account"
           description: ""
-  /accounts/{id}/braintree_customer/:
-    get:
-      operationId: accounts_braintree_customer_retrieve
-      description: Fetch Braintree customer data.
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this account.
-        required: true
-      tags:
-      - accounts
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/BraintreeCustomer"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/BraintreeCustomer"
-          description: ""
   /accounts/{id}/change_owner/:
     post:
       operationId: accounts_change_owner_create
@@ -1654,233 +1621,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Authentication"
           description: ""
-  /billing/customers/:
-    get:
-      operationId: billing_customers_list
-      parameters:
-      - in: query
-        name: account
-        schema:
-          type: string
-          format: uuid
-      - name: cursor
-        required: false
-        in: query
-        description: The pagination cursor value.
-        schema:
-          type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - name: page_size
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      tags:
-      - billing
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedBraintreeCustomerList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedBraintreeCustomerList"
-          description: ""
-    post:
-      operationId: billing_customers_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      tags:
-      - billing
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/BraintreeCustomer"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/BraintreeCustomer"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/BraintreeCustomer"
-        required: true
-      security:
-      - tokenAuth: []
-      responses:
-        "201":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/BraintreeCustomer"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/BraintreeCustomer"
-          description: ""
-  /billing/customers/{id}/:
-    get:
-      operationId: billing_customers_retrieve
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this braintree customer.
-        required: true
-      tags:
-      - billing
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/BraintreeCustomer"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/BraintreeCustomer"
-          description: ""
-    put:
-      operationId: billing_customers_update
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this braintree customer.
-        required: true
-      tags:
-      - billing
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/BraintreeCustomer"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/BraintreeCustomer"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/BraintreeCustomer"
-        required: true
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/BraintreeCustomer"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/BraintreeCustomer"
-          description: ""
-    patch:
-      operationId: billing_customers_partial_update
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this braintree customer.
-        required: true
-      tags:
-      - billing
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/PatchedBraintreeCustomer"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedBraintreeCustomer"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedBraintreeCustomer"
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/BraintreeCustomer"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/BraintreeCustomer"
-          description: ""
-  /billing/customers/{id}/client_token/:
-    get:
-      operationId: billing_customers_client_token_retrieve
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this braintree customer.
-        required: true
-      tags:
-      - billing
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                token: {}
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                token: {}
-          description: Responds with external API response
   /billing/invoices/:
     get:
       operationId: billing_invoices_list
@@ -2396,117 +2136,6 @@ paths:
             application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/StripePayment"
-          description: ""
-  /billing/transactions/:
-    get:
-      operationId: billing_transactions_list
-      parameters:
-      - name: cursor
-        required: false
-        in: query
-        description: The pagination cursor value.
-        schema:
-          type: string
-      - in: query
-        name: customer
-        schema:
-          type: string
-          format: uuid
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: query
-        name: invoice__account
-        schema:
-          type: string
-          format: uuid
-      - name: ordering
-        required: false
-        in: query
-        description: Which field to use when ordering the results.
-        schema:
-          type: string
-      - name: page_size
-        required: false
-        in: query
-        description: Number of results to return per page.
-        schema:
-          type: integer
-      - in: query
-        name: state
-        schema:
-          type: string
-          enum:
-          - cancelled
-          - draft
-          - failed
-          - imported
-          - refunded
-          - rejected
-          - retried
-          - saved
-          - settled
-          - voided
-        description: |-
-          * `draft` - Draft
-          * `failed` - Failed to upload
-          * `saved` - Saved to Braintree
-          * `settled` - Settled
-          * `rejected` - Rejected
-          * `voided` - Voided
-          * `refunded` - Refunded
-          * `retried` - Retried
-          * `cancelled` - Cancelled
-          * `imported` - Imported
-      tags:
-      - billing
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedBraintreeTransactionList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedBraintreeTransactionList"
-          description: ""
-  /billing/transactions/{id}/:
-    get:
-      operationId: billing_transactions_retrieve
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this braintree transaction.
-        required: true
-      tags:
-      - billing
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/BraintreeTransaction"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/BraintreeTransaction"
           description: ""
   /client_roles/:
     get:
@@ -13229,10 +12858,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.4.53:
+            text/html; version=2.5.0:
               schema:
                 type: string
-            application/pdf; version=2.4.53:
+            application/pdf; version=2.5.0:
               schema:
                 type: string
                 format: byte
@@ -35011,10 +34640,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.4.53:
+            text/html; version=2.5.0:
               schema:
                 type: string
-            application/pdf; version=2.4.53:
+            application/pdf; version=2.5.0:
               schema:
                 type: string
                 format: byte
@@ -46584,121 +46213,6 @@ components:
     BlankEnum:
       enum:
       - ""
-    BraintreeCustomer:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        braintree_id:
-          type: string
-          nullable: true
-          maxLength: 36
-        account:
-          type: string
-          format: uri
-        first_name:
-          type: string
-          maxLength: 255
-        last_name:
-          type: string
-          maxLength: 255
-        company:
-          type: string
-          maxLength: 255
-        email:
-          type: string
-          format: email
-          maxLength: 254
-        phone:
-          type: string
-          maxLength: 14
-        website:
-          type: string
-          maxLength: 100
-        vat:
-          type: string
-          maxLength: 20
-        payment_method_nonce:
-          type: string
-          nullable: true
-          maxLength: 250
-        created_at:
-          type: string
-          format: date-time
-          readOnly: true
-        updated_at:
-          type: string
-          format: date-time
-          readOnly: true
-      required:
-      - account
-      - created_at
-      - id
-      - updated_at
-      - url
-    BraintreeTransaction:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        invoice:
-          type: string
-          format: uri
-        customer:
-          type: string
-          format: uri
-        type:
-          type: string
-          maxLength: 6
-        status:
-          type: string
-          maxLength: 24
-        amount:
-          type: string
-          format: decimal
-          pattern: ^-?\d{0,7}(?:\.\d{0,2})?$
-        currency:
-          type: string
-          maxLength: 3
-        timestamp:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        response:
-          type: string
-          readOnly: true
-          nullable: true
-        created_at:
-          type: string
-          format: date-time
-          readOnly: true
-        updated_at:
-          type: string
-          format: date-time
-          readOnly: true
-      required:
-      - amount
-      - created_at
-      - customer
-      - id
-      - invoice
-      - response
-      - timestamp
-      - updated_at
-      - url
     Client:
       type: object
       properties:
@@ -48774,6 +48288,12 @@ components:
           type: boolean
         show_when_task_type_drop_off:
           type: boolean
+        applies_to_tasks:
+          type: boolean
+          description: This metafield can be used on tasks
+        applies_to_routes:
+          type: boolean
+          description: This metafield can be used on routes
         created_at:
           type: string
           format: date-time
@@ -49207,14 +48727,6 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/Addon"
-    PaginatedBraintreeCustomerList:
-      type: array
-      items:
-        $ref: "#/components/schemas/BraintreeCustomer"
-    PaginatedBraintreeTransactionList:
-      type: array
-      items:
-        $ref: "#/components/schemas/BraintreeTransaction"
     PaginatedClientList:
       type: array
       items:
@@ -50124,58 +49636,6 @@ components:
           maxLength: 128
         address:
           $ref: "#/components/schemas/NestedAddress"
-    PatchedBraintreeCustomer:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        braintree_id:
-          type: string
-          nullable: true
-          maxLength: 36
-        account:
-          type: string
-          format: uri
-        first_name:
-          type: string
-          maxLength: 255
-        last_name:
-          type: string
-          maxLength: 255
-        company:
-          type: string
-          maxLength: 255
-        email:
-          type: string
-          format: email
-          maxLength: 254
-        phone:
-          type: string
-          maxLength: 14
-        website:
-          type: string
-          maxLength: 100
-        vat:
-          type: string
-          maxLength: 20
-        payment_method_nonce:
-          type: string
-          nullable: true
-          maxLength: 250
-        created_at:
-          type: string
-          format: date-time
-          readOnly: true
-        updated_at:
-          type: string
-          format: date-time
-          readOnly: true
     PatchedClient:
       type: object
       properties:
@@ -50551,6 +50011,12 @@ components:
           type: boolean
         show_when_task_type_drop_off:
           type: boolean
+        applies_to_tasks:
+          type: boolean
+          description: This metafield can be used on tasks
+        applies_to_routes:
+          type: boolean
+          description: This metafield can be used on routes
         created_at:
           type: string
           format: date-time
@@ -50814,6 +50280,7 @@ components:
           readOnly: true
         objective:
           $ref: "#/components/schemas/ObjectiveEnum"
+        metafields: {}
         created_at:
           type: string
           format: date-time
@@ -51715,6 +51182,7 @@ components:
           readOnly: true
         objective:
           $ref: "#/components/schemas/ObjectiveEnum"
+        metafields: {}
         created_at:
           type: string
           format: date-time
@@ -56044,6 +55512,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.5.0
       - 2.4.53
       - 2.4.52
       - 2.4.51
@@ -56117,6 +55586,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.5.0` - 2.5.0
         * `2.4.53` - 2.4.53
         * `2.4.52` - 2.4.52
         * `2.4.51` - 2.4.51
