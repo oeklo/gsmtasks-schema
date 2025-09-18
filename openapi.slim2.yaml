@@ -7484,6 +7484,18 @@ paths:
         schema:
           type: string
           format: uuid
+      - in: query
+        name: applies_to
+        schema:
+          type: string
+          enum:
+          - routes
+          - tasks
+        description: |-
+          What model this metafield applies to
+
+          * `tasks` - Tasks
+          * `routes` - Routes
       - name: created_at
         required: false
         in: query
@@ -46119,6 +46131,14 @@ components:
         * `android` - Android
         * `ios` - iOS
         * `web` - Web
+    AppliesToEnum:
+      enum:
+      - tasks
+      - routes
+      type: string
+      description: |-
+        * `tasks` - Tasks
+        * `routes` - Routes
     AssigneeProximityEnum:
       enum:
       - away
@@ -48288,12 +48308,14 @@ components:
           type: boolean
         show_when_task_type_drop_off:
           type: boolean
-        applies_to_tasks:
-          type: boolean
-          description: This metafield can be used on tasks
-        applies_to_routes:
-          type: boolean
-          description: This metafield can be used on routes
+        applies_to:
+          allOf:
+          - $ref: "#/components/schemas/AppliesToEnum"
+          description: |-
+            What model this metafield applies to
+
+            * `tasks` - Tasks
+            * `routes` - Routes
         created_at:
           type: string
           format: date-time
@@ -50011,12 +50033,14 @@ components:
           type: boolean
         show_when_task_type_drop_off:
           type: boolean
-        applies_to_tasks:
-          type: boolean
-          description: This metafield can be used on tasks
-        applies_to_routes:
-          type: boolean
-          description: This metafield can be used on routes
+        applies_to:
+          allOf:
+          - $ref: "#/components/schemas/AppliesToEnum"
+          description: |-
+            What model this metafield applies to
+
+            * `tasks` - Tasks
+            * `routes` - Routes
         created_at:
           type: string
           format: date-time
