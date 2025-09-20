@@ -13,12 +13,6 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    - name: Read API version
-      id: apiVersion
-      uses: mikefarah/yq@master
-      with:
-        cmd: yq '.info.version' 'openapi.yaml'
-
     - name: Backup original files
       run: |
         mv openapi.yaml openapi.old.yaml
@@ -28,6 +22,12 @@ jobs:
       uses: enflo/curl-action@master
       with:
         curl: -o openapi.yaml https://api.gsmtasks.com/docs/schema/
+
+    - name: Read API version
+      id: apiVersion
+      uses: mikefarah/yq@master
+      with:
+        cmd: yq '.info.version' 'openapi.yaml'
 
     - name: Generate slim v1
       run: |
