@@ -29,20 +29,12 @@ jobs:
       with:
         cmd: yq '.info.version' 'openapi.yaml'
 
-    - name: Generate slim v1
-      run: |
-        VERSION=${{ steps.apiVersion.outputs.result }}
-        sed -e "s/; version=${VERSION}/; version=\${version}/g"\
-         -e "s/[0-9]\{4\}-[0-9]\{2\}-[0-9]\{2\}T[0-9]\{2\}:[0-9]\{2\}:[0-9]\{2\}[+-][0-9]\{2\}:[0-9]\{2\}/\${date}/g"\
-         -e "s/[0-9a-fA-F]\{8\}-[0-9a-fA-F]\{4\}-[0-9a-fA-F]\{4\}-[0-9a-fA-F]\{4\}-[0-9a-fA-F]\{12\}/\${uuid}/g"\
-         openapi.yaml > openapi.slim.yaml
-
     - name: Set up node
       uses: actions/setup-node@v4
       with:
         node-version: v22
 
-    - name: Generate slim v2
+    - name: Generate slim
       run: npx betterer-json slim.js openapi.yaml > openapi.slim2.yaml
 
     - name: Compare files
