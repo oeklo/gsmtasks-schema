@@ -21813,12 +21813,272 @@ paths:
         schema:
           type: string
           format: uuid
+      - in: query
+        name: route__account
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__account__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__account__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__assignee
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__assignee__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__assignee__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__code
+        schema:
+          type: string
+      - in: query
+        name: route__code__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__code__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__code__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__code__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__code__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__code__search
+        schema:
+          type: string
+      - in: query
+        name: route__description
+        schema:
+          type: string
+      - in: query
+        name: route__description__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__description__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__description__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__description__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__description__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__description__search
+        schema:
+          type: string
+      - in: query
+        name: route__end_address
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__end_address__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__end_address__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__end_time
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__gt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__gte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__end_time__lt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__lte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__external_id
+        schema:
+          type: string
+      - in: query
+        name: route__external_id__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__external_id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__external_id__isnull
+        schema:
+          type: boolean
       - name: route__in
         required: false
         in: query
         description: comma separated value
         schema:
           type: string
+      - name: route__metafields
+        required: false
+        in: query
+        description: Django ORM lookups can be used. Metafield `is_searchable` must be True.
+        schema:
+          type: string
+      - in: query
+        name: route__name
+        schema:
+          type: string
+      - in: query
+        name: route__name__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__name__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__name__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__name__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__name__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__name__search
+        schema:
+          type: string
+      - in: query
+        name: route__start_address
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__start_address__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__start_address__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__start_time
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__gt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__gte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__start_time__lt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__lte
+        schema:
+          type: string
+          format: date-time
       - in: query
         name: route_id
         schema:
@@ -26855,12 +27115,272 @@ paths:
         schema:
           type: string
           format: uuid
+      - in: query
+        name: route__account
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__account__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__account__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__assignee
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__assignee__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__assignee__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__code
+        schema:
+          type: string
+      - in: query
+        name: route__code__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__code__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__code__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__code__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__code__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__code__search
+        schema:
+          type: string
+      - in: query
+        name: route__description
+        schema:
+          type: string
+      - in: query
+        name: route__description__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__description__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__description__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__description__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__description__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__description__search
+        schema:
+          type: string
+      - in: query
+        name: route__end_address
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__end_address__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__end_address__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__end_time
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__gt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__gte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__end_time__lt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__lte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__external_id
+        schema:
+          type: string
+      - in: query
+        name: route__external_id__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__external_id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__external_id__isnull
+        schema:
+          type: boolean
       - name: route__in
         required: false
         in: query
         description: comma separated value
         schema:
           type: string
+      - name: route__metafields
+        required: false
+        in: query
+        description: Django ORM lookups can be used. Metafield `is_searchable` must be True.
+        schema:
+          type: string
+      - in: query
+        name: route__name
+        schema:
+          type: string
+      - in: query
+        name: route__name__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__name__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__name__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__name__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__name__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__name__search
+        schema:
+          type: string
+      - in: query
+        name: route__start_address
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__start_address__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__start_address__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__start_time
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__gt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__gte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__start_time__lt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__lte
+        schema:
+          type: string
+          format: date-time
       - in: query
         name: route_id
         schema:
@@ -30918,12 +31438,272 @@ paths:
         schema:
           type: string
           format: uuid
+      - in: query
+        name: route__account
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__account__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__account__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__assignee
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__assignee__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__assignee__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__code
+        schema:
+          type: string
+      - in: query
+        name: route__code__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__code__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__code__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__code__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__code__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__code__search
+        schema:
+          type: string
+      - in: query
+        name: route__description
+        schema:
+          type: string
+      - in: query
+        name: route__description__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__description__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__description__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__description__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__description__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__description__search
+        schema:
+          type: string
+      - in: query
+        name: route__end_address
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__end_address__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__end_address__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__end_time
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__gt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__gte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__end_time__lt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__lte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__external_id
+        schema:
+          type: string
+      - in: query
+        name: route__external_id__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__external_id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__external_id__isnull
+        schema:
+          type: boolean
       - name: route__in
         required: false
         in: query
         description: comma separated value
         schema:
           type: string
+      - name: route__metafields
+        required: false
+        in: query
+        description: Django ORM lookups can be used. Metafield `is_searchable` must be True.
+        schema:
+          type: string
+      - in: query
+        name: route__name
+        schema:
+          type: string
+      - in: query
+        name: route__name__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__name__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__name__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__name__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__name__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__name__search
+        schema:
+          type: string
+      - in: query
+        name: route__start_address
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__start_address__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__start_address__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__start_time
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__gt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__gte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__start_time__lt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__lte
+        schema:
+          type: string
+          format: date-time
       - in: query
         name: route_id
         schema:
@@ -34566,12 +35346,272 @@ paths:
         schema:
           type: string
           format: uuid
+      - in: query
+        name: route__account
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__account__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__account__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__assignee
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__assignee__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__assignee__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__code
+        schema:
+          type: string
+      - in: query
+        name: route__code__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__code__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__code__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__code__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__code__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__code__search
+        schema:
+          type: string
+      - in: query
+        name: route__description
+        schema:
+          type: string
+      - in: query
+        name: route__description__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__description__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__description__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__description__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__description__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__description__search
+        schema:
+          type: string
+      - in: query
+        name: route__end_address
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__end_address__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__end_address__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__end_time
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__gt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__gte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__end_time__lt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__lte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__external_id
+        schema:
+          type: string
+      - in: query
+        name: route__external_id__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__external_id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__external_id__isnull
+        schema:
+          type: boolean
       - name: route__in
         required: false
         in: query
         description: comma separated value
         schema:
           type: string
+      - name: route__metafields
+        required: false
+        in: query
+        description: Django ORM lookups can be used. Metafield `is_searchable` must be True.
+        schema:
+          type: string
+      - in: query
+        name: route__name
+        schema:
+          type: string
+      - in: query
+        name: route__name__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__name__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__name__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__name__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__name__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__name__search
+        schema:
+          type: string
+      - in: query
+        name: route__start_address
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__start_address__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__start_address__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__start_time
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__gt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__gte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__start_time__lt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__lte
+        schema:
+          type: string
+          format: date-time
       - in: query
         name: route_id
         schema:
@@ -38357,12 +39397,272 @@ paths:
         schema:
           type: string
           format: uuid
+      - in: query
+        name: route__account
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__account__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__account__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__assignee
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__assignee__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__assignee__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__code
+        schema:
+          type: string
+      - in: query
+        name: route__code__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__code__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__code__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__code__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__code__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__code__search
+        schema:
+          type: string
+      - in: query
+        name: route__description
+        schema:
+          type: string
+      - in: query
+        name: route__description__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__description__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__description__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__description__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__description__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__description__search
+        schema:
+          type: string
+      - in: query
+        name: route__end_address
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__end_address__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__end_address__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__end_time
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__gt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__gte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__end_time__lt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__lte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__external_id
+        schema:
+          type: string
+      - in: query
+        name: route__external_id__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__external_id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__external_id__isnull
+        schema:
+          type: boolean
       - name: route__in
         required: false
         in: query
         description: comma separated value
         schema:
           type: string
+      - name: route__metafields
+        required: false
+        in: query
+        description: Django ORM lookups can be used. Metafield `is_searchable` must be True.
+        schema:
+          type: string
+      - in: query
+        name: route__name
+        schema:
+          type: string
+      - in: query
+        name: route__name__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__name__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__name__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__name__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__name__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__name__search
+        schema:
+          type: string
+      - in: query
+        name: route__start_address
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__start_address__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__start_address__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__start_time
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__gt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__gte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__start_time__lt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__lte
+        schema:
+          type: string
+          format: date-time
       - in: query
         name: route_id
         schema:
@@ -42118,12 +43418,272 @@ paths:
         schema:
           type: string
           format: uuid
+      - in: query
+        name: route__account
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__account__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__account__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__assignee
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__assignee__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__assignee__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__code
+        schema:
+          type: string
+      - in: query
+        name: route__code__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__code__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__code__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__code__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__code__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__code__search
+        schema:
+          type: string
+      - in: query
+        name: route__description
+        schema:
+          type: string
+      - in: query
+        name: route__description__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__description__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__description__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__description__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__description__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__description__search
+        schema:
+          type: string
+      - in: query
+        name: route__end_address
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__end_address__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__end_address__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__end_time
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__gt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__gte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__end_time__lt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__end_time__lte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__external_id
+        schema:
+          type: string
+      - in: query
+        name: route__external_id__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__external_id__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__external_id__isnull
+        schema:
+          type: boolean
       - name: route__in
         required: false
         in: query
         description: comma separated value
         schema:
           type: string
+      - name: route__metafields
+        required: false
+        in: query
+        description: Django ORM lookups can be used. Metafield `is_searchable` must be True.
+        schema:
+          type: string
+      - in: query
+        name: route__name
+        schema:
+          type: string
+      - in: query
+        name: route__name__icontains
+        schema:
+          type: string
+      - in: query
+        name: route__name__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__name__iregex
+        schema:
+          type: string
+      - in: query
+        name: route__name__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__name__istartswith
+        schema:
+          type: string
+      - in: query
+        name: route__name__search
+        schema:
+          type: string
+      - in: query
+        name: route__start_address
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: route__start_address__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: route__start_address__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__start_time
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__gt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__gte
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__isnull
+        schema:
+          type: boolean
+      - in: query
+        name: route__start_time__lt
+        schema:
+          type: string
+          format: date-time
+      - in: query
+        name: route__start_time__lte
+        schema:
+          type: string
+          format: date-time
       - in: query
         name: route_id
         schema:
@@ -53585,12 +55145,26 @@ components:
           type: string
           format: date-time
           default: null
+        route__external_id:
+          type: string
+          default: ""
         route__code:
+          type: string
+          default: ""
+        route__name:
           type: string
           default: ""
         route__description:
           type: string
           default: ""
+        route__start_time:
+          type: string
+          format: date-time
+          default: null
+        route__end_time:
+          type: string
+          format: date-time
+          default: null
         created_by__display_name:
           type: string
           readOnly: true
