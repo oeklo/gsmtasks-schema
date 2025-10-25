@@ -17582,49 +17582,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/TaskCommand"
           description: ""
-    put:
-      operationId: task_commands_update
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this task command.
-        required: true
-      tags:
-      - task_commands
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/TaskCommand"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/TaskCommand"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/TaskCommand"
-        required: true
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskCommand"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskCommand"
-          description: ""
   /task_event_tracks/:
     get:
       operationId: task_event_tracks_list
@@ -47611,6 +47568,10 @@ components:
         feature_document_signing:
           type: boolean
           description: Allow choosing documents to sign.
+        feature_tracker_map_provider:
+          oneOf:
+          - $ref: "#/components/schemas/FeatureTrackerMapProviderEnum"
+          - $ref: "#/components/schemas/BlankEnum"
         feature_tracker_reviews_allowed:
           type: boolean
         feature_tracker_url:
@@ -49724,6 +49685,14 @@ components:
         * `reach-u` - Reach-U
         * `nominatim` - Nominatim
         * `in-ads` - In-ADS
+    FeatureTrackerMapProviderEnum:
+      enum:
+      - google
+      - open-street-maps
+      type: string
+      description: |-
+        * `google` - Google
+        * `open-street-maps` - OpenStreetMap
     FieldEnum:
       enum:
       - state
@@ -51481,6 +51450,10 @@ components:
         feature_document_signing:
           type: boolean
           description: Allow choosing documents to sign.
+        feature_tracker_map_provider:
+          oneOf:
+          - $ref: "#/components/schemas/FeatureTrackerMapProviderEnum"
+          - $ref: "#/components/schemas/BlankEnum"
         feature_tracker_reviews_allowed:
           type: boolean
         feature_tracker_url:
@@ -57528,10 +57501,14 @@ components:
           type: object
           additionalProperties: {}
           readOnly: true
+        feature_tracker_map_provider:
+          type: string
+          readOnly: true
       required:
       - account
       - assignees
       - default_map_location
+      - feature_tracker_map_provider
       - id
       - language
       - last_task_event_notes
