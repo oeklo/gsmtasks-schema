@@ -13,6 +13,12 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
+    - name: Read old API version
+      id: apiVersionOld
+      uses: mikefarah/yq@master
+      with:
+        cmd: yq '.info.version' 'openapi.yaml'
+
     - name: Backup original files
       run: |
         mv openapi.yaml openapi.old.yaml
@@ -58,6 +64,6 @@ jobs:
         VERSION=${{ steps.apiVersion.outputs.result }}
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
-        git add openapi.yaml openapi.slim.yaml openapi.slim2.yaml
+        git add openapi.yaml openapi.slim2.yaml
         git commit -m "Update OpenAPI ${VERSION}"
         git push
