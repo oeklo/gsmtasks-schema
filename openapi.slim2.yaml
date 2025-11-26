@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.5.0
+  version: 2.6.0
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -12870,10 +12870,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.5.0:
+            text/html; version=2.6.0:
               schema:
                 type: string
-            application/pdf; version=2.5.0:
+            application/pdf; version=2.6.0:
               schema:
                 type: string
                 format: byte
@@ -36013,10 +36013,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.5.0:
+            text/html; version=2.6.0:
               schema:
                 type: string
-            application/pdf; version=2.5.0:
+            application/pdf; version=2.6.0:
               schema:
                 type: string
                 format: byte
@@ -47597,6 +47597,12 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/TaskCategoryEnum"
+        feature_signer_name_required:
+          type: boolean
+        feature_signer_name_required_task_category:
+          type: array
+          items:
+            $ref: "#/components/schemas/TaskCategoryEnum"
         feature_show_unassigned_capacity:
           type: boolean
           description: Show unassigned capacity.
@@ -51476,6 +51482,12 @@ components:
         feature_picture_required:
           type: boolean
         feature_picture_required_task_category:
+          type: array
+          items:
+            $ref: "#/components/schemas/TaskCategoryEnum"
+        feature_signer_name_required:
+          type: boolean
+        feature_signer_name_required_task_category:
           type: array
           items:
             $ref: "#/components/schemas/TaskCategoryEnum"
@@ -57646,6 +57658,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.6.0
       - 2.5.0
       - 2.4.53
       - 2.4.52
@@ -57720,6 +57733,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.6.0` - 2.6.0
         * `2.5.0` - 2.5.0
         * `2.4.53` - 2.4.53
         * `2.4.52` - 2.4.52
