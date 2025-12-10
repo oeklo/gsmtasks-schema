@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.6.0
+  version: 2.7.0
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -7489,6 +7489,7 @@ paths:
         schema:
           type: string
           enum:
+          - contact_addresses
           - routes
           - tasks
         description: |-
@@ -7496,6 +7497,7 @@ paths:
 
           * `tasks` - Tasks
           * `routes` - Routes
+          * `contact_addresses` - Contact Addresses
       - name: created_at
         required: false
         in: query
@@ -12870,10 +12872,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.6.0:
+            text/html; version=2.7.0:
               schema:
                 type: string
-            application/pdf; version=2.6.0:
+            application/pdf; version=2.7.0:
               schema:
                 type: string
                 format: byte
@@ -36013,10 +36015,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.6.0:
+            text/html; version=2.7.0:
               schema:
                 type: string
-            application/pdf; version=2.6.0:
+            application/pdf; version=2.7.0:
               schema:
                 type: string
                 format: byte
@@ -47252,6 +47254,15 @@ components:
           type: integer
           maximum: 2147483647
           minimum: 0
+        default_task_category:
+          type: string
+        transit_active_limit:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        default_create_contact_address:
+          type: boolean
         date_format:
           $ref: "#/components/schemas/DateFormatEnum"
         time_format:
@@ -47603,6 +47614,23 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/TaskCategoryEnum"
+        feature_notes_required:
+          type: boolean
+        feature_allow_worker_reordering:
+          type: boolean
+          nullable: true
+        pod_show_reference:
+          type: boolean
+        pod_show_description:
+          type: boolean
+        pod_show_task_events:
+          type: boolean
+        pod_show_task_event_creators:
+          type: boolean
+        pod_show_signatures:
+          type: boolean
+        pod_show_images:
+          type: boolean
         feature_show_unassigned_capacity:
           type: boolean
           description: Show unassigned capacity.
@@ -48208,10 +48236,12 @@ components:
       enum:
       - tasks
       - routes
+      - contact_addresses
       type: string
       description: |-
         * `tasks` - Tasks
         * `routes` - Routes
+        * `contact_addresses` - Contact Addresses
     AssigneeProximityEnum:
       enum:
       - away
@@ -48574,6 +48604,7 @@ components:
         source:
           type: string
           maxLength: 100
+        metafields: {}
         created_at:
           type: string
           format: date-time
@@ -50397,6 +50428,7 @@ components:
 
             * `tasks` - Tasks
             * `routes` - Routes
+            * `contact_addresses` - Contact Addresses
         created_at:
           type: string
           format: date-time
@@ -51140,6 +51172,15 @@ components:
           type: integer
           maximum: 2147483647
           minimum: 0
+        default_task_category:
+          type: string
+        transit_active_limit:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+          nullable: true
+        default_create_contact_address:
+          type: boolean
         date_format:
           $ref: "#/components/schemas/DateFormatEnum"
         time_format:
@@ -51491,6 +51532,23 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/TaskCategoryEnum"
+        feature_notes_required:
+          type: boolean
+        feature_allow_worker_reordering:
+          type: boolean
+          nullable: true
+        pod_show_reference:
+          type: boolean
+        pod_show_description:
+          type: boolean
+        pod_show_task_events:
+          type: boolean
+        pod_show_task_event_creators:
+          type: boolean
+        pod_show_signatures:
+          type: boolean
+        pod_show_images:
+          type: boolean
         feature_show_unassigned_capacity:
           type: boolean
           description: Show unassigned capacity.
@@ -51856,6 +51914,7 @@ components:
         source:
           type: string
           maxLength: 100
+        metafields: {}
         created_at:
           type: string
           format: date-time
@@ -52132,6 +52191,7 @@ components:
 
             * `tasks` - Tasks
             * `routes` - Routes
+            * `contact_addresses` - Contact Addresses
         created_at:
           type: string
           format: date-time
@@ -57658,6 +57718,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.7.0
       - 2.6.0
       - 2.5.1
       - 2.5.0
@@ -57734,6 +57795,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.7.0` - 2.7.0
         * `2.6.0` - 2.6.0
         * `2.5.1` - 2.5.1
         * `2.5.0` - 2.5.0
