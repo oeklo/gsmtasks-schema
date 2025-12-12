@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.7.0
+  version: 2.8.0
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -7754,6 +7754,7 @@ paths:
           - integer
           - json
           - link
+          - multiselect
           - string
         description: |-
           * `string` - String
@@ -7763,6 +7764,7 @@ paths:
           * `link` - Link
           * `assignee` - Assignee
           * `json` - JSON
+          * `multiselect` - Multiselect
       tags:
       - metafields
       security:
@@ -12872,10 +12874,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.7.0:
+            text/html; version=2.8.0:
               schema:
                 type: string
-            application/pdf; version=2.7.0:
+            application/pdf; version=2.8.0:
               schema:
                 type: string
                 format: byte
@@ -36015,10 +36017,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.7.0:
+            text/html; version=2.8.0:
               schema:
                 type: string
-            application/pdf; version=2.7.0:
+            application/pdf; version=2.8.0:
               schema:
                 type: string
                 format: byte
@@ -57689,6 +57691,7 @@ components:
       - link
       - assignee
       - json
+      - multiselect
       type: string
       description: |-
         * `string` - String
@@ -57698,6 +57701,7 @@ components:
         * `link` - Link
         * `assignee` - Assignee
         * `json` - JSON
+        * `multiselect` - Multiselect
     VehicleProfileEnum:
       enum:
       - bike
@@ -57718,7 +57722,9 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.8.0
       - 2.7.0
+      - 2.6.1
       - 2.6.0
       - 2.5.1
       - 2.5.0
@@ -57795,7 +57801,9 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.8.0` - 2.8.0
         * `2.7.0` - 2.7.0
+        * `2.6.1` - 2.6.1
         * `2.6.0` - 2.6.0
         * `2.5.1` - 2.5.1
         * `2.5.0` - 2.5.0
