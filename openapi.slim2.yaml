@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.8.0
+  version: 2.9.0
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -5403,6 +5403,18 @@ paths:
         description: comma separated value
         schema:
           type: string
+      - name: contact_address
+        required: false
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: contact_address__in
+        required: false
+        in: query
+        description: comma separated value
+        schema:
+          type: string
       - name: created_at
         required: false
         in: query
@@ -7666,6 +7678,11 @@ paths:
         name: show_when_task_type_pick_up
         schema:
           type: boolean
+      - in: query
+        name: source
+        schema:
+          type: string
+          format: uuid
       - name: updated_at
         required: false
         in: query
@@ -9067,7 +9084,7 @@ paths:
             value: clients,tasks
             summary: Regular sideloading
           MultiSourceSideloadingForDocuments:
-            value: documents[documents,tasks__documents,recurrence__documents]
+            value: documents[documents,tasks__documents,recurrence__documents,tasks__contact_address__documents]
             summary: Multi source sideloading for documents
       - name: updated_at
         required: false
@@ -9217,7 +9234,7 @@ paths:
             value: clients,tasks
             summary: Regular sideloading
           MultiSourceSideloadingForDocuments:
-            value: documents[documents,tasks__documents,recurrence__documents]
+            value: documents[documents,tasks__documents,recurrence__documents,tasks__contact_address__documents]
             summary: Multi source sideloading for documents
       tags:
       - orders
@@ -12874,10 +12891,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.8.0:
+            text/html; version=2.9.0:
               schema:
                 type: string
-            application/pdf; version=2.8.0:
+            application/pdf; version=2.9.0:
               schema:
                 type: string
                 format: byte
@@ -27473,7 +27490,7 @@ paths:
             value: assignees,clients
             summary: Regular sideloading
           MultiSourceSideloadingForDocuments:
-            value: documents[documents,order__documents,recurrence__documents]
+            value: documents[documents,order__documents,recurrence__documents,contact_address__documents]
             summary: Multi source sideloading for documents
       - name: size__contained_by
         required: false
@@ -27769,7 +27786,7 @@ paths:
             value: assignees,clients
             summary: Regular sideloading
           MultiSourceSideloadingForDocuments:
-            value: documents[documents,order__documents,recurrence__documents]
+            value: documents[documents,order__documents,recurrence__documents,contact_address__documents]
             summary: Multi source sideloading for documents
       tags:
       - tasks
@@ -31796,7 +31813,7 @@ paths:
             value: assignees,clients
             summary: Regular sideloading
           MultiSourceSideloadingForDocuments:
-            value: documents[documents,order__documents,recurrence__documents]
+            value: documents[documents,order__documents,recurrence__documents,contact_address__documents]
             summary: Multi source sideloading for documents
       - name: size__contained_by
         required: false
@@ -35704,7 +35721,7 @@ paths:
             value: assignees,clients
             summary: Regular sideloading
           MultiSourceSideloadingForDocuments:
-            value: documents[documents,order__documents,recurrence__documents]
+            value: documents[documents,order__documents,recurrence__documents,contact_address__documents]
             summary: Multi source sideloading for documents
       - name: size__contained_by
         required: false
@@ -36008,7 +36025,7 @@ paths:
             value: assignees,clients
             summary: Regular sideloading
           MultiSourceSideloadingForDocuments:
-            value: documents[documents,order__documents,recurrence__documents]
+            value: documents[documents,order__documents,recurrence__documents,contact_address__documents]
             summary: Multi source sideloading for documents
       tags:
       - tasks
@@ -36017,10 +36034,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.8.0:
+            text/html; version=2.9.0:
               schema:
                 type: string
-            application/pdf; version=2.8.0:
+            application/pdf; version=2.9.0:
               schema:
                 type: string
                 format: byte
@@ -39755,7 +39772,7 @@ paths:
             value: assignees,clients
             summary: Regular sideloading
           MultiSourceSideloadingForDocuments:
-            value: documents[documents,order__documents,recurrence__documents]
+            value: documents[documents,order__documents,recurrence__documents,contact_address__documents]
             summary: Multi source sideloading for documents
       - name: size__contained_by
         required: false
@@ -40096,6 +40113,7 @@ paths:
   /tasks/reorder/:
     post:
       operationId: tasks_reorder_create
+      description: Deprecated from version 2.3.0 onwards.
       parameters:
       - name: account
         required: false
@@ -43964,6 +43982,7 @@ paths:
         required: true
       security:
       - tokenAuth: []
+      deprecated: true
       responses:
         "200":
           content:
@@ -47590,6 +47609,10 @@ components:
         feature_tracker_url:
           type: string
           readOnly: true
+        feature_contact_address_related_tasks_visibility:
+          type: boolean
+          description: "Enable contact address visibility features: task history and
+            document sideloading for workers"
         feature_route_folders:
           type: boolean
           readOnly: true
@@ -49445,6 +49468,10 @@ components:
           type: string
           format: uri
           nullable: true
+        contact_address:
+          type: string
+          format: uri
+          nullable: true
         file_upload:
           type: string
           format: uri
@@ -50403,6 +50430,10 @@ components:
         is_cloned:
           type: boolean
           description: Metadata, that will be copied during cloning.
+        source:
+          type: string
+          format: uuid
+          nullable: true
         is_searchable:
           type: boolean
         show_in_list_view:
@@ -51508,6 +51539,10 @@ components:
         feature_tracker_url:
           type: string
           readOnly: true
+        feature_contact_address_related_tasks_visibility:
+          type: boolean
+          description: "Enable contact address visibility features: task history and
+            document sideloading for workers"
         feature_route_folders:
           type: boolean
           readOnly: true
@@ -52166,6 +52201,10 @@ components:
         is_cloned:
           type: boolean
           description: Metadata, that will be copied during cloning.
+        source:
+          type: string
+          format: uuid
+          nullable: true
         is_searchable:
           type: boolean
         show_in_list_view:
@@ -57722,6 +57761,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.9.0
       - 2.8.0
       - 2.7.0
       - 2.6.1
@@ -57801,6 +57841,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.9.0` - 2.9.0
         * `2.8.0` - 2.8.0
         * `2.7.0` - 2.7.0
         * `2.6.1` - 2.6.1
