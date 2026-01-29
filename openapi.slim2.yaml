@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.9.0
+  version: 2.9.1
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -12891,10 +12891,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.9.0:
+            text/html; version=2.9.1:
               schema:
                 type: string
-            application/pdf; version=2.9.0:
+            application/pdf; version=2.9.1:
               schema:
                 type: string
                 format: byte
@@ -36034,10 +36034,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.9.0:
+            text/html; version=2.9.1:
               schema:
                 type: string
-            application/pdf; version=2.9.0:
+            application/pdf; version=2.9.1:
               schema:
                 type: string
                 format: byte
@@ -52683,6 +52683,10 @@ components:
           items:
             type: string
             format: uri
+        signers:
+          type: array
+          items:
+            $ref: "#/components/schemas/NestedContact"
         metafields: {}
         trackers:
           type: array
@@ -54190,6 +54194,10 @@ components:
         metafields: {}
         forms:
           readOnly: true
+        signers:
+          type: array
+          items:
+            $ref: "#/components/schemas/NestedContact"
         created_by:
           type: string
           format: uri
@@ -54775,6 +54783,10 @@ components:
           items:
             type: string
             format: uri
+        signers:
+          type: array
+          items:
+            $ref: "#/components/schemas/NestedContact"
         metafields: {}
         trackers:
           type: array
@@ -55790,6 +55802,10 @@ components:
           items:
             type: string
             format: uri
+        signers:
+          type: array
+          items:
+            $ref: "#/components/schemas/NestedContact"
         metafields: {}
         trackers:
           type: array
@@ -57761,6 +57777,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.9.1
       - 2.9.0
       - 2.8.0
       - 2.7.0
@@ -57841,6 +57858,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.9.1` - 2.9.1
         * `2.9.0` - 2.9.0
         * `2.8.0` - 2.8.0
         * `2.7.0` - 2.7.0
