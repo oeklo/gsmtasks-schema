@@ -50746,10 +50746,15 @@ components:
           type: boolean
         message:
           type: string
+        subject:
+          type: string
+          maxLength: 300
         email_reply_to:
           type: string
           format: email
           maxLength: 254
+        pod_attach_to_email:
+          type: boolean
         created_at:
           type: string
           format: date-time
@@ -52303,10 +52308,15 @@ components:
           type: boolean
         message:
           type: string
+        subject:
+          type: string
+          maxLength: 300
         email_reply_to:
           type: string
           format: email
           maxLength: 254
+        pod_attach_to_email:
+          type: boolean
         created_at:
           type: string
           format: date-time
