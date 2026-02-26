@@ -1,4 +1,4 @@
-replace("$..[?@.content[?match(#, 'application/json; version=[0-9.]+')]]", value => {
+replace("$..[?@.content[?match(#, '[a-z/]+; version=[0-9.]+')]]", value => {
     for (const [key, v] of Object.entries(value.content)) {
         if (/version/.test(key)) {
             const newKey = key.replace(/^([^;]+); version=[\d.]+$/, (_, mime) => `${mime}; version=\${version}`)
