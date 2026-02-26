@@ -12891,10 +12891,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.9.1:
+            text/html; version=${version}:
               schema:
                 type: string
-            application/pdf; version=2.9.1:
+            application/pdf; version=${version}:
               schema:
                 type: string
                 format: byte
@@ -36034,10 +36034,10 @@ paths:
       responses:
         "200":
           content:
-            text/html; version=2.9.1:
+            text/html; version=${version}:
               schema:
                 type: string
-            application/pdf; version=2.9.1:
+            application/pdf; version=${version}:
               schema:
                 type: string
                 format: byte
