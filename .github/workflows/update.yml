@@ -33,7 +33,7 @@ jobs:
     - name: Set up node
       uses: actions/setup-node@v4
       with:
-        node-version: v22
+        node-version: v24
 
     - name: Generate slim
       run: npx betterer-json slim.js openapi.new.yaml > openapi.new.slim.yaml
