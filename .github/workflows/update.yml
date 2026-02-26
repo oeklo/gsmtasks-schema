@@ -1,6 +1,12 @@
 name: Update OpenAPI
 
 on:
+  push:
+    branches:
+    - main
+    paths:
+    - ".github/**"
+    - "slim.js"
   schedule:
   - cron: '0 0 * * *'
   workflow_dispatch: { }
