@@ -22,7 +22,7 @@ jobs:
     - name: Backup original files
       run: |
         mv openapi.yaml openapi.old.yaml
-        mv openapi.slim2.yaml openapi.old.slim2.yaml
+        mv openapi.slim.yaml openapi.old.slim.yaml
 
     - name: Download the latest version
       uses: enflo/curl-action@master
@@ -41,12 +41,12 @@ jobs:
         node-version: v22
 
     - name: Generate slim
-      run: npx betterer-json slim.js openapi.yaml > openapi.slim2.yaml
+      run: npx betterer-json slim.js openapi.yaml > openapi.slim.yaml
 
     - name: Compare files
       run: |
         set +e
-        diff openapi.old.slim2.yaml openapi.slim2.yaml
+        diff openapi.old.slim.yaml openapi.slim.yaml
         exit_code=$?
         echo "exit_code=${exit_code}" >> $GITHUB_OUTPUT
         set -e
@@ -64,6 +64,6 @@ jobs:
         VERSION=${{ steps.apiVersion.outputs.result }}
         git config --global user.email "action@github.com"
         git config --global user.name "GitHub Action"
-        git add openapi.yaml openapi.slim2.yaml
+        git add openapi.yaml openapi.slim.yaml
         git commit -m "Update OpenAPI ${VERSION}"
         git push

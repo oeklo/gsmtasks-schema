@@ -27,11 +27,7 @@ making the differences between successive updates cluttered with boilerplate and
 
 ## openapi.slim.yaml
 
-It's the openapi.yaml processed with sed, replacing example dates, UUIDs, and version numbers in media types with placeholders: ${date}, ${uuid}, and ${version}.
-
-## openapi.slim2.yaml
-
-This is another version processed with [betterer-json](https://github.com/python-lapidary/betterer-json) script,
+It's the openapi.yaml file processed with [betterer-json](https://github.com/python-lapidary/betterer-json) script,
 with uuid examples removed,
 date examples replaced with a constant value,
 and version in mime types replaced with a placeholder.
