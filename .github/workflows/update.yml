@@ -1,4 +1,4 @@
-name: Update OpenAPI Workflow
+name: Update OpenAPI
 
 on:
   schedule:
@@ -30,12 +30,18 @@ jobs:
       with:
         cmd: yq '.info.version' openapi.new.yaml
 
+    - name: Tag on version change
+      if: ${{ steps.apiVersion.outputs.result != steps.apiVersionOld.outputs.result }}
+      run: |
+        git tag ${{ steps.apiVersionOld.outputs.result }}
+        git push origin "${{ steps.apiVersionOld.outputs.result }}"
+
     - name: Set up node
       uses: actions/setup-node@v4
       with:
         node-version: v24
 
-    - name: Generate slim
+    - name: Generate slim file
       run: npx betterer-json slim.js openapi.new.yaml > openapi.new.slim.yaml
 
     - name: Compare files
@@ -54,6 +60,7 @@ jobs:
         echo "${{ toJson(steps.compare.outputs) }}"
 
     - name: Rename the new files
+      if: ${{ steps.compare.outputs.exit_code == 1 }}
       run: |
         mv openapi.new.yaml openapi.yaml
         mv openapi.new.slim.yaml openapi.slim.yaml
@@ -61,9 +68,8 @@ jobs:
     - name: Commit and push changes
       if: ${{ steps.compare.outputs.exit_code == 1 }}
       run: |
-        VERSION=${{ steps.apiVersion.outputs.result }}
-        git config --global user.email "action@github.com"
-        git config --global user.name "GitHub Action"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git config user.name "github-actions[bot]"
         git add openapi.yaml openapi.slim.yaml
-        git commit -m "Update OpenAPI ${VERSION}"
+        git commit -m "Update OpenAPI ${{ steps.apiVersion.outputs.result }}"
         git push
