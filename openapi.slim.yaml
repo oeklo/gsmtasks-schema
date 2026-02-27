@@ -49542,6 +49542,103 @@ components:
       required:
       - account
       - documents
+    DocumentTaskInline:
+      type: object
+      description: Document serializer with inlined task data (API version >= 2.6.0)
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          type: string
+          format: uri
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 100
+        order:
+          type: string
+          format: uri
+          nullable: true
+        task:
+          $ref: "#/components/schemas/TaskSerializerV2"
+        recurrence:
+          type: string
+          format: uri
+          nullable: true
+        contact_address:
+          type: string
+          format: uri
+          nullable: true
+        file_upload:
+          type: string
+          format: uri
+          writeOnly: true
+          nullable: true
+        file:
+          type: string
+          format: uri
+          readOnly: true
+        file_name:
+          type: string
+          readOnly: true
+        mimetype:
+          type: string
+          readOnly: true
+          nullable: true
+        thumbnail:
+          type: string
+          format: uri
+          readOnly: true
+        description:
+          type: string
+        s3_response_headers:
+          writeOnly: true
+        created_by:
+          type: string
+          format: uri
+          readOnly: true
+        source:
+          enum:
+          - web
+          - mobile
+          - integration
+          - ""
+          - null
+          type: string
+          description: |-
+            * `web` - Web
+            * `mobile` - Mobile
+            * `integration` - Integration
+          nullable: true
+        visible_to_worker:
+          type: boolean
+        visible_to_client:
+          type: boolean
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - created_by
+      - file
+      - file_name
+      - id
+      - mimetype
+      - task
+      - thumbnail
+      - updated_at
+      - url
     DocumentUpdate:
       type: object
       description: >-
@@ -53958,6 +54055,97 @@ components:
       required:
       - account
       - signatures
+    SignatureTaskInline:
+      type: object
+      description: Signature serializer with inlined task data (API version >= 2.6.0)
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          type: string
+          format: uri
+        external_id:
+          type: string
+          nullable: true
+          maxLength: 100
+        task:
+          $ref: "#/components/schemas/TaskSerializerV2"
+        file_upload:
+          type: string
+          format: uri
+          writeOnly: true
+        file:
+          type: string
+          format: uri
+          readOnly: true
+        file_name:
+          type: string
+          readOnly: true
+        mimetype:
+          type: string
+          readOnly: true
+          nullable: true
+        thumbnail:
+          type: string
+          format: uri
+          readOnly: true
+        signer:
+          $ref: "#/components/schemas/NestedContact"
+        documents:
+          type: array
+          items:
+            type: string
+            format: uri
+        location:
+          allOf:
+          - $ref: "#/components/schemas/Location"
+          nullable: true
+        s3_response_headers:
+          writeOnly: true
+        created_by:
+          type: string
+          format: uri
+          readOnly: true
+        source:
+          enum:
+          - web
+          - mobile
+          - integration
+          - ""
+          - null
+          type: string
+          description: |-
+            * `web` - Web
+            * `mobile` - Mobile
+            * `integration` - Integration
+          nullable: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - created_by
+      - file
+      - file_name
+      - file_upload
+      - id
+      - mimetype
+      - signer
+      - task
+      - thumbnail
+      - updated_at
+      - url
     Source265Enum:
       enum:
       - web
@@ -58196,3 +58384,56 @@ components:
       in: header
       name: Authorization
       description: Token-based authentication with required prefix "Token"
+webhooks:
+  taskevent.create:
+    post:
+      description: Fired when a task state change or update occurs.
+      summary: Task Event Webhook
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/TaskEventSerializerV2"
+        required: true
+      responses:
+        "200":
+          description: No response body
+  document.create:
+    post:
+      description: Fired when a document is attached to a task.
+      summary: Document Webhook
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/DocumentTaskInline"
+        required: true
+      responses:
+        "200":
+          description: No response body
+  signature.create:
+    post:
+      description: Fired when a signature is captured on a task.
+      summary: Signature Webhook
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SignatureTaskInline"
+        required: true
+      responses:
+        "200":
+          description: No response body
+  review.create:
+    post:
+      description: Fired when a tracker submits a review.
+      summary: Review Webhook
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Review"
+        required: true
+      responses:
+        "200":
+          description: No response body
