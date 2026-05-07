@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.9.2
+  version: 2.9.3
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -18706,10 +18706,10 @@ paths:
           - Paid Services
           - Standard Services
         description: >-
-          * `Paid Services` - (('google', 'Google'), ('regio-ee', 'Regio-Ee'))
+          * `Paid Services` - [('google', 'Google'), ('regio-ee', 'Regio-Ee')]
 
-          * `Standard Services` - (('janaseta', 'Jana Seta'), ('reach-u',
-          'Reach-U'), ('nominatim', 'Nominatim'), ('in-ads', 'In-ADS'))
+          * `Standard Services` - [('janaseta', 'Jana Seta'), ('reach-u',
+          'Reach-U'), ('nominatim', 'Nominatim'), ('in-ads', 'In-ADS')]
       - in: query
         name: address__geocoding_provider__icontains
         schema:
@@ -24131,10 +24131,10 @@ paths:
           - Paid Services
           - Standard Services
         description: >-
-          * `Paid Services` - (('google', 'Google'), ('regio-ee', 'Regio-Ee'))
+          * `Paid Services` - [('google', 'Google'), ('regio-ee', 'Regio-Ee')]
 
-          * `Standard Services` - (('janaseta', 'Jana Seta'), ('reach-u',
-          'Reach-U'), ('nominatim', 'Nominatim'), ('in-ads', 'In-ADS'))
+          * `Standard Services` - [('janaseta', 'Jana Seta'), ('reach-u',
+          'Reach-U'), ('nominatim', 'Nominatim'), ('in-ads', 'In-ADS')]
       - in: query
         name: address__geocoding_provider__icontains
         schema:
@@ -28447,10 +28447,10 @@ paths:
           - Paid Services
           - Standard Services
         description: >-
-          * `Paid Services` - (('google', 'Google'), ('regio-ee', 'Regio-Ee'))
+          * `Paid Services` - [('google', 'Google'), ('regio-ee', 'Regio-Ee')]
 
-          * `Standard Services` - (('janaseta', 'Jana Seta'), ('reach-u',
-          'Reach-U'), ('nominatim', 'Nominatim'), ('in-ads', 'In-ADS'))
+          * `Standard Services` - [('janaseta', 'Jana Seta'), ('reach-u',
+          'Reach-U'), ('nominatim', 'Nominatim'), ('in-ads', 'In-ADS')]
       - in: query
         name: address__geocoding_provider__icontains
         schema:
@@ -32355,10 +32355,10 @@ paths:
           - Paid Services
           - Standard Services
         description: >-
-          * `Paid Services` - (('google', 'Google'), ('regio-ee', 'Regio-Ee'))
+          * `Paid Services` - [('google', 'Google'), ('regio-ee', 'Regio-Ee')]
 
-          * `Standard Services` - (('janaseta', 'Jana Seta'), ('reach-u',
-          'Reach-U'), ('nominatim', 'Nominatim'), ('in-ads', 'In-ADS'))
+          * `Standard Services` - [('janaseta', 'Jana Seta'), ('reach-u',
+          'Reach-U'), ('nominatim', 'Nominatim'), ('in-ads', 'In-ADS')]
       - in: query
         name: address__geocoding_provider__icontains
         schema:
@@ -36406,10 +36406,10 @@ paths:
           - Paid Services
           - Standard Services
         description: >-
-          * `Paid Services` - (('google', 'Google'), ('regio-ee', 'Regio-Ee'))
+          * `Paid Services` - [('google', 'Google'), ('regio-ee', 'Regio-Ee')]
 
-          * `Standard Services` - (('janaseta', 'Jana Seta'), ('reach-u',
-          'Reach-U'), ('nominatim', 'Nominatim'), ('in-ads', 'In-ADS'))
+          * `Standard Services` - [('janaseta', 'Jana Seta'), ('reach-u',
+          'Reach-U'), ('nominatim', 'Nominatim'), ('in-ads', 'In-ADS')]
       - in: query
         name: address__geocoding_provider__icontains
         schema:
@@ -40435,10 +40435,10 @@ paths:
           - Paid Services
           - Standard Services
         description: >-
-          * `Paid Services` - (('google', 'Google'), ('regio-ee', 'Regio-Ee'))
+          * `Paid Services` - [('google', 'Google'), ('regio-ee', 'Regio-Ee')]
 
-          * `Standard Services` - (('janaseta', 'Jana Seta'), ('reach-u',
-          'Reach-U'), ('nominatim', 'Nominatim'), ('in-ads', 'In-ADS'))
+          * `Standard Services` - [('janaseta', 'Jana Seta'), ('reach-u',
+          'Reach-U'), ('nominatim', 'Nominatim'), ('in-ads', 'In-ADS')]
       - in: query
         name: address__geocoding_provider__icontains
         schema:
@@ -47710,6 +47710,9 @@ components:
         calendar_task_template:
           type: string
           readOnly: true
+        tracker_task_popup_template:
+          type: string
+          readOnly: true
         dashboard_worker_limit:
           type: integer
           readOnly: true
@@ -47766,6 +47769,7 @@ components:
       - state
       - stripe_customer_id
       - stripe_payment_method_id
+      - tracker_task_popup_template
       - url
     AccountBillingMethodEnum:
       enum:
@@ -50329,6 +50333,7 @@ components:
       - tr
       - tt
       - udm
+      - ug
       - uk
       - ur
       - uz
@@ -50429,6 +50434,7 @@ components:
         * `tr` - Turkish
         * `tt` - Tatar
         * `udm` - Udmurt
+        * `ug` - Uyghur
         * `uk` - Ukrainian
         * `ur` - Urdu
         * `uz` - Uzbek
@@ -51744,6 +51750,9 @@ components:
           type: string
           readOnly: true
         calendar_task_template:
+          type: string
+          readOnly: true
+        tracker_task_popup_template:
           type: string
           readOnly: true
         dashboard_worker_limit:
@@ -57841,6 +57850,9 @@ components:
         feature_tracker_map_provider:
           type: string
           readOnly: true
+        task_popup_template:
+          type: string
+          readOnly: true
       required:
       - account
       - assignees
@@ -57857,6 +57869,7 @@ components:
       - queue_positions
       - reviewed_at
       - state
+      - task_popup_template
       - tasks
     TrackerTasks:
       type: object
@@ -57985,6 +57998,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.9.3
       - 2.9.2
       - 2.9.1
       - 2.9.0
@@ -58067,6 +58081,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.9.3` - 2.9.3
         * `2.9.2` - 2.9.2
         * `2.9.1` - 2.9.1
         * `2.9.0` - 2.9.0
