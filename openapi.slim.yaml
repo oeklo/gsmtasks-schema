@@ -14916,6 +14916,10 @@ paths:
         schema:
           type: string
       - in: query
+        name: assignee__isnull
+        schema:
+          type: boolean
+      - in: query
         name: code
         schema:
           type: string
