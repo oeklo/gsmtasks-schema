@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.9.3
+  version: 2.10.0
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -256,13 +256,6 @@ paths:
         name: display_name
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - name: is_active
         required: false
         in: query
@@ -456,28 +449,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedAccountRoleList"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedAccountRoleList"
           description: ""
     post:
       operationId: account_roles_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       tags:
       - account_roles
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/AccountRoleCreate"
-          application/xml:
             schema:
               $ref: "#/components/schemas/AccountRoleCreate"
         required: true
@@ -489,21 +468,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/AccountRoleCreate"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/AccountRoleCreate"
           description: ""
   /account_roles/{id}/:
     get:
       operationId: account_roles_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -542,20 +511,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/AccountRole"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/AccountRole"
           description: ""
     put:
       operationId: account_roles_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -570,9 +529,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/AccountRole"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/AccountRole"
         required: true
       security:
       - tokenAuth: []
@@ -580,22 +536,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/AccountRole"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/AccountRole"
           description: ""
     patch:
       operationId: account_roles_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -610,9 +556,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedAccountRole"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/PatchedAccountRole"
       security:
       - tokenAuth: []
       responses:
@@ -621,20 +564,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/AccountRole"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/AccountRole"
           description: ""
     delete:
       operationId: account_roles_destroy
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -654,13 +587,6 @@ paths:
       operationId: account_roles_activate_create
       description: Action to activate the account role. Available since version `2.4.1`
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -675,9 +601,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/AccountRoleActivation"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/AccountRoleActivation"
         required: true
       security:
       - tokenAuth: []
@@ -687,21 +610,11 @@ paths:
             application/json; version=${version}:
               schema:
                 type: string
-            application/xml; version=${version}:
-              schema:
-                type: string
           description: ""
   /account_roles/{id}/notify/:
     post:
       operationId: account_roles_notify_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -717,9 +630,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/AccountRole"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/AccountRole"
           description: ""
@@ -729,13 +639,6 @@ paths:
       description: Action to resend a new activateion token to the account role.
         Available since version `2.4.30`
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -751,9 +654,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                type: string
-            application/xml; version=${version}:
               schema:
                 type: string
           description: ""
@@ -853,13 +753,6 @@ paths:
           type: string
         style: form
         explode: false
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: ordering
         required: false
         in: query
@@ -965,21 +858,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedAccountList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedAccountList"
           description: ""
   /accounts/{id}/:
     get:
       operationId: accounts_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -995,22 +878,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Account"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Account"
           description: ""
     put:
       operationId: accounts_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1025,12 +898,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Account"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Account"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Account"
         required: true
       security:
       - tokenAuth: []
@@ -1038,22 +905,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Account"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Account"
           description: ""
     patch:
       operationId: accounts_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1068,21 +925,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedAccount"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedAccount"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedAccount"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Account"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Account"
           description: ""
@@ -1090,13 +938,6 @@ paths:
     post:
       operationId: accounts_change_owner_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1111,12 +952,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/AccountOwnerChange"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/AccountOwnerChange"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/AccountOwnerChange"
         required: true
       security:
       - tokenAuth: []
@@ -1124,9 +959,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/AccountOwnerChange"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/AccountOwnerChange"
           description: ""
@@ -1143,13 +975,6 @@ paths:
 
             'set_default': False
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1162,12 +987,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/AccountStripePaymentMethodAttach"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/AccountStripePaymentMethodAttach"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/AccountStripePaymentMethodAttach"
         required: true
@@ -1179,22 +998,12 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/AccountStripePaymentMethodAttach"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/AccountStripePaymentMethodAttach"
           description: ""
   /accounts/{id}/stripe_create_setup_intent/:
     post:
       operationId: accounts_stripe_create_setup_intent_create
       description: Action to start a new setup intent.
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1209,12 +1018,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/AccountStripeSetupIntentCreate"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/AccountStripeSetupIntentCreate"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/AccountStripeSetupIntentCreate"
         required: true
       security:
       - tokenAuth: []
@@ -1222,9 +1025,6 @@ paths:
         "201":
           content:
             application/json; version=${version}:
-              schema:
-                setup_intent: {}
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 setup_intent: {}
           description: Responds with external API response
@@ -1232,13 +1032,6 @@ paths:
       operationId: accounts_stripe_create_setup_intent_update
       description: Action to start a new setup intent.
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1253,12 +1046,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/AccountStripeSetupIntentCreate"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/AccountStripeSetupIntentCreate"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/AccountStripeSetupIntentCreate"
         required: true
       security:
       - tokenAuth: []
@@ -1266,9 +1053,6 @@ paths:
         "201":
           content:
             application/json; version=${version}:
-              schema:
-                setup_intent: {}
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 setup_intent: {}
           description: Responds with external API response
@@ -1283,13 +1067,6 @@ paths:
 
         it might as well be deleted for us
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1304,12 +1081,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/AccountStripePaymentMethodDetach"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/AccountStripePaymentMethodDetach"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/AccountStripePaymentMethodDetach"
         required: true
       security:
       - tokenAuth: []
@@ -1319,22 +1090,12 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/AccountStripePaymentMethodDetach"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/AccountStripePaymentMethodDetach"
           description: ""
   /accounts/{id}/stripe_get_payment_method/:
     get:
       operationId: accounts_stripe_get_payment_method_retrieve
       description: Fetch a single payment method from stripe.
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1354,13 +1115,6 @@ paths:
       operationId: accounts_stripe_get_setup_attempt_retrieve
       description: Fetch a single setup intent
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1376,9 +1130,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/AccountStripeSetupAttemptGet"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/AccountStripeSetupAttemptGet"
           description: ""
@@ -1387,13 +1138,6 @@ paths:
       operationId: accounts_stripe_get_setup_intent_retrieve
       description: Fetch a single payment intent.
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1409,9 +1153,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                setup_intent: {}
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 setup_intent: {}
           description: Responds with external API response
@@ -1420,13 +1161,6 @@ paths:
       operationId: accounts_stripe_payment_methods_retrieve
       description: Fetch all customer payment methods.
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1442,10 +1176,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                default_payment_method_id: null
-                attached_payment_methods: []
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 default_payment_method_id: null
                 attached_payment_methods: []
@@ -1455,13 +1185,6 @@ paths:
       operationId: accounts_stripe_set_default_payment_method_update
       description: Action to set a payment method to default.
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1476,12 +1199,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/AccountStripePaymentMethodSetDefault"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/AccountStripePaymentMethodSetDefault"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/AccountStripePaymentMethodSetDefault"
         required: true
       security:
       - tokenAuth: []
@@ -1491,22 +1208,12 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/AccountStripePaymentMethodSetDefault"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/AccountStripePaymentMethodSetDefault"
           description: ""
   /accounts/{id}/stripe_setup_intents/:
     get:
       operationId: accounts_stripe_setup_intents_retrieve
       description: Fetch existing setup intents
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1524,9 +1231,6 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/AccountStripeSetupIntentsGet"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/AccountStripeSetupIntentsGet"
           description: ""
   /addons/:
     get:
@@ -1538,13 +1242,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: page_size
         required: false
         in: query
@@ -1561,21 +1258,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedAddonList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedAddonList"
           description: ""
   /addons/{id}/:
     get:
       operationId: addons_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1593,34 +1280,28 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Addon"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Addon"
           description: ""
   /authenticate/:
     post:
       operationId: authenticate_create
+      description: Returns a JSON Web Token that can be used for authenticated requests.
       tags:
       - authenticate
       requestBody:
         content:
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Authentication"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Authentication"
           application/json:
             schema:
-              $ref: "#/components/schemas/Authentication"
+              $ref: "#/components/schemas/Authenticate"
         required: true
       responses:
         "200":
           content:
-            application/json:
+            application/json; version=${version}:
               schema:
-                $ref: "#/components/schemas/Authentication"
-          description: ""
+                $ref: "#/components/schemas/AuthenticateResponse"
+          description: Token obtained
+        "400":
+          description: Invalid credentials or malformed request
   /billing/invoices/:
     get:
       operationId: billing_invoices_list
@@ -1802,13 +1483,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: ordering
         required: false
         in: query
@@ -1847,21 +1521,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedInvoiceList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedInvoiceList"
           description: ""
   /billing/invoices/{id}/:
     get:
       operationId: billing_invoices_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1877,22 +1541,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Invoice"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Invoice"
           description: ""
     put:
       operationId: billing_invoices_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1907,34 +1561,18 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Invoice"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Invoice"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Invoice"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Invoice"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Invoice"
           description: ""
     patch:
       operationId: billing_invoices_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1949,21 +1587,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedInvoice"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedInvoice"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedInvoice"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Invoice"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Invoice"
           description: ""
@@ -1971,13 +1600,6 @@ paths:
     post:
       operationId: billing_invoices_mark_as_paid_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -1992,21 +1614,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/InvoicePayment"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/InvoicePayment"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/InvoicePayment"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Invoice"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Invoice"
           description: ""
@@ -2025,13 +1638,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: query
         name: invoice
         schema:
@@ -2101,21 +1707,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedStripePaymentList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedStripePaymentList"
           description: ""
   /billing/stripe_payments/{id}/:
     get:
       operationId: billing_stripe_payments_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -2131,9 +1727,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/StripePayment"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/StripePayment"
           description: ""
@@ -2234,13 +1827,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: query
         name: is_active
         schema:
@@ -2384,31 +1970,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedClientRoleList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedClientRoleList"
           description: ""
     post:
       operationId: client_roles_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - client_roles
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/ClientRole"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/ClientRole"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/ClientRole"
         required: true
@@ -2420,21 +1989,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/ClientRole"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/ClientRole"
           description: ""
   /client_roles/{id}/:
     get:
       operationId: client_roles_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -2473,20 +2032,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/ClientRole"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/ClientRole"
           description: ""
     put:
       operationId: client_roles_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -2501,12 +2050,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/ClientRole"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/ClientRole"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/ClientRole"
         required: true
       security:
       - tokenAuth: []
@@ -2514,22 +2057,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/ClientRole"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/ClientRole"
           description: ""
     patch:
       operationId: client_roles_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -2544,21 +2077,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedClientRole"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedClientRole"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedClientRole"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/ClientRole"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/ClientRole"
           description: ""
@@ -2654,13 +2178,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: page_size
         required: false
         in: query
@@ -2764,31 +2281,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedClientList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedClientList"
           description: ""
     post:
       operationId: clients_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - clients
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/Client"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Client"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/Client"
         required: true
@@ -2800,21 +2300,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Client"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Client"
           description: ""
   /clients/{id}/:
     get:
       operationId: clients_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -2830,22 +2320,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Client"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Client"
           description: ""
     put:
       operationId: clients_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -2860,12 +2340,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Client"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Client"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Client"
         required: true
       security:
       - tokenAuth: []
@@ -2873,22 +2347,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Client"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Client"
           description: ""
     patch:
       operationId: clients_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -2903,21 +2367,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedClient"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedClient"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedClient"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Client"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Client"
           description: ""
@@ -2931,13 +2386,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: page_size
         required: false
         in: query
@@ -2952,9 +2400,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedConfigurationSerializerV2List"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedConfigurationSerializerV2List"
           description: ""
@@ -3835,13 +3280,6 @@ paths:
         schema:
           type: string
           format: datetime
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: page_size
         required: false
         in: query
@@ -4026,31 +3464,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedContactAddressBackgroundImportList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedContactAddressBackgroundImportList"
           description: ""
     post:
       operationId: contact_address_import_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - contact_address_import
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/ContactAddressBackgroundImport"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/ContactAddressBackgroundImport"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/ContactAddressBackgroundImport"
         required: true
@@ -4062,21 +3483,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/ContactAddressBackgroundImport"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/ContactAddressBackgroundImport"
           description: ""
   /contact_address_import/{id}/:
     get:
       operationId: contact_address_import_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -4092,9 +3503,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/ContactAddressBackgroundImport"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/ContactAddressBackgroundImport"
           description: ""
@@ -4779,13 +4187,6 @@ paths:
         schema:
           type: string
       - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: query
         name: is_orderer
         schema:
           type: boolean
@@ -4927,31 +4328,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedContactAddressList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedContactAddressList"
           description: ""
     post:
       operationId: contact_addresses_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - contact_addresses
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/ContactAddress"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/ContactAddress"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/ContactAddress"
         required: true
@@ -4963,21 +4347,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/ContactAddress"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/ContactAddress"
           description: ""
   /contact_addresses/{id}/:
     get:
       operationId: contact_addresses_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -4993,22 +4367,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/ContactAddress"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/ContactAddress"
           description: ""
     put:
       operationId: contact_addresses_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -5023,12 +4387,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/ContactAddress"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/ContactAddress"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/ContactAddress"
         required: true
       security:
       - tokenAuth: []
@@ -5036,22 +4394,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/ContactAddress"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/ContactAddress"
           description: ""
     patch:
       operationId: contact_addresses_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -5066,21 +4414,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedContactAddress"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedContactAddress"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedContactAddress"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/ContactAddress"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/ContactAddress"
           description: ""
@@ -5171,13 +4510,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: page_size
         required: false
         in: query
@@ -5230,31 +4562,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedDeviceList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedDeviceList"
           description: ""
     post:
       operationId: devices_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - devices
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/Device"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Device"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/Device"
         required: true
@@ -5266,21 +4581,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Device"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Device"
           description: ""
   /devices/{id}/:
     get:
       operationId: devices_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -5316,9 +4621,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Device"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Device"
           description: ""
@@ -5540,13 +4842,6 @@ paths:
         schema:
           type: string
       - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: query
         name: mimetype
         schema:
           type: string
@@ -5692,31 +4987,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedDocumentList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedDocumentList"
           description: ""
     post:
       operationId: documents_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - documents
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/Document"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Document"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/Document"
       security:
@@ -5727,21 +5005,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Document"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Document"
           description: ""
   /documents/{id}/:
     get:
       operationId: documents_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -5757,22 +5025,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Document"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Document"
           description: ""
     put:
       operationId: documents_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -5787,34 +5045,18 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/DocumentUpdate"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/DocumentUpdate"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/DocumentUpdate"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/DocumentUpdate"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/DocumentUpdate"
           description: ""
     patch:
       operationId: documents_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -5829,12 +5071,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedDocumentUpdate"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedDocumentUpdate"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedDocumentUpdate"
       security:
       - tokenAuth: []
       responses:
@@ -5843,20 +5079,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/DocumentUpdate"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/DocumentUpdate"
           description: ""
     delete:
       operationId: documents_destroy
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -5875,25 +5101,11 @@ paths:
     post:
       operationId: documents_batch_delete_create
       description: Available from version 2.4.2
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - documents
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/DocumentDeleteAction"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/DocumentDeleteAction"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/DocumentDeleteAction"
         required: true
@@ -6079,13 +5291,6 @@ paths:
         schema:
           type: string
           format: datetime
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: query
         name: from_email
         schema:
@@ -6407,31 +5612,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedEmailList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedEmailList"
           description: ""
     post:
       operationId: emails_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - emails
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/Email"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Email"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/Email"
         required: true
@@ -6443,21 +5631,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Email"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Email"
           description: ""
   /emails/{id}/:
     get:
       operationId: emails_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -6473,9 +5651,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Email"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Email"
           description: ""
@@ -6483,13 +5658,6 @@ paths:
     post:
       operationId: emails_resend_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -6505,9 +5673,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Email"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Email"
           description: ""
@@ -6610,6 +5775,9 @@ paths:
           enum:
           - json
           - xlsx
+        description: |-
+          * `json` - JSON
+          * `xlsx` - XLSX
       - name: page_size
         required: false
         in: query
@@ -6703,31 +5871,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedExportList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedExportList"
           description: ""
     post:
       operationId: exports_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - exports
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/Export"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Export"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/Export"
         required: true
@@ -6739,21 +5890,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Export"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Export"
           description: ""
   /exports/{id}/:
     get:
       operationId: exports_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -6769,22 +5910,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Export"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Export"
           description: ""
     put:
       operationId: exports_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -6799,12 +5930,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Export"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Export"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Export"
         required: true
       security:
       - tokenAuth: []
@@ -6812,22 +5937,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Export"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Export"
           description: ""
     patch:
       operationId: exports_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -6842,12 +5957,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedExport"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedExport"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedExport"
       security:
       - tokenAuth: []
       responses:
@@ -6856,20 +5965,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Export"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Export"
           description: ""
     delete:
       operationId: exports_destroy
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -7012,13 +6111,6 @@ paths:
         in: query
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: ordering
         required: false
         in: query
@@ -7133,28 +6225,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedS3FileUploadList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedS3FileUploadList"
           description: ""
     post:
       operationId: file_uploads_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - file_uploads
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/S3FileUpload"
-          application/x-www-form-urlencoded:
             schema:
               $ref: "#/components/schemas/S3FileUpload"
           multipart/form-data:
@@ -7169,21 +6247,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/S3FileUpload"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/S3FileUpload"
           description: ""
   /file_uploads/{id}/:
     get:
       operationId: file_uploads_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -7199,9 +6267,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/S3FileUpload"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/S3FileUpload"
           description: ""
@@ -7220,13 +6285,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: query
         name: open_in
         schema:
@@ -7259,31 +6317,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedFormRuleList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedFormRuleList"
           description: ""
     post:
       operationId: form_rules_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - form_rules
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/FormRule"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/FormRule"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/FormRule"
         required: true
@@ -7295,21 +6336,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/FormRule"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/FormRule"
           description: ""
   /form_rules/{id}/:
     get:
       operationId: form_rules_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -7325,22 +6356,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/FormRule"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/FormRule"
           description: ""
     put:
       operationId: form_rules_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -7355,12 +6376,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/FormRule"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/FormRule"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/FormRule"
         required: true
       security:
       - tokenAuth: []
@@ -7368,22 +6383,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/FormRule"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/FormRule"
           description: ""
     patch:
       operationId: form_rules_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -7398,12 +6403,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedFormRule"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedFormRule"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedFormRule"
       security:
       - tokenAuth: []
       responses:
@@ -7412,20 +6411,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/FormRule"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/FormRule"
           description: ""
     delete:
       operationId: form_rules_destroy
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -7443,25 +6432,11 @@ paths:
   /integrations/:
     post:
       operationId: integrations_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - integrations
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/IntegrationRequest"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/IntegrationRequest"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/IntegrationRequest"
         required: true
@@ -7471,9 +6446,6 @@ paths:
         "201":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/IntegrationRequest"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/IntegrationRequest"
           description: ""
@@ -7593,13 +6565,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: query
         name: is_editable
         schema:
@@ -7792,31 +6757,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedMetafieldList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedMetafieldList"
           description: ""
     post:
       operationId: metafields_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - metafields
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/Metafield"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Metafield"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/Metafield"
         required: true
@@ -7828,21 +6776,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Metafield"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Metafield"
           description: ""
   /metafields/{id}/:
     get:
       operationId: metafields_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -7858,22 +6796,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Metafield"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Metafield"
           description: ""
     put:
       operationId: metafields_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -7888,12 +6816,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Metafield"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Metafield"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Metafield"
         required: true
       security:
       - tokenAuth: []
@@ -7901,22 +6823,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Metafield"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Metafield"
           description: ""
     patch:
       operationId: metafields_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -7931,12 +6843,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedMetafield"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedMetafield"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedMetafield"
       security:
       - tokenAuth: []
       responses:
@@ -7945,20 +6851,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Metafield"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Metafield"
           description: ""
     delete:
       operationId: metafields_destroy
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -8102,13 +6998,6 @@ paths:
           * `assignee_away` - Assignee away
           * `updated` - Updated
       - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: query
         name: is_active
         schema:
           type: boolean
@@ -8250,31 +7139,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedNotificationTemplateList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedNotificationTemplateList"
           description: ""
     post:
       operationId: notification_templates_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - notification_templates
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/NotificationTemplate"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/NotificationTemplate"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/NotificationTemplate"
         required: true
@@ -8286,21 +7158,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/NotificationTemplate"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/NotificationTemplate"
           description: ""
   /notification_templates/{id}/:
     get:
       operationId: notification_templates_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -8316,22 +7178,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/NotificationTemplate"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/NotificationTemplate"
           description: ""
     put:
       operationId: notification_templates_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -8346,12 +7198,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/NotificationTemplate"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/NotificationTemplate"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/NotificationTemplate"
         required: true
       security:
       - tokenAuth: []
@@ -8359,22 +7205,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/NotificationTemplate"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/NotificationTemplate"
           description: ""
     patch:
       operationId: notification_templates_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -8389,12 +7225,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedNotificationTemplate"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedNotificationTemplate"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedNotificationTemplate"
       security:
       - tokenAuth: []
       responses:
@@ -8403,20 +7233,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/NotificationTemplate"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/NotificationTemplate"
           description: ""
     delete:
       operationId: notification_templates_destroy
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -8435,13 +7255,6 @@ paths:
     post:
       operationId: notification_templates_render_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -8456,12 +7269,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/RenderRequest"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/RenderRequest"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/RenderRequest"
         required: true
       security:
       - tokenAuth: []
@@ -8469,9 +7276,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/RenderResponse"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/RenderResponse"
           description: ""
@@ -8604,13 +7408,6 @@ paths:
           * `assignee_near` - Assignee near
           * `assignee_away` - Assignee away
           * `updated` - Updated
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: ordering
         required: false
         in: query
@@ -8846,31 +7643,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedNotificationList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedNotificationList"
           description: ""
     post:
       operationId: notifications_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - notifications
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/Notification"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Notification"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/Notification"
         required: true
@@ -8882,21 +7662,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Notification"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Notification"
           description: ""
   /notifications/{id}/:
     get:
       operationId: notifications_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -8931,9 +7701,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Notification"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Notification"
           description: ""
@@ -9183,12 +7950,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/OrderSerializerV2"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/OrderSerializerV2"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/OrderSerializerV2"
         required: true
       security:
       - tokenAuth: []
@@ -9264,12 +8025,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/OrderSerializerV2"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/OrderSerializerV2"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/OrderSerializerV2"
         required: true
       security:
       - tokenAuth: []
@@ -9297,12 +8052,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedOrderSerializerV2"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedOrderSerializerV2"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedOrderSerializerV2"
       security:
       - tokenAuth: []
       responses:
@@ -9315,25 +8064,11 @@ paths:
   /password_change/:
     post:
       operationId: password_change_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - password_change
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/PasswordChange"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PasswordChange"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/PasswordChange"
         required: true
@@ -9345,21 +8080,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PasswordChange"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PasswordChange"
           description: ""
   /password_reset/:
     post:
       operationId: password_reset_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - password_reset
       requestBody:
@@ -9367,12 +8091,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PasswordReset"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PasswordReset"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PasswordReset"
         required: true
       responses:
         "201":
@@ -9380,21 +8098,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PasswordReset"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PasswordReset"
           description: ""
   /password_reset_confirm/:
     post:
       operationId: password_reset_confirm_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - password_reset_confirm
       requestBody:
@@ -9402,20 +8109,11 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PasswordResetConfirm"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PasswordResetConfirm"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PasswordResetConfirm"
         required: true
       responses:
         "201":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PasswordResetConfirm"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/PasswordResetConfirm"
           description: ""
@@ -9645,13 +8343,6 @@ paths:
           type: string
           format: datetime
       - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: query
         name: id
         schema:
           type: string
@@ -9877,31 +8568,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedPushNotificationList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedPushNotificationList"
           description: ""
     post:
       operationId: push_notifications_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - push_notifications
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/PushNotification"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PushNotification"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/PushNotification"
         required: true
@@ -9913,21 +8587,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PushNotification"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PushNotification"
           description: ""
   /push_notifications/{id}/:
     get:
       operationId: push_notifications_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -9943,9 +8607,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PushNotification"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/PushNotification"
           description: ""
@@ -9953,13 +8614,6 @@ paths:
     post:
       operationId: push_notifications_resend_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -9975,9 +8629,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PushNotification"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/PushNotification"
           description: ""
@@ -10699,12 +9350,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Recurrence"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Recurrence"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Recurrence"
         required: true
       security:
       - tokenAuth: []
@@ -10774,12 +9419,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Recurrence"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Recurrence"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Recurrence"
         required: true
       security:
       - tokenAuth: []
@@ -10807,12 +9446,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedRecurrence"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedRecurrence"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedRecurrence"
       security:
       - tokenAuth: []
       responses:
@@ -10825,14 +9458,6 @@ paths:
   /register/:
     post:
       operationId: register_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - register
       requestBody:
@@ -10840,20 +9465,11 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Registration"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Registration"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Registration"
         required: true
       responses:
         "201":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Registration"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Registration"
           description: ""
@@ -10901,13 +9517,6 @@ paths:
           DateUntil:
             value: 2022-05-24
             summary: date_until
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: query
         name: timezone
         schema:
@@ -11522,9 +10131,6 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/TasksStatesCountResponse"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TasksStatesCountResponse"
           description: ""
   /reviews/:
     get:
@@ -11618,13 +10224,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: ordering
         required: false
         in: query
@@ -11673,31 +10272,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedReviewList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedReviewList"
           description: ""
     post:
       operationId: reviews_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - reviews
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/Review"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Review"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/Review"
         required: true
@@ -11710,21 +10292,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Review"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Review"
           description: ""
   /reviews/{id}/:
     get:
       operationId: reviews_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -11761,9 +10333,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Review"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Review"
           description: ""
@@ -12183,13 +10752,6 @@ paths:
           type: string
           format: datetime
       - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
-      - in: query
         name: id
         schema:
           type: string
@@ -12721,28 +11283,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedRouteOptimizationSerializerV2List"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedRouteOptimizationSerializerV2List"
           description: ""
     post:
       operationId: route_optimizations_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       tags:
       - route_optimizations
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/RouteOptimizationSerializerV2"
-          application/xml:
             schema:
               $ref: "#/components/schemas/RouteOptimizationSerializerV2"
         required: true
@@ -12754,21 +11302,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/RouteOptimizationSerializerV2"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/RouteOptimizationSerializerV2"
           description: ""
   /route_optimizations/{id}/:
     get:
       operationId: route_optimizations_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -12811,21 +11349,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/RouteOptimizationSerializerV2"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/RouteOptimizationSerializerV2"
           description: ""
   /route_optimizations/{id}/commit/:
     post:
       operationId: route_optimizations_commit_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -12903,13 +11431,6 @@ paths:
     get:
       operationId: route_optimizations_results_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -12950,9 +11471,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/RouteOptimizationResultSerializerV2"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/RouteOptimizationResultSerializerV2"
           description: ""
@@ -13372,13 +11890,6 @@ paths:
         schema:
           type: string
           format: datetime
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -13918,9 +12429,6 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedRouteList"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedRouteList"
           description: ""
     post:
       operationId: route_optimizations_routes_create
@@ -14337,13 +12845,6 @@ paths:
         schema:
           type: string
           format: datetime
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -14858,21 +13359,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedRouteList"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedRouteList"
           description: ""
   /route_optimizations/{id}/schedule/:
     post:
       operationId: route_optimizations_schedule_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -15352,12 +13843,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Route"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Route"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Route"
         required: true
       security:
       - tokenAuth: []
@@ -15407,12 +13892,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Route"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Route"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Route"
         required: true
       security:
       - tokenAuth: []
@@ -15438,12 +13917,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/PatchedRoute"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedRoute"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/PatchedRoute"
       security:
@@ -15510,12 +13983,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/RouteArchive"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/RouteArchive"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/RouteArchive"
       security:
       - tokenAuth: []
       responses:
@@ -15535,6 +14002,435 @@ paths:
         required: true
       tags:
       - routes
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          description: No response body
+  /session_tokens/:
+    get:
+      operationId: session_tokens_list
+      parameters:
+      - name: created_at
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: created_at__date
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: created_at__date_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: created_at__gt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__gt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__gte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__gte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: cursor
+        required: false
+        in: query
+        description: The pagination cursor value.
+        schema:
+          type: string
+      - name: id
+        required: false
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: id__in
+        required: false
+        in: query
+        description: comma separated value
+        schema:
+          type: string
+      - name: last_used_at
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: last_used_at__date
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: last_used_at__date_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: last_used_at__gt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: last_used_at__gt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: last_used_at__gte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: last_used_at__gte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: last_used_at__lt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: last_used_at__lt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: last_used_at__lte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: last_used_at__lte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: revoked_at
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: revoked_at__date
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: revoked_at__date_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: revoked_at__gt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: revoked_at__gt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: revoked_at__gte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: revoked_at__gte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: revoked_at__lt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: revoked_at__lt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: revoked_at__lte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: revoked_at__lte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be
+          filtered by the sources by declaring the required sources in square
+          brackets after the sideloading key. All available Mutli-source fields
+          will have an example provided with all available sources. The comma
+          separated sources can be ommited with the square brackets if all
+          sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: users
+            summary: Regular sideloading
+      - name: user
+        required: false
+        in: query
+        schema:
+          type: string
+          format: uuid
+      - name: user__in
+        required: false
+        in: query
+        description: comma separated value
+        schema:
+          type: string
+      tags:
+      - session_tokens
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/PaginatedSessionTokenList"
+          description: ""
+    post:
+      operationId: session_tokens_create
+      tags:
+      - session_tokens
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SessionTokenCreate"
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        "201":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/SessionTokenCreate"
+          description: ""
+  /session_tokens/{id}/:
+    get:
+      operationId: session_tokens_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this Session token.
+        required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be
+          filtered by the sources by declaring the required sources in square
+          brackets after the sideloading key. All available Mutli-source fields
+          will have an example provided with all available sources. The comma
+          separated sources can be ommited with the square brackets if all
+          sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: users
+            summary: Regular sideloading
+      tags:
+      - session_tokens
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/SessionToken"
+          description: ""
+  /session_tokens/{id}/revoke/:
+    post:
+      operationId: session_tokens_revoke_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this Session token.
+        required: true
+      tags:
+      - session_tokens
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SessionToken"
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/SessionToken"
+          description: Session token revoked
+        "404":
+          description: Session token not found in the caller's queryset
+  /session_tokens/authorize/:
+    post:
+      operationId: session_tokens_authorize_create
+      tags:
+      - session_tokens
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Authorize"
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/Authorize"
+          description: ""
+  /session_tokens/refresh/:
+    post:
+      operationId: session_tokens_refresh_create
+      tags:
+      - session_tokens
       security:
       - tokenAuth: []
       responses:
@@ -15681,13 +14577,6 @@ paths:
         schema:
           type: string
       - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: query
         name: mimetype
         schema:
           type: string
@@ -15821,31 +14710,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedSignatureList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedSignatureList"
           description: ""
     post:
       operationId: signatures_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - signatures
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/Signature"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Signature"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/Signature"
         required: true
@@ -15857,21 +14729,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Signature"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Signature"
           description: ""
   /signatures/{id}/:
     get:
       operationId: signatures_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -15889,20 +14751,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Signature"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Signature"
           description: ""
     delete:
       operationId: signatures_destroy
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -15921,25 +14773,11 @@ paths:
     post:
       operationId: signatures_batch_delete_create
       description: Available from version 2.4.2
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - signatures
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/SignatureDeleteAction"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/SignatureDeleteAction"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/SignatureDeleteAction"
         required: true
@@ -16125,13 +14963,6 @@ paths:
         schema:
           type: string
           format: datetime
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: query
         name: id
         schema:
@@ -16496,31 +15327,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedSMSList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedSMSList"
           description: ""
     post:
       operationId: sms_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - sms
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/SMS"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/SMS"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/SMS"
         required: true
@@ -16532,21 +15346,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/SMS"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/SMS"
           description: ""
   /sms/{id}/:
     get:
       operationId: sms_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -16562,9 +15366,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/SMS"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/SMS"
           description: ""
@@ -16572,13 +15373,6 @@ paths:
     post:
       operationId: sms_resend_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -16594,9 +15388,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/SMS"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/SMS"
           description: ""
@@ -16866,13 +15657,6 @@ paths:
         schema:
           type: string
       - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: query
         name: owner
         schema:
           type: string
@@ -17047,21 +15831,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedTaskAddressFeatureList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedTaskAddressFeatureList"
           description: ""
   /task_address_features/{id}/:
     get:
       operationId: task_address_features_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -17077,9 +15851,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskAddressFeature"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskAddressFeature"
           description: ""
@@ -17288,13 +16059,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: page_size
         required: false
         in: query
@@ -17516,31 +16280,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedTaskCommandList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedTaskCommandList"
           description: ""
     post:
       operationId: task_commands_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - task_commands
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/TaskCommand"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/TaskCommand"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/TaskCommand"
         required: true
@@ -17552,21 +16299,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskCommand"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskCommand"
           description: ""
   /task_commands/{id}/:
     get:
       operationId: task_commands_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -17601,9 +16338,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskCommand"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskCommand"
           description: ""
@@ -17742,13 +16476,6 @@ paths:
           * `assignee_near` - Assignee near
           * `assignee_away` - Assignee away
           * `updated` - Updated
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: query
         name: from_state
         schema:
@@ -17932,21 +16659,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedTaskEventTrackList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedTaskEventTrackList"
           description: ""
   /task_event_tracks/{id}/:
     get:
       operationId: task_event_tracks_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -17962,9 +16679,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskEventTrack"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskEventTrack"
           description: ""
@@ -18120,13 +16834,6 @@ paths:
           * `` - 
           * `state` - State
           * `assignee_proximity` - Assignee proximity
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: query
         name: from_state
         schema:
@@ -18319,9 +17026,6 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedTaskEventSerializerV2List"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedTaskEventSerializerV2List"
           description: ""
   /task_events/{id}/:
     get:
@@ -18330,13 +17034,6 @@ paths:
         Mixin which allows the override of the filename being
         passed back to the user when the spreadsheet is downloaded.
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -18352,9 +17049,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskEventSerializerV2"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskEventSerializerV2"
           description: ""
@@ -22473,13 +21167,6 @@ paths:
         schema:
           type: string
       - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
-      - in: query
         name: open_in
         schema:
           type: string
@@ -22587,31 +21274,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedTaskFormList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedTaskFormList"
           description: ""
     post:
       operationId: task_forms_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - task_forms
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/TaskForm"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/TaskForm"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/TaskForm"
         required: true
@@ -22623,21 +21293,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskForm"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskForm"
           description: ""
   /task_forms/{id}/:
     get:
       operationId: task_forms_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -22653,22 +21313,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskForm"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskForm"
           description: ""
     put:
       operationId: task_forms_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -22683,12 +21333,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TaskForm"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/TaskForm"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/TaskForm"
         required: true
       security:
       - tokenAuth: []
@@ -22696,22 +21340,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskForm"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskForm"
           description: ""
     patch:
       operationId: task_forms_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -22726,12 +21360,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedTaskForm"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedTaskForm"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedTaskForm"
       security:
       - tokenAuth: []
       responses:
@@ -22740,20 +21368,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskForm"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskForm"
           description: ""
     delete:
       operationId: task_forms_destroy
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -23014,13 +21632,6 @@ paths:
         schema:
           type: string
           format: datetime
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: page_size
         required: false
         in: query
@@ -23205,31 +21816,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedTasksBackgroundImportList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedTasksBackgroundImportList"
           description: ""
     post:
       operationId: task_import_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - task_import
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/TasksBackgroundImport"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/TasksBackgroundImport"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/TasksBackgroundImport"
         required: true
@@ -23241,21 +21835,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/TasksBackgroundImport"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TasksBackgroundImport"
           description: ""
   /task_import/{id}/:
     get:
       operationId: task_import_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -23271,9 +21855,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TasksBackgroundImport"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/TasksBackgroundImport"
           description: ""
@@ -23399,13 +21980,6 @@ paths:
         schema:
           type: string
         example: abc,def
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: ordering
         required: false
         in: query
@@ -23505,31 +22079,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedImportMappingList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedImportMappingList"
           description: ""
     post:
       operationId: task_import_mapping_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - task_import_mapping
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/ImportMapping"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/ImportMapping"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/ImportMapping"
         required: true
@@ -23541,21 +22098,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/ImportMapping"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/ImportMapping"
           description: ""
   /task_import_mapping/{id}/:
     get:
       operationId: task_import_mapping_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -23571,9 +22118,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/ImportMapping"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/ImportMapping"
           description: ""
@@ -23664,13 +22208,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: ordering
         required: false
         in: query
@@ -23775,21 +22312,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedTaskMetadataList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedTaskMetadataList"
           description: ""
   /task_metadatas/{id}/:
     get:
       operationId: task_metadatas_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -23805,9 +22332,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskMetadata"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskMetadata"
           description: ""
@@ -25447,13 +23971,6 @@ paths:
         schema:
           type: string
       - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
-      - in: query
         name: id
         schema:
           type: string
@@ -27708,28 +26225,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedTaskSerializerV2List"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedTaskSerializerV2List"
           description: ""
     post:
       operationId: tasks_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       tags:
       - tasks
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/TaskSerializerV2"
-          application/xml:
             schema:
               $ref: "#/components/schemas/TaskSerializerV2"
         required: true
@@ -27741,21 +26244,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskSerializerV2"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskSerializerV2"
           description: ""
   /tasks/{id}/:
     get:
       operationId: tasks_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -27802,20 +26295,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskSerializerV2"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskSerializerV2"
           description: ""
     put:
       operationId: tasks_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -27830,9 +26313,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TaskSerializerV2"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/TaskSerializerV2"
         required: true
       security:
       - tokenAuth: []
@@ -27840,22 +26320,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskSerializerV2"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskSerializerV2"
           description: ""
     patch:
       operationId: tasks_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -27870,18 +26340,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedTaskSerializerV2"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/PatchedTaskSerializerV2"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskSerializerV2"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskSerializerV2"
           description: ""
@@ -27889,13 +26353,6 @@ paths:
     post:
       operationId: tasks_accept_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -27910,18 +26367,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TaskAction"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/TaskAction"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskSerializerV2"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskSerializerV2"
           description: ""
@@ -27929,13 +26380,6 @@ paths:
     post:
       operationId: tasks_account_change_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -27950,9 +26394,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TaskAccountChange"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/TaskAccountChange"
         required: true
       security:
       - tokenAuth: []
@@ -27960,9 +26401,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Task"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/Task"
           description: ""
@@ -27970,13 +26408,6 @@ paths:
     post:
       operationId: tasks_activate_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -27991,18 +26422,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TaskAction"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/TaskAction"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskSerializerV2"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskSerializerV2"
           description: ""
@@ -28010,13 +26435,6 @@ paths:
     post:
       operationId: tasks_assign_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -28031,9 +26449,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TaskAssign"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/TaskAssign"
         required: true
       security:
       - tokenAuth: []
@@ -28041,9 +26456,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskSerializerV2"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskSerializerV2"
           description: ""
@@ -28051,13 +26463,6 @@ paths:
     post:
       operationId: tasks_cancel_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -28072,18 +26477,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TaskAction"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/TaskAction"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskSerializerV2"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskSerializerV2"
           description: ""
@@ -28091,13 +26490,6 @@ paths:
     post:
       operationId: tasks_complete_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -28112,18 +26504,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TaskAction"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/TaskAction"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskSerializerV2"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskSerializerV2"
           description: ""
@@ -29762,13 +28148,6 @@ paths:
         name: external_id__search
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -32029,9 +30408,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedDocumentList"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedDocumentList"
           description: ""
@@ -33670,13 +32046,6 @@ paths:
         name: external_id__search
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -35939,21 +34308,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedTaskEventList"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedTaskEventList"
           description: ""
   /tasks/{id}/fail/:
     post:
       operationId: tasks_fail_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -35968,18 +34327,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TaskAction"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/TaskAction"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskSerializerV2"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskSerializerV2"
           description: ""
@@ -36050,13 +34403,6 @@ paths:
     post:
       operationId: tasks_reject_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -36071,18 +34417,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TaskAction"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/TaskAction"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskSerializerV2"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskSerializerV2"
           description: ""
@@ -37721,13 +36061,6 @@ paths:
         name: external_id__search
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -39990,21 +38323,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedSignatureList"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedSignatureList"
           description: ""
   /tasks/{id}/transit/:
     post:
       operationId: tasks_transit_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -40019,18 +38342,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TaskAction"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/TaskAction"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskSerializerV2"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskSerializerV2"
           description: ""
@@ -40038,13 +38355,6 @@ paths:
     post:
       operationId: tasks_unaccept_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -40059,18 +38369,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TaskAction"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/TaskAction"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskSerializerV2"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskSerializerV2"
           description: ""
@@ -40078,13 +38382,6 @@ paths:
     post:
       operationId: tasks_unassign_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -40099,18 +38396,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TaskAction"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/TaskAction"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TaskSerializerV2"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/TaskSerializerV2"
           description: ""
@@ -41751,13 +40042,6 @@ paths:
         schema:
           type: string
       - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
-      - in: query
         name: id
         schema:
           type: string
@@ -43980,9 +42264,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TaskListReorderRequest"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/TaskListReorderRequest"
         required: true
       security:
       - tokenAuth: []
@@ -43991,9 +42272,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedTaskListReorderResponseTaskList"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedTaskListReorderResponseTaskList"
           description: ""
@@ -44084,13 +42362,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: page_size
         required: false
         in: query
@@ -44278,31 +42549,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedTimeLocationFeatureList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedTimeLocationFeatureList"
           description: ""
     post:
       operationId: time_location_features_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - time_location_features
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/TimeLocationFeature"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/TimeLocationFeature"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/TimeLocationFeature"
       security:
@@ -44313,21 +42567,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/TimeLocationFeature"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TimeLocationFeature"
           description: ""
   /time_location_features/{id}/:
     get:
       operationId: time_location_features_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -44343,22 +42587,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TimeLocationFeature"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/TimeLocationFeature"
           description: ""
     put:
       operationId: time_location_features_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -44373,34 +42607,18 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/TimeLocationFeature"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/TimeLocationFeature"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/TimeLocationFeature"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TimeLocationFeature"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/TimeLocationFeature"
           description: ""
     patch:
       operationId: time_location_features_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -44415,12 +42633,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedTimeLocationFeature"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedTimeLocationFeature"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedTimeLocationFeature"
       security:
       - tokenAuth: []
       responses:
@@ -44429,20 +42641,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/TimeLocationFeature"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TimeLocationFeature"
           description: ""
     delete:
       operationId: time_location_features_destroy
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -44544,13 +42746,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: page_size
         required: false
         in: query
@@ -44738,31 +42933,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedTimeLocationList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedTimeLocationList"
           description: ""
     post:
       operationId: time_locations_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - time_locations
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/TimeLocation"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/TimeLocation"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/TimeLocation"
         required: true
@@ -44774,21 +42952,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/TimeLocation"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TimeLocation"
           description: ""
   /time_locations/{id}/:
     get:
       operationId: time_locations_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -44804,9 +42972,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TimeLocation"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/TimeLocation"
           description: ""
@@ -44902,13 +43067,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: ordering
         required: false
         in: query
@@ -45008,31 +43166,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedTrackerList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedTrackerList"
           description: ""
     post:
       operationId: trackers_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - trackers
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/Tracker"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Tracker"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/Tracker"
         required: true
@@ -45044,21 +43185,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Tracker"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Tracker"
           description: ""
   /trackers/{id}/:
     get:
       operationId: trackers_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -45074,22 +43205,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Tracker"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Tracker"
           description: ""
     put:
       operationId: trackers_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -45104,12 +43225,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Tracker"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Tracker"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Tracker"
         required: true
       security:
       - tokenAuth: []
@@ -45117,22 +43232,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Tracker"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Tracker"
           description: ""
     patch:
       operationId: trackers_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -45147,21 +43252,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedTracker"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedTracker"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedTracker"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Tracker"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Tracker"
           description: ""
@@ -45169,13 +43265,6 @@ paths:
     get:
       operationId: trackers_public_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -45191,9 +43280,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/TrackerPublic"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/TrackerPublic"
           description: ""
@@ -45215,13 +43301,6 @@ paths:
         name: first_name
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: query
         name: last_name
         schema:
@@ -45252,28 +43331,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedReadableUserList"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedReadableUserList"
           description: ""
     post:
       operationId: users_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       tags:
       - users
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/AuthenticatedUserCreate"
-          application/xml:
             schema:
               $ref: "#/components/schemas/AuthenticatedUserCreate"
         required: true
@@ -45285,21 +43350,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/AuthenticatedUserCreate"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/AuthenticatedUserCreate"
           description: ""
   /users/{id}/:
     get:
       operationId: users_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -45315,22 +43370,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/ReadableUser"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/ReadableUser"
           description: ""
     put:
       operationId: users_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -45345,9 +43390,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/AuthenticatedUserUpdate"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/AuthenticatedUserUpdate"
         required: true
       security:
       - tokenAuth: []
@@ -45355,22 +43397,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/AuthenticatedUserUpdate"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/AuthenticatedUserUpdate"
           description: ""
     patch:
       operationId: users_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -45385,18 +43417,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedAuthenticatedUserUpdate"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/PatchedAuthenticatedUserUpdate"
       security:
       - tokenAuth: []
       responses:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/AuthenticatedUserUpdate"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/AuthenticatedUserUpdate"
           description: ""
@@ -45404,13 +43430,6 @@ paths:
     post:
       operationId: users_hijack_create
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -45425,9 +43444,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/ReadableUser"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/ReadableUser"
         required: true
       security:
       - tokenAuth: []
@@ -45435,9 +43451,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/ReadableUser"
-            application/xml; version=${version}:
               schema:
                 $ref: "#/components/schemas/ReadableUser"
           description: ""
@@ -45445,13 +43458,6 @@ paths:
     get:
       operationId: users_on_duty_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -45469,20 +43475,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/OnDuty"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/OnDuty"
           description: ""
     put:
       operationId: users_on_duty_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -45497,9 +43493,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/OnDuty"
-          application/xml:
-            schema:
-              $ref: "#/components/schemas/OnDuty"
         required: true
       security:
       - tokenAuth: []
@@ -45509,20 +43502,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/OnDuty"
-            application/xml; version=${version}:
-              schema:
-                $ref: "#/components/schemas/OnDuty"
           description: ""
     delete:
       operationId: users_on_duty_destroy
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       - in: path
         name: id
         schema:
@@ -45540,22 +43523,11 @@ paths:
   /users/verify_email/:
     post:
       operationId: users_verify_email_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xml
       tags:
       - users
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/UserEmailVerification"
-          application/xml:
             schema:
               $ref: "#/components/schemas/UserEmailVerification"
         required: true
@@ -45565,11 +43537,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                type: object
-                additionalProperties: {}
-                description: Unspecified response body
-            application/xml; version=${version}:
               schema:
                 type: object
                 additionalProperties: {}
@@ -45672,13 +43639,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: query
         name: mode
         schema:
@@ -45803,31 +43763,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedWorkingStateList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedWorkingStateList"
           description: ""
     post:
       operationId: users_on_duty_log_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - users_on_duty_log
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/WorkingState"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/WorkingState"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/WorkingState"
         required: true
@@ -45839,21 +43782,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/WorkingState"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/WorkingState"
           description: ""
   /users_on_duty_log/{id}/:
     get:
       operationId: users_on_duty_log_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -45869,9 +43802,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/WorkingState"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/WorkingState"
           description: ""
@@ -45894,13 +43824,6 @@ paths:
         name: document_events
         schema:
           type: boolean
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: ordering
         required: false
         in: query
@@ -45957,31 +43880,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedWebhookList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedWebhookList"
           description: ""
     post:
       operationId: webhooks_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - webhooks
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/Webhook"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Webhook"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/Webhook"
         required: true
@@ -45993,21 +43899,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Webhook"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Webhook"
           description: ""
   /webhooks/{id}/:
     get:
       operationId: webhooks_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -46023,22 +43919,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Webhook"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Webhook"
           description: ""
     put:
       operationId: webhooks_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -46053,12 +43939,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Webhook"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/Webhook"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/Webhook"
         required: true
       security:
       - tokenAuth: []
@@ -46066,22 +43946,12 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Webhook"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Webhook"
           description: ""
     patch:
       operationId: webhooks_partial_update
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -46096,12 +43966,6 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/PatchedWebhook"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/PatchedWebhook"
-          multipart/form-data:
-            schema:
-              $ref: "#/components/schemas/PatchedWebhook"
       security:
       - tokenAuth: []
       responses:
@@ -46110,20 +43974,10 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/Webhook"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Webhook"
           description: ""
     delete:
       operationId: webhooks_destroy
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -46143,13 +43997,6 @@ paths:
       operationId: webhooks_active_create
       description: This action allows the user to activate the webhook.
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -46165,9 +44012,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Webhook"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Webhook"
           description: ""
@@ -46176,13 +44020,6 @@ paths:
       operationId: webhooks_inactive_create
       description: This action allows the user to deactivate the webhook.
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -46198,9 +44035,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Webhook"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/Webhook"
           description: ""
@@ -46303,13 +44137,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: page_size
         required: false
         in: query
@@ -46504,21 +44331,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedWorkerFeatureList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedWorkerFeatureList"
           description: ""
   /worker_features/{user_id}/:
     get:
       operationId: worker_features_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: user_id
         schema:
@@ -46533,9 +44350,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/WorkerFeature"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/WorkerFeature"
           description: ""
@@ -46697,13 +44511,6 @@ paths:
         schema:
           type: string
           format: datetime
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - name: start_time
         required: false
         in: query
@@ -46868,9 +44675,6 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/WorkerTrackList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/WorkerTrackList"
           description: ""
   /working_state/:
     get:
@@ -46969,13 +44773,6 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: query
         name: mode
         schema:
@@ -47100,31 +44897,14 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/PaginatedWorkingStateList"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/PaginatedWorkingStateList"
           description: ""
     post:
       operationId: working_state_create
-      parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       tags:
       - working_state
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/WorkingState"
-          application/x-www-form-urlencoded:
-            schema:
-              $ref: "#/components/schemas/WorkingState"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/WorkingState"
         required: true
@@ -47136,21 +44916,11 @@ paths:
             application/json; version=${version}:
               schema:
                 $ref: "#/components/schemas/WorkingState"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
-              schema:
-                $ref: "#/components/schemas/WorkingState"
           description: ""
   /working_state/{id}/:
     get:
       operationId: working_state_retrieve
       parameters:
-      - in: query
-        name: format
-        schema:
-          type: string
-          enum:
-          - json
-          - xlsx
       - in: path
         name: id
         schema:
@@ -47166,9 +44936,6 @@ paths:
         "200":
           content:
             application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/WorkingState"
-            application/vnd.openxmlformats-officedocument.spreadsheetml.sheet; version=${version}:
               schema:
                 $ref: "#/components/schemas/WorkingState"
           description: ""
@@ -48287,6 +46054,46 @@ components:
       description: |-
         * `away` - Away
         * `near` - Near
+    Authenticate:
+      type: object
+      properties:
+        username:
+          type: string
+          format: email
+          writeOnly: true
+        password:
+          type: string
+          writeOnly: true
+          maxLength: 128
+        client_id:
+          type: string
+          writeOnly: true
+          minLength: 14
+          maxLength: 40
+      required:
+      - client_id
+      - password
+      - username
+    AuthenticateResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          readOnly: true
+        user:
+          type: string
+          format: uri
+          readOnly: true
+          nullable: true
+        account:
+          type: string
+          format: uuid
+          readOnly: true
+          nullable: true
+      required:
+      - account
+      - token
+      - user
     AuthenticatedUserCreate:
       type: object
       properties:
@@ -48356,20 +46163,12 @@ components:
       - email
       - id
       - url
-    Authentication:
+    Authorize:
       type: object
       properties:
-        username:
+        account:
           type: string
-          format: email
-          writeOnly: true
-        password:
-          type: string
-          writeOnly: true
-          maxLength: 128
-      required:
-      - password
-      - username
+          format: uri
     BlankEnum:
       enum:
       - ""
@@ -51111,6 +48910,10 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/SMS"
+    PaginatedSessionTokenList:
+      type: array
+      items:
+        $ref: "#/components/schemas/SessionToken"
     PaginatedSignatureList:
       type: array
       items:
@@ -53307,11 +51110,17 @@ components:
           $ref: "#/components/schemas/RegistrationAccount"
         user:
           $ref: "#/components/schemas/RegistrationUser"
+        client_id:
+          type: string
+          writeOnly: true
+          minLength: 14
+          maxLength: 40
         token:
           type: string
           readOnly: true
       required:
       - account
+      - client_id
       - token
       - user
     RegistrationAccount:
@@ -53976,6 +51785,119 @@ components:
       - sent_at
       - state
       - url
+    SessionToken:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        user:
+          type: string
+          format: uri
+          readOnly: true
+        ip_address:
+          type: string
+          readOnly: true
+          nullable: true
+        user_agent:
+          type: string
+          readOnly: true
+        version:
+          type: string
+          readOnly: true
+        last_used_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        created_by:
+          type: string
+          format: uri
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        revoked_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+      required:
+      - created_at
+      - created_by
+      - id
+      - ip_address
+      - last_used_at
+      - revoked_at
+      - url
+      - user
+      - user_agent
+      - version
+    SessionTokenCreate:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        user:
+          type: string
+          format: uri
+        ip_address:
+          type: string
+          readOnly: true
+          nullable: true
+        user_agent:
+          type: string
+          readOnly: true
+        version:
+          type: string
+          readOnly: true
+        last_used_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        created_by:
+          type: string
+          format: uri
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        revoked_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        token:
+          type: string
+          readOnly: true
+          nullable: true
+          title: JWT token
+      required:
+      - created_at
+      - created_by
+      - id
+      - ip_address
+      - last_used_at
+      - revoked_at
+      - token
+      - url
+      - user
+      - user_agent
+      - version
     Signature:
       type: object
       properties:
@@ -58002,6 +55924,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.10.0
       - 2.9.3
       - 2.9.2
       - 2.9.1
@@ -58085,6 +56008,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.10.0` - 2.10.0
         * `2.9.3` - 2.9.3
         * `2.9.2` - 2.9.2
         * `2.9.1` - 2.9.1
