@@ -1292,6 +1292,12 @@ paths:
           application/json:
             schema:
               $ref: "#/components/schemas/Authenticate"
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: "#/components/schemas/Authenticate"
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/Authenticate"
         required: true
       responses:
         "200":
@@ -6233,9 +6239,6 @@ paths:
       requestBody:
         content:
           application/json:
-            schema:
-              $ref: "#/components/schemas/S3FileUpload"
-          multipart/form-data:
             schema:
               $ref: "#/components/schemas/S3FileUpload"
         required: true
