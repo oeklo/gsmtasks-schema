@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.10.0
+  version: 2.11.0
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -6273,6 +6273,791 @@ paths:
               schema:
                 $ref: "#/components/schemas/S3FileUpload"
           description: ""
+  /form_fields/:
+    get:
+      operationId: form_fields_list
+      parameters:
+      - name: created_at
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: created_at__date
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: created_at__date_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: created_at__gt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__gt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__gte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__gte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: cursor
+        required: false
+        in: query
+        description: The pagination cursor value.
+        schema:
+          type: string
+      - in: query
+        name: field_type
+        schema:
+          type: string
+          enum:
+          - array
+          - boolean
+          - decimal
+          - integer
+          - multi_select
+          - single_select
+          - text_area
+          - text_input
+        description: |-
+          * `text_input` - Text input
+          * `text_area` - Text area
+          * `boolean` - Boolean
+          * `single_select` - Single select
+          * `multi_select` - Multi select
+          * `array` - Array
+          * `integer` - Integer
+          * `decimal` - Decimal
+      - in: query
+        name: form
+        schema:
+          type: string
+          format: uuid
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - in: query
+        name: parent_field
+        schema:
+          type: string
+          format: uuid
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - name: updated_at
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: updated_at__date
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: updated_at__date_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: updated_at__gt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__gt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__gte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__gte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__lt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__lt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__lte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__lte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      tags:
+      - form_fields
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/PaginatedFormFieldList"
+          description: ""
+    post:
+      operationId: form_fields_create
+      tags:
+      - form_fields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FormField"
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        "201":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/FormField"
+          description: ""
+  /form_fields/{id}/:
+    get:
+      operationId: form_fields_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this form field.
+        required: true
+      tags:
+      - form_fields
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/FormField"
+          description: ""
+    put:
+      operationId: form_fields_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this form field.
+        required: true
+      tags:
+      - form_fields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FormField"
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/FormField"
+          description: ""
+    patch:
+      operationId: form_fields_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this form field.
+        required: true
+      tags:
+      - form_fields
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PatchedFormField"
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/FormField"
+          description: ""
+    delete:
+      operationId: form_fields_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this form field.
+        required: true
+      tags:
+      - form_fields
+      security:
+      - tokenAuth: []
+      responses:
+        "204":
+          description: No response body
+  /form_responses/:
+    get:
+      operationId: form_responses_list
+      parameters:
+      - in: query
+        name: completed_by
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: completed_by__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - name: created_at
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: created_at__date
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: created_at__date_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: created_at__gt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__gt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__gte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__gte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - in: query
+        name: created_by
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: created_by__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - name: cursor
+        required: false
+        in: query
+        description: The pagination cursor value.
+        schema:
+          type: string
+      - in: query
+        name: form
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: form__account
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: form__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - completed_bys
+            - created_bys
+            - forms
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be
+          filtered by the sources by declaring the required sources in square
+          brackets after the sideloading key. All available Mutli-source fields
+          will have an example provided with all available sources. The comma
+          separated sources can be ommited with the square brackets if all
+          sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: forms,created_bys
+            summary: Regular sideloading
+          MultiSourceSideloadingForUsers:
+            value: users[created_bys,completed_bys]
+            summary: Multi source sideloading for users
+      - in: query
+        name: state
+        schema:
+          type: string
+          enum:
+          - completed
+          - draft
+        description: |-
+          * `draft` - Draft
+          * `completed` - Completed
+      - in: query
+        name: state__in
+        schema:
+          type: array
+          items:
+            type: string
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - in: query
+        name: task
+        schema:
+          type: string
+          format: uuid
+      - name: updated_at
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: updated_at__date
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: updated_at__date_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: updated_at__gt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__gt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__gte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__gte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__lt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__lt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__lte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__lte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      tags:
+      - form_responses
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/PaginatedFormResponseList"
+          description: ""
+    post:
+      operationId: form_responses_create
+      tags:
+      - form_responses
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/FormResponse"
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        "201":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/FormResponse"
+          description: ""
+  /form_responses/{id}/:
+    get:
+      operationId: form_responses_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this form response.
+        required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - completed_bys
+            - created_bys
+            - forms
+            - users
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be
+          filtered by the sources by declaring the required sources in square
+          brackets after the sideloading key. All available Mutli-source fields
+          will have an example provided with all available sources. The comma
+          separated sources can be ommited with the square brackets if all
+          sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: forms,created_bys
+            summary: Regular sideloading
+          MultiSourceSideloadingForUsers:
+            value: users[created_bys,completed_bys]
+            summary: Multi source sideloading for users
+      tags:
+      - form_responses
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/FormResponse"
+          description: ""
+    patch:
+      operationId: form_responses_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this form response.
+        required: true
+      tags:
+      - form_responses
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PatchedFormResponse"
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/FormResponse"
+          description: ""
+    delete:
+      operationId: form_responses_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this form response.
+        required: true
+      tags:
+      - form_responses
+      security:
+      - tokenAuth: []
+      responses:
+        "204":
+          description: No response body
+  /form_responses/{id}/complete/:
+    post:
+      operationId: form_responses_complete_create
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this form response.
+        required: true
+      tags:
+      - form_responses
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/FormResponse"
+          description: Form response completed.
+        "400":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/FormResponseCompleteError"
+              examples:
+                AlreadyCompleted:
+                  value:
+                    non_field_errors:
+                    - "Cannot complete form response: current state is
+                      'completed'."
+                  summary: Already completed
+          description: Form response cannot be completed from its current state.
+        "409":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/FormResponseCompleteError"
+              examples:
+                LockConflict:
+                  value:
+                    non_field_errors:
+                    - Could not obtain lock for FormResponse object. Try again
+                      later.
+                  summary: Lock conflict
+          description: Form response is locked by another request.
   /form_rules/:
     get:
       operationId: form_rules_list
@@ -6288,6 +7073,11 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
+      - in: query
+        name: form
+        schema:
+          type: string
+          format: uuid
       - in: query
         name: open_in
         schema:
@@ -6427,6 +7217,385 @@ paths:
         required: true
       tags:
       - form_rules
+      security:
+      - tokenAuth: []
+      responses:
+        "204":
+          description: No response body
+  /forms/:
+    get:
+      operationId: forms_list
+      parameters:
+      - in: query
+        name: account
+        schema:
+          type: string
+          format: uuid
+      - name: created_at
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: created_at__date
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: created_at__date_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: created_at__gt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__gt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__gte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__gte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: created_at__lte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - in: query
+        name: created_by
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: created_by__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
+      - name: cursor
+        required: false
+        in: query
+        description: The pagination cursor value.
+        schema:
+          type: string
+      - in: query
+        name: form_rules__is_active
+        schema:
+          type: boolean
+      - name: ordering
+        required: false
+        in: query
+        description: Which field to use when ordering the results.
+        schema:
+          type: string
+      - name: page_size
+        required: false
+        in: query
+        description: Number of results to return per page.
+        schema:
+          type: integer
+      - name: search
+        required: false
+        in: query
+        description: A search term.
+        schema:
+          type: string
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - form_fields
+            - form_rules
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be
+          filtered by the sources by declaring the required sources in square
+          brackets after the sideloading key. All available Mutli-source fields
+          will have an example provided with all available sources. The comma
+          separated sources can be ommited with the square brackets if all
+          sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: form_fields,form_rules
+            summary: Regular sideloading
+      - name: status__in
+        required: false
+        in: query
+        description: "Filter by status: active, inactive (comma-separated)."
+        schema:
+          type: string
+          enum:
+          - active
+          - inactive
+        style: form
+        explode: false
+      - name: updated_at
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: updated_at__date
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: updated_at__date_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: date
+      - name: updated_at__gt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__gt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__gte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__gte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__lt
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__lt_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__lte
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      - name: updated_at__lte_or_isnull
+        required: false
+        in: query
+        example: 2000-01-01T00:00:00+00:00
+        schema:
+          type: string
+          format: datetime
+      tags:
+      - forms
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/PaginatedFormList"
+          description: ""
+    post:
+      operationId: forms_create
+      tags:
+      - forms
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Form"
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        "201":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/Form"
+          description: ""
+  /forms/{id}/:
+    get:
+      operationId: forms_retrieve
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this form.
+        required: true
+      - in: query
+        name: sideload
+        schema:
+          type: array
+          items:
+            type: string
+            enum:
+            - form_fields
+            - form_rules
+        description: This option allows you to fetch related obejcts for all of the
+          relations with a signle query. Multi-source sideloadable fields can be
+          filtered by the sources by declaring the required sources in square
+          brackets after the sideloading key. All available Mutli-source fields
+          will have an example provided with all available sources. The comma
+          separated sources can be ommited with the square brackets if all
+          sources are to be sideloaded.
+        examples:
+          RegularSideloading:
+            value: form_fields,form_rules
+            summary: Regular sideloading
+      tags:
+      - forms
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/Form"
+          description: ""
+    put:
+      operationId: forms_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this form.
+        required: true
+      tags:
+      - forms
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Form"
+        required: true
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/Form"
+          description: ""
+    patch:
+      operationId: forms_partial_update
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this form.
+        required: true
+      tags:
+      - forms
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PatchedForm"
+      security:
+      - tokenAuth: []
+      responses:
+        "200":
+          content:
+            application/json; version=${version}:
+              schema:
+                $ref: "#/components/schemas/Form"
+          description: ""
+    delete:
+      operationId: forms_destroy
+      parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+          format: uuid
+        description: A UUID string identifying this form.
+        required: true
+      tags:
+      - forms
       security:
       - tokenAuth: []
       responses:
@@ -43827,6 +44996,10 @@ paths:
         name: document_events
         schema:
           type: boolean
+      - in: query
+        name: form_response_events
+        schema:
+          type: boolean
       - name: ordering
         required: false
         in: query
@@ -46287,6 +47460,18 @@ components:
       - task_category
       - task_duration
       - transit_active_limit
+    ConfigurationEnvironment:
+      type: object
+      properties:
+        web_app_url:
+          type: string
+          format: uri
+        gsmtasks_api_url:
+          type: string
+          format: uri
+      required:
+      - gsmtasks_api_url
+      - web_app_url
     ConfigurationNotification:
       type: object
       properties:
@@ -46373,6 +47558,10 @@ components:
           type: object
           additionalProperties: {}
           readOnly: true
+        environment:
+          allOf:
+          - $ref: "#/components/schemas/ConfigurationEnvironment"
+          readOnly: true
         is_client_role:
           type: boolean
           default: false
@@ -46386,6 +47575,7 @@ components:
       - auth
       - billing
       - defaults
+      - environment
       - features
       - id
       - legacy_views
@@ -47679,6 +48869,203 @@ components:
         * `` - 
         * `state` - State
         * `assignee_proximity` - Assignee proximity
+    FieldTypeEnum:
+      enum:
+      - text_input
+      - text_area
+      - boolean
+      - single_select
+      - multi_select
+      - array
+      - integer
+      - decimal
+      type: string
+      description: |-
+        * `text_input` - Text input
+        * `text_area` - Text area
+        * `boolean` - Boolean
+        * `single_select` - Single select
+        * `multi_select` - Multi select
+        * `array` - Array
+        * `integer` - Integer
+        * `decimal` - Decimal
+    Form:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          type: string
+          format: uri
+        name:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        default_values:
+          description: "Default form field values as {slug: value}"
+        created_by:
+          type: string
+          format: uri
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - account
+      - created_at
+      - created_by
+      - id
+      - name
+      - updated_at
+      - url
+    FormField:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        form:
+          type: string
+          format: uri
+        field_type:
+          $ref: "#/components/schemas/FieldTypeEnum"
+        field_name:
+          type: string
+          maxLength: 100
+        parent_field:
+          type: string
+          format: uri
+          nullable: true
+        slug:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+        read_only:
+          type: boolean
+        order:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        choices:
+          description: 'For single_select/multi_select: ["Choice A", "Choice B", ...]'
+        can_add_rows:
+          type: boolean
+          description: Whether users can add rows to this array field.
+        can_delete_rows:
+          type: boolean
+          description: Whether users can delete rows from this array field.
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - created_at
+      - field_name
+      - field_type
+      - form
+      - id
+      - slug
+      - updated_at
+      - url
+    FormResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        form:
+          type: string
+          format: uri
+        task:
+          type: string
+          format: uri
+        answers:
+          description: "Form answers as {slug: value}"
+        state:
+          allOf:
+          - $ref: "#/components/schemas/FormResponseStateEnum"
+          readOnly: true
+        form_schema:
+          readOnly: true
+          description: Snapshot of form + fields at time of completion
+        completed_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        completed_by:
+          type: string
+          format: uri
+          readOnly: true
+        created_by:
+          type: string
+          format: uri
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+      required:
+      - completed_at
+      - completed_by
+      - created_at
+      - created_by
+      - form
+      - form_schema
+      - id
+      - state
+      - task
+      - updated_at
+      - url
+    FormResponseCompleteError:
+      type: object
+      properties:
+        non_field_errors:
+          type: array
+          items:
+            type: string
+      required:
+      - non_field_errors
+    FormResponseStateEnum:
+      enum:
+      - draft
+      - completed
+      type: string
+      description: |-
+        * `draft` - Draft
+        * `completed` - Completed
     FormRule:
       type: object
       properties:
@@ -47715,12 +49102,14 @@ components:
         rules: {}
         open_in:
           $ref: "#/components/schemas/OpenInEnum"
+        form:
+          type: string
+          format: uri
+          nullable: true
       required:
       - account
-      - edit_url
       - id
       - name
-      - rules
       - url
     FormatEnum:
       enum:
@@ -48853,6 +50242,18 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/Export"
+    PaginatedFormFieldList:
+      type: array
+      items:
+        $ref: "#/components/schemas/FormField"
+    PaginatedFormList:
+      type: array
+      items:
+        $ref: "#/components/schemas/Form"
+    PaginatedFormResponseList:
+      type: array
+      items:
+        $ref: "#/components/schemas/FormResponse"
     PaginatedFormRuleList:
       type: array
       items:
@@ -49938,6 +51339,137 @@ components:
           type: string
           format: date-time
           readOnly: true
+    PatchedForm:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        account:
+          type: string
+          format: uri
+        name:
+          type: string
+          maxLength: 100
+        description:
+          type: string
+        default_values:
+          description: "Default form field values as {slug: value}"
+        created_by:
+          type: string
+          format: uri
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedFormField:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        form:
+          type: string
+          format: uri
+        field_type:
+          $ref: "#/components/schemas/FieldTypeEnum"
+        field_name:
+          type: string
+          maxLength: 100
+        parent_field:
+          type: string
+          format: uri
+          nullable: true
+        slug:
+          type: string
+          maxLength: 100
+          pattern: ^[-a-zA-Z0-9_]+$
+        description:
+          type: string
+        read_only:
+          type: boolean
+        order:
+          type: integer
+          maximum: 2147483647
+          minimum: 0
+        choices:
+          description: 'For single_select/multi_select: ["Choice A", "Choice B", ...]'
+        can_add_rows:
+          type: boolean
+          description: Whether users can add rows to this array field.
+        can_delete_rows:
+          type: boolean
+          description: Whether users can delete rows from this array field.
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
+    PatchedFormResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+          readOnly: true
+        url:
+          type: string
+          format: uri
+          readOnly: true
+        form:
+          type: string
+          format: uri
+        task:
+          type: string
+          format: uri
+        answers:
+          description: "Form answers as {slug: value}"
+        state:
+          allOf:
+          - $ref: "#/components/schemas/FormResponseStateEnum"
+          readOnly: true
+        form_schema:
+          readOnly: true
+          description: Snapshot of form + fields at time of completion
+        completed_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
+        completed_by:
+          type: string
+          format: uri
+          readOnly: true
+        created_by:
+          type: string
+          format: uri
+          readOnly: true
+        created_at:
+          type: string
+          format: date-time
+          readOnly: true
+        updated_at:
+          type: string
+          format: date-time
+          readOnly: true
     PatchedFormRule:
       type: object
       properties:
@@ -49974,6 +51506,10 @@ components:
         rules: {}
         open_in:
           $ref: "#/components/schemas/OpenInEnum"
+        form:
+          type: string
+          format: uri
+          nullable: true
     PatchedInvoice:
       type: object
       properties:
@@ -50451,6 +51987,11 @@ components:
         task:
           type: string
           format: uri
+        form:
+          type: string
+          format: uri
+          readOnly: true
+          nullable: true
         name:
           type: string
           maxLength: 50
@@ -50605,6 +52146,9 @@ components:
           nullable: true
         forms:
           readOnly: true
+        form_default_values:
+          nullable: true
+          description: "Per-form default values: {form_id: {slug: value}}"
         documents:
           type: array
           items:
@@ -50851,6 +52395,9 @@ components:
           type: boolean
         review_events:
           type: boolean
+        form_response_events:
+          type: boolean
+          nullable: true
         notification_emails:
           type: array
           items:
@@ -52915,6 +54462,9 @@ components:
           nullable: true
         forms:
           readOnly: true
+        form_default_values:
+          nullable: true
+          description: "Per-form default values: {form_id: {slug: value}}"
         documents:
           type: array
           items:
@@ -53560,6 +55110,11 @@ components:
         task:
           type: string
           format: uri
+        form:
+          type: string
+          format: uri
+          readOnly: true
+          nullable: true
         name:
           type: string
           maxLength: 50
@@ -53596,6 +55151,7 @@ components:
       required:
       - created_at
       - edit_url
+      - form
       - id
       - link
       - name
@@ -53938,6 +55494,9 @@ components:
           nullable: true
         forms:
           readOnly: true
+        form_default_values:
+          nullable: true
+          description: "Per-form default values: {form_id: {slug: value}}"
         documents:
           type: array
           items:
@@ -55927,6 +57486,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.11.0
       - 2.10.0
       - 2.9.3
       - 2.9.2
@@ -56011,6 +57571,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.11.0` - 2.11.0
         * `2.10.0` - 2.10.0
         * `2.9.3` - 2.9.3
         * `2.9.2` - 2.9.2
@@ -56129,6 +57690,9 @@ components:
           type: boolean
         review_events:
           type: boolean
+        form_response_events:
+          type: boolean
+          nullable: true
         notification_emails:
           type: array
           items:
