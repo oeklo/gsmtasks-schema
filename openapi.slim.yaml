@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.11.0
+  version: 2.11.1
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -7737,6 +7737,10 @@ paths:
         description: The pagination cursor value.
         schema:
           type: string
+      - in: query
+        name: hide_when_empty
+        schema:
+          type: boolean
       - in: query
         name: is_editable
         schema:
@@ -49755,6 +49759,8 @@ components:
           type: boolean
         show_when_task_type_drop_off:
           type: boolean
+        hide_when_empty:
+          type: boolean
         applies_to:
           allOf:
           - $ref: "#/components/schemas/AppliesToEnum"
@@ -51686,6 +51692,8 @@ components:
         show_when_task_type_pick_up:
           type: boolean
         show_when_task_type_drop_off:
+          type: boolean
+        hide_when_empty:
           type: boolean
         applies_to:
           allOf:
@@ -57486,6 +57494,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.11.1
       - 2.11.0
       - 2.10.0
       - 2.9.3
@@ -57571,6 +57580,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.11.1` - 2.11.1
         * `2.11.0` - 2.11.0
         * `2.10.0` - 2.10.0
         * `2.9.3` - 2.9.3
