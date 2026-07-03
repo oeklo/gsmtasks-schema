@@ -50578,6 +50578,12 @@ components:
           type: boolean
         pod_show_task_event_creators:
           type: boolean
+        pod_show_reference:
+          type: boolean
+          nullable: true
+        pod_show_description:
+          type: boolean
+          nullable: true
         created_at:
           type: string
           format: date-time
@@ -52812,6 +52818,12 @@ components:
           type: boolean
         pod_show_task_event_creators:
           type: boolean
+        pod_show_reference:
+          type: boolean
+          nullable: true
+        pod_show_description:
+          type: boolean
+          nullable: true
         created_at:
           type: string
           format: date-time
