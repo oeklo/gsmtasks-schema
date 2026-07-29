@@ -49496,6 +49496,29 @@ components:
         can_delete_rows:
           type: boolean
           description: Whether users can delete rows from this array field.
+        collapsed:
+          type: boolean
+          nullable: true
+          description: Whether this array field is collapsed by default in the form UI.
+        layout:
+          nullable: true
+          description: >-
+            Row layout for this array field: 'list' (fields stacked) or 'table'
+            (compact, one line).
+
+
+            * `list` - List
+
+            * `table` - Table
+          oneOf:
+          - $ref: "#/components/schemas/LayoutEnum"
+          - $ref: "#/components/schemas/NullEnum"
+        visible_to_worker:
+          type: boolean
+          nullable: true
+          description: Whether this field is shown to workers (drivers) in the product UI.
+            The API still returns the field and its values; clients are
+            responsible for hiding it.
         created_at:
           type: string
           format: date-time
@@ -50159,6 +50182,14 @@ components:
         * `vi` - Vietnamese
         * `zh-hans` - Simplified Chinese
         * `zh-hant` - Traditional Chinese
+    LayoutEnum:
+      enum:
+      - list
+      - table
+      type: string
+      description: |-
+        * `list` - List
+        * `table` - Table
     LevelEnum:
       enum:
       - danger
@@ -52460,6 +52491,29 @@ components:
         can_delete_rows:
           type: boolean
           description: Whether users can delete rows from this array field.
+        collapsed:
+          type: boolean
+          nullable: true
+          description: Whether this array field is collapsed by default in the form UI.
+        layout:
+          nullable: true
+          description: >-
+            Row layout for this array field: 'list' (fields stacked) or 'table'
+            (compact, one line).
+
+
+            * `list` - List
+
+            * `table` - Table
+          oneOf:
+          - $ref: "#/components/schemas/LayoutEnum"
+          - $ref: "#/components/schemas/NullEnum"
+        visible_to_worker:
+          type: boolean
+          nullable: true
+          description: Whether this field is shown to workers (drivers) in the product UI.
+            The API still returns the field and its values; clients are
+            responsible for hiding it.
         created_at:
           type: string
           format: date-time
@@ -53382,6 +53436,11 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/TaskStateEnum"
+        public_task_fields:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublicTaskFieldsEnum"
+          description: Task fields returned under tasks[] on the public tracker endpoint
         show_driver_info:
           type: boolean
         show_destination:
@@ -53489,6 +53548,36 @@ components:
           type: string
           format: date-time
           readOnly: true
+    PublicTaskFieldsEnum:
+      enum:
+      - id
+      - url
+      - reference
+      - state
+      - category
+      - assignee
+      - contact
+      - address
+      - duration
+      - scheduled_time
+      - completed_at
+      - cancelled_at
+      - failed_at
+      type: string
+      description: |-
+        * `id` - id
+        * `url` - url
+        * `reference` - reference
+        * `state` - state
+        * `category` - category
+        * `assignee` - assignee
+        * `contact` - contact
+        * `address` - address
+        * `duration` - duration
+        * `scheduled_time` - scheduled_time
+        * `completed_at` - completed_at
+        * `cancelled_at` - cancelled_at
+        * `failed_at` - failed_at
     PushNotification:
       type: object
       properties:
@@ -58237,6 +58326,11 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/TaskStateEnum"
+        public_task_fields:
+          type: array
+          items:
+            $ref: "#/components/schemas/PublicTaskFieldsEnum"
+          description: Task fields returned under tasks[] on the public tracker endpoint
         show_driver_info:
           type: boolean
         show_destination:
@@ -58390,8 +58484,6 @@ components:
         predicted_delivery_error:
           type: string
           readOnly: true
-          nullable: true
-          description: Predicted delivery time calculation error
         default_map_location:
           type: object
           additionalProperties: {}
@@ -58422,6 +58514,8 @@ components:
       - tasks
     TrackerTasks:
       type: object
+      description: Public tracker task payload; fields filtered by
+        Tracker.public_task_fields.
       properties:
         id:
           type: string
@@ -58431,6 +58525,9 @@ components:
           type: string
           format: uri
           readOnly: true
+        reference:
+          type: string
+          maxLength: 100
         state:
           $ref: "#/components/schemas/TaskStateEnum"
         category:
@@ -58440,9 +58537,13 @@ components:
           format: uuid
           nullable: true
         contact:
-          $ref: "#/components/schemas/NestedContact"
+          allOf:
+          - $ref: "#/components/schemas/NestedContact"
+          readOnly: true
         address:
-          $ref: "#/components/schemas/NestedAddress"
+          allOf:
+          - $ref: "#/components/schemas/NestedAddress"
+          readOnly: true
         duration:
           type: object
           nullable: true
