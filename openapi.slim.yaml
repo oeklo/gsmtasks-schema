@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.11.4
+  version: 2.11.5
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -4632,13 +4632,20 @@ paths:
         key.
 
 
-        Cache is automatically invalidated when:
+        Cache is controlled by ``OPENAPI_SCHEMA_CACHE_TIMEOUT`` (seconds). Set
+        to ``0``
+
+        to disable caching (useful in local development). When enabled, cache is
+
+        invalidated when:
 
         - API version in settings.REST_FRAMEWORK['CURRENT_VERSION'] changes
 
+        - settings.RELEASE changes (CalVer tag or git SHA of the running image)
+
         - Accept or Accept-Language headers change
 
-        - 24 hours pass (cache timeout)
+        - The configured timeout elapses
       parameters:
       - in: query
         name: format
@@ -50328,6 +50335,7 @@ components:
       - field_name
       - id
       - key
+      - label
       - updated_at
       - url
     MethodEnum:
@@ -58642,6 +58650,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.11.5
       - 2.11.4
       - 2.11.3
       - 2.11.2
@@ -58731,6 +58740,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.11.5` - 2.11.5
         * `2.11.4` - 2.11.4
         * `2.11.3` - 2.11.3
         * `2.11.2` - 2.11.2
@@ -59075,6 +59085,8 @@ webhooks:
     post:
       description: Fired when a task state change or update occurs.
       summary: Task Event Webhook
+      tags:
+      - webhooks
       requestBody:
         content:
           application/json:
@@ -59088,6 +59100,8 @@ webhooks:
     post:
       description: Fired when a document is attached to a task.
       summary: Document Webhook
+      tags:
+      - webhooks
       requestBody:
         content:
           application/json:
@@ -59101,6 +59115,8 @@ webhooks:
     post:
       description: Fired when a signature is captured on a task.
       summary: Signature Webhook
+      tags:
+      - webhooks
       requestBody:
         content:
           application/json:
@@ -59114,6 +59130,8 @@ webhooks:
     post:
       description: Fired when a tracker submits a review.
       summary: Review Webhook
+      tags:
+      - webhooks
       requestBody:
         content:
           application/json:
@@ -59123,3 +59141,2206 @@ webhooks:
       responses:
         "200":
           description: No response body
+tags:
+- name: introduction
+  description: >-
+    The GSMtasks API is a RESTful web service for developers to programmatically
+    interact with GSMtasks data, real-time delivery and task management and
+    route optimization functionality.
+
+
+    The GSMtasks API is organized around REST. Every bit of data exchanged
+    between clients and the API is JSON over HTTPS. All API requests must be
+    made over HTTPS. Calls made over plain HTTP will fail. You must authenticate
+    for all requests.
+
+
+    The base URL for the GSMtasks API is
+    [https://api.gsmtasks.com](https://api.gsmtasks.com/).
+
+
+    If you have questions about using the API, or have come across a bug you'd
+    like to report, write us an email at
+    [info@gsmtasks.com](mailto:info@gsmtasks.com).
+  x-displayName: Introduction
+  x-traitTag: true
+- name: authentication
+  description: >-
+    For clients to authenticate, the API key should be included in the
+    Authorization HTTP header.
+
+
+    The key should be prefixed by the string literal "Token", with whitespace
+    separating the two strings.
+
+
+    ```http
+
+    Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
+
+    ```
+
+
+    You must replace `9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b` with your
+    personal API key.
+
+
+    ## Obtaining an API key
+
+
+    API keys are created from the GSMtasks dashboard:
+
+
+    1. Open **Settings → API keys** to manage the keys that determine what data
+    your app can access.
+
+    2. Click **Create API key**, fill in a **Name** and **Email** for the key,
+    and press **Save**.
+
+    3. The key is shown only once, immediately after creation. Copy it and store
+    it somewhere safe.
+
+
+    > **Warning:** The API key is non-recoverable. If you lose it, you will have
+    to create a new one.
+
+
+    > **Note:** Keys are valid until they are revoked from the **API keys**
+    page.
+  x-displayName: Authentication
+  x-traitTag: true
+- name: versioning
+  description: >-
+    Every request must declare which API version it targets. The version forms
+    the API contract: a given version is expected to remain fully backwards
+    compatible, so an integration pinned to a version keeps working as the API
+    evolves.
+
+
+    The version is provided through the `Accept` header in the request.
+
+
+    ```http
+
+    Accept: application/json; version=2.11.0
+
+    ```
+
+
+    > **Note:** Without providing the Accept header and a correct version the
+    API will respond with a status code of 400 and an error message.
+  x-displayName: Versioning
+  x-traitTag: true
+- name: changelog
+  description: >-
+    ### 2.11.4
+
+    - SMS: `POST /sms/` and `POST /sms/{id}/resend/` are idempotent within
+    `SMS_DUPLICATE_SEND_WINDOW_SECONDS` — a duplicate account+phone+message
+    submission returns **200** with the existing object instead of creating
+    another row (**201** still means a new SMS was created)
+
+    - SMS: resend always enqueues a fresh queued message (does not clone prior
+    sent/failed state)
+
+
+    ### 2.11.3
+
+    - Configuration: added `google_maps_region` feature for web app Google Maps
+    region bias
+
+
+    ### 2.11.2
+
+    - Notification templates: exposed `pod_show_images`, `pod_show_signatures`,
+    `pod_show_task_events`, `pod_show_task_event_creators`,
+    `pod_show_reference`, `pod_show_description` fields. When a template is
+    created without these values, they default from the account's matching POD
+    options.
+
+
+    ### 2.11.1
+
+    - Metafields: added `hide_when_empty` field — when `true`, the metafield is
+    omitted from task/contact detail and Proof of Delivery views if its value is
+    empty.
+
+
+    ### 2.11.0
+
+    - Forms: added `/forms/`, `/form_fields/`, `/form_responses/` endpoints for
+    native form building
+
+    - Forms: added Form, FormField, FormResponse models
+
+    - Forms: added `/form_responses/{id}/complete/` action to lock responses and
+    capture schema snapshot
+
+    - FormRule: added optional `form` FK for auto-generating edit/view/pdf URLs
+
+    - Tasks: added `form_default_values` field for per-form default value
+    overrides
+
+    - Webhooks: added `form_response_events` flag for form response completion
+    webhooks
+
+
+    ### 2.10.0
+
+    - Authentication: split-token JWT model. `POST /authenticate/` now returns a
+    session-token JWT (`{"token": "..."}`) instead of the legacy `{"token",
+    "user", "account"}` body; legacy callers (version `< 2.10.0`) keep the old
+    shape and the long-lived `AccessToken`.
+
+    - Session tokens: new `POST /session_tokens/refresh/` endpoint — JWT callers
+    re-sign in place, legacy `AccessToken` callers trade up to a JWT.
+
+    - Session tokens: new `POST /session_tokens/authorize/` endpoint — exchanges
+    a session JWT for a short-lived authorization JWT scoped to one account.
+
+    - Session tokens: new `/session_tokens/` viewset for listing/creating
+    (integration users only)/revoking sessions.
+
+    - Trailing slashes: a missing trailing slash now returns `404` instead of a
+    `301` redirect; legacy callers (`< 2.10.0`) keep the slash appended
+    transparently.
+
+
+    ### 2.9.3
+
+    - Accounts: added `tracker_task_popup_template` field
+
+    - Trackers: added `task_popup_template` field on the public tracker payload
+
+
+    ### 2.9.2
+
+    - Account Roles: added `show_travel_estimates` field
+
+
+    ### 2.9.1
+
+    - Tasks: added `signers` field (JSONField)
+
+
+    ### 2.9.0
+
+    - Contact Address Exports: added metafield export support using
+    `metafields__namespace:key` or `metafields__namespace__key` syntax
+
+    - Contact Address Imports: added `metafields` field support for importing
+    metafields with contact addresses
+
+    - Metafields: added `source` field for linking task metafields with contact
+    address metafields
+
+    - Tasks: scheduled tasks can now be assigned/unassigned regardless of future
+    scheduled time
+
+
+    ### 2.8.0
+
+    - Metafields: added `multiselect` value type for multi-value selection
+    fields
+
+
+    ### 2.7.0
+
+    - Metafields: `applies_to` field now supports `contact_addresses` value
+
+
+    ### 2.6.1
+
+    - Accounts: added fields `optimize_earliest_start`, `optimize_latest_end`,
+    `optimize_visit_duration_margin` (read from API 2.6.1+)
+
+
+    ### 2.6.0
+
+    - Webhooks: Document and Signature webhooks now inline full task data
+    instead of URL reference (similar to TaskEvent webhooks in v2.0.0)
+
+
+    ### 2.5.1
+
+    - Accounts: added `feature_signer_name_required_task_category` field for
+    category-based signer name requirements
+
+
+    ### 2.5.0
+
+    - Accounts: added `feature_tracker_map_provider` field with map provider
+    choices
+
+    - Routes: added `metafields` field (JSONField)
+
+    - Metafields: added `applies_to` field
+
+    - Trackers: added `feature_tracker_map_provider` field
+
+    - Task exports: added `assignee__password_expires_at` field
+
+    - Task exports: added `order__description` field
+
+    - Task exports: added `address__geocoding_provider` field
+
+    - Task exports: added `forms` field
+
+
+    ### 2.4.50
+
+    - AccountRole: added fields `vehicle_capacity_divisor`,
+    `vehicle_capacity_units`, `show_vehicle_capacity` and
+    `require_sequential_completion`
+
+
+    ### 2.4.49
+
+    - Accounts: added `failed_reasons` array
+
+    - Route optimizations: added `ignore_time_windows`
+
+    - Metafields: added `is_required_before_complete`
+
+    - Notification templates: added `scheduled_time_added`
+
+
+    ### 2.4.48
+
+    - Introduce `default_map_location` parameter for public trackers
+
+
+    ### 2.4.47
+
+    - Introduce `verify_email` action to `/users/` API to verify user email
+
+    - Introduce new validation rule to validate phone numbers in notifications
+
+
+    ### 2.4.46
+
+    - Introduce `hijack` action to `/users/` API to hijack user account
+
+
+    ### 2.4.45
+
+    - Introduce custom API `AccessToken` to replace it with default `Token` used
+
+    - Add new API `/logout/` to logout and revoke token
+
+
+    ### 2.4.44
+
+    - Metafields: added field show_in_form
+
+
+    ### 2.4.43
+
+    - Metafields: added value_type assignee
+
+
+    ### 2.4.42
+
+    - Configuration defaults has `transit_active_limit`
+
+
+    ### 2.4.40
+
+    - Metafields: added value_type link
+
+
+    ### 2.4.39
+
+    - Task restart action to restart a task from failed state
+
+
+    ### 2.4.38
+
+    - Expose a read-only `feature_tracker_url` under Account
+
+
+    ### 2.4.37
+
+    - Expose `optimize_return_to_depot`, `optimize_earliest_start`,
+    `optimize_latest_end` under AccountRole
+
+
+    ### 2.4.36
+
+    - Orders: added field `recurrence`
+
+    - Tasks: added fields `recurrence` and `calendar_time`
+
+    - Tasks: added states `draft` and `scheduled`
+
+
+    ### 2.4.35
+
+    - Tracker added fields `show_last_task_event_notes`,
+    `show_last_task_images`, `last_task_event_notes`, `last_task_images`
+
+
+    ### 2.4.34
+
+    - RouteOptimizationResultTask: added field `reference`
+
+
+    ### 2.4.33
+
+    - Documents: added field `recurrence`
+
+    - Orders: added field `recurrence`
+
+    - Orders: added sideloading option `recurrence__documents`
+
+    - Tasks: added field `recurrence`
+
+    - Tasks: added sideloading option `recurrence__documents`
+
+    - Recurrences: removed field `order` and added fields `order_data`, `route`
+
+
+    ### 2.4.32
+
+    - All endpoints: added list view query argument names validation
+
+
+    ### 2.4.31
+
+    - Recurrences: added field `external_id`
+
+
+    ### 2.4.30
+
+    - AccountRole: add detail action `resend_activation_token` to resend
+    activation token to the user
+
+
+    ### 2.4.29
+
+    - Tasks: added field `created_by`
+
+
+    ### 2.4.28
+
+    - Configuration: Added features `signature_required_task_category` and
+    `picture_required_task_category` which limit the signature and picture
+    requirement based on task category
+
+    - Documents: added write-only field `s3_response_headers`
+
+    - Signatures: added field `external_id` and write-only field
+    `s3_response_headers`
+
+
+    ### 2.4.27
+
+    - Tasks: Add detail action `pod` to get HTML or PDF via API
+
+
+    ### 2.4.26
+
+    - Documents: Added `file_upload` content check when creating documents
+    (rescinded)
+
+    - Signatures: Added `file_upload` content check when creating signatures
+    (rescinded)
+
+
+    ### 2.4.25
+
+    - Route Optimization: Add detail action `report` to get HTML or PDF reports
+    via API
+
+
+    ### 2.4.24
+
+    - Configuration: Added features `signer_name_required` and `notes_required`
+
+
+    ### 2.4.23
+
+    - Configuration: Added features `signer_name_required` and `notes_required`
+
+    - TimeLocations: Added fields `is_moving`, `event` and `activity_type`
+
+
+    ### 2.4.22
+
+    - Webhook: Rename state `disabled` to `failed`, rename `disabled_at` to
+    `failed_at` and `disable_message` to `fail_message`
+
+
+    ### 2.4.21
+
+    - Account: add field `review_emails_to_assignee` to API
+
+
+    ### 2.4.20
+
+    - FormRule: added field `open_in`
+
+    - TaskForm: added field `open_in`
+
+
+    ### 2.4.19
+
+    - Tracker: Rename field `predicted_delivery_at` to
+    `predicted_delivery_calculated_at` in order to avoid confusion
+
+
+    ### 2.4.18
+
+    - Account: add fields `route_default_state` and `feature_route_auto_archive`
+    to model and API
+
+    - Configuration: add field `create_contact_address` to configuration
+    defaults
+
+    - Route: add field `state` to model and API
+
+    - Route: API add actions `activate`, `archive` and `draft`
+
+
+    ### 2.4.17
+
+    - Add `Accept-Timezone` header in order to manage timezones correctly. Can
+    be used retrospectively.
+
+    - Account: add feature flag `feature_route_folders` to allow tasks to be
+    grouped into routes in the WEB dashboard.
+
+    - Configuration: add field `create_contact_address` to configuration
+    defaults
+
+    - Configuration: remove feature `reposition_icon`
+
+    - Routes: add fields `name` and `objective` to Route model and API
+
+    - Routes: Replaced fields `start_location` and `end_location` with
+    `start_address` and `end_address`
+
+    - RouteOptimizations: Add `end_time` to RouteOptimization model and API
+
+    - Tasks: add field `routes` to Tasks sideloading
+
+    - TasksCommand: add field `route` to `TaskCommand.task_data` if you need to
+    update/assign/reassign/unassign the task
+
+
+    ### 2.4.16
+
+
+    - Tracker: Added field `predicted_delivery_error` to Tracker `Public` detail
+    view
+
+
+    ### 2.4.15
+
+
+    - Tasks: fields `contact_address` and `contact_address_external_id` made
+    visible
+
+    - Tasks: Added filters for `contact_address` and
+    `contact_address__external_id`
+
+
+    ### 2.4.14
+
+
+    - TaskCommand: `contact_address`.`address` added to `task_data` as an
+    updatable field in order to
+
+    allow updating `contact_address.address` data for future usage
+
+
+    ### 2.4.13
+
+
+    - Tasks: `updated_at_delay_latest` filter added
+
+    - NB! Web and Mobile apps should use this filter as it replaces older logic
+    applied
+
+    for cases where `updated_at__gt` or `updated_at__gte` filtering is used
+    without an upper bound.
+
+    This filter prevents the out-of-order appearance of records.
+
+    Implemented for the following views: `scenes_dashboard`, `scenes_task_list`,
+    `task_exports` and `tasks` list views
+
+
+    ### 2.4.12
+
+
+    - Tasks: `contact_address` write only field added
+
+    - Tasks: `contact_address_external_id` write only field added
+
+    - `contact_address` will replace missing `address` and/or `contact` values
+    when in POST and PUT requests
+
+
+    ### 2.4.11
+
+
+    - Accounts: `optimize_when_on_duty` removed
+
+
+    ### 2.4.10
+
+
+    - Recurrences: `scheduled_time` added to `tasks_data`
+
+
+    ### 2.4.9
+
+
+    - Recurrences: `assignee` is not based on `user` instead of `account_role`
+    to match other `assignee` usages
+
+
+    ### 2.4.8
+
+
+    - NotificationTemplate: Add field `phones` to API
+
+    - NotificationTemplate: Add field `emails` to API
+
+
+    ### 2.4.7
+
+
+    - TaskBackgroundImport: Add field `order_orderer` to API
+
+    - TaskBackgroundImport: Field `contact_accress_external_id` is now saved to
+    task for future reference
+
+    - TaskExport: Add `contact_accress_external_id` as an exportable field
+
+    - Task: Add `contact_accress` relation to database as a reference
+
+    - Orders are now generated with `orderer` data in case `order_orderer` is
+    set during import
+
+
+    ### 2.4.6
+
+
+    - Remove assignee from OrderSerializerV2
+
+
+    ### 2.4.5
+
+
+    - TasksStatesCount: Add filter `assignee__in` to API
+
+    - TasksStatesCount: `assignee` filters are now based on `user_id` instead of
+    `account_role_id` to match other endpoints
+
+    - TasksStatesCount: drop `assignee_url` from response data
+
+
+    ### 2.4.4
+
+
+    - Add `billing` for ConfigurationSerializer
+
+
+    ### 2.4.3
+
+
+    - Sideloaded orders serializer changed to OrdersV2Serializer for tasks
+    endpoint
+
+
+    ### 2.4.2
+
+
+    - Added Documents batch delete action
+
+    - Added Signatures batch delete action
+
+
+    ### 2.4.1
+
+
+    - Added AccountRole activation API
+
+    - Added user activation API
+
+
+    ### 2.4.0
+
+
+    - Added AccountRole rolling window tasks scheduling
+
+    - Added rolling window schedule based notifications
+
+
+    ### 2.3.5
+
+
+    - Metafields API active usage removed from queryset to allow admins to see
+    and edit non-visible metafields
+
+    - Better error handling in case metafield is not editable.
+
+
+    ### 2.3.4
+
+
+    - Recurrence: Dropped field `assign_worker` from API
+
+    - Recurrence: Added field `assignee` to API
+
+    - Recurrence: Added field `created_by` to API
+
+
+    ### 2.3.3
+
+
+    - Order: Added field `description` to API
+
+
+    ### 2.3.2
+
+
+    - Document: Added field `mimetype` and `thumbnail` to API
+
+    - Signature: Added field `mimetype` and `thumbnail` to API
+
+    - Document and Signature: `mimetype` detection added and `thumbnail`
+    generation added
+
+
+    ### 2.3.1
+
+
+    - OrdersAPI: Added field `documents`
+
+
+    ### 2.3.0
+
+
+    - Task: `position` field changed to **Float** in the backend
+
+    - TaskBackgroundImport: `version` field added to denote, what API version
+    was used to create the import and what version to use the serialize the
+    `tasks_data`
+
+    - TaskImportSerializerV2: `position` expects _timestamp_ as a float value
+
+    - RouteOptimizationSerializerV1: `position` expects _timestamp_ as a float
+    value
+
+    - RouteOptimizationResultSerializer: `position` expects _timestamp_ as a
+    float value
+
+    - TODO!
+
+
+    ### 2.2.6
+
+
+    - Documentation update: Custom filters added to documentation
+
+    - Schema update: Due to Changes in documentation, schema has updated
+
+
+    ### 2.2.5
+
+
+    - TasksBackgroundImport: API exposed.
+
+    - TaskBackgroundImport: `version` field added to denote, what API version
+    was used to create the import and what version to use the serialize the
+    `tasks_data`
+
+    - TasksBackgroundImport and TasksImport: assignee name matching based on
+    `account_role.display_name` instead of `user.get_full_name()`
+
+
+    ### 2.2.4
+
+
+    - RouteOptimization: Added field `errors` to API
+
+
+    ### 2.2.3
+
+
+    - Task: Add filter UUID filter `task_import`
+
+    - Task: Add filter Datetime filters `address__geocoded_at` and
+    `address__geocode_failed_at`
+
+
+    ### 2.2.2
+
+
+    - Address: Added field `geocoded_at`
+
+    - Address: Added field `geocode_failed_at`
+
+    - Address: Dropped field `geocode_failure_notified_at`
+
+    - RouteOptimization: Added fields `commited_at`, `scheduled_at`,
+    `started_at`, `ready_at`, `completed_at`, `failed_at` to API
+
+    - TaskCommand: Added field `address` as an updatable field
+
+
+    ### 2.2.1
+
+
+    - TaskExports: Account filter is required
+
+    - TaskExports: requested field names are checked and raise error if invalid.
+
+    - TaskExports: New export serializer
+
+
+    ### 2.2.0
+
+
+    - TaskCommands: metafields and other data sent for task update will be sent
+    to field `task_data`
+
+
+    ### 2.1.1
+
+
+    - TODO
+
+
+    ### 2.1.0
+
+
+    - ContactAddressExportPermissions endpoint added
+
+    - ReviewPermission endpoint added
+
+    - Order endpoint: Tasks data must be posted to `tasks_data` field
+
+
+    ### 2.0.0
+
+
+    - TODO
+
+
+    ### 1.1.0
+
+
+    ---
+
+
+    - TODO
+
+
+    ### 1.0.0
+
+
+    ---
+
+
+    - TODO
+  x-displayName: API Changelog
+  x-traitTag: true
+- name: rate_limits
+  description: |-
+    To ensure our platform remains stable and fair for everyone, all APIs are rate-limited.
+    We use a variety of strategies to enforce rate limits.
+    We ask developers to use industry standard techniques for limiting calls, caching results, and re-trying requests responsibly.
+
+    > **Note:** If an app reaches API rate limits for a specific resource, then it receives a 429 Too Many Requests response, and a message that a throttle has been applied.
+
+    | Throttle rate  | Limit   | Description                                                                  |
+    |----------------|---------|------------------------------------------------------------------------------|
+    | Burst          | 200/min | Within 1 minute you are allowed a maximum of 200 requests                    |
+    | Sustained      | 6000/h  | During a 1 hour period in total you are allowed a maximum of 6000 requests   |
+    | Attachments    | 120/min | Specific limit for file uploads, documents and signatures endpoints combined |
+    | Time locations | 120/min | Specific limit for time locations endpoint                                   |
+    | Trackers       | 120/min | Specific limit for the trackers endpoint                                     |
+    | Authenticate   | 10/h    | Limit for authentication, password reset and registration, per credential    |
+    | Anonymous      | 100/h   | Limit for unauthenticated requests, per IP address                           |
+
+    ## Avoiding limits
+
+    Designing your app with best practices in mind is the best way to avoid throttling errors. For example, you can stagger API requests in a queue and do other processing tasks while waiting for the next queued job to run. Consider the following best practices when designing your app:
+
+    - Optimize your code to only get the data that your app requires.
+    - Use caching for data that your app uses often.
+    - Regulate the rate of your requests for smoother distribution.
+    - Include code that catches errors. If you ignore these errors and keep trying to make requests, then your app won't be able to gracefully recover.
+    - Your code should stop making additional API requests until enough time has passed to retry. The recommended backoff time is 1 second.
+  x-displayName: Rate limits
+  x-traitTag: true
+- name: errors
+  description: >-
+    ## Status codes
+
+
+    GSMtasks uses conventional HTTP response codes to indicate success or
+    failure of an API request. In general, codes in the 2xx range indicate
+    success, codes in the 4xx range indicate an error that resulted from the
+    provided information (e.g. a required parameter was missing, a charge
+    failed, etc.), and codes in the 5xx range indicate an error with GSMtasks's
+    servers.
+
+
+    | Status code | Status text       |
+    Description                                |
+
+    | ----------- | ----------------- |
+    ------------------------------------------ |
+
+    | 200         | OK                | Everything worked as
+    expected.             |
+
+    | 400         | Bad Request       | Often missing a required
+    parameter.        |
+
+    | 401         | Unauthorized      | No valid API key
+    provided.                 |
+
+    | 402         | Request Failed    | Parameters were valid but request
+    failed.  |
+
+    | 404         | Not Found         | The requested item doesn't
+    exist.          |
+
+    | 406         | Not Acceptable    | Unable to fulfill criteria from the
+    request Accept header, check details in response body. |
+
+    | 429         | Too Many Requests | Too many requests hit the API too
+    quickly. |
+
+    | 50\*        | Server Errors     | Something went wrong on our
+    end.           |
+  x-displayName: Errors
+  x-traitTag: true
+- name: time_zones
+  description: >-
+    The timestamps in the API are represented in the ISO-8601 format including
+    the time zone indicator (Z)
+
+    which means these timestamps are in UTC by default. The timestamps shown in
+    the web and mobile apps are in the
+
+    account timezone, which is usually not UTC.
+
+
+    If you wish to communicate with the API without converting between local and
+    UTC timestamps, then you can indicate
+
+    the timezone you wish to use from the valid IANA timezone identifier list by
+    providing the following HTTP Header:
+
+
+    ```http
+
+    Accept-Timezone: Europe/Tallinn
+
+    ```
+
+
+    The API will respond with the timestamps converted to that timezone
+    including the correct UTC offset indicator.
+
+    The response headers will also indicate the content timezone as a
+    confirmation.
+
+
+    ```http
+
+    Content-Timezone: Europe/Tallinn
+
+    ```
+  x-displayName: Time zones
+  x-traitTag: true
+- name: account_roles
+- name: accounts
+- name: addons
+- name: authenticate
+- name: billing
+- name: client_roles
+- name: clients
+- name: configurations
+- name: contact_address_exports
+- name: contact_address_import
+- name: contact_addresses
+- name: devices
+- name: docs
+- name: documents
+- name: emails
+- name: exports
+- name: file_uploads
+  description: |-
+    File uploads are used for creating Documents and Signatures objects to attach them to Task objects.
+
+    > **Note:** Files are directly uploaded to Amazon S3 where they are stored for usage later. Technical documentation for uploads can be found [here](#operation/file_uploads_create).
+
+    ## Create a file upload request
+
+    ### HTTP Request
+
+    `POST https://api.gsmtasks.com/file_uploads/`
+
+    ### Request
+
+    ```json
+    {
+      "file_name": "important document.pdf",
+      "file_type": "application/pdf",
+      "source": "integration"
+    }
+    ```
+
+    ### Response
+
+    You will get the following response with Amazon S3 signature to start the actual file upload process.
+
+    ```json
+    {
+      "id": "f4db8a4a-01a9-4065-acb1-830db7854b91",
+      "url": "https://api.gsmtasks.com/file_uploads/f4db8a4a-01a9-4065-acb1-830db7854b92/",
+      "file": "https://gsmtasks.s3.amazonaws.com/fileupload/f4db8a4a-01a9-4065-acb1-830db7854b92/important%20document.pdf",
+      "s3_signature": {
+        "url": "https://gsmtasks.s3.amazonaws.com/",
+        "fields": {
+          "acl": "public-read",
+          "Content-Type": "application/pdf",
+          "key": "fileupload/f4db8a4a-01a9-4065-acb1-830db7854b92/important document.pdf",
+          "x-amz-algorithm": "AWS4-HMAC-SHA256",
+          "x-amz-credential": "AKIA3TP7DLREZYXKZYAO/20220303/eu-central-1/s3/aws4_request",
+          "x-amz-date": "20220303T134409Z",
+          "policy": "yyJleHBpcmF0aW9uIjogIjywMjItMDMtMDNUMTQ6NDQ6MDlaIiwgImNvbmRpdGlvbnMiOiBbeyJhY2wiOiAicHVibGljLXJlYWQifSwgeyJDb250ZW50LVR5cGUiOiAicGRmIn0sIHsiYnVja2V0IjogImdzbXRhc2tzIn0sIHsia2V5IjogImZpbGV1cGxvYWQvZjRkYjhhNGEtMDFhOS00MDY1LWFjYjEtODMwZGI3ODU0YjkxL2ltcG9ydGFudCBkb2N1bWVudC5wZGYifSwgeyJ4LWFtei1hbGdvcml0aG0iOiAiQVdTNC1ITUFDLVNIQTI1NiJ9LCB7IngtYW16LWNyZWRlbnRpYWwiOiAiQUtJQTNUUDdETFJFWllYS1pZQU8vMjAyMjAzMDMvZXUtY2VudHJhbC0xL3MzL2F3czRfcmVxdWVzdCJ9LCB7IngtYW16LWRhdGUiOiAiMjAyMjAzMDNUMTM0NDA5WiJ9XX0=",
+          "x-amz-signature": "85307503f19166eb2234a68cd18b3a0fbaf4d288d9a708aad0d09a7e96e16192"
+        }
+      },
+      "created_by": "https://api.gsmtasks.com/users/18fb9d97-824b-4c2a-9b74-764a88a78c92/",
+      "source": "integration",
+      "created_at": "2022-03-03T17:44:09.164169+04:00",
+      "updated_at": "2022-03-03T17:44:09.164191+04:00"
+    }
+    ```
+
+    With this data the [Amazon S3 file upload documentation](https://docs.aws.amazon.com/AmazonS3/latest/userguide/HTTPPOSTExamples.html) can be followed.
+
+    ## Upload to Amazon S3
+
+    ### HTTP multipart/form-data Request
+
+    `POST https://gsmtasks.s3.amazonaws.com/`
+
+    ### Multipart form Parameters
+
+    - acl
+    - Content-Type
+    - key
+    - x-amz-algorithm
+    - x-amz-credential
+    - x-amz-date
+    - policy
+    - x-amz-signature
+    - file (actual file content)
+
+    > **Note:** A successful upload will return a 204 No Content response.
+
+    ## Attaching file uploads
+
+    After the upload process has been done the _file upload_ object can be attached to Documents and Signatures which are from there on attached to Tasks.
+
+    As an example we are [creating a Document](#operation/documents_create) next from our file upload.
+
+    ### HTTP Request
+
+    `POST https://api.gsmtasks.com/documents/`
+
+    ### Request
+
+    ```json
+    {
+      "account": "https://api.gsmtasks.com/accounts/a6f60fdf-d87b-4c5d-b5ec-67a90cd16236/",
+      "task": "https://api.gsmtasks.com/tasks/19373b06-911e-4663-96da-2a0d5215c0b3/",
+      "file_upload": "https://api.gsmtasks.com/file_uploads/f4db8a4a-01a9-4065-acb1-830db7854b92/",
+      "description": "Description of the uploaded file",
+      "visible_to_worker": true,
+      "visible_to_client": true
+    }
+    ```
+
+    ### Response
+
+    You will get the following response with Amazon S3 signature to start the actual file upload process.
+
+    ```json
+    {
+      "id": "f49c879f-a1e1-4c5f-9572-51709bb77422",
+      "url": "https://api.gsmtasks.com/documents/f49c879f-a1e1-4c5f-9572-51709bb774f8/",
+      "account": "https://api.gsmtasks.com/accounts/a6f60fdf-d87b-4c5d-b5ec-67a90cd16236/",
+      "external_id": null,
+      "order": null,
+      "task": "https://api.gsmtasks.com/tasks/19373b06-911e-4663-96da-2a0d5215c0b3/",
+      "file": "https://gsmtasks.s3.amazonaws.com/document/f49c879f-a1e1-4c5f-9572-51709bb774f8/important_document.pdf",
+      "file_name": "important_document.pdf",
+      "description": "Description of the uploaded file",
+      "created_by": "https://api.gsmtasks.com/users/18fb9d97-824b-4c22-9b74-764a88a78c92/",
+      "source": null,
+      "visible_to_worker": true,
+      "visible_to_client": true,
+      "created_at": "2022-03-03T14:39:23.310925Z",
+      "updated_at": "2022-03-03T14:39:23.310955Z"
+    }
+    ```
+- name: form_fields
+- name: form_responses
+- name: form_rules
+- name: forms
+- name: integrations
+- name: logout
+- name: metafields
+- name: notification_templates
+- name: notifications
+- name: orders
+  description: >-
+    Orders are to group together some tasks (waypoints) that need to be
+    completed to fulfill the order.
+
+
+    The new version of the API allows to create orders and tasks in one API
+    call. And combines to two objects Order and Task.
+
+
+    An example of such an API call to create an order with two tasks (a pickup
+    and a drop off) would look as follows.
+
+    The pickup task is created with an address and the dropoff task is created
+    from a coordinate.
+
+
+    > **Note:** If only a coordinate is provided the reverse geocoding will
+    happen on the GSMtasks platform and we will provide a displayable address.
+
+
+    ## Creating an Order with tasks
+
+
+    ### HTTP Request
+
+
+    `POST https://api.gsmtasks.com/orders/`
+
+
+    ### Request
+
+
+    ```json
+
+    {
+      "account": "https://api.gsmtasks.com/accounts/a6f60fdf-d87b-4c5d-b5ec-67a90cd16336/",
+      "reference": "Order #1",
+      "orderer": {
+        "name": "Orderer name"
+      },
+      "tasks_data": [
+        {
+          "category": "pick_up",
+          "address": {
+            "raw_address": "381 Queen Street, London, SW85 1GX"
+          },
+          "contact": {
+            "company": "Pickup company name",
+            "emails": ["info@pickup.com"],
+            "phones": ["+44 1632 960167", "+44 1632 960374"],
+            "notes": "Please call before pickup"
+          },
+          "description": "Pickup task description"
+        },
+        {
+          "category": "drop_off",
+          "address": {
+            "location": {
+              "type": "Point",
+              "coordinates": [24.76271, 59.416163]
+            }
+          },
+          "contact": {
+            "name": "Dropoff contact name",
+            "emails": ["info@dropoff.com"],
+            "phones": ["+44 1632 960277"],
+            "notes": "Please drop at the door"
+          },
+          "complete_after": "2022-01-01T14:00:00Z",
+          "complete_before": "2022-01-01T16:00:00Z",
+          "description": "Dropoff task description"
+        }
+      ]
+    }
+
+    ```
+
+
+    ### Response
+
+
+    ```json
+
+    {
+      "id": "58221f9e-96d0-40c9-96ef-1d3cb08525c3",
+      "url": "https://api.gsmtasks.com/orders/58221f9e-96d0-40c9-96ef-1d3cb08525c3/",
+      "account": "https://api.gsmtasks.com/accounts/a6f60fdf-d87b-4c5d-b5ec-67a90cd16336/",
+      "external_id": null,
+      "reference": "Order #1",
+      "client": "https://api.gsmtasks.com/clients/0a997ba4-2daf-455f-ad0b-9a9cb9ed1943/",
+      "orderer": {
+        "name": "Orderer name"
+      },
+      "tasks": [
+        "https://api.gsmtasks.com/tasks/19373b06-911e-4663-96da-2a0d5215c0b3/",
+        "https://api.gsmtasks.com/tasks/9b33d9d3-80e1-4d97-aaa0-7a55638cae4f/"
+      ],
+      "assignee": null,
+      "auto_assign": false,
+      "created_by": "https://api.gsmtasks.com/users/18fb9d97-824b-4c2a-9b74-764a88a78c96/",
+      "created_at": "2022-03-01T10:43:03.267621+02:00",
+      "updated_at": "2022-03-01T10:43:03.267653+02:00"
+    }
+
+    ```
+
+
+    ## Creating multiple Orders with one API call
+
+
+    > **Note:** This option is an efficient way to avoid rate-limit issues. Also
+    please note that using a POST request with external_id values will detect if
+    the Order has already been created and if so then updates the Order which
+    can save even more API calls.
+
+
+    ### HTTP Request
+
+
+    `POST https://api.gsmtasks.com/orders/`
+
+
+    ### Request
+
+
+    ```json
+
+    [
+      {
+        "account": "https://api.gsmtasks.com/accounts/a6f60fdf-d87b-4c5d-b5ec-67a90cd16336/",
+        "reference": "Order #1",
+        "orderer": {
+          "name": "Orderer name"
+        },
+        "tasks_data": [
+          {
+            "category": "drop_off",
+            "address": {
+              "location": {
+                "type": "Point",
+                "coordinates": [24.76271, 59.416163]
+              }
+            },
+            "contact": {
+              "name": "Dropoff contact name",
+              "emails": ["info@dropoff.com"],
+              "phones": ["+44 1632 960277"],
+              "notes": "Please drop at the door"
+            },
+            "complete_after": "2022-01-01T14:00:00Z",
+            "complete_before": "2022-01-01T16:00:00Z",
+            "description": "Dropoff task description"
+          }
+        ]
+      },
+      {
+        "account": "https://api.gsmtasks.com/accounts/a6f60fdf-d87b-4c5d-b5ec-67a90cd16336/",
+        "reference": "Order #1",
+        "orderer": {
+          "name": "Orderer name"
+        },
+        "tasks_data": [
+          {
+            "category": "drop_off",
+            "address": {
+              "location": {
+                "type": "Point",
+                "coordinates": [24.76271, 59.416163]
+              }
+            },
+            "contact": {
+              "name": "Dropoff contact name",
+              "emails": ["info@dropoff.com"],
+              "phones": ["+44 1632 960277"],
+              "notes": "Please drop at the door"
+            },
+            "complete_after": "2022-01-01T14:00:00Z",
+            "complete_before": "2022-01-01T16:00:00Z",
+            "description": "Dropoff task description"
+          }
+        ]
+      }
+    ]
+
+    ```
+
+
+    ### Response
+
+
+    ```json
+
+    [
+      {
+        "id": "58221f9e-96d0-40c9-96ef-1d3cb08525c3",
+        "url": "https://api.gsmtasks.com/orders/58221f9e-96d0-40c9-96ef-1d3cb08525c3/",
+        "account": "https://api.gsmtasks.com/accounts/a6f60fdf-d87b-4c5d-b5ec-67a90cd16336/",
+        "external_id": null,
+        "reference": "Order #1",
+        "client": "https://api.gsmtasks.com/clients/0a997ba4-2daf-455f-ad0b-9a9cb9ed1943/",
+        "orderer": {
+          "name": "Orderer name"
+        },
+        "tasks": [
+          "https://api.gsmtasks.com/tasks/19373b06-911e-4663-96da-2a0d5215c0b3/",
+          "https://api.gsmtasks.com/tasks/9b33d9d3-80e1-4d97-aaa0-7a55638cae4f/"
+        ],
+        "assignee": null,
+        "auto_assign": false,
+        "created_by": "https://api.gsmtasks.com/users/18fb9d97-824b-4c2a-9b74-764a88a78c96/",
+        "created_at": "2022-03-01T10:43:03.267621+02:00",
+        "updated_at": "2022-03-01T10:43:03.267653+02:00"
+      },
+      {
+        "id": "58221f9e-96d0-40c9-96ef-1d3cb08525c3",
+        "url": "https://api.gsmtasks.com/orders/58221f9e-96d0-40c9-96ef-1d3cb08525c3/",
+        "account": "https://api.gsmtasks.com/accounts/a6f60fdf-d87b-4c5d-b5ec-67a90cd16336/",
+        "external_id": null,
+        "reference": "Order #1",
+        "client": "https://api.gsmtasks.com/clients/0a997ba4-2daf-455f-ad0b-9a9cb9ed1943/",
+        "orderer": {
+          "name": "Orderer name"
+        },
+        "tasks": [
+          "https://api.gsmtasks.com/tasks/19373b06-911e-4663-96da-2a0d5215c0b3/",
+          "https://api.gsmtasks.com/tasks/9b33d9d3-80e1-4d97-aaa0-7a55638cae4f/"
+        ],
+        "assignee": null,
+        "auto_assign": false,
+        "created_by": "https://api.gsmtasks.com/users/18fb9d97-824b-4c2a-9b74-764a88a78c96/",
+        "created_at": "2022-03-01T10:43:03.267621+02:00",
+        "updated_at": "2022-03-01T10:43:03.267653+02:00"
+      }
+    ]
+
+    ```
+- name: password_change
+- name: password_reset
+- name: password_reset_confirm
+- name: push_notifications
+- name: recurrences
+- name: register
+- name: reports
+- name: reviews
+- name: route_optimizations
+- name: routes
+- name: session_tokens
+- name: signatures
+- name: sms
+- name: task_address_features
+- name: task_commands
+  description: >-
+    Task Commands are used for updating task states, positions, and assignments.
+    Commands are processed asynchronously and support batching for efficient
+    bulk operations.
+
+
+    ## Available actions
+
+
+    | Action | Description |
+
+    | ------ | ----------- |
+
+    | `update` | Update task data (including position) |
+
+    | `assign` | Assign task to a worker |
+
+    | `reassign` | Reassign to a different worker |
+
+    | `unassign` | Remove assignee |
+
+    | `accept` | Worker accepts the task |
+
+    | `unaccept` | Worker reverts acceptance |
+
+    | `reject` | Worker rejects assignment |
+
+    | `transit` | Worker traveling to location |
+
+    | `activate` | Worker begins work |
+
+    | `complete` | Mark as completed |
+
+    | `fail` | Mark as failed |
+
+    | `cancel` | Cancel the task |
+
+    | `restart` | Restart a failed task |
+
+
+    ## Creating a task command
+
+
+    ### HTTP request
+
+
+    `POST https://api.gsmtasks.com/task_commands/`
+
+
+    ### Request fields
+
+
+    | Field | Type | Required | Description |
+
+    | ----- | ---- | -------- | ----------- |
+
+    | `task` | URL | Yes | The task URL this command applies to |
+
+    | `external_id` | String | Yes | Unique identifier generated by the client |
+
+    | `time` | DateTime | Yes | When the interaction occurred |
+
+    | `action` | String | Yes | The action to perform (see Available Actions) |
+
+    | `assignee` | URL | For assign/reassign | The user to assign the task to |
+
+    | `task_data` | Object | For update | Data to update on the task |
+
+    | `notes` | String | No | Optional notes for the command |
+
+    | `location` | Point | No | Geographic location where command was issued |
+
+
+    ### Single command example
+
+
+    ```json
+
+    {
+      "task": "https://api.gsmtasks.com/tasks/e9ba6977-ddc4-41b9-b90b-1ae9b37b3c05/",
+      "external_id": "e31017a8889b8f106bd59f5f6febe40eb1f8c51a",
+      "time": "2022-09-09T13:43:00.580000+03:00",
+      "action": "transit"
+    }
+
+    ```
+
+
+    ### Response (accepted)
+
+
+    ```json
+
+    {
+      "id": "856ae165-9595-4f1d-8377-6f4c4db073d1",
+      "url": "https://api.gsmtasks.com/task_commands/856ae165-9595-4f1d-8377-6f4c4db073d1/",
+      "account": "https://api.gsmtasks.com/accounts/a6f60fdf-d87b-4c5d-b5ec-67a90cd16236/",
+      "task": "https://api.gsmtasks.com/tasks/e9ba6977-ddc4-41b9-b90b-1ae9b37b3c05/",
+      "external_id": "e31017a8889b8f106bd59f5f6febe40eb1f8c51a",
+      "time": "2022-09-09T13:43:00.580000+03:00",
+      "action": "transit",
+      "user": "https://api.gsmtasks.com/users/8495e730-e5c2-400c-8ffc-ad830d4fa6a2/",
+      "notes": "",
+      "location": null,
+      "assignee": null,
+      "state": "accepted",
+      "error_message": "",
+      "task_data": {},
+      "accepted_at": "2022-09-09T13:43:01.052384+03:00",
+      "rejected_at": null,
+      "created_at": "2022-09-09T13:43:00.993254+03:00",
+      "updated_at": "2022-09-09T13:43:01.052490+03:00"
+    }
+
+    ```
+
+
+    ### Response (rejected)
+
+
+    When a command cannot be applied (e.g., invalid state transition or
+    permission denied):
+
+
+    ```json
+
+    {
+      "id": "71dd847f-596d-48f1-bf50-db6c8cee4796",
+      "url": "https://api.gsmtasks.com/task_commands/71dd847f-596d-48f1-bf50-db6c8cee4796/",
+      "account": "https://api.gsmtasks.com/accounts/a6f60fdf-d87b-4c5d-b5ec-67a90cd16236/",
+      "task": "https://api.gsmtasks.com/tasks/e9ba6977-ddc4-41b9-b90b-1ae9b37b3c05/",
+      "external_id": "86ea541b917fa464023cfeef05dc6d79df02bf10",
+      "time": "2022-09-09T13:46:32.556000+03:00",
+      "action": "accept",
+      "user": "https://api.gsmtasks.com/users/8495e730-e5c2-400c-8ffc-ad830d4fa6a2/",
+      "notes": "",
+      "location": null,
+      "assignee": null,
+      "state": "rejected",
+      "error_message": "Can't switch from state 'accepted' using method 'accept'",
+      "task_data": {},
+      "accepted_at": null,
+      "rejected_at": "2022-09-09T13:46:32.735993+03:00",
+      "created_at": "2022-09-09T13:46:32.705774+03:00",
+      "updated_at": "2022-09-09T13:46:32.736151+03:00"
+    }
+
+    ```
+
+
+    ## Batch commands
+
+
+    ### HTTP request
+
+
+    `POST https://api.gsmtasks.com/task_commands/`
+
+
+    ### Request
+
+
+    ```json
+
+    [
+      {
+        "task": "https://api.gsmtasks.com/tasks/e9ba6977-ddc4-41b9-b90b-1ae9b37b3c05/",
+        "external_id": "e31017a8889b8f106bd59f5f6febe40eb1f8c51a",
+        "time": "2022-09-09T13:43:00.580000+03:00",
+        "action": "transit"
+      },
+      {
+        "task": "https://api.gsmtasks.com/tasks/e9ba6977-ddc4-41b9-b90b-1ae9b37b3c05/",
+        "external_id": "461505e9-38b5-4109-a15f-85375d41c4b8",
+        "time": "2022-09-09T13:48:00.580000+03:00",
+        "action": "activate"
+      },
+      {
+        "task": "https://api.gsmtasks.com/tasks/e9ba6977-ddc4-41b9-b90b-1ae9b37b3c05/",
+        "external_id": "63ea82de-e579-436d-a9b0-dceb42cc1ec0",
+        "time": "2022-09-09T13:51:00.580000+03:00",
+        "action": "complete"
+      }
+    ]
+
+    ```
+
+
+    ## Updating task data
+
+
+    Use the `update` action with `task_data` to modify task fields.
+
+
+    ### Task data fields
+
+
+    | Field | Type | Description |
+
+    | ----- | ---- | ----------- |
+
+    | `position` | Float | Task order in worker's list |
+
+    | `scheduled_time` | DateTime | Scheduled time for the task |
+
+    | `duration` | Duration | Expected task duration |
+
+    | `metafields` | Object | Custom metadata |
+
+    | `address` | Object | Task address |
+
+    | `contact_address` | Object | Contact address |
+
+    | `route` | URL | Route assignment |
+
+
+    ### Update position (reordering)
+
+
+    Change the order of tasks in a worker's list.
+
+
+    ```json
+
+    {
+      "task": "https://api.gsmtasks.com/tasks/e1f228fe-cf4f-44ef-ad9f-6b5d4034a25c/",
+      "external_id": "c3d4e5f6789012345678901234567890abcdef",
+      "time": "2022-09-19T06:19:25.482Z",
+      "action": "update",
+      "task_data": {
+        "position": 16343544103.775824
+      }
+    }
+
+    ```
+
+
+    ### Calculating position values
+
+
+    ```javascript
+
+    // Insert between two tasks
+
+    const newPosition = (taskAbove.position + taskBelow.position) / 2;
+
+
+    // Insert at the beginning
+
+    const newPosition = firstTask.position - 100;
+
+
+    // Insert at the end
+
+    const newPosition = lastTask.position + 100;
+
+    ```
+
+
+    > **Note:** Worker reordering is controlled by the account setting
+    `feature_allow_worker_reordering`.
+
+
+    ### Update scheduled time
+
+
+    Set when the task should be executed.
+
+
+    ```json
+
+    {
+      "task": "https://api.gsmtasks.com/tasks/e1f228fe-cf4f-44ef-ad9f-6b5d4034a25c/",
+      "external_id": "a1b2c3d4e5f6789012345678901234567890abcd",
+      "time": "2022-09-19T06:19:25.482Z",
+      "action": "update",
+      "task_data": {
+        "scheduled_time": "2022-09-20T09:00:00Z"
+      }
+    }
+
+    ```
+
+
+    ### Update metafields
+
+
+    Add or modify custom metadata on a task.
+
+
+    ```json
+
+    {
+      "task": "https://api.gsmtasks.com/tasks/e1f228fe-cf4f-44ef-ad9f-6b5d4034a25c/",
+      "external_id": "b2c3d4e5f6789012345678901234567890abcde",
+      "time": "2022-09-19T06:19:25.482Z",
+      "action": "update",
+      "task_data": {
+        "metafields": {
+          "priority": "high",
+          "package_size": "large"
+        }
+      }
+    }
+
+    ```
+
+
+    ### Update address
+
+
+    Change the task's destination address.
+
+
+    ```json
+
+    {
+      "task": "https://api.gsmtasks.com/tasks/e1f228fe-cf4f-44ef-ad9f-6b5d4034a25c/",
+      "external_id": "d4e5f6789012345678901234567890abcdef01",
+      "time": "2022-09-19T06:19:25.482Z",
+      "action": "update",
+      "task_data": {
+        "address": {
+          "raw_address": "123 New Street, London, UK",
+          "location": {
+            "type": "Point",
+            "coordinates": [-0.1276, 51.5074]
+          }
+        }
+      }
+    }
+
+    ```
+
+
+    ### Update route
+
+
+    Assign the task to a specific route.
+
+
+    ```json
+
+    {
+      "task": "https://api.gsmtasks.com/tasks/e1f228fe-cf4f-44ef-ad9f-6b5d4034a25c/",
+      "external_id": "e5f6789012345678901234567890abcdef0123",
+      "time": "2022-09-19T06:19:25.482Z",
+      "action": "update",
+      "task_data": {
+        "route": "https://api.gsmtasks.com/routes/a1b2c3d4-e5f6-7890-abcd-ef0123456789/"
+      }
+    }
+
+    ```
+
+
+    ### Update duration
+
+
+    Set the expected time to complete the task.
+
+
+    ```json
+
+    {
+      "task": "https://api.gsmtasks.com/tasks/e1f228fe-cf4f-44ef-ad9f-6b5d4034a25c/",
+      "external_id": "f6789012345678901234567890abcdef012345",
+      "time": "2022-09-19T06:19:25.482Z",
+      "action": "update",
+      "task_data": {
+        "duration": "00:30:00"
+      }
+    }
+
+    ```
+
+
+    ## Assignment commands
+
+
+    ### Assign task
+
+
+    Assign an unassigned task to a worker.
+
+
+    ```json
+
+    {
+      "task": "https://api.gsmtasks.com/tasks/abc123/",
+      "external_id": "cmd-assign-001",
+      "time": "2022-09-09T09:00:00Z",
+      "action": "assign",
+      "assignee": "https://api.gsmtasks.com/users/worker123/"
+    }
+
+    ```
+
+
+    ### Reassign with position
+
+
+    Move a task to a different worker and set its position in their list.
+
+
+    ```json
+
+    {
+      "task": "https://api.gsmtasks.com/tasks/e1f228fe-cf4f-44ef-ad9f-6b5d4034a25c/",
+      "external_id": "f93b4be79be47e9913ed89c8d6e9bca9e2c21409",
+      "time": "2022-09-19T06:19:25.482Z",
+      "action": "reassign",
+      "assignee": "https://api.gsmtasks.com/users/8495e730-e5c2-400c-8ffc-ad830d4fa6a2/",
+      "task_data": {
+        "position": 16343544103.775824
+      }
+    }
+
+    ```
+
+
+    ### Unassign task
+
+
+    Remove a task from its current worker.
+
+
+    ```json
+
+    {
+      "task": "https://api.gsmtasks.com/tasks/abc123/",
+      "external_id": "cmd-unassign-001",
+      "time": "2022-09-09T09:00:00Z",
+      "action": "unassign"
+    }
+
+    ```
+- name: task_event_tracks
+- name: task_events
+- name: task_exports
+- name: task_forms
+- name: task_import
+- name: task_import_mapping
+- name: task_metadatas
+- name: tasks
+  description: >-
+    Tasks represent stops or waypoints that need to be visited - pickups,
+    deliveries, or service appointments at specific addresses.
+
+
+    ## Task states
+
+
+    | State | Description |
+
+    | ----- | ----------- |
+
+    | `draft` | Not yet ready for execution |
+
+    | `scheduled` | Scheduled for a future time |
+
+    | `unassigned` | Ready but not assigned to a worker |
+
+    | `assigned` | Assigned to a worker |
+
+    | `accepted` | Worker accepted the task |
+
+    | `transit` | Worker traveling to location |
+
+    | `active` | Worker working on the task |
+
+    | `completed` | Successfully completed |
+
+    | `failed` | Could not be completed |
+
+    | `cancelled` | Cancelled |
+
+
+    ## Creating a task
+
+
+    ### HTTP request
+
+
+    `POST https://api.gsmtasks.com/tasks/`
+
+
+    ### Request
+
+
+    ```json
+
+    {
+      "account": "https://api.gsmtasks.com/accounts/a6f60fdf-d87b-4c5d-b5ec-67a90cd16336/",
+      "category": "drop_off",
+      "address": {
+        "raw_address": "381 Queen Street, London, SW85 1GX"
+      },
+      "contact": {
+        "name": "John Doe",
+        "company": "Example Company",
+        "emails": ["john@example.com"],
+        "phones": ["+44 1632 960167"]
+      },
+      "complete_after": "2022-01-01T14:00:00Z",
+      "complete_before": "2022-01-01T16:00:00Z",
+      "description": "Deliver package to reception"
+    }
+
+    ```
+
+
+    ### Response
+
+
+    ```json
+
+    {
+      "id": "e9ba6977-ddc4-41b9-b90b-1ae9b37b3c05",
+      "url": "https://api.gsmtasks.com/tasks/e9ba6977-ddc4-41b9-b90b-1ae9b37b3c05/",
+      "account": "https://api.gsmtasks.com/accounts/a6f60fdf-d87b-4c5d-b5ec-67a90cd16336/",
+      "state": "unassigned",
+      "category": "drop_off",
+      "address": {
+        "raw_address": "381 Queen Street, London, SW85 1GX",
+        "formatted_address": "381 Queen Street, London SW85 1GX, UK",
+        "location": {
+          "type": "Point",
+          "coordinates": [-0.1276, 51.5074]
+        }
+      },
+      "contact": {
+        "name": "John Doe",
+        "company": "Example Company",
+        "emails": ["john@example.com"],
+        "phones": ["+44 1632 960167"]
+      },
+      "complete_after": "2022-01-01T14:00:00Z",
+      "complete_before": "2022-01-01T16:00:00Z",
+      "description": "Deliver package to reception",
+      "assignee": null,
+      "order": null,
+      "position": null,
+      "created_at": "2022-01-01T10:00:00.000000Z",
+      "updated_at": "2022-01-01T10:00:00.000000Z"
+    }
+
+    ```
+
+
+    ## Task categories
+
+
+    | Category | Description |
+
+    | -------- | ----------- |
+
+    | `pick_up` | Collect items from a location |
+
+    | `drop_off` | Deliver items to a location |
+
+    | `service` | Perform a service at a location |
+
+
+    ## Task position and ordering
+
+
+    The `position` field determines task order in a worker's list. Lower values
+    appear first.
+
+
+    > **Note:** To reorder tasks, use [Task commands](#tag/task_commands) with
+    the `update` action.
+
+
+    ## Updating a task
+
+
+    ### HTTP request
+
+
+    `PATCH https://api.gsmtasks.com/tasks/{task_id}/`
+
+
+    ### Request
+
+
+    ```json
+
+    {
+      "description": "Updated description",
+      "complete_before": "2022-01-01T18:00:00Z"
+    }
+
+    ```
+
+
+    > **Note:** Use [Task commands](#tag/task_commands) for state changes and
+    reordering.
+
+
+    ## Filtering tasks
+
+
+    | Parameter | Description |
+
+    | --------- | ----------- |
+
+    | `state` | Filter by task state (e.g., `?state=assigned`) |
+
+    | `assignee` | Filter by assigned worker |
+
+    | `category` | Filter by task category |
+
+    | `complete_after__gte` | Tasks due after a specific time |
+
+    | `complete_before__lte` | Tasks due before a specific time |
+
+    | `order` | Filter tasks belonging to a specific order |
+
+
+    ### Example
+
+
+    ```http
+
+    GET https://api.gsmtasks.com/tasks/?state=assigned
+
+    ```
+- name: time_location_features
+- name: time_locations
+- name: trackers
+- name: users
+- name: users_on_duty_log
+- name: worker_features
+- name: worker_tracks
+- name: working_state
+- name: webhooks
+  description: >-
+    Webhooks notify your application in real-time when events occur in GSMtasks,
+    via an HTTP POST to the URL you specify.
+
+
+    You can configure webhooks from the Account settings area in the GSMtasks
+    web application or via the [Webhooks API](#tag/webhooks).
+
+
+    ## Event types
+
+
+    Enable one or more event types on each webhook.
+
+
+    | Event type | Topic header | Description |
+
+    | ---------- | ------------ | ----------- |
+
+    | Task events | `taskevent.create` | Task state changes and updates (create,
+    assign, complete, etc.) |
+
+    | Documents | `document.create` | Images, videos, or other documents
+    attached to a task |
+
+    | Signatures | `signature.create` | Signature images attached to a task |
+
+    | Reviews | `review.create` | Reviews from trackers |
+
+
+    For task events, you can optionally filter which actions trigger the webhook
+    (e.g. only `complete` and `fail`). If no filter is set, all task event types
+    are sent.
+
+
+    ## HTTP delivery
+
+
+    Each webhook delivery is an HTTP POST with a JSON body.
+
+
+    ### Headers
+
+
+    | Header | Description |
+
+    | ------ | ----------- |
+
+    | `Content-Type` | `application/json` |
+
+    | `X-GSMtasks-Topic` | Event topic (e.g. `taskevent.create`,
+    `document.create`) |
+
+    | `X-GSMtasks-Account` | Account UUID |
+
+    | `X-GSMtasks-API-Version` | Webhook API version (e.g. `2.6.0`) |
+
+    | `X-GSMtasks-Hmac-SHA256` | Base64-encoded HMAC-SHA256 signature |
+
+    | `X-GSMtasks-Webhook-Request-Id` | Unique request UUID |
+
+
+    Custom headers configured on the webhook are also included.
+
+
+    ### Verifying signatures
+
+
+    Every webhook has a `shared_secret` generated on creation. Use it to verify
+    that requests originate from GSMtasks by computing the HMAC-SHA256 of the
+    raw request body and comparing it with the `X-GSMtasks-Hmac-SHA256` header.
+
+
+    ```javascript
+
+    const crypto = require('crypto')
+
+
+    function verifyWebhook(sharedSecret, requestBody, signatureHeader) {
+      const hmac = crypto.createHmac('sha256', sharedSecret)
+      hmac.update(requestBody)
+      const expected = hmac.digest('base64')
+      return expected === signatureHeader
+    }
+
+    ```
+
+
+    ### Retries
+
+
+    Failed deliveries are retried up to 10 times with exponential backoff. The
+    delay between retries follows the formula `(attempt + 1)² × 16` seconds.
+
+
+    If all retries are exhausted, the webhook is marked as failed and an email
+    notification is sent to the account owner.
+
+
+    > **Note:** A failed webhook stops sending events until it is manually
+    reactivated from the account settings.
+
+
+    ## Payload schemas
+
+
+    Full request body schemas are generated from the same serializers used in
+    production and
+
+    documented under the [webhooks](#tag/webhooks) API tag as **EVENT**
+    operations. Prefer those
+
+    for field-level detail (types, nesting, enums) — they stay in sync
+    automatically when the
+
+    serializers change.
+
+
+    | Event | Topic | Schema (OpenAPI) |
+
+    | ----- | ----- | ---------------- |
+
+    | Task event | `taskevent.create` | [Task Event
+    Webhook](#tag/webhooks/paths/taskevent.create/post) |
+
+    | Document | `document.create` | [Document
+    Webhook](#tag/webhooks/paths/document.create/post) |
+
+    | Signature | `signature.create` | [Signature
+    Webhook](#tag/webhooks/paths/signature.create/post) |
+
+    | Review | `review.create` | [Review
+    Webhook](#tag/webhooks/paths/review.create/post) |
+
+
+    All payloads include hyperlinked URLs to related resources. The `task` field
+    is inlined as a
+
+    full object for task events (API version 2.0.0+) and for document/signature
+    events (API
+
+    version 2.6.0+). Nested `task` fields follow the [Tasks API](#tag/tasks);
+    some may be absent
+
+    depending on the webhook's configured API version.
+
+
+    ### Task event actions
+
+
+    The task event payload `event` field is one of:
+
+
+    | Action | Description |
+
+    | ------ | ----------- |
+
+    | `create` | Task created |
+
+    | `assign` | Task assigned to a worker |
+
+    | `accept` | Worker accepted the task |
+
+    | `reject` | Worker rejected the assignment |
+
+    | `unassign` | Task unassigned from worker |
+
+    | `transit` | Worker traveling to location |
+
+    | `activate` | Worker began work on the task |
+
+    | `complete` | Task completed |
+
+    | `fail` | Task failed |
+
+    | `cancel` | Task cancelled |
+
+    | `restart` | Failed task restarted |
+x-tagGroups:
+- name: Guides
+  tags:
+  - introduction
+  - authentication
+  - versioning
+  - changelog
+  - rate_limits
+  - errors
+  - time_zones
+- name: API
+  tags:
+  - account_roles
+  - accounts
+  - addons
+  - authenticate
+  - billing
+  - client_roles
+  - clients
+  - configurations
+  - contact_address_exports
+  - contact_address_import
+  - contact_addresses
+  - devices
+  - docs
+  - documents
+  - emails
+  - exports
+  - file_uploads
+  - form_fields
+  - form_responses
+  - form_rules
+  - forms
+  - integrations
+  - logout
+  - metafields
+  - notification_templates
+  - notifications
+  - orders
+  - password_change
+  - password_reset
+  - password_reset_confirm
+  - push_notifications
+  - recurrences
+  - register
+  - reports
+  - reviews
+  - route_optimizations
+  - routes
+  - session_tokens
+  - signatures
+  - sms
+  - task_address_features
+  - task_commands
+  - task_event_tracks
+  - task_events
+  - task_exports
+  - task_forms
+  - task_import
+  - task_import_mapping
+  - task_metadatas
+  - tasks
+  - time_location_features
+  - time_locations
+  - trackers
+  - users
+  - users_on_duty_log
+  - worker_features
+  - worker_tracks
+  - working_state
+  - webhooks
