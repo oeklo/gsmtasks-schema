@@ -2725,6 +2725,31 @@ paths:
         name: contact__name
         schema:
           type: string
+      - name: contact__name__icontains
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: contact__name__iexact
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: contact__name__iregex
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: contact__name__istartswith
+        required: false
+        in: query
+        schema:
+          type: string
+      - name: contact__name__search
+        required: false
+        in: query
+        schema:
+          type: string
       - in: query
         name: contact__notes
         schema:
@@ -2890,6 +2915,12 @@ paths:
         name: is_receiver
         schema:
           type: boolean
+      - name: metafields__namespace:key
+        required: false
+        in: query
+        description: Django ORM lookups can be used. Metafield `is_searchable` must be True.
+        schema:
+          type: string
       - name: ordering
         required: false
         in: query
@@ -2918,27 +2949,27 @@ paths:
         name: source
         schema:
           type: string
-      - name: sourcecontact__name__icontains
+      - name: source__icontains
         required: false
         in: query
         schema:
           type: string
-      - name: sourcecontact__name__iexact
+      - name: source__iexact
         required: false
         in: query
         schema:
           type: string
-      - name: sourcecontact__name__iregex
+      - name: source__iregex
         required: false
         in: query
         schema:
           type: string
-      - name: sourcecontact__name__istartswith
+      - name: source__istartswith
         required: false
         in: query
         schema:
           type: string
-      - name: sourcecontact__name__search
+      - name: source__search
         required: false
         in: query
         schema:
@@ -4194,6 +4225,12 @@ paths:
         name: is_receiver
         schema:
           type: boolean
+      - name: metafields__namespace:key
+        required: false
+        in: query
+        description: Django ORM lookups can be used. Metafield `is_searchable` must be True.
+        schema:
+          type: string
       - name: ordering
         required: false
         in: query
