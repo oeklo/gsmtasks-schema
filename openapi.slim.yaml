@@ -59270,7 +59270,44 @@ tags:
   x-traitTag: true
 - name: changelog
   description: >-
+    ### 2.11.5
+
+    - Metafields: `label` is now required and may not be blank when creating a
+    metafield, matching the web UI, which has required it since March 2024.
+    Callers on earlier versions may still omit it, and existing metafields
+    without a label are unaffected.
+
+
     ### 2.11.4
+
+    - Notification templates: added `eta_at` message variable — the predicted
+    arrival as an absolute datetime in the account timezone (e.g. `{{
+    eta_at|time:"H:i" }}`); renders `-` when no ETA is available, matching
+    `eta`.
+
+    - Form fields: added `visible_to_worker` field (default `true`). When
+    `false`, clients should hide the field from worker UIs. The API continues to
+    return the field definition and any related values; it does not filter or
+    reject them for workers.
+
+    - Form fields: added `collapsed` field (default `false`) — persisted
+    default-collapsed state for array/section fields.
+
+    - Form fields: added `layout` field (`list`|`table`, default `list`) —
+    persisted array row layout; `table` renders rows compact on one line.
+
+    - Trackers: added `public_task_fields` on authenticated Tracker
+    create/read/update — allowlist of fields returned under public `tasks[]`.
+    Omit the field to use defaults; empty list is rejected.
+
+    - Trackers (public): `tasks[].reference` is opt-in via `public_task_fields`
+    (not included in the default field set, preserving prior public payload
+    shape).
+
+    - Trackers (public): `predicted_delivery_error` is localized from stable
+    error codes using `Accept-Language`, then the account language. Legacy
+    free-text values pass through unchanged. ETA error strings are translated
+    for supported locales (de, en, es, et, fi, fr, it, lt, lv, pl, ru, sv).
 
     - SMS: `POST /sms/` and `POST /sms/{id}/resend/` are idempotent within
     `SMS_DUPLICATE_SEND_WINDOW_SECONDS` — a duplicate account+phone+message
