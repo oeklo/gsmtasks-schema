@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.11.5
+  version: 2.11.6
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -48030,8 +48030,13 @@ components:
         gsmtasks_api_url:
           type: string
           format: uri
+        mobile_app_locale_url:
+          type: string
+          format: uri
+          nullable: true
       required:
       - gsmtasks_api_url
+      - mobile_app_locale_url
       - web_app_url
     ConfigurationNotification:
       type: object
@@ -58687,6 +58692,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.11.6
       - 2.11.5
       - 2.11.4
       - 2.11.3
@@ -58777,6 +58783,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.11.6` - 2.11.6
         * `2.11.5` - 2.11.5
         * `2.11.4` - 2.11.4
         * `2.11.3` - 2.11.3
@@ -59270,6 +59277,14 @@ tags:
   x-traitTag: true
 - name: changelog
   description: >-
+    ### 2.11.6
+
+    - Configuration: added field `environment.mobile_app_locale_url`, the base
+    URL of the mobile app's translation catalogs. One `<language>.json` per
+    language lives under it, served gzip-encoded with an `ETag` for
+    revalidation. `null` for `app=web`
+
+
     ### 2.11.5
 
     - Metafields: `label` is now required and may not be blank when creating a
