@@ -1,10 +1,14 @@
 openapi: 3.0.3
 info:
   title: GSMTasks Project API
-  version: 2.11.6
+  version: 2.11.7
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
+  contact:
+    name: API Support
+    url: https://www.gsmtasks.com/
+    email: api@gsmtasks.com
 paths:
   /account_roles/:
     get:
@@ -1298,7 +1302,7 @@ paths:
           content:
             application/json; version=${version}:
               schema:
-                $ref: "#/components/schemas/AuthenticateResponse"
+                $ref: "#/components/schemas/TokenResponse"
           description: Token obtained
         "400":
           description: Invalid credentials or malformed request
@@ -47811,26 +47815,6 @@ components:
       - client_id
       - password
       - username
-    AuthenticateResponse:
-      type: object
-      properties:
-        token:
-          type: string
-          readOnly: true
-        user:
-          type: string
-          format: uri
-          readOnly: true
-          nullable: true
-        account:
-          type: string
-          format: uuid
-          readOnly: true
-          nullable: true
-      required:
-      - account
-      - token
-      - user
     AuthenticatedUserCreate:
       type: object
       properties:
@@ -54559,6 +54543,11 @@ components:
           format: date-time
           readOnly: true
           nullable: true
+        last_issued_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
         created_by:
           type: string
           format: uri
@@ -54577,6 +54566,7 @@ components:
       - created_by
       - id
       - ip_address
+      - last_issued_at
       - last_used_at
       - revoked_at
       - url
@@ -54612,6 +54602,11 @@ components:
           format: date-time
           readOnly: true
           nullable: true
+        last_issued_at:
+          type: string
+          format: date-time
+          readOnly: true
+          nullable: true
         created_by:
           type: string
           format: uri
@@ -54635,6 +54630,7 @@ components:
       - created_by
       - id
       - ip_address
+      - last_issued_at
       - last_used_at
       - revoked_at
       - token
@@ -58335,6 +58331,14 @@ components:
         * `WET` - WET
         * `Zulu` - Zulu
         * `localtime` - localtime
+    TokenResponse:
+      type: object
+      properties:
+        token:
+          type: string
+          readOnly: true
+      required:
+      - token
     Tracker:
       type: object
       properties:
@@ -58692,6 +58696,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.11.7
       - 2.11.6
       - 2.11.5
       - 2.11.4
@@ -58783,6 +58788,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.11.7` - 2.11.7
         * `2.11.6` - 2.11.6
         * `2.11.5` - 2.11.5
         * `2.11.4` - 2.11.4
@@ -59277,12 +59283,39 @@ tags:
   x-traitTag: true
 - name: changelog
   description: >-
+    ### 2.11.7
+
+    - Session tokens: added field `last_issued_at`, when the session's current
+    token was issued by logging in, refreshing or impersonation
+
+
     ### 2.11.6
 
     - Configuration: added field `environment.mobile_app_locale_url`, the base
     URL of the mobile app's translation catalogs. One `<language>.json` per
     language lives under it, served gzip-encoded with an `ETag` for
     revalidation. `null` for `app=web`
+
+    - Trackers (public): predicted delivery is recalculated at most once per
+    account `tracker_predicted_delivery_expiry` (default 1 minute), and only
+    when the assignee has moved more than 50 m (geography distance), stored
+    location is missing, there is no ETA, a previous calculation error is set,
+    or the last routing response is older than
+    `tracker_predicted_delivery_clear` (default 3 minutes). A successful stored
+    ETA for a stationary assignee is kept between those refreshes. Stored ETA is
+    otherwise cleared after `clear` when a recalc is already requested.
+
+    - Trackers (public): `predicted_delivery_calculated_at` is stamped when a
+    recalc is requested or skipped (debounce), not only when the Celery task
+    finishes.
+
+    - Trackers (public): new predicted-delivery error code `too_many_waypoints`
+    when a route has too many stops to calculate.
+
+    - Trackers: accounts can use Google Routes (`TRAFFIC_AWARE`) for
+    traffic-aware predicted delivery. Default remains OSRM. Successful routing
+    requests (OSRM and Google) count toward
+    `monthly_predicted_delivery_routing_limit` (default 100000).
 
 
     ### 2.11.5
