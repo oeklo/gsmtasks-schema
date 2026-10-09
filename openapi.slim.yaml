@@ -1,6 +1,6 @@
 openapi: 3.0.3
 info:
-  title: GSMTasks Project API
+  title: GSMTasks API
   version: 2.11.7
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
