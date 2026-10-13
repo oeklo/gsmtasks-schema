@@ -60050,7 +60050,29 @@ tags:
     ### 2.0.0
 
 
-    - TODO
+    - Tasks: new task serializer
+      - `documents` and `signatures` are lists of document/signature URLs instead of a single link to `/tasks/{id}/documents/` and `/tasks/{id}/signatures/`
+      - removed fields `events` (use `/tasks/{id}/events/`), `receiver`, `order_reference` and `is_full_load`
+      - `orderer` is write-only and takes a client URL; nested client objects are no longer matched or created by name. Read the orderer from `orderer_name`
+    - Task commands: commands are resolved asynchronously after the request is
+    committed; the `201` response returns the commands as created instead of
+    their resolved state
+
+    - Task events: `task` is the full task object instead of a task URL on
+    `/task_events/` and in TaskEvent webhooks (webhook version `>= 2.0.0`).
+    `/tasks/{id}/events/` is unchanged
+
+    - Orders: new order serializer
+      - `client` takes a client URL; nested client objects are no longer matched or created by name
+      - added field `orderer` (nested contact: `name`, `company`, `phones`, `emails`, `notes`)
+      - added write field `tasks_data` for creating the order's tasks inline. Posting task objects to `tasks` is still accepted in 2.0.0 and rejected from 2.1.0
+      - added field `assignee` (account role URL), removed again in 2.4.6
+    - File uploads: direct S3 upload. `POST /file_uploads/` takes `file_name`
+    and `file_type` and returns `s3_signature`, a presigned POST for uploading
+    the file to S3
+
+    - Configuration: `account` and `user` are full objects instead of URLs;
+    added field `is_client_role`
 
 
     ### 1.1.0
