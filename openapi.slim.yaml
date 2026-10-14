@@ -15538,25 +15538,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/PaginatedSessionTokenList"
           description: ""
-    post:
-      operationId: session_tokens_create
-      tags:
-      - session_tokens
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: "#/components/schemas/SessionTokenCreate"
-        required: true
-      security:
-      - tokenAuth: []
-      responses:
-        "201":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/SessionTokenCreate"
-          description: ""
   /session_tokens/{id}/:
     get:
       operationId: session_tokens_retrieve
@@ -54573,71 +54554,6 @@ components:
       - user
       - user_agent
       - version
-    SessionTokenCreate:
-      type: object
-      properties:
-        id:
-          type: string
-          format: uuid
-          readOnly: true
-        url:
-          type: string
-          format: uri
-          readOnly: true
-        user:
-          type: string
-          format: uri
-        ip_address:
-          type: string
-          readOnly: true
-          nullable: true
-        user_agent:
-          type: string
-          readOnly: true
-        version:
-          type: string
-          readOnly: true
-        last_used_at:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        last_issued_at:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        created_by:
-          type: string
-          format: uri
-          readOnly: true
-        created_at:
-          type: string
-          format: date-time
-          readOnly: true
-        revoked_at:
-          type: string
-          format: date-time
-          readOnly: true
-          nullable: true
-        token:
-          type: string
-          readOnly: true
-          nullable: true
-          title: JWT token
-      required:
-      - created_at
-      - created_by
-      - id
-      - ip_address
-      - last_issued_at
-      - last_used_at
-      - revoked_at
-      - token
-      - url
-      - user
-      - user_agent
-      - version
     Signature:
       type: object
       properties:
@@ -59226,13 +59142,18 @@ tags:
 
     ```http
 
-    Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b
+    Authorization: Token YOUR_API_KEY
 
     ```
 
 
-    You must replace `9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b` with your
-    personal API key.
+    You must replace `YOUR_API_KEY` with your personal API key.
+
+
+    API keys start with `gsmtasks_` followed by the environment, e.g.
+    `gsmtasks_live_`. The `gsmtasks_` prefix lets secret scanning tools detect
+    leaked keys. Older keys are 40-character hexadecimal strings and remain
+    valid.
 
 
     ## Obtaining an API key
