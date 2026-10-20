@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks API
-  version: 2.11.7
+  version: 2.11.8
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -47989,6 +47989,10 @@ components:
     ConfigurationEnvironment:
       type: object
       properties:
+        web_app_release_track:
+          allOf:
+          - $ref: "#/components/schemas/WebAppReleaseTrackEnum"
+          readOnly: true
         web_app_url:
           type: string
           format: uri
@@ -48002,6 +48006,7 @@ components:
       required:
       - gsmtasks_api_url
       - mobile_app_locale_url
+      - web_app_release_track
       - web_app_url
     ConfigurationNotification:
       type: object
@@ -58455,6 +58460,9 @@ components:
         feature_tracker_map_provider:
           type: string
           readOnly: true
+        google_maps_region:
+          type: string
+          readOnly: true
         task_popup_template:
           type: string
           readOnly: true
@@ -58463,6 +58471,7 @@ components:
       - assignees
       - default_map_location
       - feature_tracker_map_provider
+      - google_maps_region
       - id
       - language
       - last_task_event_notes
@@ -58612,6 +58621,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.11.8
       - 2.11.7
       - 2.11.6
       - 2.11.5
@@ -58704,6 +58714,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.11.8` - 2.11.8
         * `2.11.7` - 2.11.7
         * `2.11.6` - 2.11.6
         * `2.11.5` - 2.11.5
@@ -58794,6 +58805,14 @@ components:
         * `2.0.0` - 2.0.0
         * `1.1.0` - 1.1.0
         * `1.0.0` - 1.0.0
+    WebAppReleaseTrackEnum:
+      enum:
+      - live
+      - beta
+      type: string
+      description: |-
+        * `live` - Live
+        * `beta` - Beta
     Webhook:
       type: object
       properties:
@@ -59204,6 +59223,11 @@ tags:
   x-traitTag: true
 - name: changelog
   description: >-
+    ### 2.11.8
+
+    - Configuration: added field `environment.web_app_release_track`
+
+
     ### 2.11.7
 
     - Session tokens: added field `last_issued_at`, when the session's current
@@ -59291,6 +59315,9 @@ tags:
 
     - Configuration: added `google_maps_region` feature for web app Google Maps
     region bias
+
+    - Trackers (public): added `google_maps_region`, the account's Google Maps
+    region code for the tracker map. Blank when not set
 
 
     ### 2.11.2
