@@ -15630,8 +15630,6 @@ paths:
       operationId: session_tokens_refresh_create
       tags:
       - session_tokens
-      security:
-      - tokenAuth: []
       responses:
         "200":
           description: No response body
