@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks API
-  version: 2.11.8
+  version: 2.11.9
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -7956,6 +7956,7 @@ paths:
           - link
           - multiselect
           - string
+          - text
         description: |-
           * `string` - String
           * `integer` - Integer
@@ -7965,6 +7966,7 @@ paths:
           * `assignee` - Assignee
           * `json` - JSON
           * `multiselect` - Multiselect
+          * `text` - Text
       tags:
       - metafields
       security:
@@ -53521,6 +53523,14 @@ components:
           maxLength: 2048
         task_events:
           type: boolean
+        task_event_types:
+          type: array
+          items:
+            $ref: "#/components/schemas/TaskEventTypesEnum"
+          description: Available task event types:<br>• create<br>• assign<br>•
+            unassign<br>• reject<br>• restart<br>• accept<br>• unaccept<br>•
+            transit<br>• activate<br>• complete<br>• fail<br>• cancel<br>•
+            assignee_near<br>• assignee_away<br>• updated
         document_events:
           type: boolean
         signature_events:
@@ -55822,6 +55832,40 @@ components:
         * `cancelled` - Cancelled
         * `away` - Away
         * `near` - Near
+    TaskEventTypesEnum:
+      enum:
+      - create
+      - assign
+      - unassign
+      - reject
+      - restart
+      - accept
+      - unaccept
+      - transit
+      - activate
+      - complete
+      - fail
+      - cancel
+      - assignee_near
+      - assignee_away
+      - updated
+      type: string
+      description: |-
+        * `create` - Create
+        * `assign` - Assign
+        * `unassign` - Unassign
+        * `reject` - Reject
+        * `restart` - Restart
+        * `accept` - Accept
+        * `unaccept` - Unaccept
+        * `transit` - Transit
+        * `activate` - Activate
+        * `complete` - Complete
+        * `fail` - Fail
+        * `cancel` - Cancel
+        * `assignee_near` - Assignee near
+        * `assignee_away` - Assignee away
+        * `updated` - Updated
     TaskExpiryStateEnum:
       enum:
       - cancelled
@@ -58589,6 +58633,7 @@ components:
       - assignee
       - json
       - multiselect
+      - text
       type: string
       description: |-
         * `string` - String
@@ -58599,6 +58644,7 @@ components:
         * `assignee` - Assignee
         * `json` - JSON
         * `multiselect` - Multiselect
+        * `text` - Text
     VehicleProfileEnum:
       enum:
       - bike
@@ -58619,6 +58665,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.11.9
       - 2.11.8
       - 2.11.7
       - 2.11.6
@@ -58712,6 +58759,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.11.9` - 2.11.9
         * `2.11.8` - 2.11.8
         * `2.11.7` - 2.11.7
         * `2.11.6` - 2.11.6
@@ -58841,6 +58889,14 @@ components:
           maxLength: 2048
         task_events:
           type: boolean
+        task_event_types:
+          type: array
+          items:
+            $ref: "#/components/schemas/TaskEventTypesEnum"
+          description: Available task event types:<br>• create<br>• assign<br>•
+            unassign<br>• reject<br>• restart<br>• accept<br>• unaccept<br>•
+            transit<br>• activate<br>• complete<br>• fail<br>• cancel<br>•
+            assignee_near<br>• assignee_away<br>• updated
         document_events:
           type: boolean
         signature_events:
@@ -59221,6 +59277,15 @@ tags:
   x-traitTag: true
 - name: changelog
   description: >-
+    ### 2.11.9
+
+    - Webhooks: added `task_event_types` field, the task event types that
+    trigger the webhook when `task_events` is enabled. Empty list sends all task
+    events
+
+    - Metafields: added `text` value type for multi-line text
+
+
     ### 2.11.8
 
     - Configuration: added field `environment.web_app_release_track`
