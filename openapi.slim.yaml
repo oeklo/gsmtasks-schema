@@ -1,7 +1,7 @@
 openapi: 3.0.3
 info:
   title: GSMTasks API
-  version: 2.11.9
+  version: 2.11.10
   description: The GSMtasks API is a RESTful web service for developers to
     programmatically interact with GSMtasks data, real-time delivery and task
     management and route optimization functionality.
@@ -4861,6 +4861,10 @@ paths:
         schema:
           type: string
       - in: query
+        name: external_id
+        schema:
+          type: string
+      - in: query
         name: filename
         schema:
           type: string
@@ -6855,6 +6859,21 @@ paths:
         schema:
           type: string
           format: uuid
+      - in: query
+        name: task__assignee
+        schema:
+          type: string
+          format: uuid
+      - in: query
+        name: task__assignee__in
+        schema:
+          type: array
+          items:
+            type: string
+            format: uuid
+        description: Multiple values may be separated by commas.
+        explode: false
+        style: form
       - name: updated_at
         required: false
         in: query
@@ -46215,7 +46234,7 @@ components:
           maxLength: 20
         language:
           allOf:
-          - $ref: "#/components/schemas/LanguageEnum"
+          - $ref: "#/components/schemas/Language074Enum"
           title: Prefered language
         timezone:
           $ref: "#/components/schemas/TimezoneEnum"
@@ -49210,7 +49229,7 @@ components:
           format: uri
         external_id:
           type: string
-          maxLength: 34
+          maxLength: 100
         state:
           allOf:
           - $ref: "#/components/schemas/EmailStateEnum"
@@ -49232,6 +49251,12 @@ components:
           format: email
           maxLength: 254
         to_emails:
+          type: array
+          items:
+            type: string
+            format: email
+            maxLength: 254
+        cc_emails:
           type: array
           items:
             type: string
@@ -49446,6 +49471,9 @@ components:
           type: string
         default_values:
           description: "Default form field values as {slug: value}"
+        max_responses:
+          type: integer
+          minimum: 1
         created_by:
           type: string
           format: uri
@@ -49993,7 +50021,7 @@ components:
         * `overdue` - Overdue
         * `paid` - Paid
         * `cancelled` - Cancelled
-    LanguageEnum:
+    Language074Enum:
       enum:
       - af
       - ar
@@ -51066,7 +51094,7 @@ components:
           maxLength: 20
         language:
           allOf:
-          - $ref: "#/components/schemas/LanguageEnum"
+          - $ref: "#/components/schemas/Language074Enum"
           title: Prefered language
         timezone:
           $ref: "#/components/schemas/TimezoneEnum"
@@ -52450,6 +52478,9 @@ components:
           type: string
         default_values:
           description: "Default form field values as {slug: value}"
+        max_responses:
+          type: integer
+          minimum: 1
         created_by:
           type: string
           format: uri
@@ -53728,12 +53759,45 @@ components:
           format: date-time
           nullable: true
           title: Password expired at
+        language:
+          allOf:
+          - $ref: "#/components/schemas/ReadableUserLanguageEnum"
+          readOnly: true
       required:
       - display_name
       - email
       - id
       - intercom_hash
+      - language
       - url
+    ReadableUserLanguageEnum:
+      enum:
+      - en
+      - de
+      - es
+      - et
+      - fi
+      - fr
+      - it
+      - lv
+      - lt
+      - pl
+      - ru
+      - sv
+      type: string
+      description: |-
+        * `en` - English
+        * `de` - German
+        * `es` - Spanish
+        * `et` - Estonian
+        * `fi` - Finnish
+        * `fr` - French
+        * `it` - Italian
+        * `lv` - Latvian
+        * `lt` - Lithuania
+        * `pl` - Polish
+        * `ru` - Russian
+        * `sv` - Swedish
     RecipientEnum:
       enum:
       - account
@@ -53865,7 +53929,7 @@ components:
           - $ref: "#/components/schemas/BlankEnum"
         language:
           allOf:
-          - $ref: "#/components/schemas/LanguageEnum"
+          - $ref: "#/components/schemas/Language074Enum"
           title: Prefered language
         timezone:
           nullable: true
@@ -58665,6 +58729,7 @@ components:
         * `truck` - Truck
     VersionEnum:
       enum:
+      - 2.11.10
       - 2.11.9
       - 2.11.8
       - 2.11.7
@@ -58759,6 +58824,7 @@ components:
       - 1.0.0
       type: string
       description: |-
+        * `2.11.10` - 2.11.10
         * `2.11.9` - 2.11.9
         * `2.11.8` - 2.11.8
         * `2.11.7` - 2.11.7
@@ -59277,6 +59343,50 @@ tags:
   x-traitTag: true
 - name: changelog
   description: >-
+    ### 2.11.10
+
+    - Form rules: a native rule (with `form`) can store its own `edit_url`,
+    `view_url` and `pdf_url`, Django templates rendered with `{{ task.id }}` and
+    `{{ form.id }}`, for a form rendered by another app. `edit_url` marks such a
+    rule; `view_url` and `pdf_url` are optional and need it. Reads return the
+    stored links, empty for a native rule the web app renders. A legacy rule
+    that gets a `form` keeps its URLs. URLs must be valid templates using only
+    `{{ variables }}`. Earlier versions read the web app's links for native
+    rules and ignore written URLs, as before.
+
+    - Task forms: a native rule with its own `edit_url` is listed with `form`
+    null and its own links (empty when not set), a plain link like a legacy
+    rule, in every API version (including before 2.11.0, which otherwise hides
+    native rules). Form responses still validate against the form.
+
+    - Forms: added `max_responses` (default `1`), the maximum number of
+    responses a task can have for the form, e.g. several for one per device
+    serviced on a site visit. A response beyond the maximum is rejected.
+
+    - Form responses: added `task__assignee` and `task__assignee__in` filters.
+
+    - Form responses and forms: invalid `answers` / `default_values` are all
+    reported at once, as `{path: [message]}` where the path is the slug or
+    `slug[row].child` inside a table, e.g. `{"answers": {"articles[0].quantity":
+    ["must be a number."]}}` (was a list with the first error as `"'path'
+    message"`).
+
+    - Documents: added `external_id` filter (exact match).
+
+    - Emails: added `cc_emails` field, the addresses copied on the email.
+
+    - Emails: `external_id` holds up to 100 characters (was 34), like the other
+    models' `external_id`.
+
+    - Emails: when the account sends through its own Mailgun, `from_email`
+    defaults to the account's sender (`email_from` with `email_sender_name`)
+    instead of the GSMtasks default. An explicit `from_email` is kept. Earlier
+    versions keep the GSMtasks default.
+
+    - Users: added read-only `language` field, the user's interface language
+    (blank when not set).
+
+
     ### 2.11.9
 
     - Webhooks: added `task_event_types` field, the task event types that
