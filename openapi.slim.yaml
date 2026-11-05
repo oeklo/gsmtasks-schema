@@ -5706,28 +5706,6 @@ paths:
               schema:
                 $ref: "#/components/schemas/Email"
           description: ""
-  /emails/{id}/resend/:
-    post:
-      operationId: emails_resend_create
-      parameters:
-      - in: path
-        name: id
-        schema:
-          type: string
-          format: uuid
-        description: A UUID string identifying this email.
-        required: true
-      tags:
-      - emails
-      security:
-      - tokenAuth: []
-      responses:
-        "200":
-          content:
-            application/json; version=${version}:
-              schema:
-                $ref: "#/components/schemas/Email"
-          description: ""
   /exports/:
     get:
       operationId: exports_list
@@ -49267,6 +49245,15 @@ components:
           maxLength: 250
         message:
           type: string
+        attachments:
+          type: array
+          items:
+            type: string
+            format: uri
+            writeOnly: true
+          writeOnly: true
+          description: File uploads to send as attachments of the email, consumed by it
+            (since 2.11.10).
         sent_at:
           type: string
           format: date-time
@@ -59374,6 +59361,13 @@ tags:
     - Documents: added `external_id` filter (exact match).
 
     - Emails: added `cc_emails` field, the addresses copied on the email.
+
+    - Emails: added write-only `attachments` field, file uploads (URLs from
+    `/file_uploads/`) sent as attachments, at most 10 and 15 MB in total.
+    Creating the email consumes the file uploads: each attachment gets the
+    upload's file and the upload is deleted, so an upload can be attached once.
+
+    - Emails: removed `POST /emails/{id}/resend/`.
 
     - Emails: `external_id` holds up to 100 characters (was 34), like the other
     models' `external_id`.
