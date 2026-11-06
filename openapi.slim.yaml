@@ -9156,7 +9156,7 @@ paths:
           content:
             application/json; version=${version}:
               schema:
-                $ref: "#/components/schemas/PaginatedOrderSerializerV2List"
+                $ref: "#/components/schemas/PaginatedOrderList"
           description: ""
     post:
       operationId: orders_create
@@ -9166,7 +9166,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/OrderSerializerV2"
+              $ref: "#/components/schemas/Order"
         required: true
       security:
       - tokenAuth: []
@@ -9175,7 +9175,7 @@ paths:
           content:
             application/json; version=${version}:
               schema:
-                $ref: "#/components/schemas/OrderSerializerV2"
+                $ref: "#/components/schemas/Order"
           description: ""
   /orders/{id}/:
     get:
@@ -9223,7 +9223,7 @@ paths:
           content:
             application/json; version=${version}:
               schema:
-                $ref: "#/components/schemas/OrderSerializerV2"
+                $ref: "#/components/schemas/Order"
           description: ""
     put:
       operationId: orders_update
@@ -9241,7 +9241,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/OrderSerializerV2"
+              $ref: "#/components/schemas/Order"
         required: true
       security:
       - tokenAuth: []
@@ -9250,7 +9250,7 @@ paths:
           content:
             application/json; version=${version}:
               schema:
-                $ref: "#/components/schemas/OrderSerializerV2"
+                $ref: "#/components/schemas/Order"
           description: ""
     patch:
       operationId: orders_partial_update
@@ -9268,7 +9268,7 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/PatchedOrderSerializerV2"
+              $ref: "#/components/schemas/PatchedOrder"
       security:
       - tokenAuth: []
       responses:
@@ -9276,7 +9276,7 @@ paths:
           content:
             application/json; version=${version}:
               schema:
-                $ref: "#/components/schemas/OrderSerializerV2"
+                $ref: "#/components/schemas/Order"
           description: ""
   /password_change/:
     post:
@@ -50701,24 +50701,7 @@ components:
       description: |-
         * `webview` - Webview
         * `in-app-browser` - In app browser
-    OrderData:
-      type: object
-      properties:
-        auto_assign:
-          type: boolean
-          default: false
-        description:
-          type: string
-        reference:
-          type: string
-          default: ""
-          maxLength: 100
-        client:
-          type: string
-          format: uri
-          nullable: true
-        orderer: {}
-    OrderSerializerV2:
+    Order:
       type: object
       properties:
         id:
@@ -50789,6 +50772,23 @@ components:
       - recurrence
       - updated_at
       - url
+    OrderData:
+      type: object
+      properties:
+        auto_assign:
+          type: boolean
+          default: false
+        description:
+          type: string
+        reference:
+          type: string
+          default: ""
+          maxLength: 100
+        client:
+          type: string
+          format: uri
+          nullable: true
+        orderer: {}
     PaginatedAccountList:
       type: array
       items:
@@ -50877,10 +50877,10 @@ components:
       type: array
       items:
         $ref: "#/components/schemas/NotificationTemplate"
-    PaginatedOrderSerializerV2List:
+    PaginatedOrderList:
       type: array
       items:
-        $ref: "#/components/schemas/OrderSerializerV2"
+        $ref: "#/components/schemas/Order"
     PaginatedPushNotificationList:
       type: array
       items:
@@ -52930,7 +52930,7 @@ components:
           type: string
           format: date-time
           readOnly: true
-    PatchedOrderSerializerV2:
+    PatchedOrder:
       type: object
       properties:
         id:
@@ -54516,6 +54516,7 @@ components:
           maxLength: 20
         phone:
           type: string
+          default: ""
           maxLength: 128
         message:
           type: string
@@ -54552,7 +54553,6 @@ components:
       - failed_at
       - id
       - notification
-      - phone
       - received_at
       - sender
       - sent_at
@@ -58807,8 +58807,6 @@ components:
       - 2.1.1
       - 2.1.0
       - 2.0.0
-      - 1.1.0
-      - 1.0.0
       type: string
       description: |-
         * `2.11.10` - 2.11.10
@@ -58902,8 +58900,6 @@ components:
         * `2.1.1` - 2.1.1
         * `2.1.0` - 2.1.0
         * `2.0.0` - 2.0.0
-        * `1.1.0` - 1.1.0
-        * `1.0.0` - 1.0.0
     WebAppReleaseTrackEnum:
       enum:
       - live
